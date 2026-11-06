@@ -173,12 +173,12 @@
     display: grid; grid-template-columns: 1.05fr .95fr; background: #fff;
     border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
   }
-  .showcase__media { display: flex; flex-direction: column; min-width: 0; background: #f3f5f8; }
-  .showcase__machine-wrap { display: grid; place-items: center; background: #fff; padding: 18px 18px 8px; }
-  .carousel { position: relative; background: #111; min-height: 320px; }
+  .showcase__media { min-width: 0; background: #f6f7fb; }
+  .carousel { position: relative; background: #f6f7fb; min-height: 520px; }
   .carousel__slide { display: none; height: 100%; }
   .carousel__slide.is-on { display: block; }
-  .carousel__slide img { width: 100%; height: 320px; object-fit: cover; }
+  .carousel__slide img { width: 100%; height: 520px; object-fit: contain; background: #f6f7fb; }
+  .carousel__slide--work img { object-fit: cover; background: #111; }
   .carousel__nav {
     position: absolute; top: 50%; transform: translateY(-50%);
     width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(255,255,255,.92);
@@ -190,7 +190,6 @@
   .carousel__dots button { width: 8px; height: 8px; border: 0; border-radius: 50%; background: rgba(255,255,255,.55); padding: 0; cursor: pointer; }
   .carousel__dots button.is-on { background: #fff; width: 22px; border-radius: 999px; }
   .showcase__body { padding: 28px 28px 32px; display: flex; flex-direction: column; }
-  .showcase__machine { width: 100%; height: 190px; object-fit: contain; margin: 0; }
   .showcase__tag {
     display: inline-flex; align-self: flex-start; align-items: center;
     margin: 0 0 12px; padding: 6px 14px;
@@ -206,15 +205,17 @@
     width: 100%; border: 1px solid #e4e8f2; border-radius: 12px; background: #fff;
     padding: 12px 14px; margin-bottom: 16px;
   }
-  .price-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .final-label { margin: 0 0 4px; font-size: 14px; font-weight: 750; color: #243049; }
+  .price-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0; }
   .price-row .now { font-size: 36px; }
   .showcase__msrp { margin: 0; color: var(--muted); }
+  .showcase .save { display: inline-flex; margin-top: 10px; background: #e10600; color: #fff; }
   .affirm-as-low-as { min-height: 24px; margin: 8px 0 18px; font-size: 14px; color: #243049; }
   .showcase__actions { display: flex; gap: 12px; margin-top: auto; }
   .showcase__actions .btn { flex: 1; }
   .btn--cart { background: #e10600; color: #fff; }
-  .btn--line { background: #fff; color: var(--ink); border: 1px solid #d7dce8; }
-  .carousel__empty { height: 320px; display: grid; place-items: center; color: rgba(255,255,255,.72); padding: 24px; text-align: center; }
+  .btn--line { background: #fff; color: #111; border: 1.5px solid #111; }
+  .carousel__empty { height: 520px; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; }
   .intro { color: var(--muted); max-width: 42rem; margin: 0 0 28px; }
   .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 8px; }
@@ -326,8 +327,7 @@
     .colon { font-size: 14px; }
     .now { font-size: 28px; }
     .showcase { grid-template-columns: 1fr; }
-    .showcase__machine { height: 160px; }
-    .carousel, .carousel__slide img, .carousel__empty { height: 220px; min-height: 220px; }
+    .carousel, .carousel__slide img, .carousel__empty { height: 320px; min-height: 320px; }
     .showcase__body h3 { font-size: 24px; }
     .showcase__actions { flex-direction: column; }
   }
@@ -371,7 +371,7 @@ const PAGE = {
   countdownTitle: "Black Friday sale",
   countdownNote: "Weekly Deal Ends In",
   superTitle: "The largest cuts",
-  superIntro: "Each machine is its own offer. Finished work rotates on the left. The price, savings, and Affirm monthly payment follow the option you select.",
+  superIntro: "Each machine is its own offer. The machine is the first photo. Use the arrows to see finished work. The price, savings, and Affirm monthly payment follow the option you select.",
   superDeals: [
     {
       layout: "lead",
@@ -590,11 +590,14 @@ const usd = (value) => Number(value).toLocaleString("en-US", { style: "currency"
 const showcase = (item) => {
   const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Default", price: 0, msrp: 0 }];
   const current = variants[0];
-  const photos = (item.gallery && item.gallery.length ? item.gallery : []).filter(Boolean);
+  const photos = [
+    ...(item.image ? [{ src: item.image, kind: "machine", alt: item.name }] : []),
+    ...(item.gallery || []).filter(Boolean).map((src, index) => ({ src, kind: "work", alt: item.name + " finished work " + (index + 1) }))
+  ];
   const save = current.msrp > current.price ? current.msrp - current.price : 0;
   const slides = photos.length
-    ? photos.map((src, index) => `<div class="carousel__slide${index === 0 ? " is-on" : ""}"><img src="${esc(imgSrc(src, 1400))}" alt="${esc(item.name)} finished work ${index + 1}"></div>`).join("")
-    : `<div class="carousel__empty">Finished photos coming soon.</div>`;
+    ? photos.map((photo, index) => `<div class="carousel__slide${photo.kind === "work" ? " carousel__slide--work" : ""}${index === 0 ? " is-on" : ""}"><img src="${esc(imgSrc(photo.src, 1400))}" alt="${esc(photo.alt)}"></div>`).join("")
+    : `<div class="carousel__empty">Photos coming soon.</div>`;
   const controls = photos.length > 1
     ? `<button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous photo">‹</button><button class="carousel__nav carousel__nav--next" type="button" aria-label="Next photo">›</button><div class="carousel__dots">${photos.map((_, index) => `<button type="button" class="${index === 0 ? "is-on" : ""}" aria-label="Photo ${index + 1}"></button>`).join("")}</div>`
     : "";
@@ -607,21 +610,19 @@ const showcase = (item) => {
   const affirm = current.id
     ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
     : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
-  const machine = item.image
-    ? `<div class="showcase__machine-wrap"><img class="showcase__machine" alt="${esc(item.name)}" src="${esc(imgSrc(item.image))}"></div>`
-    : "";
   return `<article class="showcase">
-    <div class="showcase__media">${machine}<div class="carousel" data-carousel>${slides}${controls}</div></div>
+    <div class="showcase__media"><div class="carousel" data-carousel>${slides}${controls}</div></div>
     <div class="showcase__body">
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
       <h3>${esc(item.name)}</h3>
       <ul class="points">${(item.points || []).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
       ${variantControl}
+      <p class="final-label">Final Price</p>
       <div class="price-row">
         <p class="now" data-price-now>${usd(current.price)}</p>
         <p class="showcase__msrp" data-msrp-now ${save ? "" : "hidden"}>MSRP <s>${save ? usd(current.msrp) : ""}</s></p>
-        <span class="save" data-save-now ${save ? "" : "hidden"}>${save ? "Save " + usd(save) : ""}</span>
       </div>
+      <p><span class="save" data-save-now ${save ? "" : "hidden"}>${save ? "Save " + usd(save) : ""}</span></p>
       ${affirm}
       <div class="showcase__actions">
         ${cart}
@@ -770,24 +771,14 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const dots = [...carousel.querySelectorAll(".carousel__dots button")];
   if (slides.length < 2) return;
   let index = 0;
-  let timer = 0;
   const show = (next) => {
     index = (next + slides.length) % slides.length;
     slides.forEach((slide, i) => slide.classList.toggle("is-on", i === index));
     dots.forEach((dot, i) => dot.classList.toggle("is-on", i === index));
   };
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const start = () => {
-    if (reduced) return;
-    clearInterval(timer);
-    timer = setInterval(() => show(index + 1), 4000);
-  };
-  carousel.querySelector(".carousel__nav--next").addEventListener("click", () => { show(index + 1); start(); });
-  carousel.querySelector(".carousel__nav--prev").addEventListener("click", () => { show(index - 1); start(); });
-  dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => { show(dotIndex); start(); }));
-  carousel.addEventListener("mouseenter", () => clearInterval(timer));
-  carousel.addEventListener("mouseleave", start);
-  start();
+  carousel.querySelector(".carousel__nav--next").addEventListener("click", () => show(index + 1));
+  carousel.querySelector(".carousel__nav--prev").addEventListener("click", () => show(index - 1));
+  dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => show(dotIndex)));
 });
 
 document.addEventListener("change", (event) => {
