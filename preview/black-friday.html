@@ -281,7 +281,18 @@
     font-weight: 750; font-size: 13px; line-height: 1.2;
   }
   .showcase__tag { background: #FF9900; color: #000; }
-  .gift-note { width: 100%; margin: 12px 0 0; padding: 10px 12px; border: 1px solid #FF9900; border-radius: 10px; background: #FFF6E0; color: #000; font-size: 14px; line-height: 1.45; }
+  .gift { display: flex; align-items: center; gap: 10px; width: 100%; margin: 10px 0 14px; padding: 7px 12px; background: #FFF8F0; border: 1px solid #F0D9A8; border-left: 3px solid #E10600; border-radius: 12px; }
+  .gift--bundle { align-items: flex-start; flex-wrap: wrap; gap: 6px 10px; }
+  .gift__items { display: flex; gap: 8px; }
+  .gift__item { position: relative; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .gift__tile { position: relative; width: 64px; height: 64px; display: grid; place-items: center; padding: 6px; background: #fff; border: 1px solid #E4E8F2; border-radius: 10px; }
+  .gift--single .gift__tile { width: 72px; height: 72px; }
+  .gift__tile img, .gift__placeholder { width: 100%; height: 100%; object-fit: contain; }
+  .gift__placeholder { display: block; border: 1px dashed #C5CDD8; border-radius: 6px; background: linear-gradient(#C5CDD8, #C5CDD8) center / 70% 1px no-repeat, linear-gradient(#C5CDD8, #C5CDD8) center / 1px 70% no-repeat, #F7F8FB; }
+  .gift__free { position: absolute; top: -4px; right: -4px; padding: 2px 6px; border-radius: 999px; background: #E10600; color: #fff; font-size: 10px; font-weight: 800; line-height: 1.2; }
+  .gift__item figcaption { margin: 0; color: #5C6578; font-size: 11px; line-height: 1.1; text-align: center; }
+  .gift--single .gift__item figcaption { position: absolute; left: 4px; right: 4px; bottom: 4px; padding: 1px 0; border-radius: 999px; background: rgba(255,255,255,.9); }
+  .gift__note { margin: 0; color: #5C6578; font-size: 11px; line-height: 1.2; }
   .showcase__body h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.03em; line-height: 1.15; }
   .showcase--lead h3 { font-size: 28px; }
   .selling-points { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; margin: 0; padding: 0; list-style: none; }
@@ -511,6 +522,9 @@
     .mega { font-size: 72px; right: 0; }
     .super-rest, .deal-grid, .best-grid { grid-template-columns: 1fr; }
     .videoband { padding: 48px 0; }
+    .gift--single .gift__tile { width: 64px; height: 64px; }
+    .gift--bundle .gift__items { display: grid; grid-template-columns: repeat(2, 56px); }
+    .gift--bundle .gift__tile { width: 56px; height: 56px; }
     .vcard { flex-basis: calc((100% - 16px) / 1.4); }
     .count { margin: 32px auto; padding: 0 16px; }
     .count__group { gap: 8px; flex-wrap: wrap; }
@@ -641,8 +655,8 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-01-desktop-laser-hero.webp?v=1788945533"
       ],
       variants: [
-        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28, policy: "CONTINUE", gift: "Black Friday gift: air assist box. Included only during this Black Friday event." },
-        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12, policy: "CONTINUE", gift: "Black Friday gift: air assist box, riser base, and 2 material packs (acrylic and leather). Included only during this Black Friday event." }
+        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28, policy: "CONTINUE", gift: "standalone" },
+        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12, policy: "CONTINUE", gift: "bundle" }
       ]
     },
     {
@@ -994,6 +1008,35 @@ const sellingPoints = (item) => {
   const points = (item.points || []).slice(0, 4);
   return points.length ? `<ul class="selling-points">${points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>` : "";
 };
+const giftSets = {
+  standalone: {
+    note: "Black Friday exclusive",
+    items: [
+      { label: "Air Assist", alt: "Air assist box", src: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg?v=1787801424" }
+    ]
+  },
+  bundle: {
+    note: "Black Friday exclusive • More vs Standalone",
+    items: [
+      { label: "Air Assist", alt: "Air assist box", src: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg?v=1787801424" },
+      { label: "Riser Base", alt: "Riser base", src: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/839d9e84510a0900681b9fc541852466.png?v=1741326960" },
+      { label: "Acrylic", alt: "Acrylic pack" },
+      { label: "Leather", alt: "Leather pack" }
+    ]
+  }
+};
+const giftMarkup = (key) => {
+  const set = giftSets[key];
+  if (!set) return "";
+  const items = set.items.map((item) => {
+    const media = item.src
+      ? `<img src="${esc(imgSrc(item.src, 160))}" alt="${esc(item.alt)}">`
+      : `<span class="gift__placeholder" role="img" aria-label="${esc(item.alt)}"></span>`;
+    return `<figure class="gift__item"><div class="gift__tile">${media}<span class="gift__free">FREE</span></div><figcaption>${esc(item.label)}</figcaption></figure>`;
+  }).join("");
+  return `<div class="gift__items">${items}</div><p class="gift__note">${esc(set.note)}</p>`;
+};
+const giftBlock = (key) => key && giftSets[key] ? `<div class="gift gift--${key === "bundle" ? "bundle" : "single"}" data-gift-note aria-live="polite">${giftMarkup(key)}</div>` : "";
 const variantSelect = (variants) => variants.length < 2 ? "" : `<select class="variant-select" data-variant-select aria-label="Configuration">${variants.map((variant) => `<option ${variantFields(variant)}>${esc(variant.label)}</option>`).join("")}</select>`;
 const showcase = (item, index) => {
   const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Confirm availability", price: 0, msrp: 0 }];
@@ -1005,7 +1048,7 @@ const showcase = (item, index) => {
       <h3>${esc(item.name)}</h3>
       ${sellingPoints(item)}
       ${item.mode === "check" ? "" : variantSelect(variants)}
-      ${current.gift ? `<p class="gift-note" data-gift-note>${esc(current.gift)}</p>` : ""}
+      ${giftBlock(current.gift)}
       ${item.mode === "check" ? "" : priceBits(current)}
       <div class="showcase__actions">
         ${primaryAction(item, current)}
@@ -1309,7 +1352,12 @@ const applyChoice = (box, chosen) => {
   left.hidden = !label;
   left.textContent = label;
   const giftNode = box.querySelector("[data-gift-note]");
-  if (giftNode) giftNode.textContent = chosen.dataset.gift || "";
+  if (giftNode) {
+    const key = chosen.dataset.gift || "";
+    giftNode.classList.toggle("gift--bundle", key === "bundle");
+    giftNode.classList.toggle("gift--single", key !== "bundle");
+    giftNode.innerHTML = giftMarkup(key);
+  }
   const promo = box.querySelector(".affirm-as-low-as");
   if (promo && variant.id) promo.setAttribute("data-amount", String(Math.round(variant.price * 100)));
   const cart = box.querySelector("[data-cart]");
