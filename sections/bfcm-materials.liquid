@@ -1,0 +1,89 @@
+{% render 'bfcm-assets' %}
+
+<section class="bfcm bfcm--{{ section.settings.theme }}" {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id }}"{% endif %}>
+  <div class="bfcm__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="bfcm-kicker">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="bfcm-heading">{{ section.settings.heading }}</h2>
+    {% if section.settings.text != blank %}
+      <p class="bfcm-lead">{{ section.settings.text }}</p>
+    {% endif %}
+    <div class="bfcm-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{{ section.settings.corner }}</th>
+            {% if section.settings.col_1 != blank %}<th scope="col">{{ section.settings.col_1 }}</th>{% endif %}
+            {% if section.settings.col_2 != blank %}<th scope="col">{{ section.settings.col_2 }}</th>{% endif %}
+            {% if section.settings.col_3 != blank %}<th scope="col">{{ section.settings.col_3 }}</th>{% endif %}
+            {% if section.settings.col_4 != blank %}<th scope="col">{{ section.settings.col_4 }}</th>{% endif %}
+            {% if section.settings.col_5 != blank %}<th scope="col">{{ section.settings.col_5 }}</th>{% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.name }}</th>
+              {% if section.settings.col_1 != blank %}<td>{{ block.settings.value_1 | default: '—' }}</td>{% endif %}
+              {% if section.settings.col_2 != blank %}<td>{{ block.settings.value_2 | default: '—' }}</td>{% endif %}
+              {% if section.settings.col_3 != blank %}<td>{{ block.settings.value_3 | default: '—' }}</td>{% endif %}
+              {% if section.settings.col_4 != blank %}<td>{{ block.settings.value_4 | default: '—' }}</td>{% endif %}
+              {% if section.settings.col_5 != blank %}<td>{{ block.settings.value_5 | default: '—' }}</td>{% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "黑五材料表",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "锚点 ID", "default": "materials" },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "配色",
+      "options": [
+        { "value": "dark", "label": "深色" },
+        { "value": "light", "label": "浅色" },
+        { "value": "paper", "label": "浅灰" }
+      ],
+      "default": "light"
+    },
+    { "type": "text", "id": "eyebrow", "label": "眉题", "default": "Materials" },
+    { "type": "text", "id": "heading", "label": "标题", "default": "Which machines work with which materials?" },
+    { "type": "textarea", "id": "text", "label": "说明", "default": "Starting points for CO2 workflows. Edit every cell so it matches your current machines." },
+    { "type": "text", "id": "corner", "label": "表头空列", "default": "Material" },
+    { "type": "text", "id": "col_1", "label": "列 1", "default": "Hydra" },
+    { "type": "text", "id": "col_2", "label": "列 2", "default": "XRF" },
+    { "type": "text", "id": "col_3", "label": "列 3", "default": "Cobra" },
+    { "type": "text", "id": "col_4", "label": "列 4", "default": "VertiGo" },
+    { "type": "text", "id": "col_5", "label": "列 5", "info": "留空则隐藏这一列。" }
+  ],
+  "blocks": [
+    {
+      "type": "material",
+      "name": "材料",
+      "settings": [
+        { "type": "text", "id": "name", "label": "材料", "default": "Wood" },
+        { "type": "text", "id": "value_1", "label": "列 1" },
+        { "type": "text", "id": "value_2", "label": "列 2" },
+        { "type": "text", "id": "value_3", "label": "列 3" },
+        { "type": "text", "id": "value_4", "label": "列 4" },
+        { "type": "text", "id": "value_5", "label": "列 5" }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    { "name": "黑五材料表", "category": "Black Friday" }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

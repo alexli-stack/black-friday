@@ -1,0 +1,7 @@
+{% doc %}
+  Loads the shared Black Friday stylesheet and script once the browser has the markup.
+  @example
+  {% render 'bfcm-assets' %}
+{% enddoc %}
+{{ 'bfcm.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bfcm.js' | asset_url }}" defer></script>

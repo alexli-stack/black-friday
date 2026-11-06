@@ -1,0 +1,57 @@
+{% render 'bfcm-assets' %}
+
+<section class="bfcm bfcm--{{ section.settings.theme }}" {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id }}"{% endif %}>
+  <div class="bfcm__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="bfcm-kicker">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="bfcm-heading">{{ section.settings.heading }}</h2>
+    <div class="bfcm-faq">
+      {% for block in section.blocks %}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="bfcm-richtext">{{ block.settings.answer }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "黑五常见问题",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "锚点 ID", "default": "faq" },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "配色",
+      "options": [
+        { "value": "dark", "label": "深色" },
+        { "value": "light", "label": "浅色" },
+        { "value": "paper", "label": "浅灰" }
+      ],
+      "default": "light"
+    },
+    { "type": "text", "id": "eyebrow", "label": "眉题", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "标题", "default": "Questions before you checkout" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "问题",
+      "settings": [
+        { "type": "text", "id": "question", "label": "问题", "default": "Which products are included?" },
+        { "type": "richtext", "id": "answer", "label": "回答", "default": "<p>The products shown on this page.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    { "name": "黑五常见问题", "category": "Black Friday" }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

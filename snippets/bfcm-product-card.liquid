@@ -1,0 +1,69 @@
+{% doc %}
+  Renders one sale card from a catalog product. Price, image, and availability come from the product.
+  @param {product} product - Product to show. Blank cards render only in the theme editor.
+  @param {string} [badge] - Short label such as Weekly pick.
+  @param {string} [note] - One line under the title.
+  @param {string} [title_override] - Replaces the product title when set.
+  @param {string} button_label - Button text.
+  @param {string} price_label - Label used when the product is not on sale.
+  @param {string} sale_label - Label used beside a compare-at price.
+  @param {boolean} [show_low_stock] - Show a low-stock badge for tracked inventory.
+  @param {number} [low_stock_threshold] - Quantity at or below which the badge appears.
+  @param {boolean} [eager] - Load the image immediately.
+  @example
+  {% render 'bfcm-product-card', product: block.settings.product, button_label: 'View', price_label: 'Price', sale_label: 'Now' %}
+{% enddoc %}
+
+{% if product != blank %}
+  {% assign card_variant = product.selected_or_first_available_variant %}
+  {% assign card_title = title_override | default: product.title %}
+  {% assign on_sale = false %}
+  {% if card_variant.compare_at_price > card_variant.price %}
+    {% assign on_sale = true %}
+  {% endif %}
+  <article class="bfcm-card">
+    <div class="bfcm-card__media">
+      {% if product.featured_image != blank %}
+        {% if eager %}
+          {{ product.featured_image | image_url: width: 1200 | image_tag: widths: '300, 450, 700, 1000', sizes: '(min-width: 980px) 25vw, 80vw', loading: 'eager', fetchpriority: 'high', alt: card_title }}
+        {% else %}
+          {{ product.featured_image | image_url: width: 900 | image_tag: widths: '300, 450, 700', sizes: '(min-width: 980px) 25vw, 80vw', loading: 'lazy', alt: card_title }}
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="bfcm-card__body">
+      {% if badge != blank %}
+        <span class="bfcm-badge">{{ badge }}</span>
+      {% elsif show_low_stock and card_variant.available and card_variant.inventory_management != blank and card_variant.inventory_quantity > 0 and card_variant.inventory_quantity <= low_stock_threshold %}
+        <span class="bfcm-badge">Low stock</span>
+      {% elsif card_variant.available == false %}
+        <span class="bfcm-badge">Unavailable</span>
+      {% endif %}
+      <h3>{{ card_title }}</h3>
+      {% if note != blank %}
+        <p>{{ note }}</p>
+      {% endif %}
+      <p class="bfcm-price">
+        {% if on_sale %}
+          <s>{{ card_variant.compare_at_price | money }}</s>
+          <b>{{ card_variant.price | money }}</b>
+          <span>{{ sale_label }}</span>
+        {% else %}
+          <b>{{ card_variant.price | money }}</b>
+          <span>{{ price_label }}</span>
+        {% endif %}
+      </p>
+      <a class="bfcm-btn" href="{{ product.url }}">
+        {{ button_label }}
+        <span class="bfcm-sr">{{ card_title }}</span>
+      </a>
+    </div>
+  </article>
+{% elsif request.design_mode %}
+  <article class="bfcm-card">
+    <div class="bfcm-card__body">
+      <h3>Choose a product</h3>
+      <p>This card stays hidden on the storefront until a product is selected.</p>
+    </div>
+  </article>
+{% endif %}

@@ -1,0 +1,46 @@
+{% render 'bfcm-assets' %}
+
+<section class="bfcm bfcm--dark bfcm--bar" {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id }}"{% endif %} data-bfcm-countdown data-end="{{ section.settings.end_time }}">
+  <div class="bfcm__inner">
+    <div class="bfcm-count">
+      <div>
+        <p class="bfcm-count__label">{{ section.settings.label }}</p>
+        {% if section.settings.timezone_note != blank %}
+          <p class="bfcm-footnote">{{ section.settings.timezone_note }}</p>
+        {% endif %}
+      </div>
+      <div>
+        <div class="bfcm-count__grid" data-units>
+          <div class="bfcm-count__unit"><b data-unit="days">00</b><span>{{ section.settings.day_label }}</span></div>
+          <div class="bfcm-count__unit"><b data-unit="hours">00</b><span>{{ section.settings.hour_label }}</span></div>
+          <div class="bfcm-count__unit"><b data-unit="minutes">00</b><span>{{ section.settings.minute_label }}</span></div>
+          <div class="bfcm-count__unit"><b data-unit="seconds">00</b><span>{{ section.settings.second_label }}</span></div>
+        </div>
+        <p class="bfcm-count__ended" data-ended hidden>{{ section.settings.ended_text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "黑五倒计时",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "锚点 ID" },
+    { "type": "text", "id": "label", "label": "标题", "default": "Desktop week deals end in" },
+    { "type": "text", "id": "end_time", "label": "截止时间", "default": "2026-11-08T23:59:59-08:00", "info": "用 ISO 时间，例如 2026-11-08T23:59:59-08:00。时区写在末尾。" },
+    { "type": "text", "id": "day_label", "label": "天", "default": "Days" },
+    { "type": "text", "id": "hour_label", "label": "小时", "default": "Hours" },
+    { "type": "text", "id": "minute_label", "label": "分钟", "default": "Minutes" },
+    { "type": "text", "id": "second_label", "label": "秒", "default": "Seconds" },
+    { "type": "text", "id": "ended_text", "label": "结束后文案", "default": "This window has closed. Check the weekly schedule for the next drop." },
+    { "type": "text", "id": "timezone_note", "label": "时间说明", "default": "Deadline is 11:59 PM Pacific Time." }
+  ],
+  "presets": [
+    { "name": "黑五倒计时", "category": "Black Friday" }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

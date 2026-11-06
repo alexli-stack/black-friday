@@ -1,0 +1,116 @@
+{% render 'bfcm-assets' %}
+
+<section class="bfcm bfcm--{{ section.settings.theme }}" {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id }}"{% endif %}>
+  <div class="bfcm__inner">
+    <div class="bfcm-hero">
+      <div class="bfcm-hero__copy">
+        {% if section.settings.kicker != blank %}
+          <p class="bfcm-kicker">{{ section.settings.kicker }}</p>
+        {% endif %}
+        <h1 class="bfcm-title">{{ section.settings.heading }}</h1>
+        {% if section.settings.text != blank %}
+          <p class="bfcm-lead">{{ section.settings.text }}</p>
+        {% endif %}
+        <div class="bfcm-actions">
+          {% if section.settings.button_label != blank %}
+            <a class="bfcm-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+          {% endif %}
+          {% if section.settings.secondary_label != blank %}
+            <a class="bfcm-btn bfcm-btn--ghost" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label }}</a>
+          {% endif %}
+        </div>
+        <div class="bfcm-stats">
+          {% if section.settings.stat_1_value != blank %}
+            <div class="bfcm-stat">
+              <strong>{{ section.settings.stat_1_value }}</strong>
+              <span>{{ section.settings.stat_1_label }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.stat_2_value != blank %}
+            <div class="bfcm-stat">
+              <strong>{{ section.settings.stat_2_value }}</strong>
+              <span>{{ section.settings.stat_2_label }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.stat_3_value != blank %}
+            <div class="bfcm-stat">
+              <strong>{{ section.settings.stat_3_value }}</strong>
+              <span>{{ section.settings.stat_3_label }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="bfcm-hero__media">
+        {% if section.settings.product != blank %}
+          {% if section.settings.product.featured_image != blank %}
+            <div class="bfcm-hero__shot">
+              {{ section.settings.product.featured_image | image_url: width: 1400 | image_tag: widths: '500, 800, 1200, 1400', sizes: '(min-width: 980px) 42vw, 90vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.product.title }}
+            </div>
+          {% endif %}
+        {% endif %}
+        <div class="bfcm-hero__thumbs">
+          {% if section.settings.product_2 != blank %}
+            {% if section.settings.product_2.featured_image != blank %}
+              <div class="bfcm-hero__shot">
+                <a href="{{ section.settings.product_2.url }}">
+                  {{ section.settings.product_2.featured_image | image_url: width: 700 | image_tag: widths: '240, 400, 700', sizes: '40vw', loading: 'lazy', alt: section.settings.product_2.title }}
+                </a>
+              </div>
+            {% endif %}
+          {% endif %}
+          {% if section.settings.product_3 != blank %}
+            {% if section.settings.product_3.featured_image != blank %}
+              <div class="bfcm-hero__shot">
+                <a href="{{ section.settings.product_3.url }}">
+                  {{ section.settings.product_3.featured_image | image_url: width: 700 | image_tag: widths: '240, 400, 700', sizes: '40vw', loading: 'lazy', alt: section.settings.product_3.title }}
+                </a>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "黑五首屏",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "锚点 ID", "default": "top" },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "配色",
+      "options": [
+        { "value": "dark", "label": "深色" },
+        { "value": "light", "label": "浅色" },
+        { "value": "paper", "label": "浅灰" }
+      ],
+      "default": "dark"
+    },
+    { "type": "text", "id": "kicker", "label": "眉题", "default": "Black Friday & Cyber Monday" },
+    { "type": "text", "id": "heading", "label": "标题", "default": "This year's holiday savings for makers" },
+    { "type": "textarea", "id": "text", "label": "说明", "default": "Shop more. Save more. Create more. Holiday pricing on machines, accessories, and filtration." },
+    { "type": "text", "id": "button_label", "label": "主按钮", "default": "Shop machines" },
+    { "type": "text", "id": "button_link", "label": "主按钮链接", "default": "#machines", "info": "页内锚点写成 #machines，外链写成完整网址。" },
+    { "type": "text", "id": "secondary_label", "label": "次按钮", "default": "Weekly schedule" },
+    { "type": "text", "id": "secondary_link", "label": "次按钮链接", "default": "#weeks" },
+    { "type": "product", "id": "product", "label": "主图商品" },
+    { "type": "product", "id": "product_2", "label": "副图商品 1" },
+    { "type": "product", "id": "product_3", "label": "副图商品 2" },
+    { "type": "text", "id": "stat_1_value", "label": "数据 1", "default": "Desktop" },
+    { "type": "text", "id": "stat_1_label", "label": "数据 1 说明", "default": "RF metal tube" },
+    { "type": "text", "id": "stat_2_value", "label": "数据 2", "default": "Workshop" },
+    { "type": "text", "id": "stat_2_label", "label": "数据 2 说明", "default": "90W to 130W glass" },
+    { "type": "text", "id": "stat_3_value", "label": "数据 3", "default": "Industrial" },
+    { "type": "text", "id": "stat_3_label", "label": "数据 3 说明", "default": "Hybrid cabinets" }
+  ],
+  "presets": [
+    { "name": "黑五首屏", "category": "Black Friday" }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

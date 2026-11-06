@@ -1,0 +1,48 @@
+{% render 'bfcm-assets' %}
+
+<nav class="bfcm bfcm--dark bfcm-nav" style="--bfcm-sticky-top: {{ section.settings.sticky_offset }}px" aria-label="{{ section.settings.label }}">
+  <div class="bfcm__inner">
+    <ul class="bfcm-nav__list">
+      {% for block in section.blocks %}
+        <li {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link }}">{{ block.settings.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "黑五导航",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "无障碍名称", "default": "Page sections" },
+    { "type": "range", "id": "sticky_offset", "label": "吸顶偏移", "min": 0, "max": 140, "step": 2, "unit": "px", "default": 0, "info": "如果主题页头挡住导航，把这个值调到页头高度。" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "链接",
+      "settings": [
+        { "type": "text", "id": "label", "label": "文字", "default": "Machines" },
+        { "type": "text", "id": "link", "label": "链接", "default": "#machines", "info": "页内锚点写成 #machines，也可以填完整网址。" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "黑五导航",
+      "category": "Black Friday",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Weekly deals", "link": "#weeks" } },
+        { "type": "link", "settings": { "label": "Machines", "link": "#machines" } },
+        { "type": "link", "settings": { "label": "FAQ", "link": "#faq" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

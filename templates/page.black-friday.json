@@ -1,0 +1,519 @@
+{
+  "layout": "theme",
+  "sections": {
+    "countdown": {
+      "type": "bfcm-countdown",
+      "settings": {
+        "label": "Desktop week deals end in",
+        "end_time": "2026-11-08T23:59:59-08:00",
+        "day_label": "Days",
+        "hour_label": "Hours",
+        "minute_label": "Minutes",
+        "second_label": "Seconds",
+        "ended_text": "This window has closed. The next week is on the schedule below.",
+        "timezone_note": "Deadline is 11:59 PM Pacific Time."
+      }
+    },
+    "hero": {
+      "type": "bfcm-hero",
+      "settings": {
+        "anchor_id": "top",
+        "theme": "dark",
+        "kicker": "Black Friday & Cyber Monday",
+        "heading": "This year's holiday savings for makers",
+        "text": "Shop more. Save more. Create more. Holiday deals on OneLaser machines, accessories, and filtration. Stock the shop for gifting season, a production job, or the next build.",
+        "button_label": "Shop machines",
+        "button_link": "#machines",
+        "secondary_label": "Weekly schedule",
+        "secondary_link": "#weeks",
+        "product": "onelaser-xrf-desktop-laser-machine",
+        "product_2": "cobra-10-100w-co2-laser-engraver-cutter",
+        "product_3": "hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+        "stat_1_value": "Desktop",
+        "stat_1_label": "38W RF metal tube",
+        "stat_2_value": "Workshop",
+        "stat_2_label": "90W to 130W glass",
+        "stat_3_value": "Industrial",
+        "stat_3_label": "Hybrid Gen 2 cabinets"
+      }
+    },
+    "nav": {
+      "type": "bfcm-nav",
+      "blocks": {
+        "nav-weeks": { "type": "link", "settings": { "label": "Weekly deals", "link": "#weeks" } },
+        "nav-machines": { "type": "link", "settings": { "label": "Machines", "link": "#machines" } },
+        "nav-workshop": { "type": "link", "settings": { "label": "Workshop", "link": "#workshop" } },
+        "nav-industrial": { "type": "link", "settings": { "label": "Industrial", "link": "#industrial" } },
+        "nav-accessories": { "type": "link", "settings": { "label": "Accessories", "link": "#accessories" } },
+        "nav-gifts": { "type": "link", "settings": { "label": "Gift cards", "link": "#gifts" } },
+        "nav-tiers": { "type": "link", "settings": { "label": "Savings", "link": "#tiers" } },
+        "nav-support": { "type": "link", "settings": { "label": "Support", "link": "#support" } },
+        "nav-compare": { "type": "link", "settings": { "label": "Compare", "link": "#compare" } },
+        "nav-materials": { "type": "link", "settings": { "label": "Materials", "link": "#materials" } },
+        "nav-faq": { "type": "link", "settings": { "label": "FAQ", "link": "#faq" } },
+        "nav-contact": { "type": "link", "settings": { "label": "Contact", "link": "#contact" } }
+      },
+      "block_order": ["nav-weeks", "nav-machines", "nav-workshop", "nav-industrial", "nav-accessories", "nav-gifts", "nav-tiers", "nav-support", "nav-compare", "nav-materials", "nav-faq", "nav-contact"],
+      "settings": { "label": "Page sections", "sticky_offset": 0 }
+    },
+    "install": {
+      "type": "bfcm-richtext",
+      "blocks": {
+        "step-1": { "type": "step", "settings": { "kicker": "01", "title": "Confirm the order", "text": "After checkout, watch for an email to confirm setup help." } },
+        "step-2": { "type": "step", "settings": { "kicker": "02", "title": "Pick a time", "text": "Before the machine arrives, choose a window that works on the floor." } },
+        "step-3": { "type": "step", "settings": { "kicker": "03", "title": "Walk through first use", "text": "A specialist confirms the appointment and stays with you through setup." } }
+      },
+      "block_order": ["step-1", "step-2", "step-3"],
+      "settings": {
+        "anchor_id": "setup",
+        "theme": "light",
+        "eyebrow": "Setup",
+        "heading": "How setup help works",
+        "text": "<p>After you place the order, OneLaser emails you to confirm setup help. You get a scheduling note before the machine arrives, then a specialist follows up to lock the appointment and walk through the first cuts.</p>"
+      }
+    },
+    "weeks": {
+      "type": "bfcm-weeks",
+      "blocks": {
+        "week-desktop": {
+          "type": "week",
+          "settings": {
+            "title": "Desktop Week",
+            "date_label": "Nov 2 – Nov 8",
+            "start_date": "2026-11-02",
+            "end_date": "2026-11-08",
+            "kicker": "Thursday window · 7:00 PM PT",
+            "heading": "Flagship desktop RF",
+            "text": "The XRF is the bench machine for this week: a 38W RF metal tube and a 24 by 12 inch work area.",
+            "time_note": "Change the date, the product, and this note for each drop.",
+            "button_label": "Shop desktop",
+            "button_link": "#machines",
+            "product": "onelaser-xrf-desktop-laser-machine"
+          }
+        },
+        "week-workshop": {
+          "type": "week",
+          "settings": {
+            "title": "Workshop Week",
+            "date_label": "Nov 9 – Nov 15",
+            "start_date": "2026-11-09",
+            "end_date": "2026-11-15",
+            "kicker": "Cobra lineup",
+            "heading": "90W, 100W, and 130W glass",
+            "text": "Workshop week spotlights the Cobra cutters, from the compact 90W to the 130W.",
+            "time_note": "7:00 PM Pacific Time",
+            "button_label": "Shop Cobra",
+            "button_link": "#workshop",
+            "product": "cobra-10-100w-co2-laser-engraver-cutter"
+          }
+        },
+        "week-industrial": {
+          "type": "week",
+          "settings": {
+            "title": "Industrial Week",
+            "date_label": "Nov 16 – Nov 22",
+            "start_date": "2026-11-16",
+            "end_date": "2026-11-22",
+            "kicker": "Hydra Gen 2",
+            "heading": "Hybrid cabinets for production",
+            "text": "Gen 2 Hydra machines pair an RF source with a glass tube on the larger beds, or run a 70W RF on its own.",
+            "time_note": "7:00 PM Pacific Time",
+            "button_label": "Shop Hydra",
+            "button_link": "#industrial",
+            "product": "hydra-9-gen-2-70w-rf-co2-dual-laser-machine"
+          }
+        },
+        "week-gifting": {
+          "type": "week",
+          "settings": {
+            "title": "Gifting Week",
+            "date_label": "Nov 23 – Nov 29",
+            "start_date": "2026-11-23",
+            "end_date": "2026-11-29",
+            "kicker": "Personalization",
+            "heading": "Drinkware and gift cards",
+            "text": "VertiGo is the 38W RF rotary for tumblers and cups. Gift cards cover the rest of the bench.",
+            "time_note": "Through Nov 29",
+            "button_label": "Shop gift cards",
+            "button_link": "#gifts",
+            "product": "vertigo-vertical-laser-engraver"
+          }
+        }
+      },
+      "block_order": ["week-desktop", "week-workshop", "week-industrial", "week-gifting"],
+      "settings": {
+        "anchor_id": "weeks",
+        "theme": "paper",
+        "eyebrow": "Week by week",
+        "heading": "Holiday season prep, week after week",
+        "text": "Four themed weeks. The week that contains today opens first. Rewrite the spotlight, swap the product, or add another week.",
+        "ended_text": "This week has ended."
+      }
+    },
+    "machines": {
+      "type": "bfcm-product-grid",
+      "blocks": {
+        "xrf": { "type": "item", "settings": { "product": "onelaser-xrf-desktop-laser-machine", "custom_title": "XRF 38W desktop", "badge": "RF tube", "note": "24 × 12 inch work area" } },
+        "vertigo": { "type": "item", "settings": { "product": "vertigo-vertical-laser-engraver", "custom_title": "VertiGo 38W rotary", "badge": "Drinkware", "note": "Built-in rotary for tumblers, cups, and bottles" } }
+      },
+      "block_order": ["xrf", "vertigo"],
+      "settings": {
+        "anchor_id": "machines",
+        "theme": "light",
+        "eyebrow": "Machines",
+        "heading": "Desktop RF and drinkware",
+        "text": "Prices, photos, and availability come from the product. A compare-at price shows as the previous price next to the current one.",
+        "columns": "2",
+        "button_label": "View",
+        "price_label": "Price",
+        "sale_label": "Now",
+        "show_low_stock": true,
+        "low_stock_threshold": 5,
+        "collection_limit": 8
+      }
+    },
+    "workshop": {
+      "type": "bfcm-product-grid",
+      "blocks": {
+        "cobra-8": { "type": "item", "settings": { "product": "cobra-8-90w-co2-laser-engraver-cutter", "custom_title": "Cobra 8", "badge": "90W glass", "note": "Compact workshop cutter" } },
+        "cobra-10": { "type": "item", "settings": { "product": "cobra-10-100w-co2-laser-engraver-cutter", "custom_title": "Cobra 10", "badge": "100W glass", "note": "Mid-size workshop production" } },
+        "cobra-14": { "type": "item", "settings": { "product": "cobra-14-130w-co2-laser-engraver-cutter", "custom_title": "Cobra 14", "badge": "130W glass", "note": "Largest Cobra bed in this set" } }
+      },
+      "block_order": ["cobra-8", "cobra-10", "cobra-14"],
+      "settings": {
+        "anchor_id": "workshop",
+        "theme": "paper",
+        "eyebrow": "Workshop",
+        "heading": "Cobra glass-tube cutters",
+        "text": "Three workshop machines. Open a product for the full cutting spec.",
+        "columns": "3",
+        "button_label": "View",
+        "price_label": "Price",
+        "sale_label": "Now",
+        "show_low_stock": true,
+        "low_stock_threshold": 5,
+        "collection_limit": 8
+      }
+    },
+    "industrial": {
+      "type": "bfcm-product-grid",
+      "blocks": {
+        "hydra-7": { "type": "item", "settings": { "product": "hydra-7-gen-2-70w-rf-co2-dual-laser-machine", "custom_title": "Hydra 7 Gen 2", "badge": "70W RF", "note": "Industrial RF cabinet" } },
+        "hydra-9": { "type": "item", "settings": { "product": "hydra-9-gen-2-70w-rf-co2-dual-laser-machine", "custom_title": "Hydra 9 Gen 2", "badge": "Hybrid", "note": "70W RF, or 38W RF + 100W DC" } },
+        "hydra-13": { "type": "item", "settings": { "product": "hydra-13-gen-2-70w-rf-co2-dual-laser-machine", "custom_title": "Hydra 13 Gen 2", "badge": "Hybrid", "note": "70W RF, or 38W RF + 130W DC" } },
+        "hydra-16": { "type": "item", "settings": { "product": "hydra-16-gen-2-70w-rf-co2-dual-laser-machine", "custom_title": "Hydra 16 Gen 2", "badge": "Hybrid", "note": "70W RF, or 38W RF + 150W DC" } }
+      },
+      "block_order": ["hydra-7", "hydra-9", "hydra-13", "hydra-16"],
+      "settings": {
+        "anchor_id": "industrial",
+        "theme": "light",
+        "eyebrow": "Industrial",
+        "heading": "Hydra Gen 2 cabinets",
+        "text": "The current industrial line. Earlier Hydra cabinets are still in the catalog if you add them here.",
+        "columns": "4",
+        "button_label": "View",
+        "price_label": "Price",
+        "sale_label": "Now",
+        "show_low_stock": true,
+        "low_stock_threshold": 5,
+        "collection_limit": 8
+      }
+    },
+    "accessories": {
+      "type": "bfcm-product-grid",
+      "blocks": {
+        "rotary": { "type": "item", "settings": { "product": "multi-function-rotary-axis-57-motor", "custom_title": "Multi-function rotary", "badge": "Hydra & Cobra", "note": "One rotary for cylinders" } },
+        "piburn": { "type": "item", "settings": { "product": "piburn-omni-for-onelaser", "custom_title": "PiBurn OMNI", "badge": "Rotary", "note": "X Series or Hydra / Cobra mount" } },
+        "lens": { "type": "item", "settings": { "product": "2-inch-focal-lens-laser-engraver", "custom_title": "Focal lenses", "badge": "From 1.5 in", "note": "Hydra and X Series sizes" } },
+        "magswitch": { "type": "item", "settings": { "product": "magswitch-lens-holder-replacement-kit", "custom_title": "MagSwitch lens holder", "badge": "X Series", "note": "Replacement mounting block" } },
+        "mirror": { "type": "item", "settings": { "product": "mirror-mounting-bracket-replacement-kit", "custom_title": "Mirror kit", "badge": "Optics", "note": "Mirror and bracket options" } },
+        "combiner": { "type": "item", "settings": { "product": "25mm-co2-laser-beam-combiner-lens", "custom_title": "25mm beam combiner", "badge": "X & Hydra", "note": "Beam path optic" } },
+        "expander": { "type": "item", "settings": { "product": "3x-laser-beam-expander", "custom_title": "3X beam expander", "badge": "X & Hydra", "note": "Beam path optic" } },
+        "filters": { "type": "item", "settings": { "product": "compact-x-filtrabox-replacement-filters", "custom_title": "Compact X filters", "badge": "Filtration", "note": "Pre-filter, HEPA, carbon, or the 3-stage pack" } }
+      },
+      "block_order": ["rotary", "piburn", "lens", "magswitch", "mirror", "combiner", "expander", "filters"],
+      "settings": {
+        "anchor_id": "accessories",
+        "theme": "paper",
+        "eyebrow": "Productivity",
+        "heading": "Build the rest of the setup",
+        "text": "Rotary, optics, and filtration that pair with the machines above. Cards show the lowest variant price.",
+        "columns": "4",
+        "button_label": "View",
+        "price_label": "From",
+        "sale_label": "Now",
+        "show_low_stock": true,
+        "low_stock_threshold": 5,
+        "collection_limit": 8
+      }
+    },
+    "gifts": {
+      "type": "bfcm-product-grid",
+      "blocks": {
+        "gift-100": { "type": "item", "settings": { "product": "100-gift-card", "custom_title": "$100 gift card", "badge": "Gift card" } },
+        "gift-150": { "type": "item", "settings": { "product": "150-gift-card", "custom_title": "$150 gift card", "badge": "Gift card" } },
+        "gift-200": { "type": "item", "settings": { "product": "200-gift-card", "custom_title": "$200 gift card", "badge": "Gift card" } },
+        "gift-300": { "type": "item", "settings": { "product": "300-gift-card", "custom_title": "$300 gift card", "badge": "Gift card" } },
+        "gift-1000": { "type": "item", "settings": { "product": "1000-gift-card", "custom_title": "$1000 gift card", "badge": "Gift card" } }
+      },
+      "block_order": ["gift-100", "gift-150", "gift-200", "gift-300", "gift-1000"],
+      "settings": {
+        "anchor_id": "gifts",
+        "theme": "light",
+        "eyebrow": "Gifting",
+        "heading": "Gift cards for the bench",
+        "text": "Use this grid for a gift-with-purchase or a straightforward gift card row. Remove any amount you do not want on the page.",
+        "columns": "4",
+        "button_label": "View",
+        "price_label": "Price",
+        "sale_label": "Now",
+        "show_low_stock": false,
+        "low_stock_threshold": 5,
+        "collection_limit": 8
+      }
+    },
+    "tiers": {
+      "type": "bfcm-tiers",
+      "blocks": {
+        "tier-1": { "type": "tier", "settings": { "kicker": "Spend", "spend": "$1,000", "save": "Save $100" } },
+        "tier-2": { "type": "tier", "settings": { "kicker": "Spend", "spend": "$3,000", "save": "Save $300" } },
+        "tier-3": { "type": "tier", "settings": { "kicker": "Spend", "spend": "$6,000", "save": "Save $700" } },
+        "tier-4": { "type": "tier", "settings": { "kicker": "Spend", "spend": "$10,000", "save": "Save $1,200" } }
+      },
+      "block_order": ["tier-1", "tier-2", "tier-3", "tier-4"],
+      "settings": {
+        "anchor_id": "tiers",
+        "theme": "dark",
+        "eyebrow": "Tiered savings",
+        "heading": "Spend more, save more",
+        "text": "These four rows are a layout, not a live discount. Replace the amounts with the automatic discount or code you create in Shopify admin.",
+        "footnote": "Suggested rule to publish beside the tiers: one promotional discount per order. Tier text on this page does not change checkout until a discount exists in admin."
+      }
+    },
+    "support": {
+      "type": "bfcm-cards",
+      "blocks": {
+        "support-call": { "type": "card", "settings": { "kicker": "01", "title": "Sales consultation", "text": "A 30-minute call for questions that are still open before you buy.", "link_label": "Book the call", "product": "sales-consultation-call" } },
+        "support-setup": { "type": "card", "settings": { "kicker": "02", "title": "Setup help", "text": "The three steps at the top of this page are the offer. Edit them if the service is different.", "link_label": "Read the steps", "link": "#setup" } },
+        "support-compare": { "type": "card", "settings": { "kicker": "03", "title": "Compare machines", "text": "Desktop RF, workshop glass, industrial hybrid, or rotary drinkware.", "link_label": "Open the table", "link": "#compare" } },
+        "support-materials": { "type": "card", "settings": { "kicker": "04", "title": "Material starting points", "text": "A short CO2 matrix. Edit every cell before you treat it as a spec.", "link_label": "See materials", "link": "#materials" } }
+      },
+      "block_order": ["support-call", "support-setup", "support-compare", "support-materials"],
+      "settings": {
+        "anchor_id": "support",
+        "theme": "paper",
+        "eyebrow": "Support",
+        "heading": "Your support plan",
+        "text": "Four ways to decide. Swap the cards, or point one at a demo, a class, or a project guide.",
+        "columns": "4"
+      }
+    },
+    "reasons": {
+      "type": "bfcm-cards",
+      "blocks": {
+        "reason-1": { "type": "card", "settings": { "kicker": "Lineup", "title": "One catalog, four jobs", "text": "Desktop RF, workshop glass, industrial hybrid, and a rotary for drinkware." } },
+        "reason-2": { "type": "card", "settings": { "kicker": "Setup", "title": "A person on the install", "text": "Use the setup section to describe the email, the schedule, and who shows up." } },
+        "reason-3": { "type": "card", "settings": { "kicker": "Bench", "title": "Optics and air in stock", "text": "Lenses, mirrors, rotaries, and FiltraBox filters sit next to the machines." } },
+        "reason-4": { "type": "card", "settings": { "kicker": "Checkout", "title": "The price is the product price", "text": "Cards follow the catalog. Financing, if you offer it, is decided at checkout by the provider." } }
+      },
+      "block_order": ["reason-1", "reason-2", "reason-3", "reason-4"],
+      "settings": {
+        "anchor_id": "why",
+        "theme": "light",
+        "eyebrow": "Why shop here",
+        "heading": "Built for the holiday bench",
+        "text": "Rewrite these four reasons so they match this year's offer.",
+        "columns": "4"
+      }
+    },
+    "faq": {
+      "type": "bfcm-faq",
+      "blocks": {
+        "faq-1": { "type": "faq", "settings": { "question": "Which products are in the promotion?", "answer": "<p>The machines, accessories, and gift cards on this page. Open a product for the full description, current price, and inventory.</p>" } },
+        "faq-2": { "type": "faq", "settings": { "question": "When does each week change?", "answer": "<p>The schedule lists the dates. The week that contains today is open. After the end date, that tab shows the closed message.</p>" } },
+        "faq-3": { "type": "faq", "settings": { "question": "Are the prices on this page final?", "answer": "<p>Cards show the current store price. If a product has a compare-at price, the previous price sits beside it. Checkout charges the price on the product.</p>" } },
+        "faq-4": { "type": "faq", "settings": { "question": "Can I combine offers?", "answer": "<p>Plan on one promotional discount per order. If you publish a different stacking rule, replace this answer.</p>" } },
+        "faq-5": { "type": "faq", "settings": { "question": "Do you offer financing?", "answer": "<p>If a financing app is enabled, it appears at checkout. Approval, rates, and terms come from that provider.</p>" } },
+        "faq-6": { "type": "faq", "settings": { "question": "How do I choose a machine?", "answer": "<p>Use the comparison: XRF for a desktop RF bed, Cobra for workshop glass-tube cutting, Hydra Gen 2 for industrial cabinets, VertiGo for drinkware. Book a consultation if you want a person to walk through it.</p>" } },
+        "faq-7": { "type": "faq", "settings": { "question": "Can these CO2 machines cut bare metal?", "answer": "<p>Bare metal is not listed as a cut material. The materials table is a starting point for wood, acrylic, leather, paper, coated metal, and tumblers. Check the product page before you buy for a metal job.</p>" } }
+      },
+      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4", "faq-5", "faq-6", "faq-7"],
+      "settings": {
+        "anchor_id": "faq",
+        "theme": "paper",
+        "eyebrow": "FAQ",
+        "heading": "Questions before you checkout"
+      }
+    },
+    "compare": {
+      "type": "bfcm-compare",
+      "blocks": {
+        "cmp-xrf": {
+          "type": "machine",
+          "settings": {
+            "product": "onelaser-xrf-desktop-laser-machine",
+            "summary": "38W RF metal-tube desktop for a bench or storefront.",
+            "value_1": "38W RF metal tube",
+            "value_2": "Desktop",
+            "value_3": "Mixed cutting and engraving on a bench",
+            "value_4": "24 × 12 in"
+          }
+        },
+        "cmp-cobra": {
+          "type": "machine",
+          "settings": {
+            "product": "cobra-10-100w-co2-laser-engraver-cutter",
+            "summary": "100W glass-tube workshop cutter. Cobra 8 is 90W and Cobra 14 is 130W.",
+            "value_1": "100W glass tube",
+            "value_2": "Workshop cabinet",
+            "value_3": "Production cutting in a small shop",
+            "value_4": "See product page"
+          }
+        },
+        "cmp-hydra": {
+          "type": "machine",
+          "settings": {
+            "product": "hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+            "summary": "Industrial hybrid. Choose 70W RF, or 38W RF plus 100W DC.",
+            "value_1": "70W RF, or 38W RF + 100W DC",
+            "value_2": "Industrial cabinet",
+            "value_3": "Higher-volume production",
+            "value_4": "See product page"
+          }
+        },
+        "cmp-vertigo": {
+          "type": "machine",
+          "settings": {
+            "product": "vertigo-vertical-laser-engraver",
+            "summary": "38W RF rotary for tumblers, cups, mugs, and bottles.",
+            "value_1": "38W RF",
+            "value_2": "Built-in rotary",
+            "value_3": "Drinkware personalization",
+            "value_4": "Cylindrical"
+          }
+        }
+      },
+      "block_order": ["cmp-xrf", "cmp-cobra", "cmp-hydra", "cmp-vertigo"],
+      "settings": {
+        "anchor_id": "compare",
+        "theme": "light",
+        "eyebrow": "Compare",
+        "heading": "Which machine is right for you?",
+        "text": "Four starting points. Add a row in the theme editor, or open the product for the full specification.",
+        "corner": "Quick look",
+        "row_summary": "Summary",
+        "row_1": "Laser",
+        "row_2": "Format",
+        "row_3": "Best for",
+        "row_4": "Work area"
+      }
+    },
+    "materials": {
+      "type": "bfcm-materials",
+      "blocks": {
+        "mat-wood": { "type": "material", "settings": { "name": "Wood", "value_1": "Engrave and cut", "value_2": "Engrave and cut", "value_3": "Engrave and cut", "value_4": "Rotary engraving" } },
+        "mat-acrylic": { "type": "material", "settings": { "name": "Acrylic", "value_1": "Engrave and cut", "value_2": "Engrave and cut", "value_3": "Engrave and cut", "value_4": "—" } },
+        "mat-leather": { "type": "material", "settings": { "name": "Leather", "value_1": "Engrave", "value_2": "Engrave", "value_3": "Engrave", "value_4": "Rotary engraving" } },
+        "mat-paper": { "type": "material", "settings": { "name": "Paper and card", "value_1": "Cut", "value_2": "Cut", "value_3": "Cut", "value_4": "—" } },
+        "mat-metal": { "type": "material", "settings": { "name": "Coated metal", "value_1": "Mark the coating", "value_2": "Mark the coating", "value_3": "Mark the coating", "value_4": "Mark the coating" } },
+        "mat-tumbler": { "type": "material", "settings": { "name": "Tumblers", "value_1": "With a rotary", "value_2": "With a rotary", "value_3": "With a rotary", "value_4": "Built-in rotary" } }
+      },
+      "block_order": ["mat-wood", "mat-acrylic", "mat-leather", "mat-paper", "mat-metal", "mat-tumbler"],
+      "settings": {
+        "anchor_id": "materials",
+        "theme": "paper",
+        "eyebrow": "Materials",
+        "heading": "Which machines work with which materials?",
+        "text": "Starting points for CO2 workflows, not a guarantee for every thickness or coating. Edit any cell that does not match the machine you sell.",
+        "corner": "Material",
+        "col_1": "Hydra",
+        "col_2": "XRF",
+        "col_3": "Cobra",
+        "col_4": "VertiGo",
+        "col_5": ""
+      }
+    },
+    "stories": {
+      "type": "bfcm-stories",
+      "blocks": {
+        "story-rotary": {
+          "type": "story",
+          "settings": {
+            "kicker": "Cylinders",
+            "title": "A rotary for Hydra and Cobra",
+            "text": "The multi-function rotary is the add-on for cylindrical work on Hydra and Cobra. VertiGo already has the rotary built in.",
+            "link_label": "View rotary",
+            "product": "multi-function-rotary-axis-57-motor"
+          }
+        },
+        "story-air": {
+          "type": "story",
+          "settings": {
+            "kicker": "Air",
+            "title": "Replacement filters for FiltraBox",
+            "text": "Compact X filters cover the current Compact X FiltraBox: pre-filter, HEPA, carbon, or the 3-stage pack. Larger X-2 and X-3 packs are separate products if you want them in the grid.",
+            "link_label": "View filters",
+            "product": "compact-x-filtrabox-replacement-filters"
+          }
+        },
+        "story-lens": {
+          "type": "story",
+          "settings": {
+            "kicker": "Focus",
+            "title": "Swap the focal lens",
+            "text": "Hydra and X Series lenses run from 1.5 inch to 4 inch, depending on the head. Pick the size on the product page.",
+            "link_label": "View lenses",
+            "product": "2-inch-focal-lens-laser-engraver"
+          }
+        }
+      },
+      "block_order": ["story-rotary", "story-air", "story-lens"],
+      "settings": {
+        "anchor_id": "stories",
+        "theme": "light",
+        "eyebrow": "Add-ons",
+        "heading": "One-stop pieces around the machine",
+        "text": "Each story can point at a product. The photo is that product's image unless you upload a different one."
+      }
+    },
+    "contact": {
+      "type": "bfcm-contact",
+      "settings": {
+        "anchor_id": "contact",
+        "theme": "dark",
+        "eyebrow": "Talk to us",
+        "heading": "Not sure which machine fits the job?",
+        "text": "Send a note and it goes to the store inbox. This form does not join a separate mailing list.",
+        "email": "cs@1laser.com",
+        "phone": "",
+        "hours": "",
+        "name_label": "Name",
+        "email_label": "Email",
+        "message_label": "Tell us what you want to make",
+        "button_label": "Send",
+        "success": "Message sent. We will reply by email.",
+        "disclaimer": "<p>Payment estimates, if a financing app shows them at checkout, are not a credit offer. Down payments, installments, and eligibility are decided by that provider after you apply.</p>"
+      }
+    }
+  },
+  "order": [
+    "countdown",
+    "hero",
+    "nav",
+    "install",
+    "weeks",
+    "machines",
+    "workshop",
+    "industrial",
+    "accessories",
+    "gifts",
+    "tiers",
+    "support",
+    "reasons",
+    "faq",
+    "compare",
+    "materials",
+    "stories",
+    "contact"
+  ]
+}

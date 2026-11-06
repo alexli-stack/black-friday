@@ -1,0 +1,119 @@
+{% render 'bfcm-assets' %}
+
+{% assign manual_count = 0 %}
+{% for block in section.blocks %}
+  {% if block.settings.product != blank %}
+    {% assign manual_count = manual_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<section class="bfcm bfcm--{{ section.settings.theme }}" {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id }}"{% endif %}>
+  <div class="bfcm__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="bfcm-kicker">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="bfcm-heading">{{ section.settings.heading }}</h2>
+    {% if section.settings.text != blank %}
+      <p class="bfcm-lead">{{ section.settings.text }}</p>
+    {% endif %}
+    <div class="bfcm-grid bfcm-grid--{{ section.settings.columns }}">
+      {% if manual_count > 0 %}
+        {% for block in section.blocks %}
+          {% if block.settings.product != blank or request.design_mode %}
+            <div {{ block.shopify_attributes }}>
+              {% render 'bfcm-product-card',
+                product: block.settings.product,
+                badge: block.settings.badge,
+                note: block.settings.note,
+                title_override: block.settings.custom_title,
+                button_label: section.settings.button_label,
+                price_label: section.settings.price_label,
+                sale_label: section.settings.sale_label,
+                show_low_stock: section.settings.show_low_stock,
+                low_stock_threshold: section.settings.low_stock_threshold
+              %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% elsif section.settings.collection != blank %}
+        {% for product in section.settings.collection.products limit: section.settings.collection_limit %}
+          {% render 'bfcm-product-card',
+            product: product,
+            button_label: section.settings.button_label,
+            price_label: section.settings.price_label,
+            sale_label: section.settings.sale_label,
+            show_low_stock: section.settings.show_low_stock,
+            low_stock_threshold: section.settings.low_stock_threshold
+          %}
+        {% endfor %}
+      {% elsif request.design_mode %}
+        <article class="bfcm-card">
+          <div class="bfcm-card__body">
+            <h3>Add products</h3>
+            <p>Add product blocks, or choose a collection for this grid.</p>
+          </div>
+        </article>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "黑五产品网格",
+  "tag": "div",
+  "class": "bfcm-section",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "锚点 ID", "default": "machines" },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "配色",
+      "options": [
+        { "value": "dark", "label": "深色" },
+        { "value": "light", "label": "浅色" },
+        { "value": "paper", "label": "浅灰" }
+      ],
+      "default": "light"
+    },
+    { "type": "text", "id": "eyebrow", "label": "眉题" },
+    { "type": "text", "id": "heading", "label": "标题", "default": "Machines" },
+    { "type": "textarea", "id": "text", "label": "说明" },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "列数",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    },
+    { "type": "text", "id": "button_label", "label": "按钮文字", "default": "View" },
+    { "type": "text", "id": "price_label", "label": "原价标签", "default": "Price" },
+    { "type": "text", "id": "sale_label", "label": "促销价标签", "default": "Now" },
+    { "type": "checkbox", "id": "show_low_stock", "label": "库存偏低时显示提示", "default": true },
+    { "type": "range", "id": "low_stock_threshold", "label": "低库存阈值", "min": 1, "max": 20, "step": 1, "default": 5 },
+    { "type": "collection", "id": "collection", "label": "商品系列", "info": "只有在没有手动添加商品块时，才会展示这个系列。" },
+    { "type": "range", "id": "collection_limit", "label": "系列商品数量", "min": 2, "max": 12, "step": 1, "default": 8 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "商品",
+      "settings": [
+        { "type": "product", "id": "product", "label": "商品" },
+        { "type": "text", "id": "custom_title", "label": "自定义标题", "info": "留空则使用商品标题。" },
+        { "type": "text", "id": "badge", "label": "角标" },
+        { "type": "text", "id": "note", "label": "一行说明" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    { "name": "黑五产品网格", "category": "Black Friday" }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
