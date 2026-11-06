@@ -7,7 +7,7 @@
 <title>OneLaser Black Friday</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,500;0,700;1,800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:ital,wght@0,500;0,700;1,800&family=Oswald:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B1026'/%3E%3Cpath d='M8 22 L16 8 L24 22' fill='none' stroke='%23FF5A1F' stroke-width='3'/%3E%3C/svg%3E">
 <style>
   :root {
@@ -41,17 +41,86 @@
     position: absolute; left: 12px; top: -40px; background: #fff; padding: 8px 12px; z-index: 20;
   }
   .skip:focus { top: 12px; }
-  .nav {
-    position: sticky; top: 0; z-index: 10;
-    display: flex; align-items: center; gap: 20px;
-    padding: 12px 24px;
-    background: #111;
-    color: #fff;
+  .store-head {
+    position: sticky; top: 0; z-index: 30;
+    background: #fff; color: #222;
+    font-family: Archivo, "Segoe UI", sans-serif;
   }
-  .logo { font-weight: 750; letter-spacing: .04em; text-decoration: none; flex: none; }
-  .nav__links { display: flex; gap: 16px; overflow: auto; flex: 1; }
-  .nav__links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: 14px; white-space: nowrap; }
-  .nav__links a:hover { color: #fff; }
+  .announce {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    min-height: 40px; padding: 0 18px; background: #e7310e; color: #fff; font-size: 13px; font-weight: 600;
+  }
+  .announce__center { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+  .announce__msg { color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .announce__msg svg { width: 14px; height: 10px; }
+  .announce__arrow {
+    width: 22px; height: 22px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer;
+  }
+  .announce__side { display: flex; align-items: center; justify-content: flex-end; gap: 16px; font-size: 12px; font-weight: 600; }
+  .announce__side a { color: #fff; text-decoration: none; }
+  .announce__social { display: flex; align-items: center; gap: 12px; }
+  .announce__social a { display: grid; place-items: center; width: 16px; height: 16px; }
+  .announce__social svg { width: 15px; height: 15px; fill: currentColor; }
+  .store-nav {
+    display: flex; align-items: center; gap: 8px; height: 68px; padding: 0 22px;
+    background: #fff; border-bottom: 1px solid #eee;
+  }
+  .store-burger {
+    display: none; width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; color: #222;
+  }
+  .store-logo { display: flex; align-items: center; flex: none; }
+  .store-logo img { height: 22px; width: auto; }
+  .store-menu { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0 0 0 18px; padding: 0; flex: 1; }
+  .store-menu > li > a, .store-drop > a {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 10px 12px; color: #222; text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap;
+  }
+  .store-menu svg.caret { width: 12px; height: 12px; }
+  .store-drop { position: relative; }
+  .store-drop--mega { position: static; }
+  .store-icons { margin-left: auto; display: flex; align-items: center; }
+  .store-icons a { width: 40px; height: 40px; display: grid; place-items: center; color: #222; text-decoration: none; }
+  .store-icons svg { width: 22px; height: 22px; fill: currentColor; }
+  .catalog {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    grid-template-columns: 220px minmax(0, 1fr); gap: 18px;
+    background: #f0f2f5; padding: 18px 28px 24px;
+    box-shadow: 0 18px 30px rgba(0,0,0,.08);
+  }
+  .store-drop--mega:hover .catalog, .store-drop--mega:focus-within .catalog { display: grid; }
+  .catalog__tabs { display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #e1e4ea; padding-right: 12px; }
+  .catalog__tab {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    border: 0; background: transparent; border-radius: 12px; padding: 12px 14px;
+    font: inherit; font-weight: 650; text-align: left; cursor: pointer; color: #222;
+  }
+  .catalog__tab.is-on { background: #fff; }
+  .catalog__panel { display: none; }
+  .catalog__panel.is-on { display: block; }
+  .catalog__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .catalog__card {
+    display: flex; align-items: center; gap: 12px; min-height: 92px;
+    background: #fff; border-radius: 16px; padding: 10px 16px; text-decoration: none; color: #222;
+  }
+  .catalog__card img { width: 112px; height: 68px; object-fit: contain; flex: none; }
+  .catalog__card strong { display: block; font-size: 16px; color: #222; }
+  .catalog__card span { display: block; margin-top: 2px; color: #5c6578; font-size: 13px; font-weight: 500; line-height: 1.35; }
+  .menu-panel {
+    display: none; position: absolute; top: calc(100% - 6px); left: 8px; min-width: 230px;
+    background: #fff; border-radius: 12px; padding: 8px; box-shadow: 0 12px 32px rgba(11,16,38,.14); z-index: 2;
+  }
+  .store-drop:hover .menu-panel, .store-drop:focus-within .menu-panel { display: block; }
+  .menu-panel a { display: block; padding: 9px 12px; border-radius: 8px; color: #222; text-decoration: none; font-size: 14px; font-weight: 600; }
+  .menu-panel a:hover { background: #f4f6fa; }
+  .store-drawer { display: none; background: #fff; border-top: 1px solid #eee; max-height: calc(100vh - 108px); overflow: auto; padding: 8px 16px 20px; }
+  .store-head.is-open .store-drawer { display: block; }
+  .store-drawer details { margin: 0; }
+  .store-drawer summary { list-style: none; }
+  .store-drawer summary::-webkit-details-marker { display: none; }
+  .store-drawer a, .store-drawer summary { color: #222; text-decoration: none; font-weight: 650; }
+  .store-drawer > a, .store-drawer details > summary { display: block; padding: 12px 4px; border-bottom: 1px solid #f0f2f5; cursor: pointer; }
+  .store-drawer details ul { list-style: none; margin: 0; padding: 0 0 8px 12px; }
+  .store-drawer details a { display: block; padding: 8px 4px; font-weight: 550; font-size: 14px; }
   .hero-band {
     position: relative;
     color: #fff;
@@ -168,11 +237,14 @@
     color: rgba(255,255,255,.92); letter-spacing: .14em; font-size: 11px; font-weight: 650;
   }
   .colon { color: #fff; font-size: 28px; font-weight: 700; line-height: 1; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 64px 20px; scroll-margin-top: 76px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 64px 20px; scroll-margin-top: 124px; }
   .showcase {
     display: grid; grid-template-columns: 1.05fr .95fr; background: #fff;
     border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
   }
+  .showcase--flip { grid-template-columns: .95fr 1.05fr; }
+  .showcase--flip .showcase__media { order: 2; }
+  .showcase--flip .showcase__body { order: 1; }
   .showcase__media { min-width: 0; background: #f6f7fb; }
   .carousel { position: relative; background: #f6f7fb; min-height: 520px; }
   .carousel__slide { display: none; height: 100%; }
@@ -214,7 +286,7 @@
   .showcase__actions { display: flex; gap: 12px; margin-top: auto; }
   .showcase__actions .btn { flex: 1; }
   .btn--cart { background: #e10600; color: #fff; }
-  .btn--line { background: #fff; color: #111; border: 1.5px solid #111; }
+  .btn--line { background: transparent; color: #111; border: 1.5px solid #111; }
   .carousel__empty { height: 520px; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; }
   .intro { color: var(--muted); max-width: 42rem; margin: 0 0 28px; }
@@ -303,10 +375,15 @@
     .stage { min-height: 460px; }
     .promises { max-width: none; }
     .mega { font-size: 92px; }
+    .announce { grid-template-columns: 1fr; padding: 0 8px; }
+    .announce__side { display: none; }
+    .store-burger { display: grid; place-items: center; }
+    .store-nav { display: grid; grid-template-columns: 40px 1fr auto; padding: 0 8px; }
+    .store-logo { justify-self: center; }
+    .store-menu { display: none; }
   }
   @media (max-width: 680px) {
-    .nav { padding: 10px 12px; }
-    .nav .btn--sm { display: none; }
+    .showcase--flip .showcase__media, .showcase--flip .showcase__body { order: 0; }
     .hero { padding: 24px 16px 0; }
     .promises { grid-template-columns: 1fr 1fr; row-gap: 12px; }
     .promises li:nth-child(3) { border-left: 0; }
@@ -338,14 +415,145 @@
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
-<header class="nav" id="nav"></header>
+<div class="store-head">
+  <div class="announce">
+    <div></div>
+    <div class="announce__center">
+      <button class="announce__arrow" type="button" data-announce-prev aria-label="Previous announcement">‹</button>
+      <a class="announce__msg" data-announce href="https://www.1laser.com/pages/onelaser-rewards">
+        <span data-announce-text>Subscribe &amp; Get $50 OFF Your First Purchase!</span>
+        <svg viewBox="0 0 14 10" aria-hidden="true"><path fill="currentColor" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546"/></svg>
+      </a>
+      <button class="announce__arrow" type="button" data-announce-next aria-label="Next announcement">›</button>
+    </div>
+    <div class="announce__side">
+      <a href="https://www.1laser.com/">United States | USD</a>
+      <div class="announce__social">
+        <a href="https://www.facebook.com/onelaser.official" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.6l.4-3H14V9z"/></svg></a>
+        <a href="https://www.youtube.com/@OneLaser.Official" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.5v-6.6l6.2 3.3-6.2 3.3z"/></svg></a>
+        <a href="https://www.instagram.com/onelaser.official/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.4 6.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg></a>
+        <a href="https://x.com/OneLaserHQ" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.6 3H20.4l-6.3 7.2L21.5 21h-5.6l-4.4-5.8L6.4 21H3.6l6.8-7.7L2.7 3h5.7l4 5.3L17.6 3zm-1 16.2h1.6L7.5 4.7H5.8l10.8 14.5z"/></svg></a>
+        <a href="https://www.tiktok.com/@onelaser.official" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14.5 3c.4 2.4 1.8 4.1 4.1 4.4v2.5c-1.4 0-2.7-.4-4-1.2v6.6c0 3.4-2.6 6.2-6.1 6.2S2.5 18.7 2.5 15.3 5 9.2 8.5 9.2c.4 0 .8 0 1.2.1v2.7c-.4-.2-.8-.3-1.2-.3-2 0-3.5 1.6-3.5 3.6s1.5 3.6 3.5 3.6 3.4-1.5 3.4-3.5V3h2.6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <header class="store-nav">
+    <button class="store-burger" type="button" data-burger aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 18 16" width="20" height="18" aria-hidden="true"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>
+    </button>
+    <a class="store-logo" href="https://www.1laser.com/"><img src="https://www.1laser.com/cdn/shop/files/icon-logo_899aefe3-3a43-4cd4-8cfb-0f0fabfd0e55.svg?width=300" alt="OneLaser"></a>
+    <ul class="store-menu">
+      <li class="store-drop store-drop--mega">
+        <a href="https://www.1laser.com/collections/laser-engraving-cutting-marking-machines">Laser Machines <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
+        <div class="catalog" data-catalog>
+          <div class="catalog__tabs">
+            <button class="catalog__tab is-on" type="button" data-catalog-tab>X Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
+            <button class="catalog__tab" type="button" data-catalog-tab>Cobra Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
+            <button class="catalog__tab" type="button" data-catalog-tab>Hydra Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
+            <button class="catalog__tab" type="button" data-catalog-tab>VertiGo <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
+          </div>
+          <div>
+            <div class="catalog__panel is-on" data-catalog-panel><div class="catalog__cards">
+              <a class="catalog__card" href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?width=300"><span><strong>XRF™</strong><span>Performance Desktop Laser Engraver (38W RF)</span></span></a>
+            </div></div>
+            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
+              <a class="catalog__card" href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_8.png?width=300"><span><strong>Cobra™ 8</strong><span>Workshop Essential Laser Engraver/Cutter (90W Glass)</span></span></a>
+              <a class="catalog__card" href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_10.png?width=300"><span><strong>Cobra™ 10</strong><span>Workshop Essential Laser Engraver/Cutter (100W Glass)</span></span></a>
+              <a class="catalog__card" href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_14.png?width=300"><span><strong>Cobra™ 14</strong><span>Workshop Essential Laser Engraver/Cutter (130W Glass)</span></span></a>
+            </div></div>
+            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
+              <a class="catalog__card" href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_7Gen2.png?width=300"><span><strong>Hydra™ 7 Gen2</strong><span>Industrial RF Laser Engraver (70W RF)</span></span></a>
+              <a class="catalog__card" href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_9Gen2.png?width=300"><span><strong>Hydra™ 9 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (100W Glass+38W RF/70W RF)</span></span></a>
+              <a class="catalog__card" href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_13Gen2.png?width=300"><span><strong>Hydra™ 13 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (130W Glass+38W RF/70W RF)</span></span></a>
+              <a class="catalog__card" href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_16Gen2.png?width=300"><span><strong>Hydra™ 16 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (150W Glass+38W RF/70W RF)</span></span></a>
+            </div></div>
+            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
+              <a class="catalog__card" href="https://www.1laser.com/products/vertigo-vertical-laser-engraver"><img alt="" src="https://www.1laser.com/cdn/shop/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?width=300"><span><strong>VertiGo™</strong><span>Performance Rotary Laser for Drinkware (38W RF)</span></span></a>
+            </div></div>
+          </div>
+        </div>
+      </li>
+      <li><a href="https://www.1laser.com/collections/laser-accessories">Accessories</a></li>
+      <li><a href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting">Material</a></li>
+      <li><a href="https://www.1laser.com/collections/limited-offers">🔥Clearance</a></li>
+      <li class="store-drop">
+        <a href="https://www.1laser.com/pages/sales-consultation">Support <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
+        <div class="menu-panel">
+          <a href="https://www.1laser.com/products/sales-consultation-call">Get a Quote</a>
+          <a href="https://www.1laser.com/products/engineer-1-on-1-training-support">1-on-1 Support</a>
+          <a href="https://zohodesk.1laser.com/portal/en/newticket">Contact Support</a>
+          <a href="https://www.1laser.com/pages/financing">Financing</a>
+          <a href="https://www.1laser.com/policies/shipping-policy">Policy</a>
+          <a href="https://www.1laser.com/blogs/topic">Blogs</a>
+          <a href="https://wiki.1laser.com">Product Knowledge Base</a>
+        </div>
+      </li>
+      <li class="store-drop">
+        <a href="https://www.1laser.com/pages/laser-engraving-community">Community <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
+        <div class="menu-panel">
+          <a href="https://www.1laser.com/pages/laser-engraving-community">Become Affiliate</a>
+          <a href="https://www.1laser.com/pages/onelaser-rewards">Purchase Rewards</a>
+          <a href="https://www.1laser.com/pages/laser-engraving-community">Join Community</a>
+          <a href="https://www.1laser.com/pages/testimonials">Testimonials</a>
+        </div>
+      </li>
+      <li><a href="https://www.1laser.com/pages/contact-us">Contact</a></li>
+    </ul>
+    <div class="store-icons">
+      <a href="https://www.1laser.com/search" aria-label="Search"><svg viewBox="0 0 256 256"><path d="M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32zM40 112a72 72 0 1 1 72 72 72.08 72.08 0 0 1-72-72z"/></svg></a>
+      <a href="https://www.1laser.com/account/login" aria-label="Log in"><svg viewBox="0 0 256 256"><path d="M128 140a36 36 0 1 0-36-36 36 36 0 0 0 36 36zm76 28.4a8 8 0 0 0-4.4-5.2c-18.2-9.4-38.5-14.2-59.6-14.2s-41.4 4.8-59.6 14.2a8 8 0 0 0-4.4 5.2A96 96 0 1 0 204 168.4z"/></svg></a>
+      <a href="https://www.1laser.com/cart" aria-label="Cart"><svg viewBox="0 0 256 256"><path d="M230.1 74.2A8 8 0 0 0 224 72H69.8L61.5 40.8A16 16 0 0 0 46.2 32H24a8 8 0 0 0 0 16h22.2l28.6 108.4A24 24 0 0 0 98 176h90a24 24 0 0 0 23.3-18.2l16.2-62.3a8 8 0 0 0-1.4-6.3zM104 216a16 16 0 1 0 16 16 16 16 0 0 0-16-16zm80 0a16 16 0 1 0 16 16 16 16 0 0 0-16-16z"/></svg></a>
+    </div>
+  </header>
+  <nav class="store-drawer" data-drawer aria-label="Menu">
+    <details>
+      <summary>Laser Machines</summary>
+      <ul>
+        <li><a href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine">XRF™</a></li>
+        <li><a href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter">Cobra™ 8</a></li>
+        <li><a href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter">Cobra™ 10</a></li>
+        <li><a href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter">Cobra™ 14</a></li>
+        <li><a href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 7 Gen2</a></li>
+        <li><a href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 9 Gen2</a></li>
+        <li><a href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 13 Gen2</a></li>
+        <li><a href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 16 Gen2</a></li>
+        <li><a href="https://www.1laser.com/products/vertigo-vertical-laser-engraver">VertiGo™</a></li>
+      </ul>
+    </details>
+    <a href="https://www.1laser.com/collections/laser-accessories">Accessories</a>
+    <a href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting">Material</a>
+    <a href="https://www.1laser.com/collections/limited-offers">🔥Clearance</a>
+    <details>
+      <summary>Support</summary>
+      <ul>
+        <li><a href="https://www.1laser.com/products/sales-consultation-call">Get a Quote</a></li>
+        <li><a href="https://www.1laser.com/products/engineer-1-on-1-training-support">1-on-1 Support</a></li>
+        <li><a href="https://zohodesk.1laser.com/portal/en/newticket">Contact Support</a></li>
+        <li><a href="https://www.1laser.com/pages/financing">Financing</a></li>
+        <li><a href="https://www.1laser.com/policies/shipping-policy">Policy</a></li>
+        <li><a href="https://www.1laser.com/blogs/topic">Blogs</a></li>
+        <li><a href="https://wiki.1laser.com">Product Knowledge Base</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary>Community</summary>
+      <ul>
+        <li><a href="https://www.1laser.com/pages/laser-engraving-community">Become Affiliate</a></li>
+        <li><a href="https://www.1laser.com/pages/onelaser-rewards">Purchase Rewards</a></li>
+        <li><a href="https://www.1laser.com/pages/laser-engraving-community">Join Community</a></li>
+        <li><a href="https://www.1laser.com/pages/testimonials">Testimonials</a></li>
+      </ul>
+    </details>
+    <a href="https://www.1laser.com/pages/contact-us">Contact</a>
+  </nav>
+</div>
 <main id="content"></main>
 <footer id="foot"></footer>
 <script>
 /*
   在 GitHub 上改这一页：只改下面的 PAGE。
   可改结束时间、标题、价格、运费、赠品说明、图片、购买链接、视频链接和 FAQ。
-  Super Deal 左边的成品图写在每台机器的 gallery 数组里，多张会自动轮播。
+  Super Deal 左边的成品图写在每台机器的 gallery 数组里，和机器图放在同一组里点击切换。
   右边的价格和加购用的是店铺里该规格的现价。月付由 Affirm 按这个金额计算。
   提交到 main 后，https://alexli-stack.github.io/black-friday/ 会更新。
   金额是设计稿里的活动价，单位美元。结账页才是最终成交价。
@@ -556,17 +764,6 @@ const side = PAGE.superDeals.find((item) => item.layout === "side");
 const rest = PAGE.superDeals.filter((item) => item.layout !== "lead" && item.layout !== "side");
 const endDate = new Date(PAGE.endsAt);
 
-document.getElementById("nav").innerHTML = `
-  <a class="logo" href="#content">OneLaser</a>
-  <nav class="nav__links" aria-label="Page">
-    <a href="#super-deal">Super Deal</a>
-    <a href="#deal">Deal</a>
-    <a href="#best">Best Sellers</a>
-    <a href="#videos">Videos</a>
-    <a href="#shipping">Shipping</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a class="btn btn--orange btn--sm" href="#super-deal">Shop Super Deals</a>`;
 
 const cobra = PAGE.superDeals.find((item) => item.name.startsWith("Cobra"));
 const vertigo = PAGE.deals.find((item) => item.name.startsWith("VertiGo"));
@@ -587,7 +784,7 @@ const flakes = Array.from({ length: 16 }, (_, index) => {
 }).join("");
 const clockUnits = [["Days", "DAYS"], ["Hours", "HRS"], ["Minutes", "MIN"], ["Seconds", "SEC"]];
 const usd = (value) => Number(value).toLocaleString("en-US", { style: "currency", currency: "USD" });
-const showcase = (item) => {
+const showcase = (item, index) => {
   const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Default", price: 0, msrp: 0 }];
   const current = variants[0];
   const photos = [
@@ -610,7 +807,7 @@ const showcase = (item) => {
   const affirm = current.id
     ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
     : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
-  return `<article class="showcase">
+  return `<article class="showcase${index % 2 ? " showcase--flip" : ""}">
     <div class="showcase__media"><div class="carousel" data-carousel>${slides}${controls}</div></div>
     <div class="showcase__body">
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
@@ -672,7 +869,7 @@ document.getElementById("content").innerHTML = `
   <section class="wrap" id="super-deal">
     <h2>${esc(PAGE.superTitle)}</h2>
     <p class="intro">${esc(PAGE.superIntro)}</p>
-    ${PAGE.superDeals.map((item) => showcase(item)).join("")}
+    ${PAGE.superDeals.map((item, index) => showcase(item, index)).join("")}
   </section>
   <section class="wrap" id="deal" style="padding-top:0">
     <p class="eyebrow eyebrow--blue">Deal</p>
@@ -765,6 +962,45 @@ const tick = () => {
 };
 tick();
 setInterval(tick, 1000);
+
+const announcements = [
+  { href: "https://www.1laser.com/pages/onelaser-rewards", text: "Subscribe & Get $50 OFF Your First Purchase!" },
+  { href: "https://www.1laser.com/pages/financing", text: "$0 Down Financing for Small Businesses | OneLaser Loan" },
+  { href: "https://www.1laser.com/pages/refund-policy", text: "🔄 30-Day Easy Returns" }
+];
+const announceLink = document.querySelector("[data-announce]");
+const announceText = document.querySelector("[data-announce-text]");
+let announceIndex = 0;
+const showAnnounce = (next) => {
+  announceIndex = (next + announcements.length) % announcements.length;
+  announceLink.href = announcements[announceIndex].href;
+  announceText.textContent = announcements[announceIndex].text;
+};
+document.querySelector("[data-announce-prev]").addEventListener("click", () => showAnnounce(announceIndex - 1));
+document.querySelector("[data-announce-next]").addEventListener("click", () => showAnnounce(announceIndex + 1));
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => showAnnounce(announceIndex + 1), 3000);
+
+const storeHead = document.querySelector(".store-head");
+const burger = document.querySelector("[data-burger]");
+burger.addEventListener("click", () => {
+  const open = !storeHead.classList.contains("is-open");
+  storeHead.classList.toggle("is-open", open);
+  burger.setAttribute("aria-expanded", String(open));
+});
+
+document.querySelectorAll("[data-catalog]").forEach((catalog) => {
+  const tabs = [...catalog.querySelectorAll("[data-catalog-tab]")];
+  const panels = [...catalog.querySelectorAll("[data-catalog-panel]")];
+  const show = (index) => {
+    tabs.forEach((tab, tabIndex) => tab.classList.toggle("is-on", tabIndex === index));
+    panels.forEach((panel, panelIndex) => panel.classList.toggle("is-on", panelIndex === index));
+  };
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("mouseenter", () => show(index));
+    tab.addEventListener("focus", () => show(index));
+    tab.addEventListener("click", () => show(index));
+  });
+});
 
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const slides = [...carousel.querySelectorAll(".carousel__slide")];
