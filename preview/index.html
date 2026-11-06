@@ -237,19 +237,20 @@
     color: rgba(255,255,255,.92); letter-spacing: .14em; font-size: 11px; font-weight: 650;
   }
   .colon { color: #fff; font-size: 28px; font-weight: 700; line-height: 1; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 64px 20px; scroll-margin-top: 124px; }
+  .wrap { max-width: 1350px; margin: 0 auto; padding: 64px 0; scroll-margin-top: 124px; }
   .showcase {
     display: grid; grid-template-columns: 1.05fr .95fr; background: #fff;
-    border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
+    height: 520px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
   }
   .showcase--flip { grid-template-columns: .95fr 1.05fr; }
   .showcase--flip .showcase__media { order: 2; }
   .showcase--flip .showcase__body { order: 1; }
-  .showcase__media { min-width: 0; background: #f6f7fb; }
-  .carousel { position: relative; background: #f6f7fb; min-height: 520px; }
+  .showcase__media { position: relative; min-width: 0; min-height: 0; height: 100%; background: #f6f7fb; }
+  .showcase .carousel { position: absolute; inset: 0; }
+  .carousel { position: relative; background: #f6f7fb; height: 100%; }
   .carousel__slide { display: none; height: 100%; }
-  .carousel__slide.is-on { display: block; }
-  .carousel__slide img { width: 100%; height: 520px; object-fit: contain; background: #f6f7fb; }
+  .carousel__slide.is-on { display: block; height: 100%; }
+  .carousel__slide img { width: 100%; height: 100%; object-fit: contain; background: #f6f7fb; }
   .carousel__slide--work img { object-fit: cover; background: #111; }
   .carousel__nav {
     position: absolute; top: 50%; transform: translateY(-50%);
@@ -261,35 +262,35 @@
   .carousel__dots { position: absolute; left: 0; right: 0; bottom: 16px; display: flex; justify-content: center; gap: 8px; }
   .carousel__dots button { width: 8px; height: 8px; border: 0; border-radius: 50%; background: rgba(255,255,255,.55); padding: 0; cursor: pointer; }
   .carousel__dots button.is-on { background: #fff; width: 22px; border-radius: 999px; }
-  .showcase__body { padding: 28px 28px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .showcase__body { padding: 16px 24px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; min-height: 0; overflow: hidden; }
   .showcase__tag {
-    display: inline-flex; align-self: center; align-items: center;
-    margin: 0 0 12px; padding: 6px 14px;
+    display: inline-flex; align-self: flex-start; align-items: center;
+    margin: 0 0 6px; padding: 4px 12px;
     border: 1.5px solid #e10600; border-radius: 999px;
     background: transparent; color: #e10600;
     font-weight: 750; font-size: 13px; line-height: 1.2;
   }
-  .showcase__body h3 { margin: 6px 0 12px; font-size: 30px; letter-spacing: -.03em; line-height: 1.15; }
-  .points { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
-  .points li { border: 1px solid #eceff5; border-radius: 10px; padding: 8px 10px; font-size: 13px; color: #243049; }
+  .showcase__body h3 { margin: 2px 0 8px; font-size: 26px; letter-spacing: -.03em; line-height: 1.1; }
+  .points { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 6px; margin: 0 0 8px; padding: 0; list-style: none; }
+  .points li { border: 1px solid #eceff5; border-radius: 10px; padding: 5px 8px; font-size: 13px; color: #243049; }
   .variant-label { display: block; font-size: 13px; font-weight: 750; color: #243049; }
   .variant-select, .variant-single {
     width: 100%; border: 1px solid #e4e8f2; border-radius: 12px; background: #fff;
-    padding: 12px 14px; margin-bottom: 16px;
+    padding: 8px 12px; margin-bottom: 8px;
   }
-  .final-label { margin: 0 0 4px; font-size: 14px; font-weight: 750; color: #243049; }
-  .price-row { display: flex; align-items: baseline; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 0; }
-  .price-row .now { font-size: 36px; }
+  .final-label { margin: 0; font-size: 13px; font-weight: 750; color: #243049; }
+  .price-row { display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; flex-wrap: wrap; margin: 0; }
+  .price-row .now { font-size: 32px; }
   .showcase__msrp { margin: 0; color: var(--muted); }
-  .showcase .save { display: inline-flex; margin-top: 10px; background: #e10600; color: #fff; }
-  .affirm-as-low-as { min-height: 24px; margin: 8px 0 18px; font-size: 14px; color: #243049; }
+  .showcase .save { display: inline-flex; margin-top: 4px; background: #e10600; color: #fff; }
+  .affirm-as-low-as { min-height: 20px; margin: 6px 0 8px; font-size: 13px; color: #243049; }
   .showcase__actions { display: flex; gap: 12px; margin-top: auto; width: 100%; }
   .showcase__actions .btn { flex: 1; }
   .showcase__actions .btn { min-height: 52px; }
   .showcase__actions .btn--cart { background: #e10600; color: #fff; border: 2px solid #e10600; }
   .showcase__actions .btn--line { background: #111; color: #fff; border: 2px solid #111; }
   .showcase__actions .btn--sold { background: #6b6b70; color: #fff; border: 2px solid #6b6b70; cursor: not-allowed; }
-  .carousel__empty { height: 520px; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
+  .carousel__empty { height: 100%; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; color: #fff; }
   .module-copy { text-align: center; }
   .module-copy .intro { margin-left: auto; margin-right: auto; }
@@ -298,7 +299,9 @@
   .seller__viewport { overflow: hidden; }
   .seller__track { display: flex; transition: transform .35s ease; }
   .seller__item { flex: 0 0 33.3333%; min-width: 0; padding: 0 8px; box-sizing: border-box; }
-  .seller .card, .seller .card h3, .seller .note, .seller .ship, .seller .msrp { text-align: center; }
+  .seller .card { height: 520px; text-align: left; overflow: hidden; }
+  .seller .card > div { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .seller .media--carousel { flex: 0 0 150px; height: 150px; min-height: 0; padding: 0; display: block; overflow: hidden; }
   .seller__btn {
     position: absolute; top: 46%; z-index: 2; transform: translateY(-50%);
     width: 44px; height: 44px; border: 0; border-radius: 50%;
@@ -326,6 +329,9 @@
   .card--lead .media img { height: 280px; }
   .media { background: #f3f5fa; border-radius: 14px; display: grid; place-items: center; min-height: 180px; }
   .media img { width: 100%; height: 190px; object-fit: contain; }
+  .media--carousel { position: relative; }
+  .media--carousel .carousel { position: absolute; inset: 0; }
+  .media--carousel .carousel__slide img { width: 100%; height: 100%; object-fit: contain; }
   .card h3 { margin: 10px 0 4px; font-size: 20px; letter-spacing: -.02em; }
   .note { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
   .tag { display: inline-flex; font-size: 12px; font-weight: 750; border-radius: 999px; padding: 4px 8px; }
@@ -385,6 +391,9 @@
     background: #000; color: rgba(255,255,255,.78); padding: 28px 20px; text-align: center; font-size: 14px; border-top: 1px solid #222;
   }
   footer a { color: #fff; }
+  @media (max-width: 1390px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
+  }
   @media (max-width: 980px) {
     .hero, .super-top, .card--lead, .info-grid { grid-template-columns: 1fr; }
     .hero { min-height: 0; padding: 28px 20px 8px; }
@@ -392,6 +401,7 @@
     .deal-grid, .best-grid, .videos { grid-template-columns: 1fr 1fr; }
     .stage { min-height: 460px; }
     .promises { max-width: none; }
+    .wrap { padding-left: 20px; padding-right: 20px; }
     .mega { font-size: 92px; }
   }
   @media (max-width: 680px) {
@@ -415,9 +425,12 @@
     .unit small { font-size: 8px; letter-spacing: .06em; }
     .colon { font-size: 14px; }
     .now { font-size: 28px; }
-    .showcase { grid-template-columns: 1fr; }
+    .showcase { grid-template-columns: 1fr; height: auto; }
     .seller__item { flex-basis: 100%; }
-    .carousel, .carousel__slide img, .carousel__empty { height: 320px; min-height: 320px; }
+    .seller .card { height: auto; overflow: visible; }
+    .seller .media--carousel { height: 220px; flex-basis: 220px; }
+    .showcase .carousel { position: relative; inset: auto; }
+    .showcase .carousel, .showcase .carousel__slide, .showcase .carousel__slide img, .showcase .carousel__empty { height: 320px; }
     .showcase__body h3 { font-size: 24px; }
     .showcase__actions { flex-direction: column; }
   }
@@ -600,7 +613,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_10.png?v=1782460375",
       href: "https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter",
       points: ["100W glass tube", "Shipping $699"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra10-4.png?v=1776753437",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/cobra10.png?v=1776753436",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--2_c7051199-0071-4e8e-8d93-eb1936b820c6.png?v=1776754394"
+      ],
       variants: [
         { id: "45095798046754", label: "100W Glass", price: 6999, msrp: 7999, inventory: 5 }
       ]
@@ -611,7 +628,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_14.png?v=1782460438",
       href: "https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter",
       points: ["130W glass tube", "Shipping $699"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra14-4.png?v=1776754394",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/cobra14.png?v=1776754394",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--1_bfbed39f-f3ac-47ac-bd98-c58f223070a7.png?v=1776754394"
+      ],
       variants: [
         { id: "45095798341666", label: "130W Glass", price: 8999, msrp: 9999, inventory: 2 }
       ]
@@ -622,7 +643,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?v=1782698357",
       href: "https://www.1laser.com/products/vertigo-vertical-laser-engraver",
       points: ["38W RF", "Free shipping"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/VertiGo_3220bf4a-a38e-4de6-9800-0c37eaa4a14f.png?v=1776420639",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/11_bd75ce24-6f68-4267-b84e-c70821d7bd3e.jpg?v=1776420639",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/vertigo-hero-user-20261022-01.webp?v=1793345636"
+      ],
       variants: [
         { id: "44483820224546", label: "38W RF", price: 5599, msrp: 5999, inventory: -1 }
       ]
@@ -633,7 +658,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/d4f70b20ae08baa91175811c4f952f6f_b9af453b-621f-4432-93f1-d8e7e635b31e.png?v=1745220554",
       href: "https://www.1laser.com/products/onelaser-hydra-9-laser-engraving-machine",
       points: ["100W glass tube", "38W RF metal tube"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9-2.png?v=1766389158",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_speed.png?v=1784027116",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_OneTouch.png?v=1784027117"
+      ],
       variants: [
         { id: "43784477573154", label: "100W Glass Tube & 38W RF Metal Tube", price: 8999, msrp: 9999, inventory: 11 }
       ]
@@ -644,7 +673,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
       points: ["Hydra Gen2", "Shipping $599"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958"
+      ],
       variants: [
         { id: "44745769123874", label: "Hydra 13 Pro - 70W RF", price: 13999, msrp: 14999, inventory: 1 },
         { id: "44745769156642", label: "Hydra 13 Hybrid - 38W RF + 130W DC", price: 12999, msrp: 13999, inventory: 0 }
@@ -656,7 +689,11 @@ const PAGE = {
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
       points: ["Hydra Gen2", "Shipping $699"],
-      gallery: [],
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
+      ],
       variants: [
         { id: "44745771122722", label: "Hydra 16 Pro - 70W RF", price: 14999, msrp: 15999, inventory: 1 },
         { id: "44745771155490", label: "Hydra 16 Hybrid - 38W RF + 150W DC", price: 13999, msrp: 14999, inventory: 0 }
@@ -673,14 +710,34 @@ const PAGE = {
       note: "Gone when gone. This machine is outside the Super Deal and Deal groups.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958"
+      ],
       quiet: true
     }
   ],
   fullPrice: [
     { name: "Hydra 09 Hybrid (G2)", price: "$10,999", shipping: "Shipping at checkout",
-      note: "Not discounted. Priced for the hybrid platform.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine" },
-    { name: "Hydra 13 Hybrid (G2)", price: "$12,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine" },
-    { name: "Hydra 16 Hybrid (G2)", price: "$13,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine" }
+      note: "Not discounted. Priced for the hybrid platform.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
+      ] },
+    { name: "Hydra 13 Hybrid (G2)", price: "$12,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
+      ] },
+    { name: "Hydra 16 Hybrid (G2)", price: "$13,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
+      gallery: [
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
+        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958"
+      ] }
   ],
   videos: [
     { title: "Bench setup", machine: "XRF", url: "" },
@@ -711,9 +768,19 @@ const attrs = (href) => {
   return `href="${safe}" target="_blank" rel="noopener"`;
 };
 const firstOption = (item) => (item.options && item.options[0]) || item;
-const media = (item) => item.image
-  ? `<div class="media"><img src="${esc(imgSrc(item.image))}" alt="${esc(item.name)}"></div>`
-  : `<div class="media" style="color:#5c6578;font-weight:700">Photo pending</div>`;
+const photoSlides = (item) => {
+  const photos = [
+    ...(item.image ? [{ src: item.image, kind: "machine" }] : []),
+    ...(item.gallery || []).filter(Boolean).map((src) => ({ src, kind: /\.(webp|jpe?g)(\?|$)/i.test(src) ? "work" : "machine" }))
+  ];
+  if (!photos.length) return `<div class="carousel__empty">Photos coming soon.</div>`;
+  const slides = photos.map((photo, index) => `<div class="carousel__slide${photo.kind === "work" ? " carousel__slide--work" : ""}${index === 0 ? " is-on" : ""}"><img src="${esc(imgSrc(photo.src, 1400))}" alt="${esc(item.name)}"></div>`).join("");
+  const controls = photos.length > 1
+    ? `<button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous photo">‹</button><button class="carousel__nav carousel__nav--next" type="button" aria-label="Next photo">›</button><div class="carousel__dots">${photos.map((_, index) => `<button type="button" class="${index === 0 ? "is-on" : ""}" aria-label="Photo ${index + 1}"></button>`).join("")}</div>`
+    : "";
+  return slides + controls;
+};
+const media = (item) => `<div class="media media--carousel"><div class="carousel" data-carousel>${photoSlides(item)}</div></div>`;
 const priceBlock = (item, tone) => {
   const current = firstOption(item);
   const saveClass = tone === "deal" ? "save save--blue" : item.quiet ? "save save--quiet" : "save";
@@ -772,17 +839,7 @@ const usd = (value) => Number(value).toLocaleString("en-US", { style: "currency"
 const showcase = (item, index) => {
   const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Default", price: 0, msrp: 0 }];
   const current = variants[0];
-  const photos = [
-    ...(item.image ? [{ src: item.image, kind: "machine", alt: item.name }] : []),
-    ...(item.gallery || []).filter(Boolean).map((src, index) => ({ src, kind: "work", alt: item.name + " finished work " + (index + 1) }))
-  ];
   const save = current.msrp > current.price ? current.msrp - current.price : 0;
-  const slides = photos.length
-    ? photos.map((photo, index) => `<div class="carousel__slide${photo.kind === "work" ? " carousel__slide--work" : ""}${index === 0 ? " is-on" : ""}"><img src="${esc(imgSrc(photo.src, 1400))}" alt="${esc(photo.alt)}"></div>`).join("")
-    : `<div class="carousel__empty">Photos coming soon.</div>`;
-  const controls = photos.length > 1
-    ? `<button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous photo">‹</button><button class="carousel__nav carousel__nav--next" type="button" aria-label="Next photo">›</button><div class="carousel__dots">${photos.map((_, index) => `<button type="button" class="${index === 0 ? "is-on" : ""}" aria-label="Photo ${index + 1}"></button>`).join("")}</div>`
-    : "";
   const variantControl = variants.length > 1
     ? `<label class="variant-label">Option<select class="variant-select" data-variant-select>${variants.map((variant) => `<option value="${esc(variant.id)}" data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}">${esc(variant.label)}</option>`).join("")}</select></label>`
     : `<div class="variant-single">${esc(variants[0].label)}</div>`;
@@ -795,7 +852,7 @@ const showcase = (item, index) => {
     ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
     : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
   return `<article class="showcase${index % 2 ? " showcase--flip" : ""}">
-    <div class="showcase__media"><div class="carousel" data-carousel>${slides}${controls}</div></div>
+    <div class="showcase__media"><div class="carousel" data-carousel>${photoSlides(item)}</div></div>
     <div class="showcase__body">
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
       <h3>${esc(item.name)}</h3>
@@ -1036,14 +1093,21 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const dots = [...carousel.querySelectorAll(".carousel__dots button")];
   if (slides.length < 2) return;
   let index = 0;
+  let timer = 0;
   const show = (next) => {
     index = (next + slides.length) % slides.length;
     slides.forEach((slide, i) => slide.classList.toggle("is-on", i === index));
     dots.forEach((dot, i) => dot.classList.toggle("is-on", i === index));
   };
-  carousel.querySelector(".carousel__nav--next").addEventListener("click", () => show(index + 1));
-  carousel.querySelector(".carousel__nav--prev").addEventListener("click", () => show(index - 1));
-  dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => show(dotIndex)));
+  const restart = () => {
+    window.clearInterval(timer);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    timer = window.setInterval(() => show(index + 1), 5000);
+  };
+  carousel.querySelector(".carousel__nav--next").addEventListener("click", () => { show(index + 1); restart(); });
+  carousel.querySelector(".carousel__nav--prev").addEventListener("click", () => { show(index - 1); restart(); });
+  dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => { show(dotIndex); restart(); }));
+  restart();
 });
 
 document.addEventListener("change", (event) => {
