@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="OneLaser Black Friday: clearance pricing on desktop and cabinet lasers, volume pricing on Cobra and VertiGo, and full-price Hydra Hybrid.">
+<meta name="description" content="OneLaser Black Friday: limited-time savings on XRF, Cobra, VertiGo, and Hydra. Financing at checkout. Offers end Nov 30, 2026 at 11:59 PM PST.">
 <title>OneLaser Black Friday</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +31,14 @@
     margin: 0;
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--ink);
-    background: #000;
+    background: #070A14;
     line-height: 1.5;
   }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
-  button, input { font: inherit; }
+  button, input, select { font: inherit; }
+  :focus-visible { outline: 2px solid #2563EB; outline-offset: 3px; }
+  [hidden] { display: none !important; }
   .skip {
     position: absolute; left: 12px; top: -40px; background: #fff; padding: 8px 12px; z-index: 20;
   }
@@ -54,16 +56,17 @@
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .generation-comparison .sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.home-announcement{position:relative;min-height:34px;display:grid;place-items:center;overflow:hidden;padding:0 44px;background:#f5f5f7;border-bottom:1px solid #e3e3e6;color:#4a4a4f;font-size:12px;line-height:1.35}
-.home-announcement__viewport{width:min(880px,calc(100vw - 120px));overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.home-announcement__track{width:max-content;display:flex;animation:home-announcement-marquee 26s linear infinite}
-.home-announcement__group{flex:none;display:flex;align-items:center;padding-right:30px}
-.home-announcement__group a{position:relative;padding:8px 18px;white-space:nowrap;transition:color .16s ease}
-.home-announcement__group a+a:before{content:"";position:absolute;left:0;top:50%;width:1px;height:12px;background:#c8c8cd;transform:translateY(-50%)}
-.home-announcement__group a:hover,.home-announcement__group a:focus-visible{color:#000}
+.home-announcement{position:relative;height:40px;min-height:40px;display:grid;place-items:center;overflow:visible;padding:0 52px;background:#0B1026;border-bottom:0;color:#fff;font-size:13px;font-weight:600;line-height:1.35}
+.home-announcement__viewport{width:min(1280px,100%);overflow:hidden}
+.home-announcement__track{width:100%;display:flex;justify-content:center;animation:none}
+.home-announcement__group[aria-hidden="true"]{display:none}
+.home-announcement__group{flex:none;display:flex;align-items:center;gap:24px;padding-right:24px}
+.home-announcement__group a{position:relative;padding:8px 0;white-space:nowrap;color:#fff;transition:color .16s ease}
+.home-announcement__group a+a:before{content:"";position:absolute;left:-12px;top:50%;width:1px;height:12px;background:rgba(255,255,255,.28);transform:translateY(-50%)}
+.home-announcement__group a:hover,.home-announcement__group a:focus-visible{color:#fff}
 .home-announcement:hover .home-announcement__track,.home-announcement:focus-within .home-announcement__track{animation-play-state:paused}
-.home-announcement__close{position:absolute;z-index:2;right:max(10px,calc((100vw - 1440px)/2));top:50%;width:28px;height:28px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;color:#6b6b70;cursor:pointer;transform:translateY(-50%)}
-.home-announcement__close:hover,.home-announcement__close:focus-visible{background:#e5e5e8;color:#000}
+.home-announcement__close{position:absolute;z-index:2;right:max(10px,calc((100vw - 1440px)/2));top:50%;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;color:#fff;cursor:pointer;transform:translateY(-50%)}
+.home-announcement__close:hover,.home-announcement__close:focus-visible{background:rgba(255,255,255,.12);color:#fff}
 @keyframes home-announcement-marquee{to{transform:translate(-50%)}}
 .home-header{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr 132px;align-items:center;padding:0 max(32px,calc((100vw - 1400px)/2));background:#fffffff7;border-bottom:1px solid #ececee}
 .home-brand{width:154px}
@@ -124,32 +127,46 @@
   .hero-band {
     position: relative;
     color: #fff;
-    background:
-      radial-gradient(90% 140% at 84% 46%, #ff3b22 0%, #e20c0c 34%, #8e1016 62%, #140406 82%, #050505 100%);
+    background: #0B1026;
     overflow: hidden;
+  }
+  .hero-band::before {
+    content: "";
+    position: absolute; top: 0; right: 0; width: 35%; height: 100%;
+    background: radial-gradient(closest-side at 72% 46%, rgba(225,6,0,.35), transparent 72%);
+    pointer-events: none;
   }
   .hero {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(300px, 460px) minmax(0, 1fr);
-    gap: 8px;
+    grid-template-columns: 5.5fr 4.5fr;
+    gap: 48px;
     align-items: center;
-    min-height: 640px;
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 28px 28px 36px;
+    padding: 80px 0;
   }
   .hero h1 {
     margin: 0;
     font-family: Inter, "Segoe UI", sans-serif;
-    font-style: italic;
-    font-weight: 800;
-    font-size: clamp(42px, 4.6vw, 64px);
-    letter-spacing: -.035em;
+    font-style: normal;
+    font-weight: 850;
+    font-size: 72px;
+    letter-spacing: -.04em;
     line-height: .95;
+    color: #fff;
   }
-  .save-line { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; }
+  .hero__eyebrow { margin: 0 0 12px; color: #FF8A66; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .hero__actions { display: flex; align-items: center; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+  .btn--shop {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px;
+    background: #E10600; color: #fff; border-radius: 999px; text-decoration: none; font-size: 16px; font-weight: 750;
+  }
+  .btn--shop:hover { background: #B90500; }
+  .hero__compare { color: #fff; font-size: 15px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+  .hero__note { margin: 16px 0 0; color: #C6CDDA; font-size: 13px; }
+  .hero .lead { margin: 16px 0 0; font-size: 18px; line-height: 1.45; color: #D5DBE8; max-width: 38rem; }
   .save-word {
     font-family: Inter, "Segoe UI", sans-serif;
     font-style: italic; font-weight: 800; font-size: clamp(36px, 4vw, 52px); letter-spacing: -.04em; line-height: .9;
@@ -164,30 +181,21 @@
     font-style: italic; font-weight: 800; font-size: clamp(32px, 3.4vw, 46px);
     line-height: 1; letter-spacing: -.03em; border-radius: 12px; padding: 6px 14px 8px;
   }
-  .hero .lead { margin: 12px 0 0; font-size: 16px; color: rgba(255,255,255,.86); }
   .promises {
-    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-    list-style: none; margin: 28px 0 0; padding: 14px 6px;
-    background: rgba(18, 18, 18, .78);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 16px; max-width: 520px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px;
+    list-style: none; margin: 24px 0 0; padding: 0; background: transparent; border: 0; max-width: none;
   }
   .promises li {
-    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
-    padding: 0 8px; border-left: 1px solid rgba(255,255,255,.14);
-    font-size: 11px; line-height: 1.25; color: rgba(255,255,255,.9);
+    display: flex; flex-direction: row; align-items: center; text-align: left; gap: 8px;
+    padding: 0; border: 0; font-size: 14px; line-height: 1.35; color: #E8ECF4;
   }
-  .promises li:first-child { border-left: 0; }
-  .promises svg { width: 22px; height: 22px; }
+  .promises svg { width: 18px; height: 18px; flex: none; }
   .stage { position: relative; min-height: 560px; }
   .mega {
     position: absolute; top: 0; right: -2%; z-index: 1; margin: 0;
     font-family: Oswald, Impact, sans-serif; font-weight: 700;
     font-size: clamp(84px, 8.4vw, 138px); line-height: .82; letter-spacing: -.02em;
-    color: #ff3a1e; text-align: right; pointer-events: none;
-    text-shadow:
-      1px 1px 0 #d42612, 2px 2px 0 #c01f0d, 3px 3px 0 #a81a0b,
-      4px 4px 0 #90160a, 5px 5px 0 #781208, 8px 18px 24px rgba(0,0,0,.35);
+    color: rgba(255,255,255,.16); text-align: right; pointer-events: none; text-shadow: none; z-index: 0;
   }
   .mega span { display: block; }
   .machine { position: absolute; object-fit: contain; filter: drop-shadow(0 18px 14px rgba(0,0,0,.48)); }
@@ -200,24 +208,24 @@
   .flakes i { position: absolute; border-radius: 1px; }
   .count {
     position: relative;
-    background: #333;
+    background: transparent;
     color: #fff;
     display: flex; justify-content: center;
-    margin-top: 0;
-    padding: 22px 16px;
-    overflow: hidden;
-  }
-  .count::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      radial-gradient(circle at 16% 50%, transparent 58px, rgba(255,255,255,.07) 59px, transparent 60px),
-      radial-gradient(circle at 84% 46%, transparent 92px, rgba(255,255,255,.06) 93px, transparent 94px),
-      radial-gradient(circle at 70% 120%, transparent 70px, rgba(255,255,255,.05) 71px, transparent 72px);
+    margin: 32px auto;
+    padding: 0 20px;
+    overflow: visible;
   }
   .count__group {
     position: relative;
     display: flex; align-items: center; justify-content: center; gap: 26px;
+    width: min(1200px, 100%);
+    background: #141824;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 16px;
+    padding: 16px 20px;
   }
+  .count__ended { display: none; width: min(1200px, 100%); margin: 0; background: #141824; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 16px 20px; font-size: 18px; font-weight: 750; }
+  .count__ended:not([hidden]) { display: block; }
   .count__copy { text-align: right; }
   .count__copy strong {
     display: block; font-family: Inter, "Segoe UI", sans-serif;
@@ -229,25 +237,26 @@
   .unit { position: relative; min-width: 68px; text-align: center; }
   .unit b {
     display: flex; align-items: center; justify-content: center;
-    min-width: 68px; height: 60px; border-radius: 8px; background: #e10600; color: #fff;
-    font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em;
+    width: 64px; min-width: 64px; height: 56px; border-radius: 12px; background: #E10600; color: #fff;
+    font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em;
   }
   .unit small {
     display: block; margin-top: 8px;
-    color: rgba(255,255,255,.92); letter-spacing: .14em; font-size: 11px; font-weight: 650;
+    color: rgba(255,255,255,.92); letter-spacing: .08em; font-size: 11px; font-weight: 650;
   }
   .colon { color: #fff; font-size: 28px; font-weight: 700; line-height: 1; }
-  .wrap { max-width: 1350px; margin: 0 auto; padding: 64px 0; scroll-margin-top: 124px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 64px 0; scroll-margin-top: 124px; }
   #super-deal.wrap, #deal.wrap, #best.wrap { max-width: 1200px; }
   .showcase {
-    display: grid; grid-template-columns: 5.5fr 4.5fr; background: #fff;
-    height: 520px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
+    display: grid; grid-template-columns: 5.5fr 4.5fr; gap: 32px; align-items: stretch;
+    background: #fff; min-height: 520px; height: auto; padding: 16px;
+    border-radius: 24px; box-shadow: 0 16px 40px rgba(11,16,38,.12); margin-top: 24px;
   }
   .showcase--flip { grid-template-columns: 4.5fr 5.5fr; }
   .showcase--flip .showcase__media { order: 2; }
   .showcase--flip .showcase__body { order: 1; }
-  .showcase__media { position: relative; min-width: 0; min-height: 0; height: 100%; background: #f6f7fb; }
-  .showcase .carousel { position: absolute; inset: 0; }
+  .showcase__media { position: relative; min-width: 0; min-height: 400px; height: auto; background: #F5F6FB; border-radius: 18px; overflow: hidden; }
+  .showcase .carousel { position: absolute; inset: 0; min-height: 400px; }
   .carousel { position: relative; background: #f6f7fb; height: 100%; }
   .carousel__slide { display: none; height: 100%; }
   .carousel__slide.is-on { display: block; height: 100%; }
@@ -263,18 +272,19 @@
   .carousel__dots { position: absolute; left: 0; right: 0; bottom: 16px; display: flex; justify-content: center; gap: 8px; }
   .carousel__dots button { width: 8px; height: 8px; border: 0; border-radius: 50%; background: rgba(255,255,255,.55); padding: 0; cursor: pointer; }
   .carousel__dots button.is-on { background: #fff; width: 22px; border-radius: 999px; }
-  .showcase__body { padding: 16px 24px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; min-height: 0; overflow: hidden; }
-  .showcase__tag {
+  .showcase__body { padding: 20px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; min-height: 0; }
+  .showcase--lead .showcase__body { padding: 24px 28px; }
+  .showcase__tag, .offer__tag {
     display: inline-flex; align-self: flex-start; align-items: center;
-    margin: 0 0 6px; padding: 4px 12px;
-    border: 1.5px solid #e10600; border-radius: 999px;
-    background: transparent; color: #e10600;
+    margin: 0 0 12px; padding: 6px 10px; border-radius: 999px;
+    background: #FFF0ED; color: #A80802; border: 0;
     font-weight: 750; font-size: 13px; line-height: 1.2;
   }
-  .showcase__body h3 { margin: 2px 0 6px; font-size: 26px; letter-spacing: -.03em; line-height: 1.1; }
-  .blurb { margin: 0 0 8px; color: #3a4154; font-size: 14px; line-height: 1.35; }
-  .points { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 6px; margin: 0 0 8px; padding: 0; list-style: none; }
-  .points li { border: 1px solid #eceff5; border-radius: 10px; padding: 5px 8px; font-size: 13px; color: #243049; }
+  .showcase__body h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.03em; line-height: 1.15; }
+  .showcase--lead h3 { font-size: 28px; }
+  .blurb { margin: 0 0 12px; color: #5C6578; font-size: 16px; line-height: 1.45; }
+  .points { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .points li { border: 0; padding: 0; font-size: 14px; color: #5C6578; background: transparent; }
   .variant-label { display: block; font-size: 13px; font-weight: 750; color: #243049; }
   .variant-select, .variant-single {
     width: 100%; border: 1px solid #e4e8f2; border-radius: 12px; background: #fff;
@@ -282,17 +292,28 @@
   }
   .final-label { margin: 0; font-size: 13px; font-weight: 750; color: #243049; }
   .price-row { display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; flex-wrap: wrap; margin: 0; }
-  .price-row .now { font-size: 32px; }
-  .showcase__msrp { margin: 0; color: var(--muted); }
-  .showcase .save { display: inline-flex; margin-top: 4px; background: #e10600; color: #fff; }
-  .affirm-as-low-as { min-height: 20px; margin: 6px 0 8px; font-size: 13px; color: #243049; }
-  .showcase__actions { display: flex; gap: 12px; margin-top: auto; width: 100%; }
-  .showcase__actions .btn { flex: 1; }
-  .showcase__actions .btn { min-height: 52px; }
-  .showcase__actions .btn--cart { background: #e10600; color: #fff; border: 2px solid #e10600; }
-  .showcase__actions .btn--line { background: transparent; color: #111; border: 2px solid #111; }
-  .showcase__actions .btn--sold { background: #6b6b70; color: #fff; border: 2px solid #6b6b70; cursor: not-allowed; }
-  .carousel__empty { height: 100%; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
+  .price-block { margin-top: 16px; }
+  .price-row .now { font-size: 28px; font-weight: 800; color: #141824; }
+  .showcase--lead .price-row .now { font-size: 32px; }
+  .showcase__msrp, .offer__msrp { margin: 0; color: #747D8F; font-size: 15px; }
+  .showcase .save, .offer .save { display: inline-flex; margin-top: 8px; background: #FFF0ED; color: #A80802; }
+  .scarce { display: inline-flex; margin-top: 8px; background: #FFF4E5; color: #8A4300; font-weight: 750; border-radius: 999px; padding: 4px 10px; font-size: 13px; }
+  .affirm-as-low-as { min-height: 20px; margin: 8px 0 0; font-size: 14px; color: #243049; }
+  .showcase__actions, .offer__actions { display: flex; gap: 12px; margin-top: 20px; width: 100%; }
+  .offer__actions { margin-top: auto; padding-top: 20px; }
+  .offer h3 { min-height: 48px; }
+  .offer .points { min-height: 44px; }
+  .offer .scarce-row { min-height: 28px; margin: 8px 0 0; }
+  .offer .affirm-as-low-as { min-height: 42px; }
+  .showcase__actions .btn, .offer__actions .btn { flex: 1; }
+  .showcase__actions .btn--cart, .offer__actions .btn--cart { min-height: 52px; background: #E10600; color: #fff; border: 0; font-size: 16px; font-weight: 750; padding: 0 24px; }
+  .showcase__actions .btn--cart:hover, .offer__actions .btn--cart:hover, .btn--shop:hover { background: #B90500; }
+  .btn--line { min-height: 48px; background: #fff; color: #141824; border: 1px solid #CBD2E1; font-size: 15px; font-weight: 650; padding: 0 20px; }
+  .btn--sold { min-height: 52px; background: #E5E7EB; color: #6B6B70; border: 0; cursor: not-allowed; }
+  .pick { min-height: 44px; border: 1px solid #E4E8F2; background: #fff; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .pick.is-on { border-color: #141824; font-weight: 750; }
+  .variant-picks { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+  .carousel__empty, .offer__pending { height: 100%; min-height: 180px; display: grid; place-items: center; color: #5C6578; padding: 24px; text-align: center; background: #F5F6FB; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; color: #fff; }
   .module-copy { text-align: center; }
   .module-copy .intro { margin-left: auto; margin-right: auto; }
@@ -363,6 +384,7 @@
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none; border-radius: 999px; padding: 12px 16px; font-weight: 750; border: 0; cursor: pointer;
   }
+  .btn.btn--line { min-height: 48px; background: #fff; color: #141824; border: 1px solid #CBD2E1; font-size: 15px; font-weight: 650; padding: 0 20px; }
   .btn--orange { background: var(--orange); color: var(--orange-ink); }
   .btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
   .btn--navy { background: var(--navy); color: #fff; }
@@ -395,16 +417,59 @@
   summary { cursor: pointer; font-weight: 750; }
   details p { color: #243049; }
   details a { color: var(--blue); }
+  .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .offer {
+    display: flex; flex-direction: column; background: #fff; border: 1px solid #E4E8F2; border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(11,16,38,.08); overflow: hidden; min-width: 0;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .offer:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(11,16,38,.13); }
+  .offer__media { height: 250px; background: #F5F6FB; display: grid; place-items: center; padding: 20px; }
+  .offer__media img { width: 100%; height: 100%; object-fit: contain; }
+  .offer__body { display: flex; flex-direction: column; flex: 1; padding: 20px 20px 24px; }
+  .offer h3 { margin: 0 0 12px; font-size: 19px; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .offer .now { font-size: 28px; font-weight: 800; color: #141824; }
+  .offer__buy { margin-top: auto; }
+  .offer__price { min-height: 38px; }
+  .offer__tag--featured { background: #0B1026; color: #fff; }
+  .trustband { background: #F5F6FB; color: #141824; }
+  .trustband h2, .trustband .intro { color: #141824; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+  .trust-card { display: flex; flex-direction: column; background: #fff; border-radius: 24px; padding: 32px; border: 1px solid #E4E8F2; min-width: 0; }
+  .trust-card h3 { margin: 12px 0 8px; font-size: 17px; font-weight: 750; color: #141824; }
+  .trust-card p { margin: 0; font-size: 14px; line-height: 1.5; color: #5C6578; }
+  .trust-card .fine { margin-top: 8px; font-size: 13px; }
+  .trust-card .btn { margin-top: auto; align-self: flex-start; }
+  .trust-card .btn--cart { min-height: 48px; background: #E10600; color: #fff; padding: 0 20px; }
+  .faq { max-width: 960px; margin: 0 auto; }
+  .faq details { background: #fff; border: 1px solid #E4E8F2; border-radius: 14px; padding: 0; margin: 0 0 12px; box-shadow: none; }
+  .faq summary { padding: 20px 24px; font-size: 17px; font-weight: 700; }
+  .faq details p { margin: 0; padding: 0 24px 20px; font-size: 15px; line-height: 1.65; color: #5C6578; }
+  .contact-card { background: #FFF0ED; border-radius: 16px; padding: 24px; margin-top: 24px; color: #141824; }
+  .contact-card a { color: #2563EB; }
+  .dock {
+    display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    align-items: center; justify-content: space-between; gap: 12px;
+    background: rgba(11,16,38,.96); border-top: 1px solid rgba(255,255,255,.14);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  }
+  .dock strong { display: block; color: #fff; font-size: 14px; font-weight: 750; }
+  .dock span { display: block; color: #C6CDDA; font-size: 11px; }
+  .dock a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; background: #E10600; color: #fff; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 750; white-space: nowrap; }
   footer {
-    background: #000; color: rgba(255,255,255,.78); padding: 28px 20px; text-align: center; font-size: 14px; border-top: 1px solid #222;
+    background: #070A14; color: rgba(255,255,255,.78); padding: 28px 20px 40px; text-align: center; font-size: 14px; border-top: 1px solid #222;
   }
   footer a { color: #fff; }
   @media (max-width: 1390px) {
     .wrap { padding-left: 20px; padding-right: 20px; }
   }
+  @media (max-width: 1024px) {
+    .offer-grid, .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 980px) {
     .hero, .super-top, .card--lead, .info-grid { grid-template-columns: 1fr; }
-    .hero { min-height: 0; padding: 28px 20px 8px; }
+    .hero { min-height: 0; padding: 48px 20px; }
+    .hero h1 { font-size: 48px; }
     .super-rest { grid-template-columns: 1fr 1fr; }
     .deal-grid, .best-grid, .videos { grid-template-columns: 1fr 1fr; }
     .stage { min-height: 460px; }
@@ -414,36 +479,49 @@
   }
   @media (max-width: 680px) {
     .showcase--flip .showcase__media, .showcase--flip .showcase__body { order: 0; }
-    .hero { padding: 24px 16px 0; }
-    .promises { grid-template-columns: 1fr 1fr; row-gap: 12px; }
-    .promises li:nth-child(3) { border-left: 0; }
-    .stage { min-height: 380px; }
+    .hero { padding: 48px 16px; gap: 32px; }
+    .promises { grid-template-columns: 1fr; row-gap: 20px; }
+    .stage { min-height: 420px; margin-bottom: 8px; }
     .mega { font-size: 72px; right: 0; }
     .super-rest, .deal-grid, .best-grid { grid-template-columns: 1fr; }
     .videos { display: flex; overflow: auto; padding-bottom: 6px; }
     .vcard { min-width: 230px; }
-    .count { padding: 16px 8px; }
-    .count__group { gap: 8px; }
-    .count__copy strong { font-size: 15px; white-space: nowrap; }
-    .count__copy span { font-size: 10px; margin-top: 2px; white-space: nowrap; }
+    .count { margin: 32px auto; padding: 0 16px; }
+    .count__group { gap: 8px; flex-wrap: wrap; }
+    .count__copy strong { font-size: 16px; }
+    .count__copy span { font-size: 12px; margin-top: 4px; }
     .count__rule { height: 32px; }
     .clock { gap: 4px; }
-    .unit, .unit b { min-width: 42px; }
-    .unit b { height: 40px; font-size: 16px; border-radius: 6px; }
-    .unit small { font-size: 8px; letter-spacing: .06em; }
+    .unit, .unit b { min-width: 48px; width: 48px; }
+    .unit b { height: 48px; font-size: 18px; border-radius: 10px; }
+    .unit small { font-size: 10px; letter-spacing: .04em; }
     .colon { font-size: 14px; }
     .now { font-size: 28px; }
-    .showcase { grid-template-columns: 1fr; height: auto; }
+    .wrap { padding: 48px 16px; }
+    .wrap h2 { font-size: 30px; }
+    .offer-grid, .trust-grid { grid-template-columns: 1fr; }
+    .home-announcement__track { animation: none; }
+    .home-announcement__group[aria-hidden="true"] { display: none; }
+    .home-announcement__group { width: 100%; justify-content: center; }
+    .home-announcement__group a { display: none; }
+    .home-announcement__group a.is-on { display: block; }
+    .home-announcement__group a+a:before { display: none; }
+    .dock.is-on { display: flex; }
+    body { padding-bottom: 72px; }
+    .showcase { grid-template-columns: 1fr; height: auto; min-height: 0; gap: 16px; }
     .seller__item { flex-basis: 100%; }
     .seller .card { height: auto; overflow: visible; }
     .seller .media--carousel { height: 220px; flex-basis: 220px; }
     .showcase .carousel { position: relative; inset: auto; }
-    .showcase .carousel, .showcase .carousel__slide, .showcase .carousel__slide img, .showcase .carousel__empty { height: 320px; }
-    .showcase__body h3 { font-size: 24px; }
-    .showcase__actions { flex-direction: column; }
+    .showcase .carousel, .showcase .carousel__slide, .showcase .carousel__slide img, .showcase .carousel__empty { height: 260px; min-height: 240px; }
+    .showcase__body, .showcase--lead .showcase__body { padding: 16px; }
+    .showcase__body h3, .showcase--lead h3 { font-size: 24px; }
+    .showcase__actions, .offer__actions { flex-direction: column; gap: 10px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .offer, .btn--shop, .home-announcement__track { transition: none; animation: none; }
+    .offer:hover { transform: none; }
   }
 </style>
 </head>
@@ -452,8 +530,8 @@
 <div class="home-shell">
   <div class="home-announcement" aria-label="OneLaser offers and service updates">
     <div class="home-announcement__viewport"><div class="home-announcement__track">
-      <div class="home-announcement__group"><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer">Subscribe &amp; Get $50 OFF Your First Purchase!</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">$0 Down Financing for Small Businesses</a><a href="https://www.1laser.com/pages/refund-policy" target="_blank" rel="noreferrer">30-Day Easy Returns</a></div>
-      <div class="home-announcement__group" aria-hidden="true"><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer" tabindex="-1">Subscribe &amp; Get $50 OFF Your First Purchase!</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer" tabindex="-1">$0 Down Financing for Small Businesses</a><a href="https://www.1laser.com/pages/refund-policy" target="_blank" rel="noreferrer" tabindex="-1">30-Day Easy Returns</a></div>
+      <div class="home-announcement__group"><a class="is-on" href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">Financing available at checkout with Affirm</a><a href="https://www.1laser.com/policies/refund-policy" target="_blank" rel="noreferrer">30-Day Easy Returns — See policy</a><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer">Subscribe &amp; Get $50 OFF — see rewards terms</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">$0 Down financing — see eligibility</a></div>
+      <div class="home-announcement__group" aria-hidden="true"><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer" tabindex="-1">Financing available at checkout with Affirm</a><a href="https://www.1laser.com/policies/refund-policy" target="_blank" rel="noreferrer" tabindex="-1">30-Day Easy Returns — See policy</a><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer" tabindex="-1">Subscribe &amp; Get $50 OFF — see rewards terms</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer" tabindex="-1">$0 Down financing — see eligibility</a></div>
     </div></div>
     <button class="home-announcement__close" type="button" aria-label="Close announcements"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></button>
   </div>
@@ -508,9 +586,9 @@ const PAGE = {
   refundPolicy: "https://www.1laser.com/policies/refund-policy",
   consult: "https://www.1laser.com/products/sales-consultation-call",
   hero: {
-    title: "Black Friday Sale",
+    title: "SAVE UP TO $1,400",
     saveUpTo: "$1,400",
-    subtitle: "Enjoy the Biggest Savings of the Year",
+    subtitle: "Upgrade your shop with limited-time savings, US support, and financing at checkout.",
     promises: [
       "US support",
       "Financing at checkout",
@@ -518,10 +596,10 @@ const PAGE = {
       "Clearance won't restock"
     ]
   },
-  countdownTitle: "Black Friday sale",
-  countdownNote: "Weekly Deal Ends In",
-  superTitle: "The largest cuts",
-  superIntro: "Each machine is its own offer. The machine is the first photo. Use the arrows to see finished work. The price, savings, and Affirm monthly payment follow the option you select.",
+  countdownTitle: "Black Friday Sale Ends In",
+  countdownNote: "Ends Nov 30, 2026 at 11:59 PM PST",
+  superTitle: "Our biggest machine savings",
+  superIntro: "Limited-time savings on select machines. Financing available at checkout.",
   superDeals: [
     {
       layout: "lead",
@@ -537,8 +615,8 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-01-desktop-laser-hero.webp?v=1788945533"
       ],
       variants: [
-        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28 },
-        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12 }
+        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28 , policy: "CONTINUE"},
+        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12 , policy: "CONTINUE"}
       ]
     },
     {
@@ -555,7 +633,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
       ],
       variants: [
-        { id: "44667131822114", label: "70W RF", price: 10999, msrp: 11999, inventory: 14 }
+        { id: "44667131822114", label: "70W RF", price: 10999, msrp: 11999, inventory: 14 , policy: "CONTINUE"}
       ]
     },
     {
@@ -571,7 +649,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--6_d5ed48ac-3f5b-4b72-823b-b046461a4e9a.png?v=1776754394"
       ],
       variants: [
-        { id: "44779582849058", label: "90W Glass", price: 5999, msrp: 6999, inventory: 2 }
+        { id: "44779582849058", label: "90W Glass", price: 5999, msrp: 6999, inventory: 2 , policy: "CONTINUE"}
       ]
     },
     {
@@ -587,7 +665,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_OneTouch.png?v=1784027117"
       ],
       variants: [
-        { id: "43551549587490", label: "150W Glass Tube & 38W RF Metal Tube", price: 12599, msrp: 13999, inventory: 1 }
+        { id: "43551549587490", label: "150W Glass Tube & 38W RF Metal Tube", price: 12599, msrp: 13999, inventory: 1 , policy: "DENY"}
       ]
     },
     {
@@ -602,13 +680,14 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_RF_tube.png?v=1784027116"
       ],
       variants: [
-        { id: "43519835439138", label: "80W Glass Tube", price: 6299, msrp: 6999, inventory: 1 }
+        { id: "43519835439138", label: "80W Glass Tube", price: 6299, msrp: 6999, inventory: 1 , policy: "DENY"}
       ]
     },
     {
       tag: "Super Deal",
       name: "XT 55W Glass",
-      summary: "A compact 55W glass desktop for wood, acrylic, leather, and coated surfaces. It is not on the US store yet, so this Black Friday price is confirmed with sales.",
+      mode: "check",
+      summary: "US store availability may vary. Contact us for purchase options.",
       image: "",
       href: "mailto:cs@1laser.com?subject=XT%2055W%20US%20availability",
       points: ["55W glass tube", "Desktop footprint", "Non-metal materials"],
@@ -618,8 +697,8 @@ const PAGE = {
       ]
     }
   ],
-  dealTitle: "Black Friday prices",
-  dealIntro: "Current Cobra, VertiGo, and Hydra models. The machine is the first photo. Price, savings, and the Affirm payment follow the option you select.",
+  dealTitle: "Compare the Deal machines",
+  dealIntro: "Current Cobra, VertiGo, and Hydra configurations at the store price. Specs below come from the product page.",
   deals: [
     {
       tag: "Deal",
@@ -634,7 +713,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--2_c7051199-0071-4e8e-8d93-eb1936b820c6.png?v=1776754394"
       ],
       variants: [
-        { id: "45095798046754", label: "100W Glass", price: 6999, msrp: 7999, inventory: 5 }
+        { id: "45095798046754", label: "100W Glass", price: 6999, msrp: 7999, inventory: 5 , policy: "CONTINUE"}
       ]
     },
     {
@@ -650,7 +729,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--1_bfbed39f-f3ac-47ac-bd98-c58f223070a7.png?v=1776754394"
       ],
       variants: [
-        { id: "45095798341666", label: "130W Glass", price: 8999, msrp: 9999, inventory: 2 }
+        { id: "45095798341666", label: "130W Glass", price: 8999, msrp: 9999, inventory: 2 , policy: "CONTINUE"}
       ]
     },
     {
@@ -666,7 +745,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/vertigo-hero-user-20261022-01.webp?v=1793345636"
       ],
       variants: [
-        { id: "44483820224546", label: "38W RF", price: 5599, msrp: 5999, inventory: -1 }
+        { id: "44483820224546", label: "38W RF", price: 5599, msrp: 5999, inventory: -1 , policy: "CONTINUE"}
       ]
     },
     {
@@ -682,7 +761,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_OneTouch.png?v=1784027117"
       ],
       variants: [
-        { id: "43784477573154", label: "100W Glass Tube & 38W RF Metal Tube", price: 8999, msrp: 9999, inventory: 11 }
+        { id: "43784477573154", label: "100W Glass Tube & 38W RF Metal Tube", price: 8999, msrp: 9999, inventory: 11 , policy: "DENY"}
       ]
     },
     {
@@ -698,8 +777,8 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958"
       ],
       variants: [
-        { id: "44745769123874", label: "Hydra 13 Pro - 70W RF", price: 13999, msrp: 14999, inventory: 1 },
-        { id: "44745769156642", label: "Hydra 13 Hybrid - 38W RF + 130W DC", price: 12999, msrp: 13999, inventory: 0 }
+        { id: "44745769123874", label: "Hydra 13 Pro - 70W RF", price: 13999, msrp: 14999, inventory: 1 , policy: "CONTINUE"},
+        { id: "44745769156642", label: "Hydra 13 Hybrid - 38W RF + 130W DC", price: 12999, msrp: 13999, inventory: 0 , policy: "CONTINUE"}
       ]
     },
     {
@@ -715,52 +794,44 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
       ],
       variants: [
-        { id: "44745771122722", label: "Hydra 16 Pro - 70W RF", price: 14999, msrp: 15999, inventory: 1 },
-        { id: "44745771155490", label: "Hydra 16 Hybrid - 38W RF + 150W DC", price: 13999, msrp: 14999, inventory: 0 }
+        { id: "44745771122722", label: "Hydra 16 Pro - 70W RF", price: 14999, msrp: 15999, inventory: 1 , policy: "CONTINUE"},
+        { id: "44745771155490", label: "Hydra 16 Hybrid - 38W RF + 150W DC", price: 13999, msrp: 14999, inventory: 0 , policy: "CONTINUE"}
       ]
     }
   ],
-  clearance: [
+  featured: [
     {
+      tag: "Featured Machine",
       name: "Hydra 09 Pro Gen2",
-      msrp: "$11,999",
-      price: "$9,999",
-      save: "Clearance",
-      shipping: "Shipping at checkout",
-      note: "Clearance on the 70W RF Gen2. The finer beam stays for detailed work, and this price leaves when the unit does.",
-      points: ["70W RF", "Up to 2,000 mm/s", "No chiller"],
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
-      gallery: [
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958"
-      ],
-      quiet: true
+      points: ["70W RF", "Up to 2,000 mm/s"],
+      variants: [{ id: "44745765617698", label: "Hydra 9 Pro - 70W RF", price: 11999, msrp: 12999, inventory: 5, policy: "CONTINUE" }]
+    },
+    {
+      tag: "Featured Machine",
+      name: "Hydra 09 Hybrid Gen2",
+      image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672",
+      href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+      points: ["100W CO₂ + 38W RF", "Up to 2,000 mm/s"],
+      variants: [{ id: "44745765650466", label: "Hydra 9 Hybrid - 38W RF + 100W DC", price: 10999, msrp: 11999, inventory: 1, policy: "CONTINUE" }]
+    },
+    {
+      tag: "Featured Machine",
+      name: "Hydra 13 Hybrid Gen2",
+      image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672",
+      href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
+      points: ["130W CO₂ + 38W RF", "1,300 × 900 mm bed"],
+      variants: [{ id: "44745769156642", label: "Hydra 13 Hybrid - 38W RF + 130W DC", price: 12999, msrp: 13999, inventory: 0, policy: "CONTINUE" }]
+    },
+    {
+      tag: "Featured Machine",
+      name: "Hydra 16 Hybrid Gen2",
+      image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672",
+      href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
+      points: ["150W CO₂ + 38W RF", "1,600 × 1,000 mm bed"],
+      variants: [{ id: "44745771155490", label: "Hydra 16 Hybrid - 38W RF + 150W DC", price: 13999, msrp: 14999, inventory: 0, policy: "CONTINUE" }]
     }
-  ],
-  fullPrice: [
-    { name: "Hydra 09 Hybrid Gen2", price: "$10,999", shipping: "Shipping at checkout",
-      note: "Full price on purpose. 100W CO₂ plus 38W RF engraves and cuts on one Gen2 bed, without a Black Friday markdown.",
-      points: ["100W CO₂ + 38W RF", "Up to 2,000 mm/s", "No chiller"],
-      image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
-      gallery: [
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
-      ] },
-    { name: "Hydra 13 Hybrid Gen2", price: "$12,999", shipping: "Shipping at checkout", note: "Kept at full price. 130W CO₂ plus 38W RF covers a 1,300 × 900 mm bed for batch production.", points: ["130W CO₂ + 38W RF", "1,300 × 900 mm", "Up to 2,000 mm/s"], image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
-      gallery: [
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
-      ] },
-    { name: "Hydra 16 Hybrid Gen2", price: "$13,999", shipping: "Shipping at checkout", note: "The full-price flagship. 150W CO₂ plus 38W RF spans a 1,600 × 1,000 mm bed.", points: ["150W CO₂ + 38W RF", "1,600 × 1,000 mm", "Up to 2,000 mm/s"], image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
-      gallery: [
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
-        "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958"
-      ] }
   ],
   videos: [
     { title: "Bench setup", machine: "XRF", url: "" },
@@ -771,10 +842,13 @@ const PAGE = {
     { title: "Shop walkthrough", machine: "Shop", url: "" }
   ],
   faq: [
-    { q: "Shipping", a: "US stock ships faster. Some units ship after they arrive. Clearance models are gone when gone and will not be restocked. Ask support for an arrival date before you promise a job around it." },
-    { q: "Returns and exchanges", a: "Returns and exchanges follow the store policy. A clearance listing can add its own terms when the product page says so.", href: "https://www.1laser.com/policies/refund-policy", hrefLabel: "Read the return policy" },
-    { q: "Warranty", a: "Warranty follows the machine you buy. Support can confirm the term for a specific model before you order." },
-    { q: "Contact sales or support", a: "Email cs@1laser.com, book a sales consultation, or use the store chat.", href: "https://www.1laser.com/products/sales-consultation-call", hrefLabel: "Book a free sales consultation" }
+    { q: "When does this offer end?", a: "The Black Friday prices on this page end November 30, 2026 at 11:59 PM PST. A configuration can sell out before then." },
+    { q: "How does Affirm work?", a: "Affirm payment options are shown for qualifying purchases and confirmed at checkout. Approval depends on eligibility. This page does not promise a monthly payment or that every buyer qualifies.", href: "https://www.1laser.com/pages/financing", hrefLabel: "Explore financing" },
+    { q: "Which machines include free shipping?", a: "Free shipping on this event applies to eligible XRF and VertiGo orders only. Other machines follow OneLaser fixed-rate shipping to the lower 48. Alaska and Hawaii are quoted separately. See the shipping policy for rates, timing, and limits.", href: "https://www.1laser.com/policies/shipping-policy", hrefLabel: "Read the shipping policy" },
+    { q: "What does 30-Day Easy Returns cover?", a: "Damage or defects that affect performance must be documented and reported within 30 days of delivery. Returns that are not for damage or defects can include a restocking fee. Original shipping and return shipping are not refunded. Read the policy before you order.", href: "https://www.1laser.com/policies/refund-policy", hrefLabel: "Read the return policy" },
+    { q: "What warranty applies?", a: "Warranty follows the machine you buy and the published OneLaser policy. This page does not add a warranty term. Ask support to confirm the term for a specific model before you order." },
+    { q: "How do I choose a machine?", a: "Compare the specs on each card, then open the product page. For help choosing, email cs@1laser.com.", href: "mailto:cs@1laser.com", hrefLabel: "Email cs@1laser.com" },
+    { q: "Can I buy the XT 55W here?", a: "US store availability may vary. Use Check Availability on that card. It is not an Add to Cart purchase on this page." }
   ]
 };
 
@@ -796,7 +870,7 @@ const photoSlides = (item) => {
     ...(item.image ? [{ src: item.image, kind: "machine" }] : []),
     ...(item.gallery || []).filter(Boolean).map((src) => ({ src, kind: /\.(webp|jpe?g)(\?|$)/i.test(src) ? "work" : "machine" }))
   ];
-  if (!photos.length) return `<div class="carousel__empty">Photos coming soon.</div>`;
+  if (!photos.length) return `<div class="carousel__empty">Product photos are being updated</div>`;
   const slides = photos.map((photo, index) => `<div class="carousel__slide${photo.kind === "work" ? " carousel__slide--work" : ""}${index === 0 ? " is-on" : ""}"><img src="${esc(imgSrc(photo.src, 1400))}" alt="${esc(item.name)}"></div>`).join("");
   const controls = photos.length > 1
     ? `<button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous photo">‹</button><button class="carousel__nav carousel__nav--next" type="button" aria-label="Next photo">›</button><div class="carousel__dots">${photos.map((_, index) => `<button type="button" class="${index === 0 ? "is-on" : ""}" aria-label="Photo ${index + 1}"></button>`).join("")}</div>`
@@ -860,58 +934,94 @@ const flakes = Array.from({ length: 16 }, (_, index) => {
 }).join("");
 const clockUnits = [["Days", "DAYS"], ["Hours", "HRS"], ["Minutes", "MIN"], ["Seconds", "SEC"]];
 const usd = (value) => Number(value).toLocaleString("en-US", { style: "currency", currency: "USD" });
+const buyable = (variant) => Boolean(variant && variant.id) && (variant.policy === "CONTINUE" || Number(variant.inventory) > 0);
+const scarceLabel = (variant) => {
+  const qty = Number(variant && variant.inventory);
+  if (!buyable(variant) || qty < 1 || qty > 2) return "";
+  return qty === 1 ? "Only 1 left" : "Only 2 left";
+};
+const variantFields = (variant) => `data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}" data-policy="${esc(variant.policy || "")}"`;
+const primaryAction = (item, variant) => {
+  if (item.mode === "check") return `<a class="btn btn--line" ${attrs("https://www.1laser.com/pages/contact-us")}>Check Availability</a>`;
+  if (!variant.id) return `<a class="btn btn--line" ${attrs(item.href)}>Ask Sales</a>`;
+  if (!buyable(variant)) return `<button type="button" class="btn btn--sold" data-cart disabled>Sold out</button>`;
+  return `<a class="btn btn--cart" data-cart ${attrs("https://www.1laser.com/cart/" + variant.id + ":1")}>Add to Cart</a>`;
+};
+const secondaryAction = (item) => item.mode === "check"
+  ? `<a class="btn btn--line" href="mailto:cs@1laser.com">cs@1laser.com</a>`
+  : `<a class="btn btn--line" ${attrs(item.href)}>${item.mode === "grid" ? "View Specs" : "Learn More"}</a>`;
+const priceBits = (variant) => {
+  const save = variant.msrp > variant.price ? variant.msrp - variant.price : 0;
+  const scarce = scarceLabel(variant);
+  return `<div class="price-block">
+      <p class="final-label">Final Price</p>
+      <div class="price-row">
+        <p class="now" data-price-now>${usd(variant.price)}</p>
+        <p class="showcase__msrp offer__msrp" data-msrp-now ${save ? "" : "hidden"}>MSRP <s>${save ? usd(variant.msrp) : ""}</s></p>
+      </div>
+      <p class="scarce-row"><span class="save" data-save-now ${save ? "" : "hidden"}>${save ? "Save " + usd(save) : ""}</span></p>
+      <p class="scarce-row">${scarce ? `<span class="scarce" data-left>${esc(scarce)}</span>` : `<span class="scarce" data-left hidden></span>`}</p>
+    </div>
+    ${variant.id ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(variant.price * 100)}">Monthly payment with Affirm</p>` : ""}`;
+};
+const picks = (variants) => variants.length < 2 ? "" : `<div class="variant-picks" role="group" aria-label="Configuration">${variants.map((variant, index) => `<button type="button" class="pick${index === 0 ? " is-on" : ""}" data-pick ${variantFields(variant)}>${esc(variant.label)}</button>`).join("")}</div>`;
 const showcase = (item, index) => {
-  const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Default", price: 0, msrp: 0 }];
+  const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "Confirm availability", price: 0, msrp: 0 }];
   const current = variants[0];
-  const save = current.msrp > current.price ? current.msrp - current.price : 0;
-  const variantControl = variants.length > 1
-    ? `<label class="variant-label">Option<select class="variant-select" data-variant-select>${variants.map((variant) => `<option value="${esc(variant.id)}" data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}">${esc(variant.label)}</option>`).join("")}</select></label>`
-    : `<div class="variant-single">${esc(variants[0].label)}</div>`;
-  const cart = !current.id
-    ? `<a class="btn btn--cart" ${attrs(item.href)}>Ask sales</a>`
-    : Number(current.inventory) <= 0
-      ? `<button type="button" class="btn btn--sold" data-cart disabled>Sold</button>`
-      : `<a class="btn btn--cart" data-cart ${attrs("https://www.1laser.com/cart/" + current.id + ":1")}>Add to Cart</a>`;
-  const affirm = current.id
-    ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
-    : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
-  return `<article class="showcase${index % 2 ? " showcase--flip" : ""}">
+  return `<article class="showcase${index === 0 ? " showcase--lead" : ""}${index % 2 ? " showcase--flip" : ""}">
     <div class="showcase__media"><div class="carousel" data-carousel>${photoSlides(item)}</div></div>
     <div class="showcase__body">
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
       <h3>${esc(item.name)}</h3>
       ${item.summary ? `<p class="blurb">${esc(item.summary)}</p>` : ""}
-      <ul class="points">${(item.points || []).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
-      ${variantControl}
-      <p class="final-label">Final Price</p>
-      <div class="price-row">
-        <p class="now" data-price-now>${usd(current.price)}</p>
-        <p class="showcase__msrp" data-msrp-now ${save ? "" : "hidden"}>MSRP <s>${save ? usd(current.msrp) : ""}</s></p>
-      </div>
-      <p><span class="save" data-save-now ${save ? "" : "hidden"}>${save ? "Save " + usd(save) : ""}</span></p>
-      ${affirm}
+      <ul class="points">${(item.points || []).slice(0, 3).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+      ${item.mode === "check" ? "" : picks(variants)}
+      ${item.mode === "check" ? "" : priceBits(current)}
       <div class="showcase__actions">
-        ${cart}
-        <a class="btn btn--line" ${attrs(item.href)}>Learn More</a>
+        ${primaryAction(item, current)}
+        ${secondaryAction(item)}
+      </div>
+    </div>
+  </article>`;
+};
+const offerCard = (item) => {
+  const variants = item.variants && item.variants.length ? item.variants : [{ id: "", label: "", price: 0, msrp: 0 }];
+  const current = variants[0];
+  const photo = item.image
+    ? `<img src="${esc(imgSrc(item.image, 900))}" alt="${esc(item.name)}">`
+    : `<p class="offer__pending">Product photos are being updated</p>`;
+  return `<article class="offer">
+    <div class="offer__media">${photo}</div>
+    <div class="offer__body">
+      <p class="offer__tag${item.tag === "Featured Machine" ? " offer__tag--featured" : ""}">${esc(item.tag || "Deal")}</p>
+      <h3>${esc(item.name)}</h3>
+      <ul class="points">${(item.points || []).slice(0, 2).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+      ${picks(variants)}
+      ${priceBits(current)}
+      <div class="offer__actions">
+        ${primaryAction({ ...item, mode: "grid" }, current)}
+        ${secondaryAction({ ...item, mode: "grid" })}
       </div>
     </div>
   </article>`;
 };
 
+const realVideos = PAGE.videos.filter((video) => video.url);
 document.getElementById("content").innerHTML = `
   <section class="hero-band">
     <div class="hero">
       <div>
+        <p class="hero__eyebrow">Black Friday</p>
         <h1>${esc(PAGE.hero.title)}</h1>
-        <p class="save-line">
-          <span class="save-word">SAVE</span>
-          <span class="save-upto">UP<br>TO</span>
-          <a class="save-pill" href="#super-deal">${esc(PAGE.hero.saveUpTo)}</a>
-        </p>
         <p class="lead">${esc(PAGE.hero.subtitle)}</p>
+        <div class="hero__actions">
+          <a class="btn--shop" href="#super-deal">Shop Black Friday Deals</a>
+          <a class="hero__compare" href="#deal">Compare machines</a>
+        </div>
         <ul class="promises">
           ${PAGE.hero.promises.map((label, index) => `<li>${promiseIcons[index] || ""}${esc(label)}</li>`).join("")}
         </ul>
+        <p class="hero__note">Offers end Nov 30, 2026 at 11:59 PM PST. Exclusions may apply.</p>
       </div>
       <div class="stage">
         <p class="mega" aria-hidden="true"><span>BLACK</span><span>FRIDAY</span></p>
@@ -924,7 +1034,7 @@ document.getElementById("content").innerHTML = `
     </div>
   </section>
   <section class="count" aria-label="Countdown">
-    <div class="count__group">
+    <div class="count__group" id="count-live">
       <div class="count__copy">
         <strong>${esc(PAGE.countdownTitle)}</strong>
         <span>${esc(PAGE.countdownNote)}</span>
@@ -934,6 +1044,7 @@ document.getElementById("content").innerHTML = `
         ${clockUnits.map(([key, label], index) => `${index ? '<span class="colon" aria-hidden="true">:</span>' : ""}<div class="unit"><b data-unit="${key}">00</b><small>${label}</small></div>`).join("")}
       </div>
     </div>
+    <p class="count__ended" id="count-ended" hidden>This Black Friday sale has ended.</p>
   </section>
   <section class="wrap" id="super-deal">
     <div class="module-copy">
@@ -942,65 +1053,70 @@ document.getElementById("content").innerHTML = `
     </div>
     ${PAGE.superDeals.map((item, index) => showcase(item, index)).join("")}
   </section>
-  <section class="wrap" id="deal" style="padding-top:0">
+  <section class="wrap" id="deal">
     <div class="module-copy">
-      <p class="eyebrow eyebrow--blue">Deal</p>
       <h2>${esc(PAGE.dealTitle)}</h2>
       <p class="intro">${esc(PAGE.dealIntro)}</p>
     </div>
-    ${PAGE.deals.map((item, index) => showcase(item, index)).join("")}
+    <div class="offer-grid">${PAGE.deals.map((item) => offerCard(item)).join("")}</div>
   </section>
-  <section class="wrap" id="best" style="padding-top:0">
+  <section class="wrap" id="best">
     <div class="module-copy">
-      <p class="eyebrow eyebrow--slate">Best Seller</p>
-      <h2>Best sellers</h2>
-      <p class="intro">Four Best Seller machines in one row. Use the arrows to see the rest.</p>
+      <h2>Featured machines</h2>
+      <p class="intro">These configurations use the current store price. Savings appear only when the product page has a compare-at price.</p>
     </div>
-    <div class="seller" data-seller>
-      <button class="seller__btn seller__btn--prev" type="button" aria-label="Show previous best sellers">‹</button>
-      <div class="seller__viewport">
-        <div class="seller__track">
-          ${[...PAGE.clearance, ...PAGE.fullPrice].map((item) => `<div class="seller__item">${card(item, "best")}</div>`).join("")}
-        </div>
+    <div class="offer-grid">${PAGE.featured.map((item) => offerCard(item)).join("")}</div>
+  </section>
+  ${realVideos.length ? `<section class="wrap" id="videos"><div class="module-copy"><h2>See OneLaser in real workshops</h2><p class="intro">Watch real setups, projects, and machine walkthroughs before you choose.</p></div><div class="videos">${realVideos.map((video) => `<a class="vcard" ${attrs(video.url)}><span class="play">▶</span><strong>${esc(video.title)}</strong><span>${esc(video.machine)}</span></a>`).join("")}</div></section>` : ""}
+  <section class="trustband" id="shipping">
+    <div class="wrap">
+      <div class="module-copy">
+        <h2>Financing, shipping, and support</h2>
       </div>
-      <button class="seller__btn seller__btn--next" type="button" aria-label="Show more best sellers">›</button>
+      <div class="trust-grid">
+        <article class="trust-card">
+          <h3>Flexible payment options at checkout</h3>
+          <p>See available Affirm payment options on qualifying purchases.</p>
+          <p class="fine">Subject to eligibility.</p>
+          <a class="btn btn--cart" ${attrs("https://www.1laser.com/pages/financing")}>Explore Financing</a>
+        </article>
+        <article class="trust-card">
+          <h3>Free Shipping on XRF &amp; VertiGo</h3>
+          <p>Free shipping on this event is limited to eligible XRF and VertiGo orders. Other machines follow the store shipping policy.</p>
+          <a class="btn btn--line" ${attrs(PAGE.shippingPolicy)}>Shipping policy</a>
+        </article>
+        <article class="trust-card">
+          <h3>US-Based Support</h3>
+          <p>Questions about a configuration go to the US support team.</p>
+          <a class="btn btn--line" href="mailto:${esc(PAGE.email)}">${esc(PAGE.email)}</a>
+        </article>
+        <article class="trust-card">
+          <h3>30-Day Easy Returns</h3>
+          <p>The 30-day window and any fees are defined in the return policy, not on this page.</p>
+          <a class="btn btn--line" ${attrs(PAGE.refundPolicy)}>See policy</a>
+        </article>
+      </div>
     </div>
   </section>
-  <section class="wrap" id="videos" style="padding-top:0">
-    <p class="eyebrow eyebrow--orange">Videos</p>
-    <h2>Makers. Shops. Real results.</h2>
-    <p class="intro">Shops and makers, on the machines they run. These six stories are on the way.</p>
-    <div class="videos">${PAGE.videos.map((video) => {
-      const inner = `<span class="play">▶</span><strong>${esc(video.title)}</strong><span>${esc(video.machine)}${video.url ? "" : " · Video coming soon"}</span>`;
-      return video.url ? `<a class="vcard" ${attrs(video.url)}>${inner}</a>` : `<article class="vcard">${inner}</article>`;
-    }).join("")}</div>
-  </section>
-  <section class="wrap" id="shipping" style="padding-top:0">
-    <p class="eyebrow eyebrow--blue">Pay over time</p>
-    <h2>Financing and shipping</h2>
-    <div class="info-grid">
-      <article class="info">
-        <h3>Affirm and Shop Pay Installments</h3>
-        <p>Monthly options are calculated at checkout. This page does not quote a monthly payment.</p>
-      </article>
-      <article class="info">
-        <h3>Free shipping, or a starting rate</h3>
-        <p>XRF and VertiGo include free shipping. XT is marked free shipping on this plan and is not on the US store yet. Every other machine shows its starting shipping amount on the card.</p>
-        <a ${attrs(PAGE.shippingPolicy)}>Shipping policy</a>
-      </article>
-      <article class="info">
-        <h3>Talk to a person</h3>
-        <p><a href="mailto:${esc(PAGE.email)}">${esc(PAGE.email)}</a></p>
-        <a ${attrs(PAGE.consult)}>Book a free sales consultation</a>
-      </article>
+  <section class="wrap" id="faq">
+    <div class="module-copy">
+      <h2>Before you order</h2>
     </div>
-    <div class="trust"><span>US support</span><span>Warranty</span><span>Financing available</span></div>
+    <div class="faq">
+      ${PAGE.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p>${item.href ? `<p><a ${attrs(item.href)}>${esc(item.hrefLabel || "Learn more")}</a></p>` : ""}</details>`).join("")}
+      <div class="contact-card">
+        <strong>Need help choosing?</strong>
+        <p>Email <a href="mailto:${esc(PAGE.email)}">${esc(PAGE.email)}</a> or <a ${attrs(PAGE.consult)}>book a sales consultation</a>.</p>
+      </div>
+    </div>
   </section>
-  <section class="wrap" id="faq" style="padding-top:0">
-    <p class="eyebrow eyebrow--slate">FAQ</p>
-    <h2>Before you order</h2>
-    ${PAGE.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p>${item.href ? `<p><a ${attrs(item.href)}>${esc(item.hrefLabel || "Learn more")}</a></p>` : ""}</details>`).join("")}
-  </section>`;
+  <div class="dock">
+    <div>
+      <strong>Black Friday — Save up to $1,400</strong>
+      <span>Ends Nov 30 at 11:59 PM PST</span>
+    </div>
+    <a href="#super-deal">Shop Deals</a>
+  </div>`;
 
 document.getElementById("foot").innerHTML = `OneLaser · <a href="mailto:${esc(PAGE.email)}">${esc(PAGE.email)}</a> · Prices in USD. The event price on this page is the Black Friday plan. Checkout confirms price, shipping, tax, and financing.`;
 
@@ -1029,10 +1145,8 @@ const pad = (value) => String(value).padStart(2, "0");
 const tick = () => {
   const left = endDate.getTime() - Date.now();
   if (left <= 0) {
-    units.Days.textContent = "00";
-    units.Hours.textContent = "00";
-    units.Minutes.textContent = "00";
-    units.Seconds.textContent = "00";
+    document.getElementById("count-live").hidden = true;
+    document.getElementById("count-ended").hidden = false;
     return;
   }
   units.Days.textContent = pad(Math.floor(left / 86400000));
@@ -1135,32 +1249,59 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   restart();
 });
 
-document.addEventListener("change", (event) => {
-  const select = event.target.closest("[data-variant-select]");
-  if (!select) return;
-  const chosen = select.selectedOptions[0];
-  const box = select.closest(".showcase");
-  const price = Number(chosen.dataset.price);
-  const msrp = Number(chosen.dataset.msrp);
-  const save = msrp > price ? msrp - price : 0;
-  box.querySelector("[data-price-now]").textContent = usd(price);
+const applyChoice = (box, chosen) => {
+  const variant = { id: chosen.dataset.id, price: Number(chosen.dataset.price), msrp: Number(chosen.dataset.msrp), inventory: chosen.dataset.inventory, policy: chosen.dataset.policy };
+  const save = variant.msrp > variant.price ? variant.msrp - variant.price : 0;
+  box.querySelector("[data-price-now]").textContent = usd(variant.price);
   const msrpNode = box.querySelector("[data-msrp-now]");
   msrpNode.hidden = !save;
-  msrpNode.querySelector("s").textContent = save ? usd(msrp) : "";
+  msrpNode.querySelector("s").textContent = save ? usd(variant.msrp) : "";
   const saveNode = box.querySelector("[data-save-now]");
   saveNode.hidden = !save;
   saveNode.textContent = save ? "Save " + usd(save) : "";
+  const left = box.querySelector("[data-left]");
+  const label = scarceLabel(variant);
+  left.hidden = !label;
+  left.textContent = label;
   const promo = box.querySelector(".affirm-as-low-as");
-  if (promo && chosen.dataset.id) promo.setAttribute("data-amount", String(Math.round(price * 100)));
+  if (promo && variant.id) promo.setAttribute("data-amount", String(Math.round(variant.price * 100)));
   const cart = box.querySelector("[data-cart]");
-  if (cart && chosen.dataset.id) {
-    const soldOut = Number(chosen.dataset.inventory) <= 0;
-    cart.outerHTML = soldOut
-      ? `<button type="button" class="btn btn--sold" data-cart disabled>Sold</button>`
-      : `<a class="btn btn--cart" data-cart href="https://www.1laser.com/cart/${chosen.dataset.id}:1">Add to Cart</a>`;
+  if (cart && variant.id) {
+    cart.outerHTML = buyable(variant)
+      ? `<a class="btn btn--cart" data-cart href="https://www.1laser.com/cart/${variant.id}:1">Add to Cart</a>`
+      : `<button type="button" class="btn btn--sold" data-cart disabled>Sold out</button>`;
   }
   if (window.affirm && window.affirm.ui && window.affirm.ui.refresh) window.affirm.ui.refresh();
+};
+document.addEventListener("click", (event) => {
+  const pick = event.target.closest("[data-pick]");
+  if (!pick) return;
+  const box = pick.closest(".showcase, .offer");
+  box.querySelectorAll("[data-pick]").forEach((item) => item.classList.toggle("is-on", item === pick));
+  applyChoice(box, pick);
 });
+document.querySelectorAll(".faq details").forEach((item) => {
+  const summary = item.querySelector("summary");
+  const sync = () => summary.setAttribute("aria-expanded", String(item.open));
+  sync();
+  item.addEventListener("toggle", sync);
+});
+const dock = document.querySelector(".dock");
+const syncDock = () => {
+  const hero = document.querySelector(".hero");
+  const show = window.matchMedia("(max-width: 680px)").matches && window.scrollY > hero.offsetHeight - 40;
+  dock.classList.toggle("is-on", show);
+};
+syncDock();
+window.addEventListener("scroll", syncDock, { passive: true });
+window.addEventListener("resize", syncDock);
+const announceLinks = [...document.querySelectorAll(".home-announcement__group:not([aria-hidden='true']) a")];
+let announceIndex = 0;
+setInterval(() => {
+  if (!window.matchMedia("(max-width: 680px)").matches || !announceLinks.length) return;
+  announceIndex = (announceIndex + 1) % announceLinks.length;
+  announceLinks.forEach((link, index) => link.classList.toggle("is-on", index === announceIndex));
+}, 4000);
 
 const affirmConfig = {
   public_api_key: "WGHILMSJ48X242XS",
