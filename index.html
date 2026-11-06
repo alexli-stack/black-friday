@@ -31,7 +31,7 @@
     margin: 0;
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--ink);
-    background: var(--paper);
+    background: #000;
     line-height: 1.5;
   }
   img { max-width: 100%; display: block; }
@@ -41,86 +41,86 @@
     position: absolute; left: 12px; top: -40px; background: #fff; padding: 8px 12px; z-index: 20;
   }
   .skip:focus { top: 12px; }
-  .store-head {
-    position: sticky; top: 0; z-index: 30;
-    background: #fff; color: #222;
-    font-family: Archivo, "Segoe UI", sans-serif;
-  }
-  .announce {
-    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-    min-height: 40px; padding: 0 18px; background: #e7310e; color: #fff; font-size: 13px; font-weight: 600;
-  }
-  .announce__center { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
-  .announce__msg { color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
-  .announce__msg svg { width: 14px; height: 10px; }
-  .announce__arrow {
-    width: 22px; height: 22px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer;
-  }
-  .announce__side { display: flex; align-items: center; justify-content: flex-end; gap: 16px; font-size: 12px; font-weight: 600; }
-  .announce__side a { color: #fff; text-decoration: none; }
-  .announce__social { display: flex; align-items: center; gap: 12px; }
-  .announce__social a { display: grid; place-items: center; width: 16px; height: 16px; }
-  .announce__social svg { width: 15px; height: 15px; fill: currentColor; }
-  .store-nav {
-    display: flex; align-items: center; gap: 8px; height: 68px; padding: 0 22px;
-    background: #fff; border-bottom: 1px solid #eee;
-  }
-  .store-burger {
-    display: none; width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; color: #222;
-  }
-  .store-logo { display: flex; align-items: center; flex: none; }
-  .store-logo img { height: 22px; width: auto; }
-  .store-menu { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0 0 0 18px; padding: 0; flex: 1; }
-  .store-menu > li > a, .store-drop > a {
-    display: inline-flex; align-items: center; gap: 4px;
-    padding: 10px 12px; color: #222; text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap;
-  }
-  .store-menu svg.caret { width: 12px; height: 12px; }
-  .store-drop { position: relative; }
-  .store-drop--mega { position: static; }
-  .store-icons { margin-left: auto; display: flex; align-items: center; }
-  .store-icons a { width: 40px; height: 40px; display: grid; place-items: center; color: #222; text-decoration: none; }
-  .store-icons svg { width: 22px; height: 22px; fill: currentColor; }
-  .catalog {
-    display: none; position: absolute; left: 0; right: 0; top: 100%;
-    grid-template-columns: 220px minmax(0, 1fr); gap: 18px;
-    background: #f0f2f5; padding: 18px 28px 24px;
-    box-shadow: 0 18px 30px rgba(0,0,0,.08);
-  }
-  .store-drop--mega:hover .catalog, .store-drop--mega:focus-within .catalog { display: grid; }
-  .catalog__tabs { display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #e1e4ea; padding-right: 12px; }
-  .catalog__tab {
-    display: flex; align-items: center; justify-content: space-between; width: 100%;
-    border: 0; background: transparent; border-radius: 12px; padding: 12px 14px;
-    font: inherit; font-weight: 650; text-align: left; cursor: pointer; color: #222;
-  }
-  .catalog__tab.is-on { background: #fff; }
-  .catalog__panel { display: none; }
-  .catalog__panel.is-on { display: block; }
-  .catalog__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .catalog__card {
-    display: flex; align-items: center; gap: 12px; min-height: 92px;
-    background: #fff; border-radius: 16px; padding: 10px 16px; text-decoration: none; color: #222;
-  }
-  .catalog__card img { width: 112px; height: 68px; object-fit: contain; flex: none; }
-  .catalog__card strong { display: block; font-size: 16px; color: #222; }
-  .catalog__card span { display: block; margin-top: 2px; color: #5c6578; font-size: 13px; font-weight: 500; line-height: 1.35; }
-  .menu-panel {
-    display: none; position: absolute; top: calc(100% - 6px); left: 8px; min-width: 230px;
-    background: #fff; border-radius: 12px; padding: 8px; box-shadow: 0 12px 32px rgba(11,16,38,.14); z-index: 2;
-  }
-  .store-drop:hover .menu-panel, .store-drop:focus-within .menu-panel { display: block; }
-  .menu-panel a { display: block; padding: 9px 12px; border-radius: 8px; color: #222; text-decoration: none; font-size: 14px; font-weight: 600; }
-  .menu-panel a:hover { background: #f4f6fa; }
-  .store-drawer { display: none; background: #fff; border-top: 1px solid #eee; max-height: calc(100vh - 108px); overflow: auto; padding: 8px 16px 20px; }
-  .store-head.is-open .store-drawer { display: block; }
-  .store-drawer details { margin: 0; }
-  .store-drawer summary { list-style: none; }
-  .store-drawer summary::-webkit-details-marker { display: none; }
-  .store-drawer a, .store-drawer summary { color: #222; text-decoration: none; font-weight: 650; }
-  .store-drawer > a, .store-drawer details > summary { display: block; padding: 12px 4px; border-bottom: 1px solid #f0f2f5; cursor: pointer; }
-  .store-drawer details ul { list-style: none; margin: 0; padding: 0 0 8px 12px; }
-  .store-drawer details a { display: block; padding: 8px 4px; font-weight: 550; font-size: 14px; }
+
+@font-face{font-family:Certia;src:url(https://yonge6.github.io/onelaser-homepage-v3/fonts/Certia-Regular.otf) format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Certia;src:url(https://yonge6.github.io/onelaser-homepage-v3/fonts/Certia-SemiBold.otf) format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Certia;src:url(https://yonge6.github.io/onelaser-homepage-v3/fonts/Certia-Bold.otf) format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:Certia;src:url(https://yonge6.github.io/onelaser-homepage-v3/fonts/Certia-ExtraBold.otf) format("opentype");font-weight:800;font-style:normal;font-display:swap}
+.home-shell{color:#090909;font-family:Certia,Arial,sans-serif}
+.home-shell a{color:inherit;text-decoration:none}
+.home-shell button{font:inherit;color:inherit}
+.home-shell img{display:block;max-width:100%}
+.home-mega[hidden],.home-mega-backdrop[hidden],.home-mobile-nav[hidden],.home-mega__products[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.generation-comparison .sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.home-announcement{position:relative;min-height:34px;display:grid;place-items:center;overflow:hidden;padding:0 44px;background:#f5f5f7;border-bottom:1px solid #e3e3e6;color:#4a4a4f;font-size:12px;line-height:1.35}
+.home-announcement__viewport{width:min(880px,calc(100vw - 120px));overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.home-announcement__track{width:max-content;display:flex;animation:home-announcement-marquee 26s linear infinite}
+.home-announcement__group{flex:none;display:flex;align-items:center;padding-right:30px}
+.home-announcement__group a{position:relative;padding:8px 18px;white-space:nowrap;transition:color .16s ease}
+.home-announcement__group a+a:before{content:"";position:absolute;left:0;top:50%;width:1px;height:12px;background:#c8c8cd;transform:translateY(-50%)}
+.home-announcement__group a:hover,.home-announcement__group a:focus-visible{color:#000}
+.home-announcement:hover .home-announcement__track,.home-announcement:focus-within .home-announcement__track{animation-play-state:paused}
+.home-announcement__close{position:absolute;z-index:2;right:max(10px,calc((100vw - 1440px)/2));top:50%;width:28px;height:28px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;color:#6b6b70;cursor:pointer;transform:translateY(-50%)}
+.home-announcement__close:hover,.home-announcement__close:focus-visible{background:#e5e5e8;color:#000}
+@keyframes home-announcement-marquee{to{transform:translate(-50%)}}
+.home-header{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr 132px;align-items:center;padding:0 max(32px,calc((100vw - 1400px)/2));background:#fffffff7;border-bottom:1px solid #ececee}
+.home-brand{width:154px}
+.home-brand img{width:100%;height:auto}
+.home-nav{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.2vw,38px)}
+.home-nav__item{display:contents}
+.home-nav a{position:relative;color:#1b1b1d;font-size:14px;font-weight:600;line-height:76px;white-space:nowrap}
+.home-nav__item>a{display:inline-flex;align-items:center;gap:4px}
+.home-nav__item>a svg{transition:transform .18s ease}
+.home-nav__item>a[aria-expanded=true] svg{transform:rotate(180deg)}
+.home-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:20px;height:2px;background:var(--home-red);transition:right .18s ease}
+.home-nav a:hover:after,.home-nav a:focus-visible:after,.home-nav a[aria-expanded=true]:after{right:0}
+.home-header__actions{justify-self:end;display:flex;align-items:center;gap:4px}
+.home-header__actions a{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#1d1d1f;transition:background .18s ease,color .18s ease}
+.home-header__actions a:hover,.home-header__actions a:focus-visible{background:#f2f2f4;color:var(--home-action)}
+.home-menu-button{display:none;border:0;background:transparent;padding:8px}
+.home-mega-backdrop{position:fixed;z-index:50;top:0;right:0;bottom:0;left:0;border:0;background:#10101247;-webkit-backdrop-filter:blur(11px);backdrop-filter:blur(11px);cursor:default;animation:home-mega-backdrop-reveal .18s ease both}
+.home-mega-backdrop.has-announcement{top:0}
+.home-mega{position:absolute;left:0;right:0;top:100%;z-index:70;border-top:1px solid #ececee;border-bottom:1px solid #dedee3;background:#fffffffc;box-shadow:0 24px 54px #0000001a;animation:home-mega-reveal .18s ease both}
+.home-mega__inner{max-width:1340px;min-height:320px;display:grid;grid-template-columns:224px minmax(0,1fr);gap:34px;margin:0 auto;padding:32px 32px 34px}
+.home-mega--machines .home-mega__inner{height:376px;min-height:0}
+.home-mega__series{display:flex;flex-direction:column;gap:5px;padding-right:30px;border-right:1px solid #e2e2e7}
+.home-mega__series button{min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border:0;border-radius:13px;background:transparent;color:#55555a;font-size:15px;font-weight:600;text-align:left;cursor:pointer}
+.home-mega__series button:hover,.home-mega__series button:focus-visible,.home-mega__series button.is-active{background:#f5f5f7;color:#000}
+.home-mega__series button.is-active{font-weight:800}
+.home-mega__series button.is-active svg{color:#000}
+.home-mega__products{min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;align-content:start;gap:12px}
+.home-mega-product{min-width:0;display:grid;grid-template-columns:minmax(158px,44%) minmax(0,1fr);align-items:center;overflow:hidden;border:1px solid transparent;border-radius:20px;background:#f5f5f7;transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.home-mega-product:hover,.home-mega-product:focus-visible{border-color:#d2d2d7;background:#f0f0f2;box-shadow:0 10px 26px #0000000d}
+.home-mega-product__media{position:relative;width:100%;height:150px;overflow:hidden}
+.home-mega-product__media img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;max-width:none;height:100%;padding:0 4px;object-fit:cover;transform:scale(.92)}
+.home-mega-product__media--vertigo img{padding:4px 10px;object-fit:contain;transform:scale(1.08)}
+.home-mega-product>div{min-width:0;padding:22px 24px 22px 6px}
+.home-mega-product h3{margin:0;font-size:20px;font-weight:800;line-height:1.08;letter-spacing:-.025em}
+.home-mega-product p{margin:10px 0 0;color:#6b6b70;font-size:13px;line-height:1.45}
+.home-mega__inner--resources{height:330px;min-height:0;grid-template-columns:repeat(2,minmax(240px,280px)) minmax(260px,1fr);align-items:stretch;justify-content:start;gap:30px;padding-block:40px}
+.home-mega__inner--accessories{height:330px;min-height:0;grid-template-columns:repeat(2,minmax(240px,280px));align-items:stretch;justify-content:center;gap:30px;padding-block:40px}
+.home-mega--accessories .home-mega-resource-card{height:242px}
+.home-mega-resource-card{position:relative;min-width:0;height:242px;overflow:hidden;border-radius:22px;background:#141414;color:#fff!important}
+.home-mega-resource-card:after{content:"";position:absolute;top:38%;right:0;bottom:0;left:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.78))}
+.home-mega-resource-card img{width:100%;height:100%;object-fit:cover;transition:transform .36s ease}
+.home-mega-resource-card:hover img,.home-mega-resource-card:focus-visible img{transform:scale(1.025)}
+.home-mega-resource-card span{position:absolute;z-index:1;left:20px;right:18px;bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:16px;font-weight:800;line-height:1.2}
+.home-mega-resource-links{min-width:0;display:grid;align-content:start;gap:4px;padding:2px 0 0 10px}
+.home-mega-resource-links a{min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;border-radius:11px;color:#1d1d1f;font-size:16px;font-weight:600;line-height:1.2}
+.home-mega-resource-links a:hover,.home-mega-resource-links a:focus-visible{background:#f5f5f7}
+.home-mega-resource-links svg{flex:0 0 auto;color:#86868b}
+.home-mega a:focus-visible,.home-mega button:focus-visible{outline:2px solid var(--home-action);outline-offset:2px}
+@keyframes home-mega-reveal{0%{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes home-mega-backdrop-reveal{0%{opacity:0}to{opacity:1}}
+@media(max-width:1080px){.home-header{grid-template-columns:160px 1fr 122px;padding:0 24px} .home-nav{gap:14px} .home-nav a{font-size:13px} .home-mega__inner{padding-inline:24px} .home-mega-product{grid-template-columns:148px minmax(0,1fr)} .home-mega__inner--resources{grid-template-columns:repeat(2,minmax(210px,250px)) minmax(220px,1fr);gap:18px} .home-mega__inner--accessories{grid-template-columns:repeat(2,minmax(210px,250px));gap:18px} .home-mega-resource-card{height:242px}}
+@media(max-width:820px){.home-header{grid-template-columns:1fr auto 1fr;height:66px;padding:0 18px} .home-menu-button{display:grid;grid-column:1;grid-row:1;justify-self:start} .home-brand{grid-column:2;grid-row:1;width:128px} .home-header__actions{grid-column:3;grid-row:1} .home-nav{position:absolute;left:0;right:0;top:66px;display:none;padding:18px 24px 24px;border-top:1px solid #ececee;background:#fff;box-shadow:0 24px 44px #00000017} .home-nav.is-open{display:grid} .home-nav__item{display:block} .home-nav__item>a{width:100%;justify-content:space-between} .home-nav__item>a svg{display:none} .home-nav a{line-height:42px;font-size:15px} .home-nav a:after{display:none} .home-mega,.home-mega-backdrop{display:none}}
+@media(max-width:560px){.home-announcement{min-height:32px;padding:0 38px 0 10px} .home-announcement__viewport{width:100%} .home-announcement__group a{padding:7px 14px} .home-header{height:60px;padding:0 12px} .home-brand{width:112px} .home-header__actions a{width:36px;height:36px} .home-header__actions a:first-child,.home-header__actions a:last-child{display:none} .home-nav{top:60px}}
+@media(prefers-reduced-motion:reduce){.home-announcement__track{animation:none}  .home-nav a:after{transition:none} .home-mega,.home-mega-backdrop{animation:none}}
+.home-mobile-nav{display:none}
+@media(max-width:820px){.home-nav,.home-nav.is-open{display:none} .home-menu-button{min-width:44px;min-height:44px;place-items:center} .home-mobile-nav{display:block;position:fixed;inset:var(--mobile-nav-top, 92px) 0 0;z-index:80;overflow-y:auto;overscroll-behavior:contain;background:#fff;padding:12px 24px calc(24px + env(safe-area-inset-bottom));text-align:left;-webkit-overflow-scrolling:touch} .home-mobile-nav summary,.home-mobile-nav a{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#000;text-decoration:none;font-size:15px;line-height:1.4} .home-mobile-nav summary{cursor:pointer;list-style:none;font-weight:700} .home-mobile-nav summary::-webkit-details-marker{display:none} .home-mobile-nav summary svg{flex-shrink:0;transition:transform .18s ease} .home-mobile-nav details[open]>summary>svg{transform:rotate(180deg)} .home-mobile-nav__group,.home-mobile-nav__direct{border-bottom:1px solid #D2D2D7} .home-mobile-nav__group>summary,.home-mobile-nav__direct{min-height:58px} .home-mobile-nav__panel{padding:4px 16px 12px;margin-bottom:12px;border-radius:16px;background:#f5f5f7} .home-mobile-nav .home-mobile-nav__all{color:#d92d0d;font-weight:700} .home-mobile-nav__series+.home-mobile-nav__series{border-top:1px solid #D2D2D7} .home-mobile-nav__products{padding:0 0 8px 12px} .home-mobile-nav__products a{flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:12px 0} .home-mobile-nav__products span{font-weight:700} .home-mobile-nav__products small{color:#6b6b70;font-size:12px;line-height:1.5} .home-mobile-nav__products sup{font-size:12px} .home-mobile-nav__links a+a{border-top:1px solid #D2D2D7} .home-mobile-nav__utilities{display:flex;gap:28px;padding-top:18px} .home-mobile-nav__utilities a{justify-content:flex-start;gap:8px;color:#6b6b70;font-size:14px} .home-mobile-nav :is(a,summary):focus-visible{outline:2px solid #D92D0D;outline-offset:2px;border-radius:4px}}
+@media(prefers-reduced-motion:reduce){.home-mobile-nav summary svg{transition:none}}
   .hero-band {
     position: relative;
     color: #fff;
@@ -285,15 +285,17 @@
   .affirm-as-low-as { min-height: 24px; margin: 8px 0 18px; font-size: 14px; color: #243049; }
   .showcase__actions { display: flex; gap: 12px; margin-top: auto; }
   .showcase__actions .btn { flex: 1; }
-  .btn--cart { background: #e10600; color: #fff; }
-  .btn--line { background: transparent; color: #111; border: 1.5px solid #111; }
+  .showcase__actions .btn { min-height: 52px; }
+  .showcase__actions .btn--cart { background: #e10600; color: #fff; border: 2px solid #e10600; }
+  .showcase__actions .btn--line { background: #111; color: #fff; border: 2px solid #111; }
+  .showcase__actions .btn--sold { background: #6b6b70; color: #fff; border: 2px solid #6b6b70; cursor: not-allowed; }
   .carousel__empty { height: 520px; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
-  .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; }
-  .intro { color: var(--muted); max-width: 42rem; margin: 0 0 28px; }
+  .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; color: #fff; }
+  .intro { color: rgba(255,255,255,.72); max-width: 42rem; margin: 0 0 28px; }
   .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 8px; }
   .eyebrow--orange { color: var(--orange); }
   .eyebrow--blue { color: var(--blue); }
-  .eyebrow--slate { color: #3d4a63; }
+  .eyebrow--slate { color: #d5dbe6; }
   .super-top { display: grid; grid-template-columns: 1.25fr .85fr; gap: 16px; }
   .super-rest, .deal-grid, .best-grid { display: grid; gap: 16px; margin-top: 16px; }
   .super-rest { grid-template-columns: repeat(4, 1fr); }
@@ -336,7 +338,7 @@
   .btn--navy { background: var(--navy); color: #fff; }
   .btn--block { width: 100%; margin-top: auto; }
   .btn--sm { padding: 8px 12px; font-size: 14px; flex: none; }
-  .subhead { margin: 28px 0 12px; font-size: 18px; }
+  .subhead { margin: 28px 0 12px; font-size: 18px; color: #fff; }
   .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .vcard {
     background: var(--navy); color: #fff; border-radius: var(--radius); min-height: 210px;
@@ -364,7 +366,7 @@
   details p { color: #243049; }
   details a { color: var(--blue); }
   footer {
-    background: var(--navy); color: rgba(255,255,255,.78); padding: 28px 20px; text-align: center; font-size: 14px;
+    background: #000; color: rgba(255,255,255,.78); padding: 28px 20px; text-align: center; font-size: 14px; border-top: 1px solid #222;
   }
   footer a { color: #fff; }
   @media (max-width: 980px) {
@@ -375,12 +377,6 @@
     .stage { min-height: 460px; }
     .promises { max-width: none; }
     .mega { font-size: 92px; }
-    .announce { grid-template-columns: 1fr; padding: 0 8px; }
-    .announce__side { display: none; }
-    .store-burger { display: grid; place-items: center; }
-    .store-nav { display: grid; grid-template-columns: 40px 1fr auto; padding: 0 8px; }
-    .store-logo { justify-self: center; }
-    .store-menu { display: none; }
   }
   @media (max-width: 680px) {
     .showcase--flip .showcase__media, .showcase--flip .showcase__body { order: 0; }
@@ -415,137 +411,45 @@
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
-<div class="store-head">
-  <div class="announce">
-    <div></div>
-    <div class="announce__center">
-      <button class="announce__arrow" type="button" data-announce-prev aria-label="Previous announcement">‹</button>
-      <a class="announce__msg" data-announce href="https://www.1laser.com/pages/onelaser-rewards">
-        <span data-announce-text>Subscribe &amp; Get $50 OFF Your First Purchase!</span>
-        <svg viewBox="0 0 14 10" aria-hidden="true"><path fill="currentColor" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546"/></svg>
-      </a>
-      <button class="announce__arrow" type="button" data-announce-next aria-label="Next announcement">›</button>
-    </div>
-    <div class="announce__side">
-      <a href="https://www.1laser.com/">United States | USD</a>
-      <div class="announce__social">
-        <a href="https://www.facebook.com/onelaser.official" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.6l.4-3H14V9z"/></svg></a>
-        <a href="https://www.youtube.com/@OneLaser.Official" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.5v-6.6l6.2 3.3-6.2 3.3z"/></svg></a>
-        <a href="https://www.instagram.com/onelaser.official/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.4 6.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg></a>
-        <a href="https://x.com/OneLaserHQ" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.6 3H20.4l-6.3 7.2L21.5 21h-5.6l-4.4-5.8L6.4 21H3.6l6.8-7.7L2.7 3h5.7l4 5.3L17.6 3zm-1 16.2h1.6L7.5 4.7H5.8l10.8 14.5z"/></svg></a>
-        <a href="https://www.tiktok.com/@onelaser.official" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14.5 3c.4 2.4 1.8 4.1 4.1 4.4v2.5c-1.4 0-2.7-.4-4-1.2v6.6c0 3.4-2.6 6.2-6.1 6.2S2.5 18.7 2.5 15.3 5 9.2 8.5 9.2c.4 0 .8 0 1.2.1v2.7c-.4-.2-.8-.3-1.2-.3-2 0-3.5 1.6-3.5 3.6s1.5 3.6 3.5 3.6 3.4-1.5 3.4-3.5V3h2.6z"/></svg></a>
-      </div>
-    </div>
+<div class="home-shell">
+  <div class="home-announcement" aria-label="OneLaser offers and service updates">
+    <div class="home-announcement__viewport"><div class="home-announcement__track">
+      <div class="home-announcement__group"><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer">Subscribe &amp; Get $50 OFF Your First Purchase!</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">$0 Down Financing for Small Businesses</a><a href="https://www.1laser.com/pages/refund-policy" target="_blank" rel="noreferrer">30-Day Easy Returns</a></div>
+      <div class="home-announcement__group" aria-hidden="true"><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer" tabindex="-1">Subscribe &amp; Get $50 OFF Your First Purchase!</a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer" tabindex="-1">$0 Down Financing for Small Businesses</a><a href="https://www.1laser.com/pages/refund-policy" target="_blank" rel="noreferrer" tabindex="-1">30-Day Easy Returns</a></div>
+    </div></div>
+    <button class="home-announcement__close" type="button" aria-label="Close announcements"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></button>
   </div>
-  <header class="store-nav">
-    <button class="store-burger" type="button" data-burger aria-expanded="false" aria-label="Menu">
-      <svg viewBox="0 0 18 16" width="20" height="18" aria-hidden="true"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>
-    </button>
-    <a class="store-logo" href="https://www.1laser.com/"><img src="https://www.1laser.com/cdn/shop/files/icon-logo_899aefe3-3a43-4cd4-8cfb-0f0fabfd0e55.svg?width=300" alt="OneLaser"></a>
-    <ul class="store-menu">
-      <li class="store-drop store-drop--mega">
-        <a href="https://www.1laser.com/collections/laser-engraving-cutting-marking-machines">Laser Machines <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
-        <div class="catalog" data-catalog>
-          <div class="catalog__tabs">
-            <button class="catalog__tab is-on" type="button" data-catalog-tab>X Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
-            <button class="catalog__tab" type="button" data-catalog-tab>Cobra Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
-            <button class="catalog__tab" type="button" data-catalog-tab>Hydra Series <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
-            <button class="catalog__tab" type="button" data-catalog-tab>VertiGo <svg class="caret" viewBox="0 0 256 256"><path fill="currentColor" d="M181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128 90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32z"/></svg></button>
-          </div>
-          <div>
-            <div class="catalog__panel is-on" data-catalog-panel><div class="catalog__cards">
-              <a class="catalog__card" href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?width=300"><span><strong>XRF™</strong><span>Performance Desktop Laser Engraver (38W RF)</span></span></a>
-            </div></div>
-            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
-              <a class="catalog__card" href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_8.png?width=300"><span><strong>Cobra™ 8</strong><span>Workshop Essential Laser Engraver/Cutter (90W Glass)</span></span></a>
-              <a class="catalog__card" href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_10.png?width=300"><span><strong>Cobra™ 10</strong><span>Workshop Essential Laser Engraver/Cutter (100W Glass)</span></span></a>
-              <a class="catalog__card" href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter"><img alt="" src="https://www.1laser.com/cdn/shop/files/Cobra_14.png?width=300"><span><strong>Cobra™ 14</strong><span>Workshop Essential Laser Engraver/Cutter (130W Glass)</span></span></a>
-            </div></div>
-            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
-              <a class="catalog__card" href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_7Gen2.png?width=300"><span><strong>Hydra™ 7 Gen2</strong><span>Industrial RF Laser Engraver (70W RF)</span></span></a>
-              <a class="catalog__card" href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_9Gen2.png?width=300"><span><strong>Hydra™ 9 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (100W Glass+38W RF/70W RF)</span></span></a>
-              <a class="catalog__card" href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_13Gen2.png?width=300"><span><strong>Hydra™ 13 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (130W Glass+38W RF/70W RF)</span></span></a>
-              <a class="catalog__card" href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine"><img alt="" src="https://www.1laser.com/cdn/shop/files/Hydra_16Gen2.png?width=300"><span><strong>Hydra™ 16 Gen2</strong><span>CO₂ Glass/RF Industrial Hybrid Laser Engraver (150W Glass+38W RF/70W RF)</span></span></a>
-            </div></div>
-            <div class="catalog__panel" data-catalog-panel><div class="catalog__cards">
-              <a class="catalog__card" href="https://www.1laser.com/products/vertigo-vertical-laser-engraver"><img alt="" src="https://www.1laser.com/cdn/shop/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?width=300"><span><strong>VertiGo™</strong><span>Performance Rotary Laser for Drinkware (38W RF)</span></span></a>
-            </div></div>
-          </div>
-        </div>
-      </li>
-      <li><a href="https://www.1laser.com/collections/laser-accessories">Accessories</a></li>
-      <li><a href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting">Material</a></li>
-      <li><a href="https://www.1laser.com/collections/limited-offers">🔥Clearance</a></li>
-      <li class="store-drop">
-        <a href="https://www.1laser.com/pages/sales-consultation">Support <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
-        <div class="menu-panel">
-          <a href="https://www.1laser.com/products/sales-consultation-call">Get a Quote</a>
-          <a href="https://www.1laser.com/products/engineer-1-on-1-training-support">1-on-1 Support</a>
-          <a href="https://zohodesk.1laser.com/portal/en/newticket">Contact Support</a>
-          <a href="https://www.1laser.com/pages/financing">Financing</a>
-          <a href="https://www.1laser.com/policies/shipping-policy">Policy</a>
-          <a href="https://www.1laser.com/blogs/topic">Blogs</a>
-          <a href="https://wiki.1laser.com">Product Knowledge Base</a>
-        </div>
-      </li>
-      <li class="store-drop">
-        <a href="https://www.1laser.com/pages/laser-engraving-community">Community <svg class="caret" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17z"/></svg></a>
-        <div class="menu-panel">
-          <a href="https://www.1laser.com/pages/laser-engraving-community">Become Affiliate</a>
-          <a href="https://www.1laser.com/pages/onelaser-rewards">Purchase Rewards</a>
-          <a href="https://www.1laser.com/pages/laser-engraving-community">Join Community</a>
-          <a href="https://www.1laser.com/pages/testimonials">Testimonials</a>
-        </div>
-      </li>
-      <li><a href="https://www.1laser.com/pages/contact-us">Contact</a></li>
-    </ul>
-    <div class="store-icons">
-      <a href="https://www.1laser.com/search" aria-label="Search"><svg viewBox="0 0 256 256"><path d="M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32zM40 112a72 72 0 1 1 72 72 72.08 72.08 0 0 1-72-72z"/></svg></a>
-      <a href="https://www.1laser.com/account/login" aria-label="Log in"><svg viewBox="0 0 256 256"><path d="M128 140a36 36 0 1 0-36-36 36 36 0 0 0 36 36zm76 28.4a8 8 0 0 0-4.4-5.2c-18.2-9.4-38.5-14.2-59.6-14.2s-41.4 4.8-59.6 14.2a8 8 0 0 0-4.4 5.2A96 96 0 1 0 204 168.4z"/></svg></a>
-      <a href="https://www.1laser.com/cart" aria-label="Cart"><svg viewBox="0 0 256 256"><path d="M230.1 74.2A8 8 0 0 0 224 72H69.8L61.5 40.8A16 16 0 0 0 46.2 32H24a8 8 0 0 0 0 16h22.2l28.6 108.4A24 24 0 0 0 98 176h90a24 24 0 0 0 23.3-18.2l16.2-62.3a8 8 0 0 0-1.4-6.3zM104 216a16 16 0 1 0 16 16 16 16 0 0 0-16-16zm80 0a16 16 0 1 0 16 16 16 16 0 0 0-16-16z"/></svg></a>
+  <header class="home-header">
+    <a class="home-brand" href="https://yonge6.github.io/onelaser-homepage-v3/" aria-label="OneLaser home"><img alt="OneLaser" src="https://yonge6.github.io/onelaser-homepage-v3/assets/onelaser-logo.png"></a>
+    <button class="home-menu-button" type="button" aria-expanded="false" aria-controls="home-mobile-navigation"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg><span class="sr-only">Open menu</span></button>
+    <nav id="home-navigation" class="home-nav" aria-label="Main navigation">
+      <div class="home-nav__item"><a href="https://yonge6.github.io/onelaser-homepage-v3/collections/" aria-haspopup="true" aria-controls="home-mega-machines" aria-expanded="false" data-mega-trigger="machines">Laser Machines <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></a></div>
+      <div class="home-nav__item"><a href="https://yonge6.github.io/onelaser-homepage-v3/accessories/" aria-haspopup="true" aria-controls="home-mega-accessories" aria-expanded="false" data-mega-trigger="accessories">Accessories <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></a></div>
+      <a href="https://www.1laser.com/collections/limited-offers" target="_blank" rel="noreferrer">Clearance</a>
+      <div class="home-nav__item"><a href="https://www.1laser.com/pages/sales-consultation" target="_blank" rel="noreferrer" aria-haspopup="true" aria-controls="home-mega-support" aria-expanded="false" data-mega-trigger="support">Support <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></a></div>
+      <div class="home-nav__item"><a href="https://www.1laser.com/pages/laser-engraving-community" target="_blank" rel="noreferrer" aria-haspopup="true" aria-controls="home-mega-community" aria-expanded="false" data-mega-trigger="community">Community <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></a></div>
+      <a href="https://www.1laser.com/pages/contact-us" target="_blank" rel="noreferrer">Contact</a>
+    </nav>
+    <nav id="home-mobile-navigation" class="home-mobile-nav" aria-label="Mobile main navigation" hidden>
+      <details class="home-mobile-nav__group"><summary>Laser Machines <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__panel"><a class="home-mobile-nav__all" href="https://yonge6.github.io/onelaser-homepage-v3/collections/">Explore all machines</a><details class="home-mobile-nav__series"><summary>X Series <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__products"><a href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine" target="_blank" rel="noreferrer"><span>XRF™</span><small>Performance Desktop Laser Engraver (38W RF)</small></a></div></details><details class="home-mobile-nav__series"><summary>Cobra Series <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__products"><a href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span>Cobra™ 8</span><small>Workshop Essential Laser Engraver/Cutter (90W Glass)</small></a><a href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span>Cobra™ 10</span><small>Workshop Essential Laser Engraver/Cutter (100W Glass)</small></a><a href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span>Cobra™ 14</span><small>Workshop Essential Laser Engraver/Cutter (130W Glass)</small></a></div></details><details class="home-mobile-nav__series"><summary>Hydra Series <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__products"><a href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span>Hydra™ 7 Gen2</span><small>Industrial RF Laser Engraver (70W RF)</small></a><a href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span>Hydra™ 9 Gen2</span><small>CO₂ Glass/RF Industrial Hybrid Laser Engraver</small></a><a href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span>Hydra™ 13 Gen2</span><small>CO₂ Glass/RF Industrial Hybrid Laser Engraver</small></a><a href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span>Hydra™ 16 Gen2</span><small>CO₂ Glass/RF Industrial Hybrid Laser Engraver</small></a></div></details><details class="home-mobile-nav__series"><summary>VertiGo <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__products"><a href="https://www.1laser.com/products/vertigo-vertical-laser-engraver" target="_blank" rel="noreferrer"><span>VertiGo™</span><small>Performance Rotary Laser for Drinkware (38W RF)</small></a></div></details></div></details>
+      <details class="home-mobile-nav__group"><summary>Accessories <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__panel home-mobile-nav__links"><a href="https://yonge6.github.io/onelaser-homepage-v3/accessories/">Laser Accessories <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting" target="_blank" rel="noreferrer">Materials <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></details>
+      <a class="home-mobile-nav__direct" href="https://www.1laser.com/collections/limited-offers" target="_blank" rel="noreferrer">Clearance</a>
+      <details class="home-mobile-nav__group"><summary>Support <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__panel home-mobile-nav__links"><a href="https://www.1laser.com/products/sales-consultation-call" target="_blank" rel="noreferrer">Get a Quote <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/products/engineer-1-on-1-training-support" target="_blank" rel="noreferrer">1-on-1 Training <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://zohodesk.1laser.com/portal/en/newticket" target="_blank" rel="noreferrer">Submit a Ticket <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">Financing <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/policies/shipping-policy" target="_blank" rel="noreferrer">Policy <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/blogs/topic" target="_blank" rel="noreferrer">Blogs <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://wiki.1laser.com/" target="_blank" rel="noreferrer">Product Knowledge Base <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></details>
+      <details class="home-mobile-nav__group"><summary>Community <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></summary><div class="home-mobile-nav__panel home-mobile-nav__links"><a href="https://www.1laser.com/pages/laser-engraving-community" target="_blank" rel="noreferrer">Become an Affiliate <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer">Purchase Rewards <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/laser-engraving-community" target="_blank" rel="noreferrer">Join the Community <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/testimonials" target="_blank" rel="noreferrer">Testimonials <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/demoroom" target="_blank" rel="noreferrer">Demo Room <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></details>
+      <a class="home-mobile-nav__direct" href="https://www.1laser.com/pages/contact-us" target="_blank" rel="noreferrer">Contact</a>
+      <div class="home-mobile-nav__utilities"><a href="https://www.1laser.com/search" target="_blank" rel="noreferrer">Search</a><a href="https://www.1laser.com/account/login" target="_blank" rel="noreferrer">Log in</a></div>
+    </nav>
+    <div class="home-header__actions" aria-label="OneLaser account and shopping">
+      <a href="https://www.1laser.com/search" target="_blank" rel="noreferrer" aria-label="Search OneLaser"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></a>
+      <a href="https://www.1laser.com/cart" target="_blank" rel="noreferrer" aria-label="View cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path></svg></a>
+      <a href="https://www.1laser.com/account/login" target="_blank" rel="noreferrer" aria-label="Log in"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z"></path></svg></a>
     </div>
+    <div id="home-mega-machines" class="home-mega home-mega--machines" data-mega-panel="machines" hidden aria-label="Laser Machines menu"><div class="home-mega__inner"><aside class="home-mega__series" aria-label="Machine series"><button class="is-active" type="button" data-series="x" aria-pressed="true">X Series <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button><button class="" type="button" data-series="cobra" aria-pressed="false">Cobra Series <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button><button class="" type="button" data-series="hydra" aria-pressed="false">Hydra Series <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button><button class="" type="button" data-series="vertigo" aria-pressed="false">VertiGo <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></aside><div class="home-mega__products" data-series-panel="x"><a class="home-mega-product" href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970&width=400" alt="XRF™"></span><div><h3>XRF™</h3><p>Performance Desktop Laser Engraver (38W RF)</p></div></a></div><div class="home-mega__products" data-series-panel="cobra" hidden><a class="home-mega-product" href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Cobra_8.png?v=1782460144&width=400" alt="Cobra™ 8"></span><div><h3>Cobra™ 8</h3><p>Workshop Essential Laser Engraver/Cutter (90W Glass)</p></div></a><a class="home-mega-product" href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Cobra_10.png?v=1782460375&width=400" alt="Cobra™ 10"></span><div><h3>Cobra™ 10</h3><p>Workshop Essential Laser Engraver/Cutter (100W Glass)</p></div></a><a class="home-mega-product" href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Cobra_14.png?v=1782460438&width=400" alt="Cobra™ 14"></span><div><h3>Cobra™ 14</h3><p>Workshop Essential Laser Engraver/Cutter (130W Glass)</p></div></a></div><div class="home-mega__products" data-series-panel="hydra" hidden><a class="home-mega-product" href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Hydra_7Gen2.png?v=1782813665&width=400" alt="Hydra™ 7 Gen2"></span><div><h3>Hydra™ 7 Gen2</h3><p>Industrial RF Laser Engraver (70W RF)</p></div></a><a class="home-mega-product" href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Hydra_9Gen2.png?v=1782813672&width=400" alt="Hydra™ 9 Gen2"></span><div><h3>Hydra™ 9 Gen2</h3><p>CO₂ Glass/RF Industrial Hybrid Laser Engraver</p></div></a><a class="home-mega-product" href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Hydra_13Gen2.png?v=1782813672&width=400" alt="Hydra™ 13 Gen2"></span><div><h3>Hydra™ 13 Gen2</h3><p>CO₂ Glass/RF Industrial Hybrid Laser Engraver</p></div></a><a class="home-mega-product" href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine" target="_blank" rel="noreferrer"><span class="home-mega-product__media"><img src="https://www.1laser.com/cdn/shop/files/Hydra_16Gen2.png?v=1782813672&width=400" alt="Hydra™ 16 Gen2"></span><div><h3>Hydra™ 16 Gen2</h3><p>CO₂ Glass/RF Industrial Hybrid Laser Engraver</p></div></a></div><div class="home-mega__products" data-series-panel="vertigo" hidden><a class="home-mega-product" href="https://www.1laser.com/products/vertigo-vertical-laser-engraver" target="_blank" rel="noreferrer"><span class="home-mega-product__media home-mega-product__media--vertigo"><img src="https://www.1laser.com/cdn/shop/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?v=1782698357&width=400" alt="VertiGo™"></span><div><h3>VertiGo™</h3><p>Performance Rotary Laser for Drinkware (38W RF)</p></div></a></div></div></div>
+    <div id="home-mega-accessories" class="home-mega home-mega--accessories" data-mega-panel="accessories" hidden aria-label="Accessories menu"><div class="home-mega__inner home-mega__inner--accessories"><a class="home-mega-resource-card" href="https://yonge6.github.io/onelaser-homepage-v3/accessories/"><img src="https://yonge6.github.io/onelaser-homepage-v3/assets/navigation/accessories-menu.jpg" alt=""><span>Laser Accessories <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a><a class="home-mega-resource-card" href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting" target="_blank" rel="noreferrer"><img src="https://yonge6.github.io/onelaser-homepage-v3/assets/navigation/materials-menu.jpg" alt=""><span>Materials <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a></div></div>
+    <div id="home-mega-support" class="home-mega home-mega--support" data-mega-panel="support" hidden aria-label="Support menu"><div class="home-mega__inner home-mega__inner--resources"><a class="home-mega-resource-card" href="https://www.1laser.com/products/sales-consultation-call" target="_blank" rel="noreferrer"><img src="https://www.1laser.com/cdn/shop/files/Consultation_Call_Session_f357d165-c36d-445e-8589-cd76cb193639.png?v=1764916744&width=600" alt=""><span>Get a Quote <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a><a class="home-mega-resource-card" href="https://www.1laser.com/products/engineer-1-on-1-training-support" target="_blank" rel="noreferrer"><img src="https://www.1laser.com/cdn/shop/files/1-on-1_training.png?v=1764920272&width=600" alt=""><span>1-on-1 Training <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a><nav class="home-mega-resource-links" aria-label="Support links"><a href="https://zohodesk.1laser.com/portal/en/newticket" target="_blank" rel="noreferrer">Submit a Ticket <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/financing" target="_blank" rel="noreferrer">Financing <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/policies/shipping-policy" target="_blank" rel="noreferrer">Policy <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/blogs/topic" target="_blank" rel="noreferrer">Blogs <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://wiki.1laser.com/" target="_blank" rel="noreferrer">Product Knowledge Base <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></nav></div></div>
+    <div id="home-mega-community" class="home-mega home-mega--community" data-mega-panel="community" hidden aria-label="Community menu"><div class="home-mega__inner home-mega__inner--resources"><a class="home-mega-resource-card" href="https://www.1laser.com/pages/laser-engraving-community" target="_blank" rel="noreferrer"><img src="https://www.1laser.com/cdn/shop/files/3_154dd9e8-536b-43e4-9e64-5e1532331fdd.png?v=1782712883&width=600" alt=""><span>Become an Affiliate <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a><a class="home-mega-resource-card" href="https://www.1laser.com/pages/onelaser-rewards" target="_blank" rel="noreferrer"><img src="https://www.1laser.com/cdn/shop/files/OneLaser_Forum_4979b167-4ed1-476c-a24f-bd1b496f235a.png?v=1782714101&width=600" alt=""><span>Purchase Rewards <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></span></a><nav class="home-mega-resource-links" aria-label="Community links"><a href="https://www.1laser.com/pages/laser-engraving-community" target="_blank" rel="noreferrer">Join the Community <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/testimonials" target="_blank" rel="noreferrer">Testimonials <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a><a href="https://www.1laser.com/pages/demoroom" target="_blank" rel="noreferrer">Demo Room <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></nav></div></div>
   </header>
-  <nav class="store-drawer" data-drawer aria-label="Menu">
-    <details>
-      <summary>Laser Machines</summary>
-      <ul>
-        <li><a href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine">XRF™</a></li>
-        <li><a href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter">Cobra™ 8</a></li>
-        <li><a href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter">Cobra™ 10</a></li>
-        <li><a href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter">Cobra™ 14</a></li>
-        <li><a href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 7 Gen2</a></li>
-        <li><a href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 9 Gen2</a></li>
-        <li><a href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 13 Gen2</a></li>
-        <li><a href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine">Hydra™ 16 Gen2</a></li>
-        <li><a href="https://www.1laser.com/products/vertigo-vertical-laser-engraver">VertiGo™</a></li>
-      </ul>
-    </details>
-    <a href="https://www.1laser.com/collections/laser-accessories">Accessories</a>
-    <a href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting">Material</a>
-    <a href="https://www.1laser.com/collections/limited-offers">🔥Clearance</a>
-    <details>
-      <summary>Support</summary>
-      <ul>
-        <li><a href="https://www.1laser.com/products/sales-consultation-call">Get a Quote</a></li>
-        <li><a href="https://www.1laser.com/products/engineer-1-on-1-training-support">1-on-1 Support</a></li>
-        <li><a href="https://zohodesk.1laser.com/portal/en/newticket">Contact Support</a></li>
-        <li><a href="https://www.1laser.com/pages/financing">Financing</a></li>
-        <li><a href="https://www.1laser.com/policies/shipping-policy">Policy</a></li>
-        <li><a href="https://www.1laser.com/blogs/topic">Blogs</a></li>
-        <li><a href="https://wiki.1laser.com">Product Knowledge Base</a></li>
-      </ul>
-    </details>
-    <details>
-      <summary>Community</summary>
-      <ul>
-        <li><a href="https://www.1laser.com/pages/laser-engraving-community">Become Affiliate</a></li>
-        <li><a href="https://www.1laser.com/pages/onelaser-rewards">Purchase Rewards</a></li>
-        <li><a href="https://www.1laser.com/pages/laser-engraving-community">Join Community</a></li>
-        <li><a href="https://www.1laser.com/pages/testimonials">Testimonials</a></li>
-      </ul>
-    </details>
-    <a href="https://www.1laser.com/pages/contact-us">Contact</a>
-  </nav>
+  <button class="home-mega-backdrop" type="button" data-mega-backdrop hidden aria-label="Close expanded navigation"></button>
 </div>
 <main id="content"></main>
 <footer id="foot"></footer>
@@ -594,8 +498,8 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-01-desktop-laser-hero.webp?v=1788945533"
       ],
       variants: [
-        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499 },
-        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999 }
+        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28 },
+        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12 }
       ]
     },
     {
@@ -611,7 +515,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
       ],
       variants: [
-        { id: "44667131822114", label: "70W RF", price: 10999, msrp: 11999 }
+        { id: "44667131822114", label: "70W RF", price: 10999, msrp: 11999, inventory: 14 }
       ]
     },
     {
@@ -626,7 +530,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--6_d5ed48ac-3f5b-4b72-823b-b046461a4e9a.png?v=1776754394"
       ],
       variants: [
-        { id: "44779582849058", label: "90W Glass", price: 5999, msrp: 6999 }
+        { id: "44779582849058", label: "90W Glass", price: 5999, msrp: 6999, inventory: 2 }
       ]
     },
     {
@@ -641,7 +545,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_OneTouch.png?v=1784027117"
       ],
       variants: [
-        { id: "43551549587490", label: "150W Glass Tube & 38W RF Metal Tube", price: 12599, msrp: 13999 }
+        { id: "43551549587490", label: "150W Glass Tube & 38W RF Metal Tube", price: 12599, msrp: 13999, inventory: 1 }
       ]
     },
     {
@@ -655,7 +559,7 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_RF_tube.png?v=1784027116"
       ],
       variants: [
-        { id: "43519835439138", label: "80W Glass Tube", price: 6299, msrp: 6999 }
+        { id: "43519835439138", label: "80W Glass Tube", price: 6299, msrp: 6999, inventory: 1 }
       ]
     },
     {
@@ -799,11 +703,13 @@ const showcase = (item, index) => {
     ? `<button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous photo">‹</button><button class="carousel__nav carousel__nav--next" type="button" aria-label="Next photo">›</button><div class="carousel__dots">${photos.map((_, index) => `<button type="button" class="${index === 0 ? "is-on" : ""}" aria-label="Photo ${index + 1}"></button>`).join("")}</div>`
     : "";
   const variantControl = variants.length > 1
-    ? `<label class="variant-label">Option<select class="variant-select" data-variant-select>${variants.map((variant) => `<option value="${esc(variant.id)}" data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}">${esc(variant.label)}</option>`).join("")}</select></label>`
+    ? `<label class="variant-label">Option<select class="variant-select" data-variant-select>${variants.map((variant) => `<option value="${esc(variant.id)}" data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}">${esc(variant.label)}</option>`).join("")}</select></label>`
     : `<div class="variant-single">${esc(variants[0].label)}</div>`;
-  const cart = current.id
-    ? `<a class="btn btn--cart" data-cart ${attrs("https://www.1laser.com/cart/" + current.id + ":1")}>Add to Cart</a>`
-    : `<a class="btn btn--cart" ${attrs(item.href)}>Ask sales</a>`;
+  const cart = !current.id
+    ? `<a class="btn btn--cart" ${attrs(item.href)}>Ask sales</a>`
+    : Number(current.inventory) <= 0
+      ? `<button type="button" class="btn btn--sold" data-cart disabled>Sold</button>`
+      : `<a class="btn btn--cart" data-cart ${attrs("https://www.1laser.com/cart/" + current.id + ":1")}>Add to Cart</a>`;
   const affirm = current.id
     ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
     : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
@@ -963,43 +869,52 @@ const tick = () => {
 tick();
 setInterval(tick, 1000);
 
-const announcements = [
-  { href: "https://www.1laser.com/pages/onelaser-rewards", text: "Subscribe & Get $50 OFF Your First Purchase!" },
-  { href: "https://www.1laser.com/pages/financing", text: "$0 Down Financing for Small Businesses | OneLaser Loan" },
-  { href: "https://www.1laser.com/pages/refund-policy", text: "🔄 30-Day Easy Returns" }
-];
-const announceLink = document.querySelector("[data-announce]");
-const announceText = document.querySelector("[data-announce-text]");
-let announceIndex = 0;
-const showAnnounce = (next) => {
-  announceIndex = (next + announcements.length) % announcements.length;
-  announceLink.href = announcements[announceIndex].href;
-  announceText.textContent = announcements[announceIndex].text;
+const header = document.querySelector(".home-header");
+const menuButton = document.querySelector(".home-menu-button");
+const mobileNav = document.querySelector(".home-mobile-nav");
+const backdrop = document.querySelector(".home-mega-backdrop");
+const triggers = [...document.querySelectorAll("[data-mega-trigger]")];
+const panels = [...document.querySelectorAll("[data-mega-panel]")];
+let openMenu = "";
+const setMenu = (name) => {
+  openMenu = name || "";
+  triggers.forEach((trigger) => trigger.setAttribute("aria-expanded", trigger.dataset.megaTrigger === openMenu ? "true" : "false"));
+  panels.forEach((panel) => { panel.hidden = panel.dataset.megaPanel !== openMenu; });
+  backdrop.hidden = !openMenu;
 };
-document.querySelector("[data-announce-prev]").addEventListener("click", () => showAnnounce(announceIndex - 1));
-document.querySelector("[data-announce-next]").addEventListener("click", () => showAnnounce(announceIndex + 1));
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => showAnnounce(announceIndex + 1), 3000);
-
-const storeHead = document.querySelector(".store-head");
-const burger = document.querySelector("[data-burger]");
-burger.addEventListener("click", () => {
-  const open = !storeHead.classList.contains("is-open");
-  storeHead.classList.toggle("is-open", open);
-  burger.setAttribute("aria-expanded", String(open));
+header.addEventListener("mouseleave", () => setMenu(""));
+triggers.forEach((trigger) => {
+  trigger.addEventListener("mouseenter", () => setMenu(trigger.dataset.megaTrigger));
+  trigger.addEventListener("focus", () => setMenu(trigger.dataset.megaTrigger));
 });
-
-document.querySelectorAll("[data-catalog]").forEach((catalog) => {
-  const tabs = [...catalog.querySelectorAll("[data-catalog-tab]")];
-  const panels = [...catalog.querySelectorAll("[data-catalog-panel]")];
-  const show = (index) => {
-    tabs.forEach((tab, tabIndex) => tab.classList.toggle("is-on", tabIndex === index));
-    panels.forEach((panel, panelIndex) => panel.classList.toggle("is-on", panelIndex === index));
-  };
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("mouseenter", () => show(index));
-    tab.addEventListener("focus", () => show(index));
-    tab.addEventListener("click", () => show(index));
+backdrop.addEventListener("click", () => setMenu(""));
+document.querySelector(".home-announcement__close").addEventListener("click", () => {
+  document.querySelector(".home-announcement").hidden = true;
+});
+menuButton.addEventListener("click", () => {
+  const open = mobileNav.hidden;
+  mobileNav.hidden = !open;
+  menuButton.setAttribute("aria-expanded", String(open));
+});
+mobileNav.addEventListener("click", (event) => {
+  if (!event.target.closest("a")) return;
+  mobileNav.hidden = true;
+  menuButton.setAttribute("aria-expanded", "false");
+});
+const seriesButtons = [...document.querySelectorAll("[data-series]")];
+const seriesPanels = [...document.querySelectorAll("[data-series-panel]")];
+const showSeries = (name) => {
+  seriesButtons.forEach((button) => {
+    const on = button.dataset.series === name;
+    button.classList.toggle("is-active", on);
+    button.setAttribute("aria-pressed", String(on));
   });
+  seriesPanels.forEach((panel) => { panel.hidden = panel.dataset.seriesPanel !== name; });
+};
+seriesButtons.forEach((button) => {
+  button.addEventListener("mouseenter", () => showSeries(button.dataset.series));
+  button.addEventListener("focus", () => showSeries(button.dataset.series));
+  button.addEventListener("click", () => showSeries(button.dataset.series));
 });
 
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
@@ -1035,7 +950,12 @@ document.addEventListener("change", (event) => {
   const promo = box.querySelector(".affirm-as-low-as");
   if (promo && chosen.dataset.id) promo.setAttribute("data-amount", String(Math.round(price * 100)));
   const cart = box.querySelector("[data-cart]");
-  if (cart && chosen.dataset.id) cart.href = "https://www.1laser.com/cart/" + chosen.dataset.id + ":1";
+  if (cart && chosen.dataset.id) {
+    const soldOut = Number(chosen.dataset.inventory) <= 0;
+    cart.outerHTML = soldOut
+      ? `<button type="button" class="btn btn--sold" data-cart disabled>Sold</button>`
+      : `<a class="btn btn--cart" data-cart href="https://www.1laser.com/cart/${chosen.dataset.id}:1">Add to Cart</a>`;
+  }
   if (window.affirm && window.affirm.ui && window.affirm.ui.refresh) window.affirm.ui.refresh();
 });
 
