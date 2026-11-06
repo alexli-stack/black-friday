@@ -238,11 +238,12 @@
   }
   .colon { color: #fff; font-size: 28px; font-weight: 700; line-height: 1; }
   .wrap { max-width: 1350px; margin: 0 auto; padding: 64px 0; scroll-margin-top: 124px; }
+  #super-deal.wrap, #deal.wrap, #best.wrap { max-width: 1200px; }
   .showcase {
-    display: grid; grid-template-columns: 1.05fr .95fr; background: #fff;
+    display: grid; grid-template-columns: 5.5fr 4.5fr; background: #fff;
     height: 520px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
   }
-  .showcase--flip { grid-template-columns: .95fr 1.05fr; }
+  .showcase--flip { grid-template-columns: 4.5fr 5.5fr; }
   .showcase--flip .showcase__media { order: 2; }
   .showcase--flip .showcase__body { order: 1; }
   .showcase__media { position: relative; min-width: 0; min-height: 0; height: 100%; background: #f6f7fb; }
@@ -270,7 +271,8 @@
     background: transparent; color: #e10600;
     font-weight: 750; font-size: 13px; line-height: 1.2;
   }
-  .showcase__body h3 { margin: 2px 0 8px; font-size: 26px; letter-spacing: -.03em; line-height: 1.1; }
+  .showcase__body h3 { margin: 2px 0 6px; font-size: 26px; letter-spacing: -.03em; line-height: 1.1; }
+  .blurb { margin: 0 0 8px; color: #3a4154; font-size: 14px; line-height: 1.35; }
   .points { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 6px; margin: 0 0 8px; padding: 0; list-style: none; }
   .points li { border: 1px solid #eceff5; border-radius: 10px; padding: 5px 8px; font-size: 13px; color: #243049; }
   .variant-label { display: block; font-size: 13px; font-weight: 750; color: #243049; }
@@ -288,7 +290,7 @@
   .showcase__actions .btn { flex: 1; }
   .showcase__actions .btn { min-height: 52px; }
   .showcase__actions .btn--cart { background: #e10600; color: #fff; border: 2px solid #e10600; }
-  .showcase__actions .btn--line { background: #111; color: #fff; border: 2px solid #111; }
+  .showcase__actions .btn--line { background: transparent; color: #111; border: 2px solid #111; }
   .showcase__actions .btn--sold { background: #6b6b70; color: #fff; border: 2px solid #6b6b70; cursor: not-allowed; }
   .carousel__empty { height: 100%; display: grid; place-items: center; color: #5c6578; padding: 24px; text-align: center; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; color: #fff; }
@@ -299,9 +301,15 @@
   .seller__viewport { overflow: hidden; }
   .seller__track { display: flex; transition: transform .35s ease; }
   .seller__item { flex: 0 0 33.3333%; min-width: 0; padding: 0 8px; box-sizing: border-box; }
-  .seller .card { height: 520px; text-align: left; overflow: hidden; }
-  .seller .card > div { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-  .seller .media--carousel { flex: 0 0 150px; height: 150px; min-height: 0; padding: 0; display: block; overflow: hidden; }
+  .seller .card { height: 520px; text-align: left; overflow: hidden; padding: 10px; }
+  .seller .card > div:not(.media) { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .seller .card h3 { margin: 4px 0 2px; font-size: 18px; }
+  .seller .media--carousel { flex: 0 0 96px; height: 96px; min-height: 0; padding: 0; display: block; overflow: hidden; }
+  .seller .note { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 4px; font-size: 13px; }
+  .seller .points { margin-bottom: 4px; }
+  .seller .points li { padding: 3px 6px; font-size: 12px; }
+  .seller .now { font-size: 26px; }
+  .seller .msrp, .seller .ship { margin-top: 2px; margin-bottom: 2px; }
   .seller__btn {
     position: absolute; top: 46%; z-index: 2; transform: translateY(-50%);
     width: 44px; height: 44px; border: 0; border-radius: 50%;
@@ -518,10 +526,11 @@ const PAGE = {
     {
       layout: "lead",
       tag: "Super Deal",
-      name: "XRF 38W RF",
+      name: "XRF 38W RF Desktop",
+      summary: "Black Friday's flagship desktop. A 38W RF metal tube reaches up to 1,200 mm/s at 3G acceleration on a 24 × 12 in bed.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970",
       href: "https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine",
-      points: ["38W RF metal tube", "24 × 12 in work area"],
+      points: ["38W RF metal tube", "24 × 12 in bed", "Up to 1,200 mm/s"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-05-high-speed-engraving.webp?v=1788945530",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-04-fine-detail-engraving.webp?v=1788945520",
@@ -535,10 +544,11 @@ const PAGE = {
     {
       layout: "side",
       tag: "Super Deal",
-      name: "Hydra 07 Pro (G2)",
+      name: "Hydra 07 Pro Gen2",
+      summary: "The steepest Hydra Gen2 cut. A 70W RF source engraves and cuts in one workflow, with no chiller and a 20,000–30,000 hour tube.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_7Gen2.png?v=1782813665",
       href: "https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine",
-      points: ["70W RF", "Hydra Gen2"],
+      points: ["70W RF", "Up to 2,000 mm/s", "No chiller"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-05.webp?v=1792979958",
@@ -551,9 +561,10 @@ const PAGE = {
     {
       tag: "Super Deal",
       name: "Cobra 08 90W",
+      summary: "Workshop output at a Super Deal price. This compact 90W glass Cobra engraves 300+ materials on a 31.5 × 19.7 in bed.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_8.png?v=1782460144",
       href: "https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter",
-      points: ["90W CO2", "Workshop engraver and cutter"],
+      points: ["90W glass tube", "31.5 × 19.7 in bed", "300+ materials"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra8-4.png?v=1776753632",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_7_10_14--1_bfbed39f-f3ac-47ac-bd98-c58f223070a7.png?v=1776754394",
@@ -566,9 +577,10 @@ const PAGE = {
     {
       tag: "Super Deal",
       name: "Hydra 16 Dual Gen1",
+      summary: "Clearance on the big Gen1 cabinet. A 150W glass tube and 38W RF share the job, with a 38.1 mm pass-through and tool-free QuickSwitch lenses.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/b208d4aba7990af021c0b2224580ee1c_d8d0feaf-a45d-4019-a54c-ebb36c18496e.png?v=1783933825",
       href: "https://www.1laser.com/products/onelaser-hydra-16-cabinet-dual-laser-system-with150w-glass-tube-and-38w-rf-metal-tube",
-      points: ["150W glass tube", "38W RF metal tube"],
+      points: ["150W glass + 38W RF", "38.1 mm pass-through", "QuickSwitch lenses"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16-2.png?v=1783933824",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_speed.png?v=1784027116",
@@ -581,9 +593,10 @@ const PAGE = {
     {
       tag: "Super Deal",
       name: "Hydra 07 80W Glass",
+      summary: "Gone when this 80W glass cabinet is gone. Adjustable airflow keeps the cut clean, and QuickSwitch lenses swap with no tools.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/80W_d0085122-d2b3-4e5a-a510-6b0e8409eb5c.png?v=1742910341",
       href: "https://www.1laser.com/products/onelaser-hydra-7-cabinet-dual-laser-system-with-80-glass-tube-and-38w-rf-metal-tube",
-      points: ["80W glass tube"],
+      points: ["80W glass tube", "Adjustable airflow", "QuickSwitch lenses"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_7-2.png?v=1766389308",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_RF_tube.png?v=1784027116"
@@ -595,9 +608,10 @@ const PAGE = {
     {
       tag: "Super Deal",
       name: "XT 55W Glass",
+      summary: "A compact 55W glass desktop for wood, acrylic, leather, and coated surfaces. It is not on the US store yet, so this Black Friday price is confirmed with sales.",
       image: "",
       href: "mailto:cs@1laser.com?subject=XT%2055W%20US%20availability",
-      points: ["US listing is not confirmed"],
+      points: ["55W glass tube", "Desktop footprint", "Non-metal materials"],
       gallery: [],
       variants: [
         { id: "", label: "Confirm US availability", price: 3599, msrp: 4599 }
@@ -610,9 +624,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "Cobra 10 100W",
+      summary: "Black Friday pricing on the 100W workshop Cobra. Daily production on a 39.4 × 23.6 in bed, with engraving up to 1,200 mm/s.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_10.png?v=1782460375",
       href: "https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter",
-      points: ["100W glass tube", "Shipping $699"],
+      points: ["100W glass tube", "39.4 × 23.6 in bed", "Up to 1,200 mm/s"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra10-4.png?v=1776753437",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/cobra10.png?v=1776753436",
@@ -625,9 +640,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "Cobra 14 130W",
+      summary: "The large-format Cobra at the event price. 130W glass and a 55.1 × 35.4 in bed for panels, signage, and batch work.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_14.png?v=1782460438",
       href: "https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter",
-      points: ["130W glass tube", "Shipping $699"],
+      points: ["130W glass tube", "55.1 × 35.4 in bed", "300+ materials"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra14-4.png?v=1776754394",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/cobra14.png?v=1776754394",
@@ -640,9 +656,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "VertiGo 38W RF",
+      summary: "Black Friday on the vertical drinkware laser. The built-in Grip2 rotary engraves tumblers upright with a 38W RF tube and no chiller.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?v=1782698357",
       href: "https://www.1laser.com/products/vertigo-vertical-laser-engraver",
-      points: ["38W RF", "Free shipping"],
+      points: ["38W RF", "Built-in Grip2 rotary", "Tumblers and bottles"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/VertiGo_3220bf4a-a38e-4de6-9800-0c37eaa4a14f.png?v=1776420639",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/11_bd75ce24-6f68-4267-b84e-c70821d7bd3e.jpg?v=1776420639",
@@ -655,9 +672,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "Hydra 09 Dual Gen1",
+      summary: "Event pricing on the Gen1 hybrid cabinet. 100W glass and 38W RF work together, with adjustable airflow and tool-free QuickSwitch lenses.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/d4f70b20ae08baa91175811c4f952f6f_b9af453b-621f-4432-93f1-d8e7e635b31e.png?v=1745220554",
       href: "https://www.1laser.com/products/onelaser-hydra-9-laser-engraving-machine",
-      points: ["100W glass tube", "38W RF metal tube"],
+      points: ["100W glass + 38W RF", "Adjustable airflow", "QuickSwitch lenses"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9-2.png?v=1766389158",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_series_speed.png?v=1784027116",
@@ -670,9 +688,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "Hydra 13 Gen2",
+      summary: "Gen2 production capacity at the Deal price. Choose 70W RF or 130W CO₂ plus 38W RF, on a 1,300 × 900 mm bed.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
-      points: ["Hydra Gen2", "Shipping $599"],
+      points: ["1,300 × 900 mm bed", "Up to 2,000 mm/s", "70W RF or hybrid"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
@@ -686,9 +705,10 @@ const PAGE = {
     {
       tag: "Deal",
       name: "Hydra 16 Gen2",
+      summary: "The largest Gen2 bed in the Deal group. Choose 70W RF or 150W CO₂ plus 38W RF across 1,600 × 1,000 mm.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
-      points: ["Hydra Gen2", "Shipping $699"],
+      points: ["1,600 × 1,000 mm bed", "Up to 2,000 mm/s", "70W RF or hybrid"],
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
@@ -702,12 +722,13 @@ const PAGE = {
   ],
   clearance: [
     {
-      name: "Hydra 09 Pro (G2)",
+      name: "Hydra 09 Pro Gen2",
       msrp: "$11,999",
       price: "$9,999",
       save: "Clearance",
       shipping: "Shipping at checkout",
-      note: "Gone when gone. This machine is outside the Super Deal and Deal groups.",
+      note: "Clearance on the 70W RF Gen2. The finer beam stays for detailed work, and this price leaves when the unit does.",
+      points: ["70W RF", "Up to 2,000 mm/s", "No chiller"],
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672",
       href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
       gallery: [
@@ -719,20 +740,22 @@ const PAGE = {
     }
   ],
   fullPrice: [
-    { name: "Hydra 09 Hybrid (G2)", price: "$10,999", shipping: "Shipping at checkout",
-      note: "Not discounted. Priced for the hybrid platform.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
+    { name: "Hydra 09 Hybrid Gen2", price: "$10,999", shipping: "Shipping at checkout",
+      note: "Full price on purpose. 100W CO₂ plus 38W RF engraves and cuts on one Gen2 bed, without a Black Friday markdown.",
+      points: ["100W CO₂ + 38W RF", "Up to 2,000 mm/s", "No chiller"],
+      image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine",
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
       ] },
-    { name: "Hydra 13 Hybrid (G2)", price: "$12,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
+    { name: "Hydra 13 Hybrid Gen2", price: "$12,999", shipping: "Shipping at checkout", note: "Kept at full price. 130W CO₂ plus 38W RF covers a 1,300 × 900 mm bed for batch production.", points: ["130W CO₂ + 38W RF", "1,300 × 900 mm", "Up to 2,000 mm/s"], image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_13Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine",
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-03.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-09.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-06.webp?v=1792979959"
       ] },
-    { name: "Hydra 16 Hybrid (G2)", price: "$13,999", shipping: "Shipping at checkout", note: "Not discounted.", image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
+    { name: "Hydra 16 Hybrid Gen2", price: "$13,999", shipping: "Shipping at checkout", note: "The full-price flagship. 150W CO₂ plus 38W RF spans a 1,600 × 1,000 mm bed.", points: ["150W CO₂ + 38W RF", "1,600 × 1,000 mm", "Up to 2,000 mm/s"], image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_16Gen2.png?v=1782813672", href: "https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine",
       gallery: [
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-02.webp?v=1792979958",
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/OneLaser-Hydra_Gen2-hydra-hero-01.webp?v=1792979958",
@@ -805,6 +828,7 @@ const card = (item, tone) => {
       <h3>${esc(item.name)}</h3>
       ${options(item)}
       ${(current.note || item.note) ? `<p class="note" data-note-now>${esc(current.note || item.note)}</p>` : `<p class="note" data-note-now hidden></p>`}
+      ${(item.points || []).length ? `<ul class="points">${item.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>` : ""}
       ${priceBlock(item, tone)}
       <a class="btn btn--navy btn--block" ${attrs(item.href)}>${esc(item.cta || "Shop now")}</a>
     </div>
@@ -856,6 +880,7 @@ const showcase = (item, index) => {
     <div class="showcase__body">
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
       <h3>${esc(item.name)}</h3>
+      ${item.summary ? `<p class="blurb">${esc(item.summary)}</p>` : ""}
       <ul class="points">${(item.points || []).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
       ${variantControl}
       <p class="final-label">Final Price</p>
