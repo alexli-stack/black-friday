@@ -131,40 +131,46 @@
   .flakes i { position: absolute; border-radius: 1px; }
   .hero-band::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; z-index: 2; pointer-events: none;
-    background: linear-gradient(180deg, transparent, rgba(0,0,0,.55) 55%, #2c2c2c);
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,.55) 55%, #333);
   }
   .count {
     position: relative;
-    background: #2c2c2c;
+    background: #333;
     color: #fff;
-    display: flex; justify-content: center; align-items: center; gap: 28px;
-    padding: 18px 24px 16px;
+    display: flex; justify-content: center;
+    padding: 26px 16px 34px;
     overflow: hidden;
   }
   .count::before {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background-image:
-      radial-gradient(circle at 12% 40%, rgba(255,255,255,.05), transparent 22%),
-      linear-gradient(135deg, rgba(255,255,255,.035) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.035) 50%, rgba(255,255,255,.035) 75%, transparent 75%);
-    background-size: 240px 240px, 26px 26px;
+      radial-gradient(circle at 16% 50%, transparent 58px, rgba(255,255,255,.07) 59px, transparent 60px),
+      radial-gradient(circle at 84% 46%, transparent 92px, rgba(255,255,255,.06) 93px, transparent 94px),
+      radial-gradient(circle at 70% 120%, transparent 70px, rgba(255,255,255,.05) 71px, transparent 72px);
   }
-  .count__copy, .count__rule, .clock { position: relative; }
+  .count__group {
+    position: relative;
+    display: flex; align-items: center; justify-content: center; gap: 26px;
+  }
   .count__copy { text-align: right; }
   .count__copy strong {
     display: block; font-family: Inter, "Segoe UI", sans-serif;
-    font-style: italic; font-weight: 800; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.03em; line-height: 1;
+    font-style: italic; font-weight: 800; font-size: 32px; letter-spacing: -.03em; line-height: 1;
   }
-  .count__copy span { display: block; margin-top: 4px; font-size: 15px; color: rgba(255,255,255,.82); }
-  .count__rule { width: 1px; align-self: stretch; margin: 6px 0; background: rgba(255,255,255,.45); }
-  .clock { display: flex; align-items: flex-start; gap: 8px; }
-  .unit { min-width: 74px; text-align: center; }
+  .count__copy span { display: block; margin-top: 6px; font-size: 15px; font-weight: 500; color: #fff; }
+  .count__rule { width: 1px; height: 54px; background: rgba(255,255,255,.9); flex: none; }
+  .clock { display: flex; align-items: center; gap: 8px; }
+  .unit { position: relative; min-width: 68px; text-align: center; }
   .unit b {
     display: flex; align-items: center; justify-content: center;
-    min-width: 74px; height: 68px; border-radius: 10px; background: #e10600; color: #fff;
-    font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em;
+    min-width: 68px; height: 60px; border-radius: 8px; background: #e10600; color: #fff;
+    font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em;
   }
-  .unit small { display: block; margin-top: 6px; color: rgba(255,255,255,.78); letter-spacing: .14em; font-size: 11px; font-weight: 700; }
-  .colon { color: #fff; font-size: 30px; font-weight: 700; line-height: 68px; }
+  .unit small {
+    position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+    color: rgba(255,255,255,.92); letter-spacing: .14em; font-size: 11px; font-weight: 650;
+  }
+  .colon { color: #fff; font-size: 28px; font-weight: 700; line-height: 1; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 64px 20px; scroll-margin-top: 76px; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; }
   .intro { color: var(--muted); max-width: 42rem; margin: 0 0 28px; }
@@ -265,12 +271,16 @@
     .super-rest, .deal-grid, .best-grid { grid-template-columns: 1fr; }
     .videos { display: flex; overflow: auto; padding-bottom: 6px; }
     .vcard { min-width: 230px; }
-    .count { flex-wrap: wrap; gap: 14px; padding: 16px 12px; }
-    .count__rule { display: none; }
-    .count__copy { text-align: center; width: 100%; }
-    .unit, .unit b { min-width: 64px; }
-    .unit b { height: 56px; font-size: 24px; }
-    .colon { line-height: 56px; font-size: 22px; }
+    .count { padding: 16px 8px 30px; }
+    .count__group { gap: 8px; }
+    .count__copy strong { font-size: 15px; white-space: nowrap; }
+    .count__copy span { font-size: 10px; margin-top: 2px; white-space: nowrap; }
+    .count__rule { height: 32px; }
+    .clock { gap: 4px; }
+    .unit, .unit b { min-width: 42px; }
+    .unit b { height: 40px; font-size: 16px; border-radius: 6px; }
+    .unit small { font-size: 8px; letter-spacing: .06em; }
+    .colon { font-size: 14px; }
     .now { font-size: 28px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -309,7 +319,7 @@ const PAGE = {
     ]
   },
   countdownTitle: "Black Friday sale",
-  countdownNote: "Deal Ends In",
+  countdownNote: "Weekly Deal Ends In",
   superDeals: [
     {
       layout: "lead",
@@ -527,13 +537,15 @@ document.getElementById("content").innerHTML = `
     </div>
   </section>
   <section class="count" aria-label="Countdown">
-    <div class="count__copy">
-      <strong>${esc(PAGE.countdownTitle)}</strong>
-      <span>${esc(PAGE.countdownNote)}</span>
-    </div>
-    <div class="count__rule" aria-hidden="true"></div>
-    <div class="clock" id="clock">
-      ${clockUnits.map(([key, label], index) => `${index ? '<span class="colon" aria-hidden="true">:</span>' : ""}<div class="unit"><b data-unit="${key}">00</b><small>${label}</small></div>`).join("")}
+    <div class="count__group">
+      <div class="count__copy">
+        <strong>${esc(PAGE.countdownTitle)}</strong>
+        <span>${esc(PAGE.countdownNote)}</span>
+      </div>
+      <div class="count__rule" aria-hidden="true"></div>
+      <div class="clock" id="clock">
+        ${clockUnits.map(([key, label], index) => `${index ? '<span class="colon" aria-hidden="true">:</span>' : ""}<div class="unit"><b data-unit="${key}">00</b><small>${label}</small></div>`).join("")}
+      </div>
     </div>
   </section>
   <section class="wrap" id="super-deal">
