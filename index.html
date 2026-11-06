@@ -69,7 +69,7 @@
     min-height: 640px;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 28px 28px 18px;
+    padding: 28px 28px 36px;
   }
   .hero h1 {
     margin: 0;
@@ -124,20 +124,17 @@
   .machine { position: absolute; object-fit: contain; filter: drop-shadow(0 18px 14px rgba(0,0,0,.48)); }
   .m-hydra { width: 52%; left: 8%; top: 8%; z-index: 2; }
   .m-cobra { width: 48%; right: -4%; top: 22%; z-index: 3; }
-  .m-vert { width: 22%; right: 11%; bottom: 8%; z-index: 4; height: 128px; overflow: hidden; filter: none; }
+  .m-vert { width: 22%; right: 11%; bottom: 12%; z-index: 4; height: 128px; overflow: hidden; filter: none; }
   .m-vert img { width: 108%; max-width: none; margin-left: -4%; margin-top: 0; filter: drop-shadow(0 18px 14px rgba(0,0,0,.48)); }
-  .m-xrf { width: 58%; left: 0; bottom: -2%; z-index: 5; }
+  .m-xrf { width: 58%; left: 0; bottom: 4%; z-index: 5; }
   .flakes { position: absolute; inset: 0; z-index: 7; pointer-events: none; }
   .flakes i { position: absolute; border-radius: 1px; }
-  .hero-band::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; z-index: 2; pointer-events: none;
-    background: linear-gradient(180deg, transparent, rgba(0,0,0,.55) 55%, #333);
-  }
   .count {
     position: relative;
     background: #333;
     color: #fff;
     display: flex; justify-content: center;
+    margin-top: 16px;
     padding: 26px 16px 34px;
     overflow: hidden;
   }
