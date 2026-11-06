@@ -392,22 +392,42 @@
   .btn--block { width: 100%; margin-top: auto; }
   .btn--sm { padding: 8px 12px; font-size: 14px; flex: none; }
   .subhead { margin: 28px 0 12px; font-size: 18px; color: #fff; }
-  .videoband { background: #10172E; }
-  .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .vcard {
-    background: #141824; color: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
-    display: flex; flex-direction: column; min-width: 0; overflow: hidden; text-decoration: none;
+  .videoband { background: #10172E; padding: 64px 0; }
+  .video-copy { max-width: 1200px; margin: 0 auto 32px; padding: 0 24px; }
+  .videoband h2, .videoband .intro { color: #fff; }
+  .videoband .intro { color: #C6CDDA; }
+  .video-rail-wrap { position: relative; }
+  .video-rail {
+    --gap: 16px;
+    display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 24px 8px; scroll-padding-inline: 24px; scrollbar-width: none; cursor: grab;
   }
-  .vcard__cover { position: relative; aspect-ratio: 16 / 9; background: #0B1026; }
-  .vcard__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .vcard__body { display: flex; flex-direction: column; gap: 4px; padding: 16px; }
-  .vcard strong { font-size: 17px; font-weight: 700; color: #fff; }
-  .vcard span { color: #AAB3C5; font-size: 13px; }
+  .video-rail::-webkit-scrollbar { display: none; }
+  .video-rail.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+  .vcard {
+    position: relative; flex: 0 0 calc((100% - 3 * var(--gap)) / 4); aspect-ratio: 9 / 16;
+    border-radius: 16px; overflow: hidden; background: #0B1026; color: #fff; text-decoration: none;
+    scroll-snap-align: start;
+  }
+  .vcard__cover, .vcard__cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vcard__meta { position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0; }
+  .vcard strong {
+    display: inline-flex; max-width: 100%; padding: 5px 10px; border-radius: 999px;
+    background: rgba(255,255,255,.92); color: #141824; font-size: 13px; font-weight: 700; line-height: 1.3;
+  }
   .vcard .play {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
     width: 56px; height: 56px; margin: 0; border-radius: 50%; background: #E10600; color: #fff;
     display: grid; place-items: center; font-weight: 800;
   }
+  .video-nav {
+    position: absolute; top: 50%; z-index: 2; transform: translateY(-50%);
+    width: 44px; height: 44px; border: 0; border-radius: 50%; background: #fff; color: #141824;
+    font-size: 28px; line-height: 1; cursor: pointer; box-shadow: 0 8px 24px rgba(11,16,38,.2);
+  }
+  .video-nav--prev { left: 8px; }
+  .video-nav--next { right: 8px; }
+  .video-nav:disabled { opacity: .35; cursor: default; }
   .info-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 16px; }
   .info {
     background: #fff; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
@@ -470,6 +490,7 @@
   }
   @media (max-width: 1024px) {
     .offer-grid, .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .vcard { flex-basis: calc((100% - 16px) / 2); }
   }
   @media (max-width: 980px) {
     .hero, .super-top, .card--lead, .info-grid { grid-template-columns: 1fr; }
@@ -489,8 +510,8 @@
     .stage { min-height: 420px; margin-bottom: 8px; }
     .mega { font-size: 72px; right: 0; }
     .super-rest, .deal-grid, .best-grid { grid-template-columns: 1fr; }
-    .videos { display: flex; gap: 16px; overflow-x: auto; min-width: 0; padding-bottom: 6px; scroll-snap-type: x mandatory; }
-    .vcard { flex: 0 0 82vw; scroll-snap-align: start; }
+    .videoband { padding: 48px 0; }
+    .vcard { flex-basis: calc((100% - 16px) / 1.4); }
     .count { margin: 32px auto; padding: 0 16px; }
     .count__group { gap: 8px; flex-wrap: wrap; }
     .count__copy strong { font-size: 16px; }
@@ -1018,7 +1039,7 @@ const offerCard = (item) => {
 const videoCard = (video) => {
   const cover = video.poster ? `<img src="${esc(imgSrc(video.poster, 900))}" alt="">` : "";
   const play = video.url ? `<span class="play" aria-hidden="true">▶</span>` : "";
-  const body = `<div class="vcard__cover">${cover}${play}</div><div class="vcard__body"><strong>${esc(video.title)}</strong><span>${esc(video.machine)}</span></div>`;
+  const body = `<div class="vcard__cover">${cover}${play}</div><p class="vcard__meta"><strong>${esc(video.title)} · ${esc(video.machine)}</strong></p>`;
   return video.url ? `<a class="vcard" ${attrs(video.url)}>${body}</a>` : `<article class="vcard vcard--empty">${body}</article>`;
 };
 document.getElementById("content").innerHTML = `
@@ -1082,12 +1103,14 @@ document.getElementById("content").innerHTML = `
     <div class="offer-grid">${PAGE.featured.map((item) => offerCard(item)).join("")}</div>
   </section>
   <section class="videoband" id="videos">
-    <div class="wrap">
-      <div class="module-copy">
-        <h2>See OneLaser in real workshops</h2>
-        <p class="intro">Watch real setups, projects, and machine walkthroughs before you choose.</p>
-      </div>
-      <div class="videos">${PAGE.videos.map((video) => videoCard(video)).join("")}</div>
+    <div class="module-copy video-copy">
+      <h2>See OneLaser in real workshops</h2>
+      <p class="intro">Watch real setups, projects, and machine walkthroughs before you choose.</p>
+    </div>
+    <div class="video-rail-wrap">
+      <button class="video-nav video-nav--prev" type="button" data-video-prev aria-label="Previous videos">‹</button>
+      <div class="video-rail" data-video-rail tabindex="0">${PAGE.videos.map((video) => videoCard(video)).join("")}</div>
+      <button class="video-nav video-nav--next" type="button" data-video-next aria-label="Next videos">›</button>
     </div>
   </section>
   <section class="trustband" id="shipping">
@@ -1302,6 +1325,59 @@ document.addEventListener("change", (event) => {
   if (!select) return;
   applyChoice(select.closest(".showcase, .offer"), select.selectedOptions[0]);
 });
+const videoRail = document.querySelector("[data-video-rail]");
+const videoPrev = document.querySelector("[data-video-prev]");
+const videoNext = document.querySelector("[data-video-next]");
+if (videoRail && videoPrev && videoNext) {
+  const videoStep = () => {
+    const card = videoRail.querySelector(".vcard");
+    const gap = parseFloat(getComputedStyle(videoRail).columnGap || getComputedStyle(videoRail).gap) || 16;
+    return (card ? card.getBoundingClientRect().width : videoRail.clientWidth) + gap;
+  };
+  const videoMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  const syncVideoNav = () => {
+    videoPrev.disabled = videoRail.scrollLeft <= 2;
+    videoNext.disabled = videoRail.scrollLeft + videoRail.clientWidth >= videoRail.scrollWidth - 2;
+  };
+  videoPrev.addEventListener("click", () => videoRail.scrollBy({ left: -videoStep(), behavior: videoMotion() }));
+  videoNext.addEventListener("click", () => videoRail.scrollBy({ left: videoStep(), behavior: videoMotion() }));
+  videoRail.addEventListener("scroll", syncVideoNav, { passive: true });
+  videoRail.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    event.preventDefault();
+    videoRail.scrollBy({ left: event.key === "ArrowRight" ? videoStep() : -videoStep(), behavior: videoMotion() });
+  });
+  let videoDrag = null;
+  let videoMoved = 0;
+  videoRail.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "touch" || event.target.closest(".video-nav")) return;
+    videoDrag = { id: event.pointerId, x: event.clientX, left: videoRail.scrollLeft };
+    videoMoved = 0;
+    videoRail.classList.add("is-dragging");
+    videoRail.setPointerCapture(event.pointerId);
+  });
+  videoRail.addEventListener("pointermove", (event) => {
+    if (!videoDrag || event.pointerId !== videoDrag.id) return;
+    const delta = event.clientX - videoDrag.x;
+    videoMoved = Math.max(videoMoved, Math.abs(delta));
+    videoRail.scrollLeft = videoDrag.left - delta;
+  });
+  const endVideoDrag = (event) => {
+    if (!videoDrag || event.pointerId !== videoDrag.id) return;
+    videoDrag = null;
+    videoRail.classList.remove("is-dragging");
+    syncVideoNav();
+  };
+  videoRail.addEventListener("pointerup", endVideoDrag);
+  videoRail.addEventListener("pointercancel", endVideoDrag);
+  videoRail.addEventListener("click", (event) => {
+    if (videoMoved < 6) return;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+  syncVideoNav();
+  window.addEventListener("resize", syncVideoNav);
+}
 document.querySelectorAll(".faq details").forEach((item) => {
   const summary = item.querySelector("summary");
   const sync = () => summary.setAttribute("aria-expanded", String(item.open));
