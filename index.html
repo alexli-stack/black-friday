@@ -391,17 +391,21 @@
   .btn--block { width: 100%; margin-top: auto; }
   .btn--sm { padding: 8px 12px; font-size: 14px; flex: none; }
   .subhead { margin: 28px 0 12px; font-size: 18px; color: #fff; }
-  .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .videoband { background: #10172E; }
+  .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .vcard {
-    background: var(--navy); color: #fff; border-radius: var(--radius); min-height: 210px;
-    padding: 16px; display: flex; flex-direction: column; justify-content: flex-end;
-    text-decoration: none; position: relative; overflow: hidden;
+    background: #141824; color: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
+    display: flex; flex-direction: column; min-width: 0; overflow: hidden; text-decoration: none;
   }
-  .vcard strong { font-size: 18px; }
-  .vcard span { color: rgba(255,255,255,.72); font-size: 13px; }
-  .play {
-    width: 46px; height: 46px; border-radius: 50%; background: var(--orange); color: var(--orange-ink);
-    display: grid; place-items: center; font-weight: 800; margin-bottom: auto;
+  .vcard__cover { position: relative; aspect-ratio: 16 / 9; background: #0B1026; }
+  .vcard__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vcard__body { display: flex; flex-direction: column; gap: 4px; padding: 16px; }
+  .vcard strong { font-size: 17px; font-weight: 700; color: #fff; }
+  .vcard span { color: #AAB3C5; font-size: 13px; }
+  .vcard .play {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 56px; height: 56px; margin: 0; border-radius: 50%; background: #E10600; color: #fff;
+    display: grid; place-items: center; font-weight: 800;
   }
   .info-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 16px; }
   .info {
@@ -471,7 +475,7 @@
     .hero { min-height: 0; padding: 48px 20px; }
     .hero h1 { font-size: 48px; }
     .super-rest { grid-template-columns: 1fr 1fr; }
-    .deal-grid, .best-grid, .videos { grid-template-columns: 1fr 1fr; }
+    .deal-grid, .best-grid { grid-template-columns: 1fr 1fr; }
     .stage { min-height: 460px; }
     .promises { max-width: none; }
     .wrap { padding-left: 20px; padding-right: 20px; }
@@ -484,8 +488,8 @@
     .stage { min-height: 420px; margin-bottom: 8px; }
     .mega { font-size: 72px; right: 0; }
     .super-rest, .deal-grid, .best-grid { grid-template-columns: 1fr; }
-    .videos { display: flex; overflow: auto; padding-bottom: 6px; }
-    .vcard { min-width: 230px; }
+    .videos { display: flex; gap: 16px; overflow-x: auto; min-width: 0; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+    .vcard { flex: 0 0 82vw; scroll-snap-align: start; }
     .count { margin: 32px auto; padding: 0 16px; }
     .count__group { gap: 8px; flex-wrap: wrap; }
     .count__copy strong { font-size: 16px; }
@@ -1006,7 +1010,12 @@ const offerCard = (item) => {
   </article>`;
 };
 
-const realVideos = PAGE.videos.filter((video) => video.url);
+const videoCard = (video) => {
+  const cover = video.poster ? `<img src="${esc(imgSrc(video.poster, 900))}" alt="">` : "";
+  const play = video.url ? `<span class="play" aria-hidden="true">▶</span>` : "";
+  const body = `<div class="vcard__cover">${cover}${play}</div><div class="vcard__body"><strong>${esc(video.title)}</strong><span>${esc(video.machine)}</span></div>`;
+  return video.url ? `<a class="vcard" ${attrs(video.url)}>${body}</a>` : `<article class="vcard vcard--empty">${body}</article>`;
+};
 document.getElementById("content").innerHTML = `
   <section class="hero-band">
     <div class="hero">
@@ -1067,7 +1076,15 @@ document.getElementById("content").innerHTML = `
     </div>
     <div class="offer-grid">${PAGE.featured.map((item) => offerCard(item)).join("")}</div>
   </section>
-  ${realVideos.length ? `<section class="wrap" id="videos"><div class="module-copy"><h2>See OneLaser in real workshops</h2><p class="intro">Watch real setups, projects, and machine walkthroughs before you choose.</p></div><div class="videos">${realVideos.map((video) => `<a class="vcard" ${attrs(video.url)}><span class="play">▶</span><strong>${esc(video.title)}</strong><span>${esc(video.machine)}</span></a>`).join("")}</div></section>` : ""}
+  <section class="videoband" id="videos">
+    <div class="wrap">
+      <div class="module-copy">
+        <h2>See OneLaser in real workshops</h2>
+        <p class="intro">Watch real setups, projects, and machine walkthroughs before you choose.</p>
+      </div>
+      <div class="videos">${PAGE.videos.map((video) => videoCard(video)).join("")}</div>
+    </div>
+  </section>
   <section class="trustband" id="shipping">
     <div class="wrap">
       <div class="module-copy">
