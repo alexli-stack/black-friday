@@ -173,10 +173,12 @@
     display: grid; grid-template-columns: 1.05fr .95fr; background: #fff;
     border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-top: 22px;
   }
-  .carousel { position: relative; background: #111; min-height: 520px; }
+  .showcase__media { display: flex; flex-direction: column; min-width: 0; background: #f3f5f8; }
+  .showcase__machine-wrap { display: grid; place-items: center; background: #fff; padding: 18px 18px 8px; }
+  .carousel { position: relative; background: #111; min-height: 320px; }
   .carousel__slide { display: none; height: 100%; }
   .carousel__slide.is-on { display: block; }
-  .carousel__slide img { width: 100%; height: 520px; object-fit: cover; }
+  .carousel__slide img { width: 100%; height: 320px; object-fit: cover; }
   .carousel__nav {
     position: absolute; top: 50%; transform: translateY(-50%);
     width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(255,255,255,.92);
@@ -188,8 +190,14 @@
   .carousel__dots button { width: 8px; height: 8px; border: 0; border-radius: 50%; background: rgba(255,255,255,.55); padding: 0; cursor: pointer; }
   .carousel__dots button.is-on { background: #fff; width: 22px; border-radius: 999px; }
   .showcase__body { padding: 28px 28px 32px; display: flex; flex-direction: column; }
-  .showcase__machine { height: 168px; object-fit: contain; margin: 0 auto 8px; }
-  .showcase__tag { margin: 0; color: #e10600; font-weight: 750; font-size: 14px; }
+  .showcase__machine { width: 100%; height: 190px; object-fit: contain; margin: 0; }
+  .showcase__tag {
+    display: inline-flex; align-self: flex-start; align-items: center;
+    margin: 0 0 12px; padding: 6px 14px;
+    border: 1.5px solid #e10600; border-radius: 999px;
+    background: transparent; color: #e10600;
+    font-weight: 750; font-size: 13px; line-height: 1.2;
+  }
   .showcase__body h3 { margin: 6px 0 12px; font-size: 30px; letter-spacing: -.03em; line-height: 1.15; }
   .points { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
   .points li { border: 1px solid #eceff5; border-radius: 10px; padding: 8px 10px; font-size: 13px; color: #243049; }
@@ -206,7 +214,7 @@
   .showcase__actions .btn { flex: 1; }
   .btn--cart { background: #e10600; color: #fff; }
   .btn--line { background: #fff; color: var(--ink); border: 1px solid #d7dce8; }
-  .carousel__empty { height: 520px; display: grid; place-items: center; color: rgba(255,255,255,.72); padding: 24px; text-align: center; }
+  .carousel__empty { height: 320px; display: grid; place-items: center; color: rgba(255,255,255,.72); padding: 24px; text-align: center; }
   .wrap h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; margin: 0 0 8px; }
   .intro { color: var(--muted); max-width: 42rem; margin: 0 0 28px; }
   .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 8px; }
@@ -318,7 +326,8 @@
     .colon { font-size: 14px; }
     .now { font-size: 28px; }
     .showcase { grid-template-columns: 1fr; }
-    .carousel, .carousel__slide img, .carousel__empty { height: 280px; min-height: 280px; }
+    .showcase__machine { height: 160px; }
+    .carousel, .carousel__slide img, .carousel__empty { height: 220px; min-height: 220px; }
     .showcase__body h3 { font-size: 24px; }
     .showcase__actions { flex-direction: column; }
   }
@@ -598,10 +607,12 @@ const showcase = (item) => {
   const affirm = current.id
     ? `<p class="affirm-as-low-as" data-page-type="product" data-amount="${Math.round(current.price * 100)}">Monthly payment with Affirm</p>`
     : `<p class="affirm-as-low-as">Monthly payment is available after this machine is listed.</p>`;
+  const machine = item.image
+    ? `<div class="showcase__machine-wrap"><img class="showcase__machine" alt="${esc(item.name)}" src="${esc(imgSrc(item.image))}"></div>`
+    : "";
   return `<article class="showcase">
-    <div class="carousel" data-carousel>${slides}${controls}</div>
+    <div class="showcase__media">${machine}<div class="carousel" data-carousel>${slides}${controls}</div></div>
     <div class="showcase__body">
-      ${item.image ? `<img class="showcase__machine" alt="" src="${esc(imgSrc(item.image))}">` : ""}
       <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
       <h3>${esc(item.name)}</h3>
       <ul class="points">${(item.points || []).map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
@@ -658,7 +669,6 @@ document.getElementById("content").innerHTML = `
     </div>
   </section>
   <section class="wrap" id="super-deal">
-    <p class="eyebrow eyebrow--orange">Super Deal</p>
     <h2>${esc(PAGE.superTitle)}</h2>
     <p class="intro">${esc(PAGE.superIntro)}</p>
     ${PAGE.superDeals.map((item) => showcase(item)).join("")}
