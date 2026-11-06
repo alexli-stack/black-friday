@@ -280,6 +280,8 @@
     background: #FFF0ED; color: #A80802; border: 0;
     font-weight: 750; font-size: 13px; line-height: 1.2;
   }
+  .showcase__tag { background: #FF9900; color: #000; }
+  .gift-note { width: 100%; margin: 12px 0 0; padding: 10px 12px; border: 1px solid #FF9900; border-radius: 10px; background: #FFF6E0; color: #000; font-size: 14px; line-height: 1.45; }
   .showcase__body h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.03em; line-height: 1.15; }
   .showcase--lead h3 { font-size: 28px; }
   .selling-points { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; margin: 0; padding: 0; list-style: none; }
@@ -606,7 +608,7 @@ const PAGE = {
   superDeals: [
     {
       layout: "lead",
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "XRF 38W RF Desktop",
       summary: "Black Friday's flagship desktop. A 38W RF metal tube reaches up to 1,200 mm/s at 3G acceleration on a 24 × 12 in bed.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970",
@@ -618,13 +620,13 @@ const PAGE = {
         "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/onelaser-xrf-listing-01-desktop-laser-hero.webp?v=1788945533"
       ],
       variants: [
-        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28 , policy: "CONTINUE"},
-        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12 , policy: "CONTINUE"}
+        { id: "43557890261026", label: "XRF Standalone", price: 4999, msrp: 5499, inventory: 28, policy: "CONTINUE", gift: "Black Friday gift: air assist box. Included only during this Black Friday event." },
+        { id: "43972592730146", label: "XRF & Riser Base", price: 5499, msrp: 5999, inventory: 12, policy: "CONTINUE", gift: "Black Friday gift: air assist box, riser base, and 2 material packs (acrylic and leather). Included only during this Black Friday event." }
       ]
     },
     {
       layout: "side",
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "Hydra 07 Pro Gen2",
       summary: "The steepest Hydra Gen2 cut. A 70W RF source engraves and cuts in one workflow, with no chiller and a 20,000–30,000 hour tube.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_7Gen2.png?v=1782813665",
@@ -640,7 +642,7 @@ const PAGE = {
       ]
     },
     {
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "Cobra 08 90W",
       summary: "Workshop output at a Super Deal price. This compact 90W glass Cobra engraves 300+ materials on a 31.5 × 19.7 in bed.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_8.png?v=1782460144",
@@ -656,7 +658,7 @@ const PAGE = {
       ]
     },
     {
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "Hydra 16 Dual Gen1",
       summary: "Clearance on the big Gen1 cabinet. A 150W glass tube and 38W RF share the job, with a 38.1 mm pass-through and tool-free QuickSwitch lenses.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/b208d4aba7990af021c0b2224580ee1c_d8d0feaf-a45d-4019-a54c-ebb36c18496e.png?v=1783933825",
@@ -672,7 +674,7 @@ const PAGE = {
       ]
     },
     {
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "Hydra 07 80W Glass",
       summary: "Gone when this 80W glass cabinet is gone. Adjustable airflow keeps the cut clean, and QuickSwitch lenses swap with no tools.",
       image: "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/80W_d0085122-d2b3-4e5a-a510-6b0e8409eb5c.png?v=1742910341",
@@ -687,7 +689,7 @@ const PAGE = {
       ]
     },
     {
-      tag: "Super Deal",
+      tag: "Super Price",
       name: "XT 55W Glass",
       mode: "check",
       summary: "US store availability may vary. Contact us for purchase options.",
@@ -943,7 +945,7 @@ const scarceLabel = (variant) => {
   if (!buyable(variant) || qty < 1 || qty > 2) return "";
   return qty === 1 ? "Only 1 left" : "Only 2 left";
 };
-const variantFields = (variant) => `data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}" data-policy="${esc(variant.policy || "")}"`;
+const variantFields = (variant) => `data-id="${esc(variant.id)}" data-price="${esc(variant.price)}" data-msrp="${esc(variant.msrp)}" data-inventory="${esc(variant.inventory)}" data-policy="${esc(variant.policy || "")}" data-gift="${esc(variant.gift || "")}"`;
 const primaryAction = (item, variant) => {
   if (item.mode === "check") return `<a class="btn btn--line" ${attrs("https://www.1laser.com/pages/contact-us")}>Check Availability</a>`;
   if (!variant.id) return `<a class="btn btn--line" ${attrs(item.href)}>Ask Sales</a>`;
@@ -978,10 +980,11 @@ const showcase = (item, index) => {
   return `<article class="showcase${index === 0 ? " showcase--lead" : ""}${index % 2 ? " showcase--flip" : ""}">
     <div class="showcase__media"><div class="carousel" data-carousel>${photoSlides(item)}</div></div>
     <div class="showcase__body">
-      <p class="showcase__tag">${esc(item.tag || "Super Deal")}</p>
+      <p class="showcase__tag">${esc(item.tag || "Super Price")}</p>
       <h3>${esc(item.name)}</h3>
       ${sellingPoints(item)}
       ${item.mode === "check" ? "" : variantSelect(variants)}
+      ${current.gift ? `<p class="gift-note" data-gift-note>${esc(current.gift)}</p>` : ""}
       ${item.mode === "check" ? "" : priceBits(current)}
       <div class="showcase__actions">
         ${primaryAction(item, current)}
@@ -1282,6 +1285,8 @@ const applyChoice = (box, chosen) => {
   const label = scarceLabel(variant);
   left.hidden = !label;
   left.textContent = label;
+  const giftNode = box.querySelector("[data-gift-note]");
+  if (giftNode) giftNode.textContent = chosen.dataset.gift || "";
   const promo = box.querySelector(".affirm-as-low-as");
   if (promo && variant.id) promo.setAttribute("data-amount", String(Math.round(variant.price * 100)));
   const cart = box.querySelector("[data-cart]");
