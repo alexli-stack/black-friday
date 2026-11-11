@@ -1,0 +1,150 @@
+{% assign copy0 = section.blocks | where: 'type', 'copy0' | first %}
+<section class="sec" id="early" style="padding-top:0"><div class="wrap">
+<div class="ea rv">
+<img alt="" aria-hidden="true" class="bg" height="941" loading="lazy" src="{% if copy0.settings.image12 != blank %}{{ copy0.settings.image12 | image_url: width: 2000 }}{% else %}{% if copy0.settings.image12_url == 'https://yonge6.github.io/onelaser-bfcm-2026/assets/gift.jpg' %}{{ 'bfcm26-assets-gift.jpg' | asset_url }}{% else %}{{ copy0.settings.image12_url | escape }}{% endif %}{% endif %}" width="1672"/>
+<div class="ea__c">
+<span class="kick"><i aria-hidden="true" class="stripe"></i>{{ copy0.settings.s1 | escape }}</span>
+<h2 class="heading-3">{{ copy0.settings.s2 | escape }}<br/>{{ copy0.settings.s3 | escape }}</h2>
+<p class="body-6 muted">{{ copy0.settings.s4 | escape }}</p>
+<div><span class="caption-4 muted">{{ copy0.settings.s5 | escape }}</span>
+<div class="cd" data-cd="early" style="margin-top:8px"><div><b data-u="d">00</b><small>{{ copy0.settings.s6 | escape }}</small></div><div><b data-u="h">00</b><small>{{ copy0.settings.s7 | escape }}</small></div><div><b data-u="m">00</b><small>{{ copy0.settings.s8 | escape }}</small></div><div><b data-u="s">00</b><small>{{ copy0.settings.s9 | escape }}</small></div></div></div>
+<form class="form gw" data-gw data-giveaway-endpoint="{{ section.settings.giveaway_endpoint | escape }}" data-src="giveaway" novalidate><div class="gw__f"><label class="sr-only" for="gwEmail">{{ copy0.settings.s10 | escape }}</label><input id="gwEmail" name="email" type="email" autocomplete="email" placeholder="{{ copy0.settings.s13 | escape }}" required><label class="sr-only" for="gwPhone">{{ copy0.settings.giveaway_phone | escape }}</label><input id="gwPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="{{ copy0.settings.giveaway_phone | escape }}" required></div><button class="btn primary" type="submit"><i class="ph-fill ph-gift"></i>{{ copy0.settings.s11 | escape }}</button><div class="msg" aria-live="polite"></div><p class="gw__fine">{{ copy0.settings.giveaway_terms | escape }}</p></form>
+</div>
+</div>
+</div></section>
+<script type="application/json" data-bfcm-patches>[{% for block in section.blocks %}{% case block.type %}{% endcase %}{% endfor %}null]</script>{% for block in section.blocks %}<span class="bfcm-editor-block" data-bfcm-block="{{ block.id }}" {{ block.shopify_attributes }}></span>{% endfor %}
+{% schema %}
+{
+  "name": "07 材料包抽奖",
+  "tag": "section",
+  "class": "bfcm-module",
+  "limit": 1,
+  "settings": [
+    {"type": "url", "id": "giveaway_endpoint", "label": "Giveaway CRM endpoint", "info": "Fill in the deployed HTTPS endpoint ending in /api/giveaway. Leave blank to keep Klaviyo only."},
+    {
+      "type": "paragraph",
+      "content": "产品活动价为草稿展示配置。修改展示价不会修改 Shopify 结账价；上线前请同步产品/折扣。图片支持从 Files 选择，未选择时保留原活动素材。"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "copy0",
+      "name": "文案与图片 1",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "s1",
+          "label": "Limited stock · can sell out anytime"
+        },
+        {
+          "type": "text",
+          "id": "s2",
+          "label": "Get a stock alert"
+        },
+        {
+          "type": "text",
+          "id": "s3",
+          "label": "before it sells out"
+        },
+        {
+          "type": "textarea",
+          "id": "s4",
+          "label": "Only 14 Hydra 7 Pro units at $7,999 and 9 "
+        },
+        {
+          "type": "text",
+          "id": "s5",
+          "label": "Black Friday Deals end in"
+        },
+        {
+          "type": "text",
+          "id": "s6",
+          "label": "Days"
+        },
+        {
+          "type": "text",
+          "id": "s7",
+          "label": "Hours"
+        },
+        {
+          "type": "text",
+          "id": "s8",
+          "label": "Mins"
+        },
+        {
+          "type": "text",
+          "id": "s9",
+          "label": "Secs"
+        },
+        {
+          "type": "text",
+          "id": "s10",
+          "label": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "s11",
+          "label": "Get stock alerts"
+        },
+        {
+          "type": "image_picker",
+          "id": "image12",
+          "label": "替换图片"
+        },
+        {
+          "type": "text",
+          "id": "image12_url",
+          "label": "原始图片 URL"
+        },
+        {
+          "type": "text",
+          "id": "s13",
+          "label": "placeholder Your email address"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_phone",
+          "label": "Phone field label",
+          "default": "Phone number"
+        },
+        {
+          "type": "textarea",
+          "id": "giveaway_terms",
+          "label": "Giveaway consent and terms",
+          "default": "No purchase necessary. By entering you agree to receive Black Friday emails from OneLaser. Unsubscribe anytime."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "07 材料包抽奖",
+      "blocks": [
+        {
+          "type": "copy0",
+          "settings": {
+            "s1": "Black Friday giveaway · free to enter",
+            "s2": "Win a free",
+            "s3": "material pack",
+            "s4": "We are giving away MakerDepot material packs this Black Friday. Enter with your email and phone number for a chance to win.",
+            "s5": "Black Friday Deals end in",
+            "s6": "Days",
+            "s7": "Hours",
+            "s8": "Mins",
+            "s9": "Secs",
+            "s10": "Email address",
+            "s11": "Enter the giveaway",
+            "image12_url": "https://yonge6.github.io/onelaser-bfcm-2026/assets/gift.jpg",
+            "s13": "Your email address",
+            "giveaway_phone": "Phone number",
+            "giveaway_terms": "No purchase necessary. By entering you agree to receive Black Friday emails from OneLaser. Unsubscribe anytime."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

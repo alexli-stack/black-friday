@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: onelaser-giveaway
+    runtime: node
+    plan: starter
+    rootDir: integrations/giveaway
+    buildCommand: node --version
+    startCommand: npm start
+    healthCheckPath: /healthz
+    numInstances: 1
+    disk:
+      name: giveaway-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 24.22.1
+      - key: DATA_DIR
+        value: /var/data
+      - key: ALLOWED_ORIGINS
+        value: https://www.1laser.com,https://1laser.com
+      - key: TRUST_PROXY
+        value: "true"
+      - key: DEDUPE_SECRET
+        generateValue: true
+      - key: PIPEDRIVE_DOMAIN
+        sync: false
+      - key: PIPEDRIVE_API_TOKEN
+        sync: false
