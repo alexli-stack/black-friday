@@ -1,0 +1,38 @@
+(() => {
+'use strict';
+const products=window.ACCESSORIES||[];
+const models=['XRF','Cobra Series','Hydra Gen2','VertiGo','XT','Hydra Gen1'];
+const types=['Rotary attachments','Cooling & air assist','Risers & feeders','Filtration & filters','Optics & laser tubes'];
+const $=s=>document.querySelector(s);
+const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+const selected=new Set();
+let state={machine:'',categories:[],q:'',sort:'featured',max:''};
+function read(){const p=new URLSearchParams(location.search);state={machine:models.includes(p.get('machine'))?p.get('machine'):'',categories:p.getAll('category').filter(c=>types.includes(c)),q:p.get('q')||'',sort:['price-asc','price-desc','name'].includes(p.get('sort'))?p.get('sort'):'featured',max:p.has('max')&&Number.isFinite(Number(p.get('max')))&&Number(p.get('max'))>=0?p.get('max'):''};}
+function sync(){const p=new URLSearchParams();if(state.machine)p.set('machine',state.machine);state.categories.forEach(c=>p.append('category',c));if(state.q)p.set('q',state.q);if(state.sort!=='featured')p.set('sort',state.sort);if(state.max!=='')p.set('max',state.max);history.replaceState(null,'',location.pathname+(p.size?'?'+p:'')+location.hash);}
+function filtered(ignoreCategory=false){return products.filter(p=>(!state.machine||p.machines.includes(state.machine))&&(ignoreCategory||!state.categories.length||state.categories.includes(p.category))&&(!state.q||[p.title,p.description,p.note,p.category,...p.machines].join(' ').toLowerCase().includes(state.q.toLowerCase()))&&(state.max===''||p.price<=Number(state.max)));}
+function render(){
+ $('#search').value=state.q;$('#sort').value=state.sort;$('#machine-select').value=state.machine;$('#max-price').value=state.max;
+ $('#machines').innerHTML=['',...models].map(m=>`<button class="machine" data-machine="${escape(m)}" aria-pressed="${state.machine===m}"><strong>${escape(m||'All machines')}</strong><small>${products.filter(p=>!m||p.machines.includes(m)).length} accessories to explore</small></button>`).join('');
+ $('#categories').innerHTML=types.map(c=>`<label><input type="checkbox" value="${escape(c)}" ${state.categories.includes(c)?'checked':''}>${escape(c)}<small>${filtered(true).filter(p=>p.category===c).length}</small></label>`).join('');
+ let list=filtered();if(state.sort==='price-asc')list.sort((a,b)=>a.price-b.price);if(state.sort==='price-desc')list.sort((a,b)=>b.price-a.price);if(state.sort==='name')list.sort((a,b)=>a.title.localeCompare(b.title));
+ $('#count').textContent=`${list.length} ${list.length===1?'accessory':'accessories'}${state.machine?' for '+state.machine:''}`;
+ const chips=[...(state.machine?[['machine',state.machine]]:[]),...state.categories.map(c=>['category',c]),...(state.q?[['q',state.q]]:[]),...(state.max!==''?[['max','Up to '+money(state.max)]]:[])];
+ $('#chips').innerHTML=chips.map(([k,v])=>`<button data-remove="${k}" data-value="${escape(v)}" aria-label="Remove ${escape(v)} filter">${escape(v)} ×</button>`).join('');
+ $('#products').innerHTML=list.map(p=>{const i=products.indexOf(p);return `<article class="product"><div class="product-image"><span class="product-type">${escape(p.category)}</span><a href="${escape(p.url)}"><img src="${escape(p.image)}" width="360" height="220" loading="lazy" alt="${escape(p.title)}"></a></div><div class="product-body"><h3><a href="${escape(p.url)}">${escape(p.title)}</a></h3><p class="product-description">${escape(p.description)}</p><div class="compatibility"><strong>Check your setup</strong><p>${escape(p.note||'Confirm your exact model and configuration before ordering.')}</p></div><div class="product-bottom"><span class="price"><small>From </small>${money(p.price)}<small>USD</small></span><a href="${escape(p.url)}" aria-label="View details for ${escape(p.title)}">View details ↗︎</a></div><label class="compare-check"><input type="checkbox" data-compare="${i}" ${selected.has(i)?'checked':''} ${selected.size>=3&&!selected.has(i)?'disabled':''}>Compare${selected.size>=3&&!selected.has(i)?' (max 3)':''}</label></div></article>`}).join('');
+ $('#empty').hidden=list.length>0;$('#compare-tray').hidden=!selected.size;$('#compare-count').textContent=`${selected.size}/3 selected`;$('#open-compare').disabled=selected.size<2;
+}
+function update(){sync();render();}
+function reset(){state={machine:'',categories:[],q:'',sort:'featured',max:''};$('#price-error').textContent='';update();}
+read();$('#machine-select').insertAdjacentHTML('beforeend',models.map(m=>`<option>${escape(m)}</option>`).join(''));
+const hero=products.find(p=>/multi-function rotary/i.test(p.title))||products.find(p=>p.category==='Rotary attachments');if(hero)$('#hero-image').src=hero.image;
+render();
+document.addEventListener('click',e=>{const m=e.target.closest('[data-machine]');if(m){state.machine=m.dataset.machine;update();}const g=e.target.closest('[data-goal]');if(g){e.preventDefault();state.categories=[g.dataset.goal];update();$('#catalog').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}if(e.target.closest('[data-reset]'))reset();const chip=e.target.closest('[data-remove]');if(chip){if(chip.dataset.remove==='category')state.categories=state.categories.filter(c=>c!==chip.dataset.value);else state[chip.dataset.remove]='';update();}});
+$('#search').addEventListener('input',e=>{state.q=e.target.value;update();});$('#machine-select').addEventListener('change',e=>{state.machine=e.target.value;update();});$('#sort').addEventListener('change',e=>{state.sort=e.target.value;update();});$('#categories').addEventListener('change',()=>{state.categories=[...document.querySelectorAll('#categories input:checked')].map(e=>e.value);update();});
+$('#max-price').addEventListener('input',e=>{if(e.target.validity.badInput||Number(e.target.value)<0){$('#price-error').textContent='Enter a price of 0 or more.';return;}$('#price-error').textContent='';state.max=e.target.value;update();});
+$('#products').addEventListener('change',e=>{if(!e.target.matches('[data-compare]'))return;const i=Number(e.target.dataset.compare);if(e.target.checked&&selected.size<3)selected.add(i);else selected.delete(i);render();});
+$('#clear-compare').addEventListener('click',()=>{selected.clear();render();});
+$('#filter-toggle').addEventListener('click',()=>{const open=$('#filters').classList.toggle('open');$('#filter-toggle').setAttribute('aria-expanded',String(open));$('#filter-toggle').textContent=open?'Close filters −':'Filters +';});
+$('#open-compare').addEventListener('click',()=>{const ps=[...selected].map(i=>products[i]);const rows=[['Purpose',p=>escape(p.category)],['Price (USD)',p=>money(p.price)],['Machine family candidates',p=>escape(p.machines.join(', ')||'Confirm with OneLaser')],['What it does',p=>escape(p.description)],['Before you order',p=>escape(p.note)],['Next step',p=>`<a class="text-link" href="${escape(p.url)}">Check product details ↗︎</a>`]];$('#compare-table').innerHTML=`<caption class="fine">Compare ${ps.length} selected accessories</caption><thead><tr><th scope="col">Accessory</th>${ps.map(p=>`<th scope="col"><img src="${escape(p.image)}" alt="" width="110" height="90"><br>${escape(p.title)}</th>`).join('')}</tr></thead><tbody>${rows.map(([title,fn])=>`<tr><th scope="row">${title}</th>${ps.map(p=>`<td>${fn(p)}</td>`).join('')}</tr>`).join('')}</tbody>`;$('#compare-dialog').showModal();});
+$('#close-compare').addEventListener('click',()=>$('#compare-dialog').close());window.addEventListener('popstate',()=>{read();render();});
+})();
