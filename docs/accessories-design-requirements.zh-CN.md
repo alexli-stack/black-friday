@@ -102,3 +102,5 @@
 产品卡片调整：移除全部卡片中的 Check your setup 独立提示框，不保留该模块的占位或固定高度。价格与操作区向上衔接商品用途说明；规格弹窗与比较表中的配置资料仍可查看。
 
 公共导航更新：移除静态页独立设计的顶部/底部导航，改为官网当前导航快照；新增 Shopify 正文 section 与默认 layout 页面模板，正式接入后随当前主题公共导航同步。静态预览刷新脚本与主题构建脚本位于 scripts/，详细边界和验证见 accessories-theme-integration.zh-CN.md。
+
+侧栏咨询卡片：按钮改为 Schedule a Sales Call，使用官网顶部相同的 `/products/sales-consultation-call#book` 预约入口及 `data-ol-booking` 属性。正式主题通过现有 OneLaserHeaderBooking / Appointo 处理器打开预约日历；GitHub 跨域预览跳转官网预约入口。点击不创建预约，须由访客自行选择时间并完成提交。
