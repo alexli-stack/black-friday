@@ -1,0 +1,78 @@
+(() => {
+'use strict';
+const products=window.ACCESSORIES||[];
+const models=['XRF','Cobra Series','Hydra Gen2','VertiGo','XT','Hydra Gen1'];
+const machineImages=Object.fromEntries(models.map((m,i)=>[m,`assets/accessories-images/machine-${i+1}.png`]));
+const categoryIcons=['<circle cx="12" cy="12" r="7"/><path d="M8 3H4v4m0-4 4 4m8 14h4v-4m0 4-4-4"/>','<path d="M3 7h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 17h7"/>','<path d="M3 7h18v10H3zM7 10h10M7 14h10M7 3v4m10-4v4M7 17v4m10-4v4"/>','<path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h8M8 18h8"/>','<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3"/>'];
+const icon=i=>`<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${categoryIcons[i]}</svg>`;
+const types=['Rotary attachments','Cooling & air assist','Risers & feeders','Filtration & filters','Optics & laser tubes'];
+const $=s=>document.querySelector(s);
+const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+const selected=new Set();
+let state={machine:'',categories:[],q:'',sort:'featured',max:''};
+function read(){const p=new URLSearchParams(location.search);state={machine:models.includes(p.get('machine'))?p.get('machine'):'',categories:p.getAll('category').filter(c=>types.includes(c)),q:p.get('q')||'',sort:['price-asc','price-desc','name'].includes(p.get('sort'))?p.get('sort'):'featured',max:p.has('max')&&Number.isFinite(Number(p.get('max')))&&Number(p.get('max'))>=0?p.get('max'):''};}
+function sync(){const p=new URLSearchParams();if(state.machine)p.set('machine',state.machine);state.categories.forEach(c=>p.append('category',c));if(state.q)p.set('q',state.q);if(state.sort!=='featured')p.set('sort',state.sort);if(state.max!=='')p.set('max',state.max);history.replaceState(null,'',location.pathname+(p.size?'?'+p:'')+location.hash);}
+function filtered(ignoreCategory=false){return products.filter(p=>(!state.machine||p.machines.includes(state.machine))&&(ignoreCategory||!state.categories.length||state.categories.includes(p.category))&&(!state.q||[p.title,p.description,p.note,p.category,...p.machines].join(' ').toLowerCase().includes(state.q.toLowerCase()))&&(state.max===''||p.price<=Number(state.max)));}
+function render(){
+ $('#catalog-title').textContent=state.machine?'Accessories for '+state.machine:'All OneLaser accessories';
+ $('#search').value=state.q;$('#sort').value=state.sort;$('#machine-select').value=state.machine;$('#max-price').value=state.max;
+ $('#machines').innerHTML=models.map(m=>`<button class="machine" data-machine="${escape(m)}" aria-pressed="${state.machine===m}"><img class="machine-photo" src="${machineImages[m]}" width="88" height="64" alt=""><span class="machine-copy"><strong>${escape(m)}</strong><small>${products.filter(p=>!m||p.machines.includes(m)).length} accessories</small></span></button>`).join('');
+ $('#categories').innerHTML=types.map(c=>`<label><input type="checkbox" value="${escape(c)}" ${state.categories.includes(c)?'checked':''}>${escape(c)}<small>${filtered(true).filter(p=>p.category===c).length}</small></label>`).join('');
+ let list=filtered();if(state.sort==='price-asc')list.sort((a,b)=>a.price-b.price);if(state.sort==='price-desc')list.sort((a,b)=>b.price-a.price);if(state.sort==='name')list.sort((a,b)=>a.title.localeCompare(b.title));
+ $('#count').textContent=`${list.length} ${list.length===1?'accessory':'accessories'}${state.machine?' for '+state.machine:''}`;
+ const chips=[...(state.machine?[['machine',state.machine]]:[]),...state.categories.map(c=>['category',c]),...(state.q?[['q',state.q]]:[]),...(state.max!==''?[['max','Up to '+money(state.max)]]:[])];
+ $('#chips').innerHTML=chips.map(([k,v])=>`<button data-remove="${k}" data-value="${escape(v)}" aria-label="Remove ${escape(v)} filter">${escape(v)} ×</button>`).join('');
+ function card(p){const i=products.indexOf(p);return `<article class="product"><div class="product-image"><span class="product-type">${escape(p.category)}</span><a href="${escape(p.url)}"><img src="${escape(p.image)}" width="360" height="220" loading="lazy" alt="${escape(p.title)}"></a></div><div class="product-body"><h3><a href="${escape(p.url)}">${escape(p.title)}</a></h3><p class="product-description">${escape(p.description)}</p><div class="product-bottom"><span class="price"><small>From </small>${money(p.price)}<small>USD</small></span></div><div class="purchase-actions">${cartButton(p,i)}<a class="learn-more" href="${escape(p.url)}" aria-label="Learn more about ${escape(p.title)}">Learn More <span aria-hidden="true">→</span></a></div><label class="compare-check"><input type="checkbox" data-compare="${i}" ${selected.has(i)?'checked':''} ${selected.size>=3&&!selected.has(i)?'disabled':''}>Compare${selected.size>=3&&!selected.has(i)?' (max 3)':''}</label></div></article>`;}
+ $('#products').innerHTML=types.map((type,i)=>{const group=list.filter(p=>p.category===type);return group.length?`<section class="category-group" id="category-${i}" aria-labelledby="category-title-${i}"><div class="category-heading"><span class="category-icon">${icon(i)}</span><h3 id="category-title-${i}">${escape(type)}</h3><span>${group.length} accessories</span></div><div class="product-grid">${group.map(card).join('')}</div></section>`:'';}).join('');
+ $('#category-nav').innerHTML=types.map((type,i)=>{const n=list.filter(p=>p.category===type).length;return n?`<a href="#category-${i}">${icon(i)}${escape(type)} <span>${n}</span></a>`:'';}).join('');
+ $('#empty').hidden=list.length>0;$('#compare-tray').hidden=!selected.size;$('#compare-count').textContent=`${selected.size}/3 selected`;$('#open-compare').disabled=selected.size<2;
+}
+function cartButton(p,i){
+ const vs=p.variants||[];
+ if(vs.length===1&&vs[0].available)return `<form class="quick-cart" method="post" action="https://www.1laser.com/cart/add"><input type="hidden" name="id" value="${escape(vs[0].id)}"><input type="hidden" name="quantity" value="1"><input type="hidden" name="return_to" value="/cart"><button class="button primary" type="submit">Add to cart</button></form>`;
+ if(vs.some(v=>v.available))return `<div class="configure-wrap"><button class="button primary configure-cart" type="button" data-configure="${i}" aria-haspopup="dialog">Add to cart</button><small class="options-note">Choose configuration</small></div>`;
+ return `<button class="button primary configure-cart" type="button" disabled>Unavailable</button>`;
+}
+function update(){sync();render();}
+function reset(){state={machine:state.machine,categories:[],q:'',sort:'featured',max:''};$('#price-error').textContent='';update();}
+read();$('#machine-select').insertAdjacentHTML('beforeend',models.map(m=>`<option>${escape(m)}</option>`).join(''));
+
+render();
+document.addEventListener('click',e=>{
+ const config=e.target.closest('[data-configure]');if(config){const p=products[Number(config.dataset.configure)];$('#variant-product').textContent=p.title;$('#variant-note').textContent=p.note;$('#variant-learn').href=p.url;$('#variant-select').innerHTML='<option value="">Select a configuration</option>'+p.variants.map(v=>`<option value="${escape(v.id)}" data-price="${v.price}" ${v.available?'':'disabled'}>${escape(v.title)} — ${money(v.price)}${v.available?'':' — Unavailable'}</option>`).join('');$('#variant-price').textContent='';$('#cart-quantity').value='1';$('#variant-form button[type=submit]').disabled=false;$('#variant-dialog').showModal();}
+const m=e.target.closest('[data-machine]');if(m){state.machine=m.dataset.machine;state.categories=[];state.q='';state.max='';update();$('#catalog').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}const g=e.target.closest('[data-goal]');if(g){e.preventDefault();state.categories=[g.dataset.goal];update();$('#catalog').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}if(e.target.closest('[data-reset]'))reset();const chip=e.target.closest('[data-remove]');if(chip){if(chip.dataset.remove==='category')state.categories=state.categories.filter(c=>c!==chip.dataset.value);else state[chip.dataset.remove]='';update();}});
+$('#search').addEventListener('input',e=>{state.q=e.target.value;update();});$('#machine-select').addEventListener('change',e=>{state.machine=e.target.value;update();});$('#sort').addEventListener('change',e=>{state.sort=e.target.value;update();});$('#categories').addEventListener('change',()=>{state.categories=[...document.querySelectorAll('#categories input:checked')].map(e=>e.value);update();});
+$('#max-price').addEventListener('input',e=>{if(e.target.validity.badInput||Number(e.target.value)<0){$('#price-error').textContent='Enter a price of 0 or more.';return;}$('#price-error').textContent='';state.max=e.target.value;update();});
+$('#products').addEventListener('change',e=>{if(!e.target.matches('[data-compare]'))return;const i=Number(e.target.dataset.compare);if(e.target.checked&&selected.size<3)selected.add(i);else selected.delete(i);render();});
+$('#clear-compare').addEventListener('click',()=>{selected.clear();render();});
+const catalog=$('#catalog'),filters=$('#filters'),toolbar=$('.toolbar');
+function closeFilters(){filters.classList.remove('open');$('#filter-toggle').setAttribute('aria-expanded','false');$('#filter-toggle').textContent='Filters +';}
+function updateStickyLayout(){
+ let top=16;
+ for(const header of document.getElementsByClassName('shopify-section-group-header-group')){
+  const style=getComputedStyle(header),rect=header.getBoundingClientRect();
+  if((style.position==='sticky'||style.position==='fixed')&&rect.bottom>0&&rect.top<=16&&rect.bottom<innerHeight-80)top=Math.max(top,Math.ceil(rect.bottom)+12);
+ }
+ catalog.style.setProperty('--ac-sticky-top',top+'px');
+ const mobile=matchMedia('(max-width:650px)').matches;
+ if(mobile){catalog.style.setProperty('--ac-mobile-filter-top',Math.max(top,Math.ceil(toolbar.getBoundingClientRect().bottom))+8+'px');if(catalog.getBoundingClientRect().bottom<=top+toolbar.offsetHeight)closeFilters();}
+ else if(filters.classList.contains('open'))closeFilters();
+}
+let stickyFrame=0;
+function queueStickyLayout(){if(!stickyFrame)stickyFrame=requestAnimationFrame(()=>{stickyFrame=0;updateStickyLayout();});}
+window.addEventListener('scroll',queueStickyLayout,{passive:true});window.addEventListener('resize',queueStickyLayout);window.addEventListener('pageshow',queueStickyLayout);
+new ResizeObserver(queueStickyLayout).observe(toolbar);
+for(const header of document.getElementsByClassName('shopify-section-group-header-group')){new ResizeObserver(queueStickyLayout).observe(header);header.addEventListener('transitionend',queueStickyLayout);}
+updateStickyLayout();
+$('#filter-toggle').addEventListener('click',()=>{updateStickyLayout();const open=filters.classList.toggle('open');$('#filter-toggle').setAttribute('aria-expanded',String(open));$('#filter-toggle').textContent=open?'Close filters −':'Filters +';});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&filters.classList.contains('open')){closeFilters();$('#filter-toggle').focus();}});
+document.addEventListener('click',e=>{if(matchMedia('(max-width:650px)').matches&&filters.classList.contains('open')&&!filters.contains(e.target)&&!$('#filter-toggle').contains(e.target))closeFilters();});
+$('#open-compare').addEventListener('click',()=>{const ps=[...selected].map(i=>products[i]);const rows=[['Purpose',p=>escape(p.category)],['Price (USD)',p=>money(p.price)],['Machine family candidates',p=>escape(p.machines.join(', ')||'Confirm with OneLaser')],['What it does',p=>escape(p.description)],['Before you order',p=>escape(p.note)],['Next step',p=>`<a class="text-link" href="${escape(p.url)}">Check product details →</a>`]];$('#compare-table').innerHTML=`<caption class="fine">Compare ${ps.length} selected accessories</caption><thead><tr><th scope="col">Accessory</th>${ps.map(p=>`<th scope="col"><img src="${escape(p.image)}" alt="" width="110" height="90"><br>${escape(p.title)}</th>`).join('')}</tr></thead><tbody>${rows.map(([title,fn])=>`<tr class="${title==='Price (USD)'?'compare-price-row':''}"><th scope="row">${title}</th>${ps.map(p=>`<td>${fn(p)}</td>`).join('')}</tr>`).join('')}</tbody>`;$('#compare-dialog').showModal();});
+$('#change-machine').addEventListener('click',()=>{$('#machine-picker').scrollIntoView();$('#machines button').focus({preventScroll:true});});
+$('#close-variant').addEventListener('click',()=>$('#variant-dialog').close());
+$('#variant-select').addEventListener('change',()=>{const o=$('#variant-select').selectedOptions[0];$('#variant-price').textContent=o.value?money(Number(o.dataset.price))+' USD':'';});
+document.addEventListener('submit',e=>{if(e.target.matches('.quick-cart,#variant-form')){const button=e.target.querySelector('button[type=submit]');if(button.disabled){e.preventDefault();return;}button.disabled=true;button.textContent='Opening your cart…';}});
+window.addEventListener('pageshow',()=>{document.querySelectorAll('.quick-cart button,#variant-form button[type=submit]').forEach(b=>{b.disabled=false;b.textContent='Add to cart';});});
+$('#close-compare').addEventListener('click',()=>$('#compare-dialog').close());window.addEventListener('popstate',()=>{read();render();});
+})();

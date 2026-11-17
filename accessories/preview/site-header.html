@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html class="js" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><base target="_top"/><style>
+      #fv-loading-icon {
+        visibility: visible;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: system-ui, sans-serif;
+        font-size: 190vw;
+        line-height: 1;
+        word-wrap: break-word;
+        top: 0;
+        left: 0;
+        margin: 0;
+        text-decoration: none;
+        filter: none;
+        transition: all 0s;
+        transform: none;
+        width: 99vw;
+        height: 99vh;
+        max-width: 99vw;
+        max-height: 99vh;
+        pointer-events: none;
+        z-index: -99;
+        overflow: hidden;
+        opacity: 0.0001;
+      }
+    </style><link href="../assets/site-shell/cabe909dcb4ac1a1c9a4.css" media="all" rel="stylesheet" type="text/css"/><style id="shopify-accelerated-checkout-cart">
+        #shopify-buyer-consent {
+  margin-top: 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+#shopify-buyer-consent.hidden {
+  display: none;
+}
+
+#shopify-subscription-policy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#shopify-subscription-policy-button::before {
+  box-shadow: none;
+}
+
+      </style><link href="../assets/site-shell/af26a9ba60921e1099f4.css" media="all" rel="stylesheet"/><style data-shopify="">
+      @font-face {
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/site-shell/9184f1faa3a9260818bb.woff2") format("woff2"),
+       url("../assets/site-shell/1b1ab2112ad5244b9ded.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/site-shell/bfda007161bbc4994a79.woff2") format("woff2"),
+       url("../assets/site-shell/779fb7da7abba0ea06c1.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("../assets/site-shell/e3c721efdc67962887e7.woff2") format("woff2"),
+       url("../assets/site-shell/749dcab91bc5c7a085cf.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("../assets/site-shell/81c0dc6f8c4bae5e75d0.woff2") format("woff2"),
+       url("../assets/site-shell/88169d2f8032ea2b6f2a.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/site-shell/bfda007161bbc4994a79.woff2") format("woff2"),
+       url("../assets/site-shell/779fb7da7abba0ea06c1.woff") format("woff");
+}
+
+
+
+        :root,
+        .color-scheme-1 {
+          --color-background: 255,255,255;
+
+          --gradient-background: #ffffff;
+
+
+
+
+        --color-foreground: 51,51,51;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 14,27,77;
+        --color-button: 231,49,14;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 231,49,14;
+        --color-link: 231,49,14;
+        --color-badge-foreground: 51,51,51;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 51,51,51;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+
+
+        .color-scheme-2 {
+          --color-background: 255,255,255;
+
+          --gradient-background: #ffffff;
+
+
+
+
+        --color-foreground: 51,51,51;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 14,27,77;
+        --color-button: 14,27,77;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 14,27,77;
+        --color-link: 14,27,77;
+        --color-badge-foreground: 51,51,51;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 51,51,51;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+
+
+        .color-scheme-3 {
+          --color-background: 231,49,14;
+
+          --gradient-background: #e7310e;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 111,24,7;
+        --color-shadow: 14,27,77;
+        --color-button: 255,255,255;
+        --color-button-text: 14,27,77;
+        --color-secondary-button: 231,49,14;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 231,49,14;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(231 49 14);
+      }
+
+
+        .color-scheme-4 {
+          --color-background: 71,112,219;
+
+          --gradient-background: #4770db;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 27,57,136;
+        --color-shadow: 14,27,77;
+        --color-button: 255,255,255;
+        --color-button-text: 71,112,219;
+        --color-secondary-button: 71,112,219;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 71,112,219;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(71 112 219);
+      }
+
+
+        .color-scheme-5 {
+          --color-background: 231,49,14;
+
+          --gradient-background: #e7310e;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 111,24,7;
+        --color-shadow: 14,27,77;
+        --color-button: 255,255,255;
+        --color-button-text: 227,36,2;
+        --color-secondary-button: 231,49,14;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 231,49,14;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(231 49 14);
+      }
+
+
+        .color-scheme-51cf3724-4779-4973-a724-58414828083f {
+          --color-background: 241,242,246;
+
+          --gradient-background: #f1f2f6;
+
+
+
+
+        --color-foreground: 51,51,51;
+        --color-background-contrast: 163,170,196;
+        --color-shadow: 0,0,0;
+        --color-button: 0,0,0;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 241,242,246;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 51,51,51;
+        --color-badge-background: 241,242,246;
+        --color-badge-border: 51,51,51;
+        --payment-terms-background-color: rgb(241 242 246);
+      }
+
+
+        .color-scheme-908c1e19-ba1e-4a9f-9acf-4bc3b582dbfb {
+          --color-background: 240,242,245;
+
+          --gradient-background: #f0f2f5;
+
+
+
+
+        --color-foreground: 51,51,51;
+        --color-background-contrast: 163,176,194;
+        --color-shadow: 231,49,14;
+        --color-button: 231,49,14;
+        --color-button-text: 231,49,14;
+        --color-secondary-button: 240,242,245;
+        --color-secondary-button-text: 231,49,14;
+        --color-link: 231,49,14;
+        --color-badge-foreground: 51,51,51;
+        --color-badge-background: 240,242,245;
+        --color-badge-border: 51,51,51;
+        --payment-terms-background-color: rgb(240 242 245);
+      }
+
+
+        .color-scheme-2a9b5a13-2577-422e-84ab-e3bdd57527ba {
+          --color-background: 242,242,242;
+
+          --gradient-background: #f2f2f2;
+
+
+
+
+        --color-foreground: 54,65,66;
+        --color-background-contrast: 178,178,178;
+        --color-shadow: 14,27,77;
+        --color-button: 71,112,219;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 242,242,242;
+        --color-secondary-button-text: 14,27,77;
+        --color-link: 14,27,77;
+        --color-badge-foreground: 54,65,66;
+        --color-badge-background: 242,242,242;
+        --color-badge-border: 54,65,66;
+        --payment-terms-background-color: rgb(242 242 242);
+      }
+
+
+        .color-scheme-9993ecb4-f83f-41e0-a75e-fff58d88211a {
+          --color-background: 0,0,0;
+
+          --gradient-background: #000000;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 128,128,128;
+        --color-shadow: 14,27,77;
+        --color-button: 255,255,255;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 0,0,0;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 0,0,0;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(0 0 0);
+      }
+
+
+        .color-scheme-00d5e531-0d24-4e5a-81ab-3e020ab22ddc {
+          --color-background: 0,0,0;
+
+          --gradient-background: #000000;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 128,128,128;
+        --color-shadow: 255,255,255;
+        --color-button: 255,255,255;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 0,0,0;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 0,0,0;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(0 0 0);
+      }
+
+
+        .color-scheme-91729dde-a7c4-477d-988e-63a7c28d8d8c {
+          --color-background: 255,255,255;
+
+          --gradient-background: #ffffff;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 231,49,14;
+        --color-button: 231,49,14;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 231,49,14;
+        --color-link: 231,49,14;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+
+
+        .color-scheme-c84aee3a-17c4-4d8b-82e5-78160c1875ad {
+          --color-background: 0,0,0;
+
+          --gradient-background: #000000;
+
+
+
+
+        --color-foreground: 128,128,128;
+        --color-background-contrast: 128,128,128;
+        --color-shadow: 255,255,255;
+        --color-button: 255,255,255;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 0,0,0;
+        --color-secondary-button-text: 255,255,255;
+        --color-link: 255,255,255;
+        --color-badge-foreground: 128,128,128;
+        --color-badge-background: 0,0,0;
+        --color-badge-border: 128,128,128;
+        --payment-terms-background-color: rgb(0 0 0);
+      }
+
+
+        .color-scheme-d9bf7724-1b98-47d9-b67b-6a743fc10a86 {
+          --color-background: 0,0,0;
+
+          --gradient-background: #000000;
+
+
+
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 128,128,128;
+        --color-shadow: 14,27,77;
+        --color-button: 231,49,14;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 0,0,0;
+        --color-secondary-button-text: 231,49,14;
+        --color-link: 231,49,14;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 0,0,0;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(0 0 0);
+      }
+
+
+        .color-scheme-84e2b109-85dd-4c5e-93aa-34a95da6ea1c {
+          --color-background: 245,245,247;
+
+          --gradient-background: #f5f5f7;
+
+
+
+
+        --color-foreground: 9,9,9;
+        --color-background-contrast: 174,174,190;
+        --color-shadow: 14,27,77;
+        --color-button: 231,49,14;
+        --color-button-text: 239,240,245;
+        --color-secondary-button: 245,245,247;
+        --color-secondary-button-text: 231,49,14;
+        --color-link: 231,49,14;
+        --color-badge-foreground: 9,9,9;
+        --color-badge-background: 245,245,247;
+        --color-badge-border: 9,9,9;
+        --payment-terms-background-color: rgb(245 245 247);
+      }
+
+
+      body, .color-scheme-1, .color-scheme-2, .color-scheme-3, .color-scheme-4, .color-scheme-5, .color-scheme-51cf3724-4779-4973-a724-58414828083f, .color-scheme-908c1e19-ba1e-4a9f-9acf-4bc3b582dbfb, .color-scheme-2a9b5a13-2577-422e-84ab-e3bdd57527ba, .color-scheme-9993ecb4-f83f-41e0-a75e-fff58d88211a, .color-scheme-00d5e531-0d24-4e5a-81ab-3e020ab22ddc, .color-scheme-91729dde-a7c4-477d-988e-63a7c28d8d8c, .color-scheme-c84aee3a-17c4-4d8b-82e5-78160c1875ad, .color-scheme-d9bf7724-1b98-47d9-b67b-6a743fc10a86, .color-scheme-84e2b109-85dd-4c5e-93aa-34a95da6ea1c {
+        color: rgba(var(--color-foreground), 0.75);
+        background-color: rgb(var(--color-background));
+      }
+
+      :root {
+        --font-body-family: Archivo, sans-serif;
+        --font-body-style: normal;
+        --font-body-weight: 400;
+        --font-body-weight-bold: 700;
+
+        --font-heading-family: Archivo, sans-serif;
+        --font-heading-style: normal;
+        --font-heading-weight: 700;
+
+        --font-body-scale: 1.0;
+        --font-heading-scale: 1.0;
+
+        --media-padding: px;
+        --media-border-opacity: 0.1;
+        --media-border-width: 0px;
+        --media-radius: 20px;
+        --media-shadow-opacity: 0.0;
+        --media-shadow-horizontal-offset: 0px;
+        --media-shadow-vertical-offset: 4px;
+        --media-shadow-blur-radius: 5px;
+        --media-shadow-visible: 0;
+
+        --page-width: 140rem;
+        --page-width-margin: 0rem;
+
+        --product-card-image-padding: 1.6rem;
+        --product-card-corner-radius: 1.8rem;
+        --product-card-text-alignment: left;
+        --product-card-border-width: 0.1rem;
+        --product-card-border-opacity: 1.0;
+        --product-card-shadow-opacity: 0.0;
+        --product-card-shadow-visible: 0;
+        --product-card-shadow-horizontal-offset: 0.0rem;
+        --product-card-shadow-vertical-offset: 0.4rem;
+        --product-card-shadow-blur-radius: 0.5rem;
+
+        --collection-card-image-padding: 1.6rem;
+        --collection-card-corner-radius: 1.8rem;
+        --collection-card-text-alignment: left;
+        --collection-card-border-width: 0.1rem;
+        --collection-card-border-opacity: 1.0;
+        --collection-card-shadow-opacity: 0.0;
+        --collection-card-shadow-visible: 0;
+        --collection-card-shadow-horizontal-offset: 0.0rem;
+        --collection-card-shadow-vertical-offset: 0.4rem;
+        --collection-card-shadow-blur-radius: 0.5rem;
+
+        --blog-card-image-padding: 1.6rem;
+        --blog-card-corner-radius: 1.8rem;
+        --blog-card-text-alignment: left;
+        --blog-card-border-width: 0.1rem;
+        --blog-card-border-opacity: 1.0;
+        --blog-card-shadow-opacity: 0.0;
+        --blog-card-shadow-visible: 0;
+        --blog-card-shadow-horizontal-offset: 0.0rem;
+        --blog-card-shadow-vertical-offset: 0.4rem;
+        --blog-card-shadow-blur-radius: 0.5rem;
+
+        --badge-corner-radius: 0.0rem;
+
+        --popup-border-width: 1px;
+        --popup-border-opacity: 0.1;
+        --popup-corner-radius: 18px;
+        --popup-shadow-opacity: 0.0;
+        --popup-shadow-horizontal-offset: 0px;
+        --popup-shadow-vertical-offset: 4px;
+        --popup-shadow-blur-radius: 5px;
+
+        --drawer-border-width: 0px;
+        --drawer-border-opacity: 0.1;
+        --drawer-shadow-opacity: 0.0;
+        --drawer-shadow-horizontal-offset: 0px;
+        --drawer-shadow-vertical-offset: 4px;
+        --drawer-shadow-blur-radius: 5px;
+
+        --spacing-sections-desktop: 0px;
+        --spacing-sections-mobile: 0px;
+
+        --grid-desktop-vertical-spacing: 28px;
+        --grid-desktop-horizontal-spacing: 24px;
+        --grid-mobile-vertical-spacing: 14px;
+        --grid-mobile-horizontal-spacing: 12px;
+
+        --text-boxes-border-opacity: 0.1;
+        --text-boxes-border-width: 0px;
+        --text-boxes-radius: 20px;
+        --text-boxes-shadow-opacity: 0.0;
+        --text-boxes-shadow-visible: 0;
+        --text-boxes-shadow-horizontal-offset: 0px;
+        --text-boxes-shadow-vertical-offset: 4px;
+        --text-boxes-shadow-blur-radius: 5px;
+
+        --buttons-radius: 40px;
+        --buttons-radius-outset: 41px;
+        --buttons-border-width: 1px;
+        --buttons-border-opacity: 1.0;
+        --buttons-shadow-opacity: 0.0;
+        --buttons-shadow-visible: 0;
+        --buttons-shadow-horizontal-offset: 0px;
+        --buttons-shadow-vertical-offset: 4px;
+        --buttons-shadow-blur-radius: 5px;
+        --buttons-border-offset: 0.3px;
+
+        --inputs-radius: 26px;
+        --inputs-border-width: 1px;
+        --inputs-border-opacity: 0.55;
+        --inputs-shadow-opacity: 0.0;
+        --inputs-shadow-horizontal-offset: 0px;
+        --inputs-margin-offset: 0px;
+        --inputs-shadow-vertical-offset: 4px;
+        --inputs-shadow-blur-radius: 5px;
+        --inputs-radius-outset: 27px;
+
+        --variant-pills-radius: 40px;
+        --variant-pills-border-width: 1px;
+        --variant-pills-border-opacity: 0.55;
+        --variant-pills-shadow-opacity: 0.0;
+        --variant-pills-shadow-horizontal-offset: 0px;
+        --variant-pills-shadow-vertical-offset: 4px;
+        --variant-pills-shadow-blur-radius: 5px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: calc(var(--font-body-scale) * 62.5%);
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: 0.06rem;
+        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+
+      @media screen and (min-width: 750px) {
+        body {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* friend referral 位置调整 */
+      .sca_aff_customer_refer_container{
+        left: 0;
+        top: auto;
+        bottom: 64px;
+        padding-left: 0;
+      }
+      .sca_aff_customer_refer_container .sca_aff_customer_refer_button{
+        padding: 14px 26px;
+        border-radius: 30px;
+      }
+      @media screen and (max-width: 768px) {
+        .sca_aff_customer_refer_container{
+          display: none!important;
+        }
+      }
+      /* popup位置调整 */
+      .jdgm-popup-widget-wrapper .jdgm-popup-widget .jdgm-popup-widget__cards-container{
+        bottom:150px;
+      }
+    </style><link href="../assets/site-shell/53b2455756338660c02b.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/f26c9309f16f3590100e.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/2a23aecb182d9dacb9ce.css" media="all" onload="this.media='all'" rel="stylesheet"/><link href="../assets/site-shell/e0b5cad2c0e1982d6f03.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/0e641f3e993d6695dc9b.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/b248f883c9b176ed0ed2.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/74a27b03596a113b1f10.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/94e62eeed0841e59817a.css" media="all" rel="stylesheet" type="text/css"/><link href="../assets/site-shell/363a1938a03b7a1fda17.css" media="all" onload="this.media='all'" rel="stylesheet"/><style>
+.affirm-as-low-as[data-page-type="product"]:empty::before{content:"Loading Affirm payment options…";font-size:13px;line-height:1.5;color:#666}
+@media(max-width:749px){.affirm-as-low-as[data-page-type="product"]{min-height:76px;box-sizing:border-box}}
+</style><link href="../assets/site-shell/3a570513fd68942b2657.css" media="all" rel="stylesheet" type="text/css"/><style class="jdgm-settings-style">.jdgm-xx{left:0}:root{--jdgm-primary-color: #FA4616;--jdgm-secondary-color: rgba(250,70,22,0.1);--jdgm-star-color: #FA4616;--jdgm-write-review-text-color: white;--jdgm-write-review-bg-color: #FA4616;--jdgm-paginate-color: #FA4616;--jdgm-border-radius: 10;--jdgm-reviewer-name-color: #FA4616}.jdgm-histogram__bar-content{background-color:#FA4616}.jdgm-rev[data-verified-buyer=true] .jdgm-rev__icon.jdgm-rev__icon:after,.jdgm-rev__buyer-badge.jdgm-rev__buyer-badge{color:white;background-color:#FA4616}.jdgm-review-widget--small .jdgm-gallery.jdgm-gallery .jdgm-gallery__thumbnail-link:nth-child(8) .jdgm-gallery__thumbnail-wrapper.jdgm-gallery__thumbnail-wrapper:before{content:"See more"}@media only screen and (min-width: 768px){.jdgm-gallery.jdgm-gallery .jdgm-gallery__thumbnail-link:nth-child(8) .jdgm-gallery__thumbnail-wrapper.jdgm-gallery__thumbnail-wrapper:before{content:"See more"}}.jdgm-rev__thumb-btn{color:#FA4616}.jdgm-rev__thumb-btn:hover{opacity:0.8}.jdgm-rev__thumb-btn:not([disabled]):hover,.jdgm-rev__thumb-btn:hover,.jdgm-rev__thumb-btn:active,.jdgm-rev__thumb-btn:visited{color:#FA4616}.jdgm-preview-badge .jdgm-star.jdgm-star{color:#FA4616}.jdgm-prev-badge[data-average-rating='0.00']{display:none !important}.jdgm-widget.jdgm-all-reviews-widget,.jdgm-widget .jdgm-rev-widg{border:none;padding:0}.jdgm-author-all-initials{display:none !important}.jdgm-author-last-initial{display:none !important}.jdgm-rev-widg__title{visibility:hidden}.jdgm-rev-widg__summary-text{visibility:hidden}.jdgm-prev-badge__text{visibility:hidden}.jdgm-rev__prod-link-prefix:before{content:'about'}.jdgm-rev__variant-label:before{content:'Variant: '}.jdgm-rev__out-of-store-text:before{content:'(out of store)'}@media only screen and (min-width: 768px){.jdgm-rev__pics .jdgm-rev_all-rev-page-picture-separator,.jdgm-rev__pics .jdgm-rev__product-picture{display:none}}@media only screen and (max-width: 768px){.jdgm-rev__pics .jdgm-rev_all-rev-page-picture-separator,.jdgm-rev__pics .jdgm-rev__product-picture{display:none}}.jdgm-preview-badge[data-template="product"]{display:none !important}.jdgm-preview-badge[data-template="collection"]{display:none !important}.jdgm-preview-badge[data-template="index"]{display:none !important}.jdgm-review-widget[data-from-snippet="true"]{display:none !important}.jdgm-verified-count-badget[data-from-snippet="true"]{display:none !important}.jdgm-carousel-wrapper[data-from-snippet="true"]{display:none !important}.jdgm-all-reviews-text[data-from-snippet="true"]{display:none !important}.jdgm-medals-section[data-from-snippet="true"]{display:none !important}.jdgm-ugc-media-wrapper[data-from-snippet="true"]{display:none !important}.jdgm-rev__transparency-badge[data-badge-type="review_collected_via_store_invitation"]{display:none !important}.jdgm-rev__transparency-badge[data-badge-type="review_collected_from_another_provider"]{display:none !important}.jdgm-rev__transparency-badge[data-badge-type="review_collected_from_store_visitor"]{display:none !important}.jdgm-rev__transparency-badge[data-badge-type="review_earned_for_future_purchase"]{display:none !important}.jdgm-review-snippet-widget{--jdgm-snippet-card-color: #fff;--jdgm-snippet-text-color: #000;--jdgm-snippet-lighter-text-color: #7B7B7B;--jdgm-snippet-star-color: #FA4616;--jdgm-snippet-border-radius: 8px;--jdgm-snippet-arrows-bg-color: #fff;--jdgm-snippet-arrows-color: #000}.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__cards-container .jdgm-rev-snippet-card{border-radius:8px;background:#fff}.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__cards-container .jdgm-rev-snippet-card__rev-rating .jdgm-star{color:#FA4616}.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__prev-btn,.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__next-btn{border-radius:50%;background:#fff}.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__prev-btn>svg,.jdgm-review-snippet-widget .jdgm-rev-snippet-widget__next-btn>svg{fill:#000}.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jm-mfp-content,.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev__icon,.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev__pic-img,.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev__reply{border-radius:8px}.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev[data-verified-buyer="true"] .jdgm-full-rev__icon::after{border-radius:8px}.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev .jdgm-rev__buyer-badge{border-radius:calc( 8px / 2 )}.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev .jdgm-full-rev__replier::before{content:'OneLaser'}.jdgm-full-rev-modal.rev-snippet-widget .jm-mfp-container .jdgm-full-rev .jdgm-full-rev__product-button{border-radius:calc( 8px * 6 )}
+</style><style class="jdgm-settings-style"></style><style class="jdgm-miracle-styles">
+  @-webkit-keyframes jdgm-spin{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);-ms-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes jdgm-spin{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);-ms-transform:rotate(359deg);transform:rotate(359deg)}}@font-face{font-family:'JudgemeStar';src:url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAScAA0AAAAABrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAEgAAAABoAAAAcbyQ+3kdERUYAAARgAAAAHgAAACAAMwAGT1MvMgAAAZgAAABGAAAAVi+vS9xjbWFwAAAB8AAAAEAAAAFKwBMjvmdhc3AAAARYAAAACAAAAAj//wADZ2x5ZgAAAkAAAAEJAAABdH33LXtoZWFkAAABMAAAAC0AAAA2BroQKWhoZWEAAAFgAAAAHAAAACQD5QHQaG10eAAAAeAAAAAPAAAAFAYAAABsb2NhAAACMAAAAA4AAAAOAO4AeG1heHAAAAF8AAAAHAAAACAASgAvbmFtZQAAA0wAAADeAAABkorWfVZwb3N0AAAELAAAACkAAABEp3ubLXgBY2BkYADhPPP4OfH8Nl8ZuJkYQODS2fRrCPr/aSYGxq1ALgcDWBoAO60LkwAAAHgBY2BkYGDc+v80gx4TAwgASaAICmABAFB+Arl4AWNgZGBgYGPQYWBiAAIwyQgWc2AAAwAHVQB6eAFjYGRiYJzAwMrAwejDmMbAwOAOpb8ySDK0MDAwMbByMsCBAAMCBKS5pjA4PGB4wMR44P8BBj3GrQymQGFGkBwAjtgK/gAAeAFjYoAAEA1jAwAAZAAHAHgB3crBCcAwDEPRZydkih567CDdf4ZskmLwFBV8xBfCaC4BXkOUmx4sU0h2ngNb9V0vQCxaRKIAevT7fGWuBrEAAAAAAAAAAAA0AHgAugAAeAF9z79Kw1AUx/FzTm7un6QmJtwmQ5Bg1abgEGr/BAqlU6Gju+Cgg1MkQ/sA7Vj7BOnmO/gUvo2Lo14NqIO6/IazfD8HEODtmQCfoANwNsyp2/GJt3WKQrd1NLiYYWx2PBqOsmJMEOznPOTzfSCrhAtbbLdmeFLJV9eKd63WLrZcIcuaEVdssWCKM6pLCfTVOYbz/0pNSMSZKLIZpvh78sAUH6PlMrreTCabP9r+Z/puPZ2ur/RqpQHgh+MIegCnXeM4MRAPjYN//5tj4ZtTjkFqEdmeMShlEJ7tVAly2TAkx6R68Fl4E/aVvn8JqHFQ4JS1434gXKcuL31dDhzs3YbsEOAd/IU88gAAAHgBfY4xTgMxEEVfkk0AgRCioKFxQYd2ZRtpixxgRU2RfhU5q5VWseQ4JdfgAJyBlmNwAM7ABRhZQ0ORwp7nr+eZAa54YwYg9zm3ynPOeFRe8MCrciXOh/KSS76UV5L/iDmrLiS5AeU519wrL3jmSbkS5115yR2fyivJv9kx0ZMZ2RLZw27q87iNQi8EBo5FSPIMw3HqBboi5lKTGAGDp8FKXWP+t9TU01Lj5His1Ba6uM9dTEMwvrFmbf5GC/q2drW3ruXUhhsCiQOjznFlCzYhHUZp4xp76vsvQh89CQAAeAFjYGJABowM6IANLMrEyMTIzMjCXpyRWJBqZshWXJJYBKOMAFHFBucAAAAAAAAB//8AAngBY2BkYGDgA2IJBhBgAvKZGViBJAuYxwAABJsAOgAAeAFjYGBgZACCk535hiD60tn0azAaAEqpB6wAAA==") format("woff");font-weight:normal;font-style:normal}.jdgm-star{font-family:'JudgemeStar';display:inline !important;text-decoration:none !important;padding:0 4px 0 0 !important;margin:0 !important;font-weight:bold;opacity:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.jdgm-star:hover{opacity:1}.jdgm-star:last-of-type{padding:0 !important}.jdgm-star.jdgm--on:before{content:"\e000"}.jdgm-star.jdgm--off:before{content:"\e001"}.jdgm-star.jdgm--half:before{content:"\e002"}.jdgm-widget *{margin:0;line-height:1.4;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-overflow-scrolling:touch}.jdgm-hidden{display:none !important;visibility:hidden !important}.jdgm-temp-hidden{display:none}.jdgm-spinner{width:40px;height:40px;margin:auto;border-radius:50%;border-top:2px solid #eee;border-right:2px solid #eee;border-bottom:2px solid #eee;border-left:2px solid #ccc;-webkit-animation:jdgm-spin 0.8s infinite linear;animation:jdgm-spin 0.8s infinite linear}.jdgm-spinner:empty{display:block}.jdgm-prev-badge{display:block !important}
+
+</style><script>window.Shopify={designMode:false,routes:{root:"https://www.1laser.com/"}};window.routes={cart_url:"https://www.1laser.com/cart",cart_add_url:"https://www.1laser.com/cart/add",cart_change_url:"https://www.1laser.com/cart/change",cart_update_url:"https://www.1laser.com/cart/update",predictive_search_url:"https://www.1laser.com/search/suggest"};window.cartStrings={error:"Please view your cart on OneLaser.",quantityError:"Please check quantity."};</script><script src="../assets/site-shell/eee121ac7221a01d3d13.js"></script><script defer="defer" src="../assets/site-shell/d95455f20bca8d7a7373.js"></script><script defer="defer" src="../assets/site-shell/51dce5bd0dc3cdec0fc8.js"></script><script defer="defer" src="../assets/site-shell/917388bfd67198ace858.js"></script><script defer="defer" src="../assets/site-shell/5d444b2038e4aa690827.js"></script><script defer="defer" src="../assets/site-shell/8bfb1c3e066944ceab16.js"></script><script defer="defer" src="../assets/site-shell/f3c8503f676a0254425d.js"></script><style>html{height:auto!important;overflow:hidden}body{height:auto!important;min-height:0!important;margin:0!important;display:block!important;padding:0!important}.shopify-section-group-header-group{position:relative!important;top:auto!important}.shopify-section-group-footer-group{margin:0!important}.footer{margin-top:0!important}.scroll-trigger{opacity:1!important;transform:none!important}.header-wrapper--border-bottom{border-bottom:1px solid #e3e5e8}html,body{min-height:100vh!important}#Details-menu-drawer-container[open] #menu-drawer{transform:translateX(0)!important;visibility:visible!important}#Details-menu-drawer-container[open] .menu-drawer__inner-container{visibility:visible!important}</style></head><body class="gradient" data-part="header"><section class="shopify-section shopify-section-group-header-group onelaser-promo-section" id="shopify-section-sections--29194136092706__onelaser_global_promo">
+<onelaser-promo-banner class="ol-promo ol-promo--linked" data-countdown="true" data-editor="false" data-end="2026-11-30T23:59:59-08:00" data-expiry="show_message" data-remember="true" data-storage-key="ol-promo-sections--29194136092706__onelaser_global_promo-2026-11-30t23-59-59-08-00-save-up-to-3-000" style="--ol-promo-bg:#0b0f18;--ol-promo-text:#ffffff;--ol-promo-accent:#ff3b30;--ol-promo-timer:#252a35;--ol-promo-overlay:#000000;--ol-promo-opacity:0.0;--ol-promo-height:92px;--ol-promo-mobile-height:112px">
+<div aria-hidden="true" class="ol-promo__overlay"></div>
+<a aria-label="Shop the deals" class="ol-promo__whole-link" href="https://www.1laser.com/pages/bfcm26" target="_top"></a>
+<div class="ol-promo__inner">
+<div class="ol-promo__copy">
+<p class="ol-promo__eyebrow">Black Friday deals · Ends Cyber Monday, Nov 30</p>
+<p class="ol-promo__heading">SAVE UP TO $3,000</p>
+</div>
+<div aria-label="Black Friday deals end in" aria-live="off" class="ol-promo__clock" hidden="" role="timer">
+<div class="ol-promo__unit"><span class="ol-promo__digit" data-unit="days">00</span><span class="ol-promo__label">Days</span><span aria-hidden="true" class="ol-promo__abbr">d</span></div>
+<span aria-hidden="true" class="ol-promo__colon">:</span>
+<div class="ol-promo__unit"><span class="ol-promo__digit" data-unit="hours">00</span><span class="ol-promo__label">Hours</span><span aria-hidden="true" class="ol-promo__abbr">h</span></div>
+<span aria-hidden="true" class="ol-promo__colon">:</span>
+<div class="ol-promo__unit"><span class="ol-promo__digit" data-unit="minutes">00</span><span class="ol-promo__label">Mins</span><span aria-hidden="true" class="ol-promo__abbr">m</span></div>
+<span aria-hidden="true" class="ol-promo__colon">:</span>
+<div class="ol-promo__unit"><span class="ol-promo__digit" data-unit="seconds">00</span><span class="ol-promo__label">Secs</span><span aria-hidden="true" class="ol-promo__abbr">s</span></div>
+</div>
+<p class="ol-promo__expired" hidden="">This event has ended.</p>
+<div aria-hidden="true" class="ol-promo__art ol-promo__art--desktop" style="--ol-promo-art-width:360px;--ol-promo-art-natural-width:calc(var(--ol-promo-height) * 3.0);--ol-promo-art-y:50%;--ol-promo-art-zoom:1.0">
+<img alt="" height="333" sizes="(max-width: 749px) 180px, 400px" src="../assets/site-shell/22420ea1175e07da1f72.png" width="1000"/>
+</div>
+</div>
+<button aria-label="Close announcement" class="ol-promo__close" type="button"><svg aria-hidden="true" height="16" viewbox="0 0 20 20" width="16"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg></button>
+</onelaser-promo-banner>
+</section><div class="shopify-section shopify-section-group-header-group section-header" id="shopify-section-sections--29194136092706__header"><link href="../assets/site-shell/8f589678a0cc6fc5a316.css" media="all" rel="stylesheet" type="text/css"/>
+<script defer="" src="../assets/site-shell/1a15230259f8187bb53a.js"></script>
+<link href="../assets/site-shell/5a7cf8bb611190ef9e11.css" media="all" onload="this.media='all'" rel="stylesheet"/>
+<link href="../assets/site-shell/3ce1d306b3732bad8e4f.css" media="all" onload="this.media='all'" rel="stylesheet"/>
+<link href="../assets/site-shell/7bb827b44e3f233cb055.css" media="all" onload="this.media='all'" rel="stylesheet"/>
+<link href="../assets/site-shell/7fb3a49d074e85ff0d5e.css" media="all" onload="this.media='all'" rel="stylesheet"/>
+<link href="../assets/site-shell/beaf897ad80b61151edd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../assets/site-shell/74a27b03596a113b1f10.css" media="all" onload="this.media='all'" rel="stylesheet"/><style>
+  header-drawer {
+    justify-self: start;
+    margin-left: -1.2rem;
+  }@media screen and (min-width: 990px) {
+      header-drawer {
+        display: none;
+      }
+    }.menu-drawer-container {
+    display: flex;
+  }
+
+  .list-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-menu--inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  summary.list-menu__item {
+    padding-right: 0;
+  }
+
+  .list-menu__item {
+    display: flex;
+    gap:4px;
+    align-items: center;
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+  }
+
+  .list-menu__item--link {
+    text-decoration: none;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+
+  @media screen and (min-width: 750px) {
+    .list-menu__item--link {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+
+  .social-meida-fixed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 10px;
+    position: fixed;
+    left: 10px;
+    bottom: 180px;
+
+  }
+  .social-meida-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+  .social-meida-link svg{
+    width: 100%;
+    height: 100%;
+  }
+  .social-meida-item{
+    position: relative;
+  }
+  .social-meida-item:hover .social-meida-link{
+    scale: 1.2;
+  }
+  .social-meida-fixed .fb_popup{
+    position: absolute;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    top: 0;
+    transform: translateY(-46%);
+    gap: 10px;
+    display: none;
+    overflow: hidden;
+  }
+  .social-meida-fixed .fb_popup_item{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+  }
+  .social-meida-fixed .fb_popup_item:first-of-type{
+    padding-bottom: 10px;
+  }
+  .social-meida-fixed .fb_popup_item:last-of-type{
+    padding-top: 10px;
+  }
+  .social-meida-fixed .fb_popup_item:hover{
+    background: #e7e7e7;
+  }
+  .social-meida-fixed .fb_popup_item svg{
+    width: 42px;
+    height: 42px;
+  }
+  .social-meida-fixed .fb_popup_item div{
+    white-space: nowrap;
+    color: #383838;
+  }
+  .social-meida-item_fb .social-meida-link{
+    cursor: default;
+  }
+  .social-meida-item_fb:hover .fb_popup{
+
+  }
+
+  @media screen and (max-width: 750px) {
+    .social-meida-fixed{
+      display:none;
+    }
+  }
+</style><style data-shopify="">.header {
+    padding: 10px 3rem 10px 3rem;
+  }
+
+  .section-header {
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    margin-bottom: 0px;
+  }
+  .section-header .one-annoucement-count-down{
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-header {
+      margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .header {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  @media screen and (max-width: 1000px) and (min-width:750px) {
+    .section-header{
+      margin-bottom: 0px;
+      top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    }
+    .section-header .one-annoucement-count-down{
+      margin-bottom: 0px;
+      top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-header{
+      margin-bottom: 0px;
+      top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    }
+    .section-header .one-annoucement-count-down{
+      margin-bottom: 0px;
+      top: calc(var(--sticky-announcement-slide-enabled, 0) * calc(var(--announcement-bar-height, 0px) - 1px));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-header .header.page-width {
+      width: 100%;
+      max-width: 1480px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .section-header .header--middle-left:not(.drawer-menu) {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      column-gap: clamp(20px, 3vw, 48px);
+    }
+    .section-header .header__inline-menu > .list-menu--inline {
+      flex-wrap: nowrap;
+      gap: clamp(16px, 2vw, 38px);
+    }
+    .section-header .header__inline-menu > .list-menu--inline > li {
+      flex-shrink: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .section-header .header__inline-menu .header__menu-item {
+      white-space: nowrap;
+    }
+  }
+  @media screen and (min-width: 990px) and (max-width: 1199px) {
+    .section-header .header.page-width {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .section-header .header__inline-menu > .list-menu--inline {
+      gap: 12px;
+    }
+    .section-header .header__inline-menu .header__menu-item {
+      font-size: 13px;
+    }
+  }
+  @media screen and (min-width: 1900px) {
+    .section-header .header.page-width { max-width: 1600px; }
+  }
+  @media screen and (min-width: 2400px) {
+    .section-header .header.page-width { max-width: 1800px; }
+  }</style><sticky-header class="header-wrapper custom-header-wrapper__border_width color-scheme-2 gradient" data-sticky-type="always"><header class="header header--middle-left header--mobile-center page-width header--with-contacts header--has-menu header--has-social header--has-account">
+<header-drawer data-breakpoint="tablet">
+<details class="menu-drawer-container" id="Details-menu-drawer-container">
+<summary aria-label="Menu" class="header__icon header__icon--menu header__icon--summary link focus-inset">
+<span><svg class="icon icon-hamburger" fill="none" viewbox="0 0 18 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5" fill="currentColor"></path></svg>
+<svg class="icon icon-close" fill="none" viewbox="0 0 18 17" xmlns="http://www.w3.org/2000/svg"><path d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z" fill="currentColor"></path></svg>
+</span>
+</summary>
+<div class="gradient menu-drawer motion-reduce color-scheme-2" id="menu-drawer">
+<div class="menu-drawer__inner-container">
+<div class="menu-drawer__navigation-container">
+<nav class="menu-drawer__navigation custom-menu-drawer__navigation">
+<ul class="menu-drawer__menu has-submenu list-menu custom_drawer__menu" role="list"><li class="menu-drawer__item-wrapper"><div class="custom-accordion-item accordion-level-1">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>Laser Machines</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/collections/laser-engraving-cutting-marking-machines" target="_top"><span class="customs-accordion-menut__txet customs-special-menu__txet">
+                                    Explore all machines
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><div class="custom-accordion-item accordion-level-2">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>X Series</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content accordion-content-level-3">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine" target="_top">
+<span class="customs-accordion-menut_title">XRF</span><span class="customs-accordion-menut__description">
+                                                Performance Desktop Laser Engraver (38W RF)
+                                              </span></a>
+</li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><div class="custom-accordion-item accordion-level-2">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>Cobra Series</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content accordion-content-level-3">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter" target="_top">
+<span class="customs-accordion-menut_title">Cobra 8</span><span class="customs-accordion-menut__description">
+                                                Workshop Essential Laser Engraver/Cutter (90W Glass)
+                                              </span></a>
+</li><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter" target="_top">
+<span class="customs-accordion-menut_title">Cobra 10</span><span class="customs-accordion-menut__description">
+                                                Workshop Essential Laser Engraver/Cutter (100W Glass)
+                                              </span></a>
+</li><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter" target="_top">
+<span class="customs-accordion-menut_title">Cobra 14</span><span class="customs-accordion-menut__description">
+                                                Workshop Essential Laser Engraver/Cutter (130W Glass)
+                                              </span></a>
+</li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><div class="custom-accordion-item accordion-level-2">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>Hydra Series</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content accordion-content-level-3">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<span class="customs-accordion-menut_title">Hydra 7 Gen2</span><span class="customs-accordion-menut__description">
+                                                Industrial RF Laser Engraver (70W RF)
+                                              </span></a>
+</li><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<span class="customs-accordion-menut_title">Hydra 9 Gen2</span></a>
+</li><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<span class="customs-accordion-menut_title">Hydra 13 Gen2</span><span class="customs-accordion-menut__description">
+                                                CO₂ Glass/RF Industrial Hybrid Laser Engraver
+                                              </span></a>
+</li><li class="menu-drawer__item-wrapper sub-item-wrapper">
+<a class="menu-drawer_items-custom menu-drawer__menu-item list-menu__item link link--text accordion-level-3-link" href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<span class="customs-accordion-menut_title">Hydra 16 Gen2</span><span class="customs-accordion-menut__description">
+                                                CO₂ Glass/RF Industrial Hybrid Laser Engraver
+                                              </span></a>
+</li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/products/vertigo-vertical-laser-engraver" target="_top"><span class="customs-accordion-menut__txet">
+                                    VertiGo
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper"><a class="menu-drawer__menu-item list-menu__item link link--text focus-inset accordion-level-1-link" href="https://www.1laser.com/collections/laser-accessories" target="_top">
+<span>Accessories</span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper"><a class="menu-drawer__menu-item list-menu__item link link--text focus-inset accordion-level-1-link" href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting" target="_top">
+<span>Material</span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper"><a class="menu-drawer__menu-item list-menu__item link link--text focus-inset accordion-level-1-link" href="https://www.1laser.com/pages/bfcm26" target="_top">
+<span>🔥Black Friday</span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper"><div class="custom-accordion-item accordion-level-1">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>Support</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://zohodesk.1laser.com/portal/en/newticket?departmentId=1041815000001167070&amp;layoutId=1041815000001177509&amp;_gl=1*1rupdpi*_gcl_au*MTY5MzQzMDY1OC4xNzc4NzQ3NTY4LjM4ODUyNTc2OS4xNzgzOTkwMDM2LjE3ODM5OTAwMzU." target="_top"><span class="customs-accordion-menut__txet">
+                                    Submit a Ticket
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/products/sales-consultation-call" target="_top"><span class="customs-accordion-menut__txet">
+                                    Get a Quote
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/products/engineer-1-on-1-training-support" target="_top"><span class="customs-accordion-menut__txet">
+                                    1-on-1 Training
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/pages/shipping-policy" target="_top"><span class="customs-accordion-menut__txet">
+                                    Policy
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/pages/financing" target="_top"><span class="customs-accordion-menut__txet">
+                                    Financing
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/blogs/topic" target="_top"><span class="customs-accordion-menut__txet">
+                                    Blogs
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://wiki.1laser.com" target="_top"><span class="customs-accordion-menut__txet">
+                                    Product Knowledge Base
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper"><div class="custom-accordion-item accordion-level-1">
+<div class="custom-accordion-toggle menu-drawer__menu-item list-menu__item link link--text">
+<span>Community</span>
+<span class="menu-arrow-icon">
+<svg fill="#000" height="18" viewbox="0 0 256 256" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</span>
+</div>
+<div class="custom-accordion-content">
+<ul class="menu-drawer__menu list-menu" role="list"><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://af.uppromote.com/OneLaser/register" target="_top"><span class="customs-accordion-menut__txet">
+                                    Become Affiliate
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/pages/onelaser-rewards" target="_top"><span class="customs-accordion-menut__txet">
+                                    Purchase Rewards
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/pages/laser-engraving-community" target="_top"><span class="customs-accordion-menut__txet">
+                                    Join Community
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li><li class="menu-drawer__item-wrapper sub-item-wrapper"><a class="accordion-level-2-direct-link menu-drawer__menu-item list-menu__item link link--text accordion-level-2-link" href="https://www.1laser.com/pages/testimonials" target="_top"><span class="customs-accordion-menut__txet">
+                                    Testimonials
+                                  </span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li></ul>
+</div>
+</div></li><li class="menu-drawer__item-wrapper"><a class="menu-drawer__menu-item list-menu__item link link--text focus-inset accordion-level-1-link" href="https://www.1laser.com/pages/contact-us" target="_top">
+<span>Contact</span>
+<span class="external-arrow-icon">
+<svg fill="none" height="16" stroke="#000" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 17L17 7M17 7H7M17 7v10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a></li></ul>
+<div class="ol-mobile-menu-links"><a href="https://www.1laser.com/search" target="_top">Search</a><a href="https://www.1laser.com/account/login" target="_top">Account</a></div>
+<div class="ol-header-contact ol-header-contact--drawer" style="--ol-booking-color: #e7310e;">
+<a aria-label="Call OneLaser at 626 800 4130" class="ol-header-contact__phone" href="tel:+16268004130" target="_top">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"></path></svg>
+<span>626 800 4130</span>
+</a>
+<a aria-haspopup="dialog" aria-label="Schedule a Sales Call" class="ol-header-contact__book" data-close-label="Close appointment calendar" data-error="The calendar could not load. Open the booking page to choose your time." data-fallback-label="Open booking page" data-loading="Opening appointment calendar…" data-ol-booking="" data-product-handle="sales-consultation-call" href="https://www.1laser.com/products/sales-consultation-call#book" target="_top">
+<svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="19"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 11h18m-13 5 2 2 5-5"></path></svg>
+<span class="ol-header-contact__full">Schedule a Sales Call</span>
+<span aria-hidden="true" class="ol-header-contact__short">Schedule a Call</span>
+</a>
+</div>
+</nav>
+<div class="menu-drawer__utility-links"></div>
+</div>
+</div>
+</div>
+</details>
+</header-drawer>
+<style>
+  .custom-menu-drawer__navigation {
+    padding: 12px 24px;
+    text-align: left;
+  }
+  .menu-drawer__menu > .menu-drawer__item-wrapper {
+    border-bottom: 1px solid #D2D2D7
+  }
+
+  .menu-drawer__menu .menu-drawer__menu-item,
+  .custom-accordion-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    text-decoration: none;
+    background: transparent !important;
+    cursor: pointer;
+    min-height: 48px;
+    gap: 16px;
+    color: #000;
+    line-height: 1.4;
+    padding: 0;
+    font-family: Certia-ExtraBold;
+  }
+  .custom-accordion-item.is-open .menu-drawer_items-custom {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .accordion-level-1 > .custom-accordion-toggle,
+  .accordion-level-1-link {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 0;
+  }
+  .accordion-level-2 > .custom-accordion-toggle,
+  .accordion-level-2-link {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .accordion-level-3-link {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.85;
+  }
+  .customs-accordion-menut__txet {
+    color: #000000;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .customs-special-menu__txet {
+    color: #d92d0d;
+  }
+  .customs-accordion-menut_title{
+    color:#000;
+    font-weight:700;
+  }
+  .customs-accordion-menut__description {
+    color: #6b6b70;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .menu-drawer__submenu,
+  .menu-drawer__close-button {
+    display: none !important;
+  }
+
+  .custom-accordion-content {
+    display: none;
+    padding-left: 16px;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-accordion-item.is-open > .custom-accordion-content {
+    display: block !important;
+    padding: 4px 16px 12px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    background: #f5f5f7;
+  }
+
+  .custom-accordion-item.is-open > .accordion-content-level-3 {
+    padding: 0 0 8px 12px !important;
+    margin: 0;
+  }
+
+  .sub-item-wrapper {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .sub-item-wrapper:last-child {
+    border-bottom: none;
+  }
+
+  .menu-arrow-icon svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+  .custom-accordion-item.is-open > .custom-accordion-toggle .menu-arrow-icon svg {
+    transform: rotate(180deg);
+  }
+
+  .external-arrow-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+  }
+</style>
+<script>
+  document.addEventListener('click', function (e) {
+    const toggle = e.target.closest('.custom-accordion-toggle');
+    if (!toggle) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const parentItem = toggle.closest('.custom-accordion-item');
+    if (parentItem) {
+      parentItem.classList.toggle('is-open');
+    }
+  });
+</script>
+<div class="header__heading"><a class="header__heading-link link link--text focus-inset" href="https://www.1laser.com/" target="_top"><div class="header__heading-logo-wrapper" style="--logo-custom-width: 150px;">
+<img alt="OneLaser" class="header__heading-logo logo--primary motion-reduce" height="19.607843137254903" sizes="(max-width: 300px) 50vw, 150px" src="../assets/site-shell/1df3660b7469f1bb6f17.svg" width="150"/>
+<img alt="OneLaser" class="header__heading-logo logo--transparent motion-reduce" height="19.607843137254903" sizes="(max-width: 300px) 50vw, 150px" src="../assets/site-shell/eb085baad016ecf215d4.svg" width="150"/>
+</div></a></div>
+<style>
+    .header__inline-menu details .header__submenu_2_container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      left: 0;
+      background: #f0f2f5;
+      padding: 0;
+      z-index: 99;
+    }
+
+  .header__inline-menu details .header__submenu_2_container::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background: transparent;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+    .header__inline-menu details .header__submenu_2 {
+      width: 100%;
+      left: 0;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      width: 126rem;
+      min-width: auto;
+      background: transparent;
+      border: none;
+    }
+
+    .header__inline-menu details .header__submenu_2 > li {
+      width: 20%;
+      flex-shrink: 0;
+    }
+
+    .header__inline-menu details .header__submenu_2 .header__menu-item_2_summary > svg {
+      display: none;
+    }
+
+    .header__inline-menu details .header__submenu_2 .header__menu-item_2_summary,
+    .header__inline-menu details .header__submenu_2_link {
+       font-weight: 800;
+    }
+
+    .header__inline-menu details .header__submenu_3 {
+      background: transparent;
+    }
+
+    .header__submenu .header__menu-item {
+      padding: .8rem 4rem;
+    }
+    @media screen and (min-width: 990px) {
+
+      .header__inline-menu .list-menu--inline > li:hover .header__submenu_2_container,
+      .header__inline-menu .list-menu--inline > li:hover .custom_megamenu_wrapper,
+      .header__inline-menu .list-menu--inline > li:hover .custom_image_megamenu,
+      .header__inline-menu details[open] .header__submenu_2_container,
+      .header__inline-menu details[open] .custom_megamenu_wrapper,
+      .header__inline-menu details[open] .custom_image_megamenu {
+        display: flex !important;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .header__inline-menu .list-menu--inline > li:hover .header__submenu_2,
+      .header__inline-menu details[open] .header__submenu_2 {
+        display: flex !important;
+      }
+
+      .header__inline-menu .list-menu--inline > li:hover summary svg,
+      .header__inline-menu details[open] > summary svg {
+        transform: rotate(180deg);
+      }
+
+      .header__inline-menu details[open] > summary:focus {
+        outline: none;
+      }
+    }
+  .image_megamenu_left > a.image_megamenu_card,
+  .image_megamenu_left > a.image_megamenu_card:hover {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
+<nav class="header__inline-menu customs-header__inline-menu">
+<ul class="list-menu list-menu--inline" role="list"><li>
+<header-menu>
+<details id="Details-HeaderMenu-1">
+<summary class="header__menu-item custom-header-menu__itmes list-menu__item link focus-inset" id="HeaderMenu-laser-machines">
+<span>
+<a class="custom-header-menu__itmes_hrefs" href="https://www.1laser.com/collections/laser-engraving-cutting-marking-machines" id="HeaderMenu-laser-machines" target="_top">Laser Machines</a>
+</span>
+<svg fill="currentColor" height="13" viewbox="0 0 256 256" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
+</svg>
+</summary>
+<div class="header__submenu header__submenu_2_container header_second_menu-fixed list-menu color-scheme-2 gradient custom_megamenu_wrapper" id="HeaderMenu-MenuList-1">
+<div class="page-width custom_megamenu_container"><!-- 左侧标题栏 (Tabs List) -->
+<div class="custom_megamenu_list"><div class="custom_megamenu_title active" data-tab-index="1">
+<span class="custom_megamenu_title_text">X Series</span>
+<svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</div><div class="custom_megamenu_title" data-tab-index="2">
+<span class="custom_megamenu_title_text">Cobra Series</span>
+<svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</div><div class="custom_megamenu_title" data-tab-index="3">
+<span class="custom_megamenu_title_text">Hydra Series</span>
+<svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</div><div class="custom_megamenu_title" data-tab-index="5">
+<span class="custom_megamenu_title_text">VertiGo</span>
+<svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</div></div>
+<!-- 右侧内容区 (Contents Pane) -->
+<div class="custom_megamenu_contents"><div class="custom_megamenu_content active" data-content-index="1">
+<div class="custom_megamenu_content_cards" style="--columns-count: 2;"><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/onelaser-xrf-desktop-laser-machine" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser XRF 38W RF desktop laser engraver and cutter, front view" height="400" src="../assets/site-shell/7be996daacdfa136b0c0.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">XRF™
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Performance Desktop Laser Engraver (38W RF)
+
+                                    </div>
+</div>
+</a></div>
+</div><div class="custom_megamenu_content" data-content-index="2">
+<div class="custom_megamenu_content_cards" style="--columns-count: 2;"><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/cobra-8-90w-co2-laser-engraver-cutter" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Cobra 8 90W CO2 laser engraver and cutter" height="400" src="../assets/site-shell/95fbb5f3123fd1472b9b.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Cobra™ 8
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Workshop Essential Laser Engraver/Cutter (90W Glass)
+
+                                    </div>
+</div>
+</a><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/cobra-10-100w-co2-laser-engraver-cutter" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Cobra™ 10 - Workshop Essential Laser Engraver/Cutter" height="400" src="../assets/site-shell/e86cfb40390eac3e7c90.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Cobra™ 10
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Workshop Essential Laser Engraver/Cutter (100W Glass)
+
+                                    </div>
+</div>
+</a><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/cobra-14-130w-co2-laser-engraver-cutter" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Cobra 14 130W CO2 laser engraver and cutter" height="400" src="../assets/site-shell/2dbc8df717292180e512.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Cobra™ 14
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Workshop Essential Laser Engraver/Cutter (130W Glass)
+
+                                    </div>
+</div>
+</a></div>
+</div><div class="custom_megamenu_content" data-content-index="3">
+<div class="custom_megamenu_content_cards" style="--columns-count: 2;"><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/hydra-7-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Hydra 7 Gen2 70W RF industrial laser engraver" height="400" src="../assets/site-shell/9901f9f61537b233fb84.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Hydra™ 7 Gen2
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Industrial RF Laser Engraver (70W RF)
+
+                                    </div>
+</div>
+</a><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/hydra-9-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="ONELASER Hydra 9 Gen 2 RF CO2 dual laser engraving cutting machine" height="400" src="../assets/site-shell/66d3230b1f0ab7785e20.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Hydra™ 9 Gen2
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        CO₂ Glass/RF Industrial Hybrid Laser Engraver (100W Glass+38W RF/70W RF)
+
+                                    </div>
+</div>
+</a><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/hydra-13-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Hydra 13 Gen2 RF and CO2 industrial laser engraver" height="400" src="../assets/site-shell/735c131fab0615c5cdda.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Hydra™ 13 Gen2
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        CO₂ Glass/RF Industrial Hybrid Laser Engraver (130W Glass+38W RF/70W RF)
+
+                                    </div>
+</div>
+</a><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/hydra-16-gen-2-70w-rf-co2-dual-laser-machine" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser Hydra 16 Gen2 RF and CO2 industrial laser engraver" height="400" src="../assets/site-shell/57d1747698f518183a6f.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">Hydra™ 16 Gen2
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        CO₂ Glass/RF Industrial Hybrid Laser Engraver (150W Glass+38W RF/70W RF)
+
+                                    </div>
+</div>
+</a></div>
+</div><div class="custom_megamenu_content" data-content-index="5">
+<div class="custom_megamenu_content_cards" style="--columns-count: 2;"><a class="custom_megamenu_content_card" href="https://www.1laser.com/products/vertigo-vertical-laser-engraver" target="_top">
+<div class="custom_megamenu_content_card_image">
+<img alt="OneLaser VertiGo vertical rotary laser engraver for tumblers and cups" height="356" src="../assets/site-shell/aa92cb219ed4dfb199dc.png" width="400"/>
+</div>
+<div class="custom_megamenu_content_card_info">
+<div class="custom_megamenu_content_card_info_title">VertiGo™
+</div>
+<div class="custom_megamenu_content_card_info_text">
+
+                                        Performance Rotary Laser for Drinkware (38W RF)
+
+                                    </div>
+</div>
+</a></div>
+</div></div></div>
+</div>
+</details>
+</header-menu>
+</li><li>
+<a class="header__menu-item list-menu__item link link--text focus-inset custom-header-menu__itmes" href="https://www.1laser.com/collections/laser-accessories" id="HeaderMenu-accessories" target="_top">
+<span>Accessories</span>
+</a></li><li>
+<a class="header__menu-item list-menu__item link link--text focus-inset custom-header-menu__itmes" href="https://www.1laser.com/collections/materials-for-laser-engraving-cutting" id="HeaderMenu-material" target="_top">
+<span>Material</span>
+</a></li><li>
+<a class="header__menu-item list-menu__item link link--text focus-inset custom-header-menu__itmes" href="https://www.1laser.com/pages/bfcm26" id="HeaderMenu-🔥black-friday" target="_top">
+<span>🔥Black Friday</span>
+</a></li><li>
+<header-menu>
+<details id="Details-HeaderMenu-5">
+<summary class="header__menu-item list-menu__item link focus-inset custom-header-menu__itmes" id="HeaderMenu-support">
+<span>
+<a class="custom-header-menu__itmes_hrefs" href="https://www.1laser.com/pages/sales-consultation" id="HeaderMenu-support" target="_top">Support</a>
+</span>
+<svg fill="currentColor" height="13" viewbox="0 0 256 256" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
+</svg>
+</summary>
+<div class="header__submenu header__submenu_2_container header_second_menu-fixed color-scheme-2 gradient global-settings-popup custom_image_megamenu"><div class="page-width custom_image_megamenu_container"><div class="image_megamenu_left"><a class="image_megamenu_card" href="https://www.1laser.com/products/sales-consultation-call" target="_top">
+<img alt="Get a Quotes" height="471" src="../assets/site-shell/33e750bfca2f596402a6.png" width="600"/>
+<div class="image_card_overlay">
+<div class="image_card_text">Get a Quote
+                                </div>
+<svg fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<mask height="20" id="mask0_1_18036" maskunits="userSpaceOnUse" style="mask-type:luminance" width="20" x="0" y="0">
+<path clip-rule="evenodd" d="M20 0L0 0L0 20L20 20L20 0Z" fill="white" fill-rule="evenodd"></path>
+</mask>
+<g mask="url(#mask0_1_18036)">
+<path d="M5.36505 18.3836C5.85255 18.8711 6.64255 18.8711 7.13005 18.3836L14.6338 10.8824C15 10.5161 15.0913 9.98111 14.9088 9.52986C14.8475 9.37986 14.7563 9.23861 14.6338 9.11736L7.1313 1.61611C6.6438 1.12861 5.8538 1.12861 5.3663 1.61611C4.8788 2.10361 4.8788 2.89361 5.3663 3.38111L11.9863 9.99986L5.36505 16.6186C4.87755 17.1074 4.87755 17.8961 5.36505 18.3836Z" fill="white"></path>
+</g>
+</svg>
+</div>
+</a><a class="image_megamenu_card" href="https://www.1laser.com/products/engineer-1-on-1-training-support" target="_top">
+<img alt="1-on-1 Support" height="471" src="../assets/site-shell/a3c3015db4e67ba01d37.png" width="600"/>
+<div class="image_card_overlay">
+<div class="image_card_text">1-on-1 Support
+                                </div>
+<svg fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<mask height="20" id="mask0_1_18036" maskunits="userSpaceOnUse" style="mask-type:luminance" width="20" x="0" y="0">
+<path clip-rule="evenodd" d="M20 0L0 0L0 20L20 20L20 0Z" fill="white" fill-rule="evenodd"></path>
+</mask>
+<g mask="url(#mask0_1_18036)">
+<path d="M5.36505 18.3836C5.85255 18.8711 6.64255 18.8711 7.13005 18.3836L14.6338 10.8824C15 10.5161 15.0913 9.98111 14.9088 9.52986C14.8475 9.37986 14.7563 9.23861 14.6338 9.11736L7.1313 1.61611C6.6438 1.12861 5.8538 1.12861 5.3663 1.61611C4.8788 2.10361 4.8788 2.89361 5.3663 3.38111L11.9863 9.99986L5.36505 16.6186C4.87755 17.1074 4.87755 17.8961 5.36505 18.3836Z" fill="white"></path>
+</g>
+</svg>
+</div>
+</a></div><div class="image_megamenu_right"><div class="image_megamenu_nav_col"><ul class="list-menu"><li>
+<a class="image_megamenu_link" href="https://zohodesk.1laser.com/portal/en/newticket" target="_top">Contact Support
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li><li>
+<a class="image_megamenu_link" href="https://www.1laser.com/pages/financing" target="_top">Financing
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li><li>
+<a class="image_megamenu_link" href="https://www.1laser.com/policies/shipping-policy" target="_top">Policy
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li><li>
+<a class="image_megamenu_link" href="https://www.1laser.com/blogs/topic" target="_top">Blogs
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li><li>
+<a class="image_megamenu_link" href="https://wiki.1laser.com" target="_top">Product Knowledge Base
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li></ul>
+</div></div></div>
+</div>
+</details>
+</header-menu></li><li>
+<header-menu>
+<details id="Details-HeaderMenu-6">
+<summary class="header__menu-item list-menu__item link focus-inset custom-header-menu__itmes" id="HeaderMenu-community">
+<span>
+<a class="custom-header-menu__itmes_hrefs" href="https://www.1laser.com/pages/laser-engraving-community" id="HeaderMenu-community" target="_top">Community</a>
+</span>
+<svg fill="currentColor" height="13" viewbox="0 0 256 256" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
+</svg>
+</summary>
+<div class="header__submenu header__submenu_2_container header_second_menu-fixed color-scheme-2 gradient global-settings-popup custom_image_megamenu"><div class="page-width custom_image_megamenu_container"><div class="image_megamenu_left"><a class="image_megamenu_card" href="https://www.1laser.com/pages/laser-engraving-community" target="_top">
+<img alt="Become Affiliate" height="471" src="../assets/site-shell/0041f723c7a8a71013d0.png" width="600"/>
+<div class="image_card_overlay">
+<div class="image_card_text">Become Affiliate
+                                </div>
+<svg fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<mask height="20" id="mask0_1_18036" maskunits="userSpaceOnUse" style="mask-type:luminance" width="20" x="0" y="0">
+<path clip-rule="evenodd" d="M20 0L0 0L0 20L20 20L20 0Z" fill="white" fill-rule="evenodd"></path>
+</mask>
+<g mask="url(#mask0_1_18036)">
+<path d="M5.36505 18.3836C5.85255 18.8711 6.64255 18.8711 7.13005 18.3836L14.6338 10.8824C15 10.5161 15.0913 9.98111 14.9088 9.52986C14.8475 9.37986 14.7563 9.23861 14.6338 9.11736L7.1313 1.61611C6.6438 1.12861 5.8538 1.12861 5.3663 1.61611C4.8788 2.10361 4.8788 2.89361 5.3663 3.38111L11.9863 9.99986L5.36505 16.6186C4.87755 17.1074 4.87755 17.8961 5.36505 18.3836Z" fill="white"></path>
+</g>
+</svg>
+</div>
+</a><a class="image_megamenu_card" href="https://www.1laser.com/pages/onelaser-rewards" target="_top">
+<img alt="Purchase Rewards" height="471" src="../assets/site-shell/4068ca4fe805d2122cbf.png" width="600"/>
+<div class="image_card_overlay">
+<div class="image_card_text">Purchase Rewards
+                                </div>
+<svg fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<mask height="20" id="mask0_1_18036" maskunits="userSpaceOnUse" style="mask-type:luminance" width="20" x="0" y="0">
+<path clip-rule="evenodd" d="M20 0L0 0L0 20L20 20L20 0Z" fill="white" fill-rule="evenodd"></path>
+</mask>
+<g mask="url(#mask0_1_18036)">
+<path d="M5.36505 18.3836C5.85255 18.8711 6.64255 18.8711 7.13005 18.3836L14.6338 10.8824C15 10.5161 15.0913 9.98111 14.9088 9.52986C14.8475 9.37986 14.7563 9.23861 14.6338 9.11736L7.1313 1.61611C6.6438 1.12861 5.8538 1.12861 5.3663 1.61611C4.8788 2.10361 4.8788 2.89361 5.3663 3.38111L11.9863 9.99986L5.36505 16.6186C4.87755 17.1074 4.87755 17.8961 5.36505 18.3836Z" fill="white"></path>
+</g>
+</svg>
+</div>
+</a></div><div class="image_megamenu_right"><div class="image_megamenu_nav_col"><ul class="list-menu"><li>
+<a class="image_megamenu_link" href="https://www.1laser.com/pages/laser-engraving-community" target="_top">Join Community
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li><li>
+<a class="image_megamenu_link" href="https://www.1laser.com/pages/testimonials" target="_top">Testimonials
+                                  <svg class="icon" height="15" p-id="5468" t="1788790152066" version="1.1" viewbox="0 0 1024 1024" width="15" xmlns="http://www.w3.org/2000/svg">
+<path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#000000" p-id="5469"></path>
+</svg>
+</a>
+</li></ul>
+</div></div></div>
+</div>
+</details>
+</header-menu></li><li>
+<a class="header__menu-item list-menu__item link link--text focus-inset custom-header-menu__itmes" href="https://www.1laser.com/pages/contact-us" id="HeaderMenu-contact" target="_top">
+<span>Contact</span>
+</a></li></ul>
+</nav>
+<script>
+  document.querySelectorAll('.header__menu-item_2_summary').forEach((item) => {
+    item.style.pointerEvents = 'none';
+  });
+
+  function updateSubmenuPosition() {
+    const header = document.querySelector('.header-wrapper');
+    const submenuList = document.querySelectorAll('.header__inline-menu details .header__submenu_2_container');
+
+    if (header) {
+      const rect = header.getBoundingClientRect();
+      const headerBottom = rect.bottom;
+      submenuList.forEach((submenu) => {
+        submenu.style.top = `${headerBottom}px`;
+      });
+    }
+  }
+
+  updateSubmenuPosition();
+  window.addEventListener('resize', updateSubmenuPosition);
+  window.addEventListener('scroll', updateSubmenuPosition);
+
+  if (window.innerWidth >= 990) {
+    let activeTimeout;
+
+    document.querySelectorAll('.header__inline-menu .list-menu--inline > li').forEach((li) => {
+      const details = li.querySelector('details');
+
+      if (details) {
+        li.addEventListener('mouseenter', () => {
+          if (activeTimeout) clearTimeout(activeTimeout);
+
+          document.querySelectorAll('.header__inline-menu .list-menu--inline > li details').forEach((otherDetails) => {
+            if (otherDetails !== details) {
+              otherDetails.removeAttribute('open');
+            }
+          });
+
+          details.setAttribute('open', 'true');
+          updateSubmenuPosition();
+        });
+
+        li.addEventListener('mouseleave', () => {
+          activeTimeout = setTimeout(() => {
+            details.removeAttribute('open');
+          }, 50);
+        });
+
+        const summary = details.querySelector('summary');
+        if (summary) {
+          summary.addEventListener('click', (e) => {
+            if (details.hasAttribute('open')) {
+              const link = summary.querySelector('a') || li.querySelector('a');
+              if (link && link.getAttribute('href')) {
+                window.location.href = link.getAttribute('href');
+              }
+            }
+            e.preventDefault();
+          });
+        }
+      }
+    });
+  }
+</script>
+<div class="ol-header-contact" style="--ol-booking-color: #e7310e;">
+<a aria-label="Call OneLaser at 626 800 4130" class="ol-header-contact__phone" href="tel:+16268004130" target="_top">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"></path></svg>
+<span>626 800 4130</span>
+</a>
+<a aria-haspopup="dialog" aria-label="Schedule a Sales Call" class="ol-header-contact__book" data-close-label="Close appointment calendar" data-error="The calendar could not load. Open the booking page to choose your time." data-fallback-label="Open booking page" data-loading="Opening appointment calendar…" data-ol-booking="" data-product-handle="sales-consultation-call" href="https://www.1laser.com/products/sales-consultation-call#book" target="_top">
+<svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="19"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 11h18m-13 5 2 2 5-5"></path></svg>
+<span class="ol-header-contact__full">Schedule a Sales Call</span>
+<span aria-hidden="true" class="ol-header-contact__short">Schedule a Call</span>
+</a>
+<p aria-live="polite" class="ol-header-contact__status" data-ol-booking-status="" hidden="" role="status"></p>
+</div>
+<div class="header__icons header__icons--localization header-localization">
+<div class="desktop-localization-wrapper">
+</div>
+<details-modal class="header__search">
+<details>
+<summary aria-haspopup="dialog" aria-label="Search" class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle">
+<span>
+<span class="svg-wrapper">
+<svg fill="currentColor" height="20" viewbox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</span>
+<span class="svg-wrapper header__icon-close"><svg class="icon icon-close" fill="none" viewbox="0 0 18 17" xmlns="http://www.w3.org/2000/svg"><path d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z" fill="currentColor"></path></svg>
+</span>
+</span>
+</summary>
+<div aria-label="Search" aria-modal="true" class="search-modal modal__content gradient" role="dialog">
+<div class="modal-overlay"></div>
+<div class="search-modal__content search-modal__content-bottom" tabindex="-1"><predictive-search class="search-modal__form" data-loading-text="Loading..."><form action="https://www.1laser.com/search" class="search search-modal__form" method="get" role="search" target="_top">
+<div class="field">
+<input aria-autocomplete="list" aria-controls="predictive-search-results" aria-expanded="false" aria-haspopup="listbox" aria-owns="predictive-search-results" autocapitalize="off" autocomplete="off" autocorrect="off" class="search__input field__input" id="Search-In-Modal" name="q" placeholder="Search" role="combobox" spellcheck="false" type="search" value=""/>
+<label class="field__label" for="Search-In-Modal">Search</label>
+<input name="options[prefix]" type="hidden" value="last"/>
+<button aria-label="Clear search term" class="reset__button field__button hidden" type="reset">
+<span class="svg-wrapper"><svg class="icon icon-close" fill="none" stroke="currentColor" viewbox="0 0 18 18"><circle cx="9" cy="9" r="8.5" stroke-opacity=".2"></circle><path d="M11.83 11.83 6.172 6.17M6.229 11.885l5.544-5.77" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</span>
+</button>
+<button aria-label="Search" class="search__button field__button">
+<span class="svg-wrapper"><svg class="icon icon-search" fill="none" viewbox="0 0 18 19"><path clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" fill="currentColor" fill-rule="evenodd"></path></svg></span>
+</button>
+</div><div class="predictive-search predictive-search--header" data-predictive-search="" tabindex="-1">
+<div class="predictive-search__loading-state">
+<svg class="spinner" viewbox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="path" cx="33" cy="33" fill="none" r="30" stroke-width="6"></circle></svg>
+</div>
+</div>
+<span aria-hidden="true" class="predictive-search-status visually-hidden" role="status"></span></form></predictive-search><button aria-label="Close" class="search-modal__close-button modal__close-button link link--text focus-inset" type="button">
+<span class="svg-wrapper"><svg class="icon icon-close" fill="none" viewbox="0 0 18 17" xmlns="http://www.w3.org/2000/svg"><path d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z" fill="currentColor"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</details>
+</details-modal>
+<a class="header__icon header__icon--cart link focus-inset" href="https://www.1laser.com/cart" target="_top">
+<span class="svg-wrapper 123">
+<svg fill="currentColor" height="20" viewbox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path>
+</svg>
+</span>
+<span class="visually-hidden">Cart</span></a><a class="header__icon header__icon--account link focus-inset small-hide" href="https://www.1laser.com/account/login" target="_top"><account-icon><span class="svg-wrapper 123">
+<svg fill="currentColor" height="21" viewbox="0 0 256 256" width="21" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z"></path>
+</svg>
+</span></account-icon><span class="visually-hidden">Log in</span>
+</a>
+</div>
+</header>
+</sticky-header>
+<script>
+  let fbIcon = document.querySelector('.social-meida-fixed .social-meida-item_fb')
+  let fbPopup = document.querySelector('.social-meida-fixed .fb_popup')
+  fbIcon?.addEventListener("mouseover", () => {
+    if (fbPopup) fbPopup.style.display = 'flex'
+  })
+  fbPopup?.addEventListener("mouseout", () => {
+    if (fbPopup) fbPopup.style.display = 'none'
+  })
+  document.querySelector('.social-meida-fixed .social-meida-item_fb .social-meida-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+  });
+
+</script>
+<script>
+</script>
+</div><script>
+let shellHostHeight=844;addEventListener('message',e=>{if(e.origin===location.origin&&e.source===parent&&e.data?.type==='onelaser-host-size'){shellHostHeight=e.data.height;document.documentElement.style.setProperty('--viewport-height',shellHostHeight+'px');reportHeight();}});function reportHeight(){const drawer=document.querySelector('#Details-menu-drawer-container');if(drawer?.open)drawer.classList.add('menu-opening');let height=Math.ceil(drawer?.open?shellHostHeight:document.body.dataset.part==='header'?[...document.querySelectorAll('.shopify-section-group-header-group')].reduce((n,e)=>n+e.getBoundingClientRect().height,0):Math.max(document.body.scrollHeight,document.body.getBoundingClientRect().height));if(document.body.dataset.part==='header'&&!drawer?.open){document.querySelectorAll('.header__inline-menu details[open] > div').forEach(e=>{height=Math.max(height,Math.ceil(e.getBoundingClientRect().bottom));});if(document.querySelector('details-modal details[open]'))height=shellHostHeight;}parent.postMessage({type:'onelaser-shell-size',part:document.body.dataset.part,height},location.origin);}
+document.querySelectorAll('.header__inline-menu details').forEach(e=>{e.addEventListener('mouseenter',()=>{if(innerWidth>990){e.open=true;reportHeight();}});e.addEventListener('mouseleave',()=>{if(innerWidth>990){e.open=false;reportHeight();}});});new ResizeObserver(reportHeight).observe(document.body);addEventListener('load',reportHeight);addEventListener('resize',reportHeight);document.addEventListener('toggle',()=>setTimeout(reportHeight,30),true);document.addEventListener('click',()=>setTimeout(reportHeight,100));document.addEventListener('mouseover',()=>setTimeout(reportHeight,100));
+document.addEventListener('click',e=>{const a=e.target.closest('a');if(a&&a.getAttribute('href')==='#'){e.preventDefault();return;}if(a&&(a.id==='backToTop'||a.hash==='#backToTop')){e.preventDefault();parent.postMessage({type:'onelaser-scroll-top'},location.origin);}});
+</script></body></html>
