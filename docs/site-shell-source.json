@@ -1,0 +1,6 @@
+{
+  "source": "https://www.1laser.com/",
+  "synced_at": "2026-11-17T02:46:44.893337+00:00",
+  "mode": "static preview snapshot; refresh with scripts/sync-site-shell.py",
+  "theme_integration": "page.accessories inherits the active theme layout and its header/footer groups"
+}
