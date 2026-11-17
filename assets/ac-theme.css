@@ -23,6 +23,7 @@
 .category-heading>.category-icon{color:#cd2d0c;font-size:inherit}
 
 .product-bottom{margin-top:auto;padding-top:4px}
+.catalog-section{--ac-sticky-top:16px;--ac-mobile-filter-top:150px}.catalog-layout{position:relative;align-items:start}#filters{position:sticky;top:var(--ac-sticky-top);max-height:calc(100vh - var(--ac-sticky-top) - 16px);max-height:calc(100dvh - var(--ac-sticky-top) - 16px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:#c7ccd4 transparent;scrollbar-gutter:stable;z-index:2}@media(max-width:650px){.catalog-section .toolbar{position:sticky;top:var(--ac-sticky-top);z-index:7;box-shadow:0 4px 18px #17223512}#filters{position:static;max-height:none;overflow:visible;scrollbar-gutter:auto}#filters.open{position:fixed;top:var(--ac-mobile-filter-top);left:16px;right:16px;width:auto;max-height:calc(100vh - var(--ac-mobile-filter-top) - 16px);max-height:calc(100dvh - var(--ac-mobile-filter-top) - 16px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable;z-index:8;box-shadow:0 12px 38px #17223530}}
 
 @font-face{font-family:Certia;src:url('certia-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:Certia-Bold;src:url('certia-bold.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}

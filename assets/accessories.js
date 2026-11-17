@@ -46,7 +46,28 @@ $('#search').addEventListener('input',e=>{state.q=e.target.value;update();});$('
 $('#max-price').addEventListener('input',e=>{if(e.target.validity.badInput||Number(e.target.value)<0){$('#price-error').textContent='Enter a price of 0 or more.';return;}$('#price-error').textContent='';state.max=e.target.value;update();});
 $('#products').addEventListener('change',e=>{if(!e.target.matches('[data-compare]'))return;const i=Number(e.target.dataset.compare);if(e.target.checked&&selected.size<3)selected.add(i);else selected.delete(i);render();});
 $('#clear-compare').addEventListener('click',()=>{selected.clear();render();});
-$('#filter-toggle').addEventListener('click',()=>{const open=$('#filters').classList.toggle('open');$('#filter-toggle').setAttribute('aria-expanded',String(open));$('#filter-toggle').textContent=open?'Close filters −':'Filters +';});
+const catalog=$('#catalog'),filters=$('#filters'),toolbar=$('.toolbar');
+function closeFilters(){filters.classList.remove('open');$('#filter-toggle').setAttribute('aria-expanded','false');$('#filter-toggle').textContent='Filters +';}
+function updateStickyLayout(){
+ let top=16;
+ for(const header of document.getElementsByClassName('shopify-section-group-header-group')){
+  const style=getComputedStyle(header),rect=header.getBoundingClientRect();
+  if((style.position==='sticky'||style.position==='fixed')&&rect.bottom>0&&rect.top<=16&&rect.bottom<innerHeight-80)top=Math.max(top,Math.ceil(rect.bottom)+12);
+ }
+ catalog.style.setProperty('--ac-sticky-top',top+'px');
+ const mobile=matchMedia('(max-width:650px)').matches;
+ if(mobile){catalog.style.setProperty('--ac-mobile-filter-top',Math.max(top,Math.ceil(toolbar.getBoundingClientRect().bottom))+8+'px');if(catalog.getBoundingClientRect().bottom<=top+toolbar.offsetHeight)closeFilters();}
+ else if(filters.classList.contains('open'))closeFilters();
+}
+let stickyFrame=0;
+function queueStickyLayout(){if(!stickyFrame)stickyFrame=requestAnimationFrame(()=>{stickyFrame=0;updateStickyLayout();});}
+window.addEventListener('scroll',queueStickyLayout,{passive:true});window.addEventListener('resize',queueStickyLayout);window.addEventListener('pageshow',queueStickyLayout);
+new ResizeObserver(queueStickyLayout).observe(toolbar);
+for(const header of document.getElementsByClassName('shopify-section-group-header-group')){new ResizeObserver(queueStickyLayout).observe(header);header.addEventListener('transitionend',queueStickyLayout);}
+updateStickyLayout();
+$('#filter-toggle').addEventListener('click',()=>{updateStickyLayout();const open=filters.classList.toggle('open');$('#filter-toggle').setAttribute('aria-expanded',String(open));$('#filter-toggle').textContent=open?'Close filters −':'Filters +';});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&filters.classList.contains('open')){closeFilters();$('#filter-toggle').focus();}});
+document.addEventListener('click',e=>{if(matchMedia('(max-width:650px)').matches&&filters.classList.contains('open')&&!filters.contains(e.target)&&!$('#filter-toggle').contains(e.target))closeFilters();});
 $('#open-compare').addEventListener('click',()=>{const ps=[...selected].map(i=>products[i]);const rows=[['Purpose',p=>escape(p.category)],['Price (USD)',p=>money(p.price)],['Machine family candidates',p=>escape(p.machines.join(', ')||'Confirm with OneLaser')],['What it does',p=>escape(p.description)],['Before you order',p=>escape(p.note)],['Next step',p=>`<a class="text-link" href="${escape(p.url)}">Check product details →</a>`]];$('#compare-table').innerHTML=`<caption class="fine">Compare ${ps.length} selected accessories</caption><thead><tr><th scope="col">Accessory</th>${ps.map(p=>`<th scope="col"><img src="${escape(p.image)}" alt="" width="110" height="90"><br>${escape(p.title)}</th>`).join('')}</tr></thead><tbody>${rows.map(([title,fn])=>`<tr class="${title==='Price (USD)'?'compare-price-row':''}"><th scope="row">${title}</th>${ps.map(p=>`<td>${fn(p)}</td>`).join('')}</tr>`).join('')}</tbody>`;$('#compare-dialog').showModal();});
 $('#change-machine').addEventListener('click',()=>{$('#machine-picker').scrollIntoView();$('#machines button').focus({preventScroll:true});});
 $('#close-variant').addEventListener('click',()=>$('#variant-dialog').close());
