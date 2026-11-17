@@ -122,3 +122,5 @@
 | Learn More | Certia-ExtraBold，13px，800，黑字 | 匹配官网配件详情入口的文字样式 |
 
 筛选项、FAQ、预约咨询卡、比较表与规格弹窗同步使用 Certia 字体体系；价格在列表、比较表、规格弹窗中使用同一橙红色。保留已有布局、品牌深浅色分区及浅色机器卡片。字体样式集中在 assets/accessories-typography.css，并由构建脚本合入 Shopify ac-theme.css。
+
+页面顶部调整：移除 Home / Accessories 面包屑栏及其占位，使官网顶部导航下方直接衔接选机模块；同步到 Shopify 正文版本。
