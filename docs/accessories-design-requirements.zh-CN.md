@@ -47,10 +47,10 @@
 
 ## 5. 品牌视觉规范
 
-2026-11-17 重新检查 [OneLaser 首页](https://www.1laser.com/)、[xTool 配件页](https://www.xtool.com/collections/accessory) 和 [WeCreat 配件页](https://wecreat.com/collections/accessories) 的实际浏览器截图。OneLaser 首页采用橙红操作色、黑白强对比、Archivo 字体、圆角按钮与设备实物图。xTool 配件目录的灰底白卡与大图层级、WeCreat 的清晰图片/名称/价格顺序可借鉴。以下调整是视觉设计选择，未经转化率实验验证。
+2026-11-17 重新检查 [OneLaser 首页](https://www.1laser.com/)、[xTool 配件页](https://www.xtool.com/collections/accessory) 和 [WeCreat 配件页](https://wecreat.com/collections/accessories) 的实际浏览器截图。OneLaser 首页采用橙红操作色、黑白强对比、Certia 字体、圆角按钮与设备实物图。xTool 配件目录的灰底白卡与大图层级、WeCreat 的清晰图片/名称/价格顺序可借鉴。以下调整是视觉设计选择，未经转化率实验验证。
 
 - 主色沿用 `#E7310E`；深色区域采用 `#11151C`，目录背景采用 `#F3F4F7`，浅橙 `#FFF0EA` 用于选中标签与分类图标。白色产品卡与浅灰背景建立层级，避免整页只有细线和白底。
-- 使用官网原版 SVG Logo、Archivo 400/700 和六个真实机型缩略图。图片只来自 OneLaser；机型图片来源记录于 `docs/accessories-machine-image-sources.json`。系列图以具体机型作代表，不表示系列所有型号外观相同。
+- 使用官网原版 SVG Logo、Certia / Certia-ExtraBold 和六个真实机型缩略图。图片只来自 OneLaser；机型图片来源记录于 `docs/accessories-machine-image-sources.json`。系列图以具体机型作代表，不表示系列所有型号外观相同。
 - 首个模块仍为选机区：深色背景、有限橙红光晕、橙红分隔线、图文同排的六个机型卡片；卡片高度为桌面 88px、手机 86px，不换行，超宽左右滚动。机型卡片使用白底、深色文字和浅灰图片衬底；选中态使用浅暖色底、橙红边框及勾选标记，保留图片对比度。
 - 分类导航增加 SVG 用途图标与数量圆角标签；筛选栏采用独立白色容器；专家帮助卡采用与选机栏呼应的深色背景。
 - 商品卡采用 16px 圆角、大幅真实产品图、用途标签、突出价格和双操作按钮。桌面端橙红 Add to cart 与描边 Learn More 并排，窄屏上下排列，避免挤压文字。悬停有轻微阴影和位移，reduced-motion 下关闭位移。
@@ -60,7 +60,7 @@
 
 ## 6. 数据、性能和无障碍要求
 
-当前仓库实现是独立静态页面，目录源于 2026-11-16 官网 HTML；2026-11-17 从每个官网商品 .js 端点补充真实变体 ID、价格及可售快照。数据位于 `assets/accessories-data.js`。图片与 Archivo 字体从 OneLaser 官网下载并保存到仓库；数据保留原图片 URL 便于追溯，商品详情跳转官网。价格含多变体情况，卡片使用“From”；实际价格/库存/变体需在产品页确认。静态页使用标准表单跳转官网购物车，不在第三方预览域调用 Shopify Ajax Cart，也不伪造本地加购成功。可售状态是采集快照，提交时由 Shopify 进行最终校验；采集后售罄可能在官网返回错误，页面不保证实时库存。
+当前仓库实现是独立静态页面，目录源于 2026-11-16 官网 HTML；2026-11-17 从每个官网商品 .js 端点补充真实变体 ID、价格及可售快照。数据位于 `assets/accessories-data.js`。图片与 Certia 字体从 OneLaser 官网下载并保存到仓库；数据保留原图片 URL 便于追溯，商品详情跳转官网。价格含多变体情况，卡片使用“From”；实际价格/库存/变体需在产品页确认。静态页使用标准表单跳转官网购物车，不在第三方预览域调用 Shopify Ajax Cart，也不伪造本地加购成功。可售状态是采集快照，提交时由 Shopify 进行最终校验；采集后售罄可能在官网返回错误，页面不保证实时库存。
 
 搜索、类别、机型、最高价与排序记录到 URL；比较选择仅本次页面会话保留。所有抓取字符串做 HTML 转义；脚本不采集个人信息。CSS/JS 无前端框架依赖；非首屏商品图片懒加载，图片有明确尺寸；使用 font-display: swap。支持 reduced-motion、跳过链接、可见键盘焦点、原生对话框、结果 live region、语义化表头和表单标签。目标为 WCAG 2.1 AA，正式发布前仍需自动扫描和人工辅助技术复核。
 
@@ -106,3 +106,19 @@
 侧栏咨询卡片：按钮改为 Schedule a Sales Call，使用官网顶部相同的 `/products/sales-consultation-call#book` 预约入口及 `data-ol-booking` 属性。正式主题通过现有 OneLaserHeaderBooking / Appointo 处理器打开预约日历；GitHub 跨域预览跳转官网预约入口。点击不创建预约，须由访客自行选择时间并完成提交。
 
 机型图片可读性优化：保留机器图片帮助识别，深色模块内的卡片改为白色，名称/数量使用深灰；图片展示区域扩大为 94px 宽，并通过 object-fit: cover 在显示区域裁去透明留白。选中态继续保持浅色图片衬底，以橙红边框和勾选提示表示选择。卡片高度仍为桌面 88px、手机 86px，两端均单行超宽滑动。
+
+字体与价格样式统一（2026-11-17 浏览器实测）：官网最终渲染使用 Certia，覆盖了主题配置中的 Archivo。本页现采用 Certia 正文和 Certia-ExtraBold 标题，与官网公共导航一致。依据来自官网首页、配件页及 PiBurn V 商品页的 1440px/390px computed styles，记录见 accessories-typography-reference.json。
+
+| 元素 | 页面实现 | 依据或响应式处理 |
+| --- | --- | --- |
+| 正文 | Certia，桌面 16px / 手机 15px | 官网实际正文 |
+| 选机 / 目录标题 | Certia-ExtraBold，36px / 26px | 官网选机模块标题 |
+| 机型名称 | Certia-ExtraBold，16px / 14px | 官网机型入口 |
+| 商品名称 | Certia-ExtraBold，桌面 18px / 手机 16px，#333333 | 桌面匹配官网配件卡；手机在当前双列卡片宽度下适当缩小，官网实测为 20px |
+| 商品说明 | Certia，12px，#55555A | 匹配官网配件说明尺寸/颜色，采用正常字重保证层级 |
+| 商品价格 | Certia-ExtraBold，24px / 24px，800，#D92D0D | 匹配官网配件卡价格；商品详情页价格有其他尺寸，不能混用 |
+| 币种 / From | Certia，12px，#86868B | 匹配官网币种；手机币种独立一行避免挤压金额 |
+| Add to cart | 13px，800，白字，#E7310E 背景 | 匹配官网配件购买按钮 |
+| Learn More | Certia-ExtraBold，13px，800，黑字 | 匹配官网配件详情入口的文字样式 |
+
+筛选项、FAQ、预约咨询卡、比较表与规格弹窗同步使用 Certia 字体体系；价格在列表、比较表、规格弹窗中使用同一橙红色。保留已有布局、品牌深浅色分区及浅色机器卡片。字体样式集中在 assets/accessories-typography.css，并由构建脚本合入 Shopify ac-theme.css。

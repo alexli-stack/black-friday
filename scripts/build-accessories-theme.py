@@ -6,7 +6,7 @@ main=s[s.index('<main>'):s.index('</main>')+7].replace('<main>','<div>',1).repla
 rest=s[s.index('<div class="compare-tray"'):s.index('</body>')]
 body='<div class="ac-page">'+main+rest+'</div>'
 (R/'snippets/ac-collection-body.liquid').write_text('{% doc %}\nRenders the accessories collection content without site navigation.\n{% enddoc %}\n'+body)
-css='\n'.join((R/'assets'/f).read_text() for f in ['accessories.css','accessories-brand.css'])
+css='\n'.join((R/'assets'/f).read_text() for f in ['accessories.css','accessories-brand.css','accessories-typography.css'])
 css=css.replace(':root',':scope')
 css=re.sub(r'(?<![\w.-])body(?![\w-])',':scope',css)
 css=re.sub(r'(?<![\w.-])html(?![\w-])',':scope',css)

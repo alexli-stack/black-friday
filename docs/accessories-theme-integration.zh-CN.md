@@ -10,7 +10,7 @@
 - `sections/ac-collection.liquid`
 - `snippets/ac-collection-body.liquid`
 - `assets/ac-theme.css`、`assets/ac-theme.js`、`assets/ac-theme-data.js`
-- `assets/archivo-400.woff2`、`assets/archivo-700.woff2`
+- `assets/certia-regular.woff2`、`assets/certia-bold.woff2`、`assets/certia-extrabold.woff2`、`assets/certia-medium.woff2`
 
 在 Shopify 中将目标页面的主题模板设为 `accessories`。当前提交没有上传、发布或切换线上主题。当前配件商品数据仍是快照，不能作为实时库存实现；本次只处理公共导航接入，不改变此前的商品数据边界。
 
