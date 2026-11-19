@@ -1,0 +1,23 @@
+[data-onelaser-bfcm-gift] .quantity__button,
+[data-onelaser-bfcm-gift] cart-remove-button {
+  display: none !important;
+}
+[data-onelaser-bfcm-gift] .quantity__input {
+  pointer-events: none;
+}
+[data-onelaser-bfcm-gift] .onelaser-bfcm-gift-label {
+  color: #E7310E;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+cart-drawer [data-onelaser-bfcm-gift] .cart-item__details {
+  container-type: inline-size;
+  min-width: 0;
+}
+cart-drawer [data-onelaser-bfcm-gift] .onelaser-bfcm-gift-label {
+  font-size: min(12px, 5.3cqi);
+}

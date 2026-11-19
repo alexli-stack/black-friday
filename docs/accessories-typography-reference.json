@@ -1,0 +1,558 @@
+{
+  "checked_on": "2026-11-17",
+  "method": "Browser computed styles at 1440px and 390px; excludes the initial invalid product URL",
+  "records": [
+    {
+      "name": "home",
+      "width": 1440,
+      "url": "https://www.1laser.com/",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "28.8px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "48px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "48.96px",
+          "spacing": "-1.2px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "38px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "38.76px",
+          "spacing": "-1.52px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "17px",
+          "weight": "700",
+          "color": "rgb(255, 255, 255)",
+          "line": "19.55px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "url": "https://www.1laser.com/",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "15px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "27px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "32px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "32.64px",
+          "spacing": "-0.8px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "30px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "30.6px",
+          "spacing": "-1.2px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "17px",
+          "weight": "700",
+          "color": "rgb(255, 255, 255)",
+          "line": "19.55px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "name": "collection",
+      "width": 1440,
+      "url": "https://www.1laser.com/collections/laser-accessories",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "28.8px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "56px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "54.88px",
+          "spacing": "-3.08px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "36px",
+          "weight": "700",
+          "color": "rgb(0, 0, 0)",
+          "line": "41.4px",
+          "spacing": "-1.44px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "13px",
+          "weight": "700",
+          "color": "rgb(54, 65, 66)",
+          "line": "16.9px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".accessory_card__heading",
+          "font": "Certia-ExtraBold",
+          "size": "18px",
+          "weight": "800",
+          "color": "rgb(51, 51, 51)",
+          "line": "22.5px",
+          "spacing": "-0.45px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".card-best-for__desc",
+          "font": "Certia, sans-serif",
+          "size": "12px",
+          "weight": "800",
+          "color": "rgb(85, 85, 90)",
+          "line": "17.04px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".current",
+          "font": "Certia-ExtraBold",
+          "size": "24px",
+          "weight": "800",
+          "color": "rgb(217, 45, 13)",
+          "line": "24px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".pfc-currency",
+          "font": "Certia, sans-serif",
+          "size": "12px",
+          "weight": "400",
+          "color": "rgb(134, 134, 139)",
+          "line": "16.8px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".accessory-card__add",
+          "font": "Certia, sans-serif",
+          "size": "13px",
+          "weight": "800",
+          "color": "rgb(255, 255, 255)",
+          "line": "15.6px",
+          "spacing": "normal",
+          "background": "rgb(231, 49, 14)"
+        },
+        {
+          "selector": ".pfc-btn-explore",
+          "font": "Certia-ExtraBold",
+          "size": "13px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "15.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".s-machine__heading",
+          "font": "Certia-ExtraBold",
+          "size": "36px",
+          "weight": "700",
+          "color": "rgb(0, 0, 0)",
+          "line": "41.4px",
+          "spacing": "-1.44px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".s-machine__card-title",
+          "font": "Certia-ExtraBold",
+          "size": "16px",
+          "weight": "900",
+          "color": "rgb(0, 0, 0)",
+          "line": "20.8px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".facets__summary-label",
+          "font": "Certia-ExtraBold",
+          "size": "14px",
+          "weight": "400",
+          "color": "rgba(9, 9, 9, 0.75)",
+          "line": "21px",
+          "spacing": "0.4px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".facet-checkbox__text-label",
+          "font": "Certia, sans-serif",
+          "size": "12px",
+          "weight": "700",
+          "color": "rgb(85, 85, 90)",
+          "line": "15.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "name": "collection",
+      "width": 390,
+      "url": "https://www.1laser.com/collections/laser-accessories",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "15px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "27px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "42px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "41.16px",
+          "spacing": "-2.31px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "26px",
+          "weight": "700",
+          "color": "rgb(0, 0, 0)",
+          "line": "29.9px",
+          "spacing": "-1.04px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "12px",
+          "weight": "700",
+          "color": "rgb(54, 65, 66)",
+          "line": "15.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".accessory_card__heading",
+          "font": "Certia-ExtraBold",
+          "size": "20px",
+          "weight": "800",
+          "color": "rgb(51, 51, 51)",
+          "line": "25px",
+          "spacing": "-0.5px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".card-best-for__desc",
+          "font": "Certia, sans-serif",
+          "size": "12px",
+          "weight": "800",
+          "color": "rgb(85, 85, 90)",
+          "line": "17.04px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".current",
+          "font": "Certia-ExtraBold",
+          "size": "24px",
+          "weight": "800",
+          "color": "rgb(217, 45, 13)",
+          "line": "24px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".pfc-currency",
+          "font": "Certia, sans-serif",
+          "size": "12px",
+          "weight": "400",
+          "color": "rgb(134, 134, 139)",
+          "line": "16.8px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".accessory-card__add",
+          "font": "Certia, sans-serif",
+          "size": "13px",
+          "weight": "800",
+          "color": "rgb(255, 255, 255)",
+          "line": "15.6px",
+          "spacing": "normal",
+          "background": "rgb(231, 49, 14)"
+        },
+        {
+          "selector": ".pfc-btn-explore",
+          "font": "Certia-ExtraBold",
+          "size": "13px",
+          "weight": "800",
+          "color": "rgb(0, 0, 0)",
+          "line": "15.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".s-machine__heading",
+          "font": "Certia-ExtraBold",
+          "size": "26px",
+          "weight": "700",
+          "color": "rgb(0, 0, 0)",
+          "line": "29.9px",
+          "spacing": "-1.04px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".s-machine__card-title",
+          "font": "Certia-ExtraBold",
+          "size": "14px",
+          "weight": "900",
+          "color": "rgb(0, 0, 0)",
+          "line": "18.2px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".facet-checkbox__text-label",
+          "font": "Certia, sans-serif",
+          "size": "15px",
+          "weight": "400",
+          "color": "rgba(9, 9, 9, 0.75)",
+          "line": "19.5px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "width": 1440,
+      "url": "https://www.1laser.com/products/piburn-v-for-onelaser",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "28.8px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "32px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "41.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "24px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "31.2px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "18px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "23.4px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product__title h1",
+          "font": "Certia-ExtraBold",
+          "size": "32px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "41.6px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".price-item--regular",
+          "font": "Certia-ExtraBold",
+          "size": "26px",
+          "weight": "800",
+          "color": "rgb(231, 49, 14)",
+          "line": "41px",
+          "spacing": "1.3px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product__description",
+          "font": "Certia, sans-serif",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "28.8px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product-form__submit",
+          "font": "Arial",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgb(255, 255, 255)",
+          "line": "normal",
+          "spacing": "normal",
+          "background": "rgb(231, 49, 14)"
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "width": 390,
+      "url": "https://www.1laser.com/products/piburn-v-for-onelaser",
+      "styles": [
+        {
+          "selector": "body",
+          "font": "Certia, sans-serif",
+          "size": "15px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "27px",
+          "spacing": "0.6px",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": "h1",
+          "font": "Certia-ExtraBold",
+          "size": "30px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "39px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "font": "Certia-ExtraBold",
+          "size": "20px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "26px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h3",
+          "font": "Certia-ExtraBold",
+          "size": "17px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "22.1px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product__title h1",
+          "font": "Certia-ExtraBold",
+          "size": "30px",
+          "weight": "700",
+          "color": "rgb(51, 51, 51)",
+          "line": "39px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".price-item--regular",
+          "font": "Certia-ExtraBold",
+          "size": "18px",
+          "weight": "800",
+          "color": "rgb(231, 49, 14)",
+          "line": "41px",
+          "spacing": "1.3px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product__description",
+          "font": "Certia, sans-serif",
+          "size": "15px",
+          "weight": "400",
+          "color": "rgba(51, 51, 51, 0.75)",
+          "line": "27px",
+          "spacing": "0.6px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".product-form__submit",
+          "font": "Arial",
+          "size": "16px",
+          "weight": "400",
+          "color": "rgb(255, 255, 255)",
+          "line": "normal",
+          "spacing": "normal",
+          "background": "rgb(231, 49, 14)"
+        }
+      ]
+    }
+  ]
+}

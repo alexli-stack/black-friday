@@ -1,0 +1,26 @@
+{
+  "onelaser-xrf-desktop-laser-machine": {
+    "image": "assets/accessories-images/machine-1.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970"
+  },
+  "cobra-10-100w-co2-laser-engraver-cutter": {
+    "image": "assets/accessories-images/machine-2.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Cobra_10.png?v=1782460375"
+  },
+  "hydra-9-gen-2-70w-rf-co2-dual-laser-machine": {
+    "image": "assets/accessories-images/machine-3.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_9Gen2.png?v=1782813672"
+  },
+  "vertigo-vertical-laser-engraver": {
+    "image": "assets/accessories-images/machine-4.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/VertiGo_3c806291-bd5f-4153-9ca8-d54e3fd1cd0b.png?v=1782698357"
+  },
+  "onelaser-xt-desktop-laser-machine": {
+    "image": "assets/accessories-images/machine-5.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/XT_1.png?v=1782464798"
+  },
+  "onelaser-hydra-9-laser-engraving-machine": {
+    "image": "assets/accessories-images/machine-6.png",
+    "source": "https://cdn.shopify.com/s/files/1/0747/8748/7778/files/d4f70b20ae08baa91175811c4f952f6f_b9af453b-621f-4432-93f1-d8e7e635b31e.png?v=1745220554"
+  }
+}

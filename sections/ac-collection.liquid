@@ -1,0 +1,7 @@
+{{ 'ac-theme.css' | asset_url | stylesheet_tag }}
+{% render 'ac-collection-body' %}
+<script src="{{ 'ac-theme-data.js' | asset_url }}" defer></script>
+<script src="{{ 'ac-theme.js' | asset_url }}" defer></script>
+{% schema %}
+{"name":"Accessories collection","settings":[],"presets":[{"name":"Accessories collection"}]}
+{% endschema %}
