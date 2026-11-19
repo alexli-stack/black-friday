@@ -1,0 +1,196 @@
+<div style="--orange: {{ section.settings.accent }}"><div id="ol-main-{{ section.id }}"><section class="ol-hero" aria-labelledby="ol-title-{{ section.id }}"><div class="ol-wrap ol-hero-grid"><div><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_1' | t }}</div><h1 id="ol-title-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h1><p>{{ section.settings.description | escape | newline_to_br }}</p><form class="ol-search" data-search-form role="search"><label class="ol-sr" for="ol-search-{{ section.id }}">{{ 'onelaser_support.ui.text_2' | t }}</label><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="ol-search-{{ section.id }}" type="search" placeholder="{{ 'onelaser_support.ui.text_98' | t }}" maxlength="150" required><button class="ol-btn orange" type="submit">{{ 'onelaser_support.ui.text_3' | t }}</button></form><div class="ol-popular">{{ 'onelaser_support.ui.text_4' | t }}<button type="button" data-query="LightBurn">{{ 'onelaser_support.ui.text_5' | t }}</button><button type="button" data-query="focus">{{ 'onelaser_support.ui.text_6' | t }}</button><button type="button" data-query="materials">{{ 'onelaser_support.ui.text_7' | t }}</button></div></div><div class="ol-hero-art"><img src="{{ 'ol-support-hydra.png' | asset_url }}" width="500" height="350" alt="{{ 'onelaser_support.ui.text_99' | t }}" fetchpriority="high"><span class="ol-art-label">{{ 'onelaser_support.ui.text_8' | t }}</span></div></div></section><div class="ol-wrap"><section data-match-label="{{ 'onelaser_support.ui.results' | t | escape }}" data-empty-label="{{ 'onelaser_support.ui.no_results' | t | escape }}" class="ol-results" data-results hidden aria-labelledby="ol-search-heading-{{ section.id }}"><button type="button" class="ol-search-close" data-close-search>{{ 'onelaser_support.ui.text_9' | t }}</button><h2 id="ol-search-heading-{{ section.id }}">{{ 'onelaser_support.ui.text_10' | t }}</h2><p data-status role="status" aria-live="polite"></p><ul></ul><a href="https://wiki.1laser.com" class="ol-textlink">{{ 'onelaser_support.ui.text_11' | t }}</a> <span> · </span><a href="{{ section.settings.support_url | escape }}" class="ol-textlink">{{ 'onelaser_support.ui.text_12' | t }}</a></section><nav class="ol-quick" aria-label="{{ 'onelaser_support.ui.text_96' | t }}"><a href="https://www.1laser.com/pages/user-manual"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1v15"/></svg><span><strong>{{ 'onelaser_support.ui.text_13' | t }}</strong><small>{{ 'onelaser_support.ui.text_14' | t }}</small></span></a><a href="https://wiki.1laser.com/en/software-app"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg><span><strong>{{ 'onelaser_support.ui.text_15' | t }}</strong><small>{{ 'onelaser_support.ui.text_16' | t }}</small></span></a><a href="#ol-materials-{{ section.id }}"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg><span><strong>{{ 'onelaser_support.ui.text_7' | t }}</strong><small>{{ 'onelaser_support.ui.text_17' | t }}</small></span></a><a href="https://zohodesk.1laser.com/portal/en/kb/onelaser-inc"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5a6 6 0 0 0-8 8L2 18l4 4 5-5a6 6 0 0 0 8-8l-4 4-4-4 4-4Z"/></svg><span><strong>{{ 'onelaser_support.ui.text_18' | t }}</strong><small>{{ 'onelaser_support.ui.text_19' | t }}</small></span></a></nav><section class="ol-section" id="ol-products-{{ section.id }}"><div class="ol-section-head"><div><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_20' | t }}</div><h2>{{ 'onelaser_support.ui.text_21' | t }}</h2><p class="ol-sub">{{ 'onelaser_support.ui.text_22' | t }}</p></div><a href="https://wiki.1laser.com" class="ol-textlink">{{ 'onelaser_support.ui.text_23' | t }}</a></div><div class="ol-filters" role="group" aria-label="{{ 'onelaser_support.ui.text_97' | t }}"><button type="button" class="ol-filter" data-filter="all" aria-pressed="true">{{ 'onelaser_support.ui.text_24' | t }}</button><button type="button" class="ol-filter" data-filter="desktop" aria-pressed="false">{{ 'onelaser_support.ui.text_25' | t }}</button><button type="button" class="ol-filter" data-filter="cabinet" aria-pressed="false">{{ 'onelaser_support.ui.text_26' | t }}</button><button type="button" class="ol-filter" data-filter="rotary" aria-pressed="false">{{ 'onelaser_support.ui.text_27' | t }}</button></div><div class="ol-products">{% for block in section.blocks %}{% if block.type == 'machine' %}<article class="ol-product" data-family="{{ block.settings.category }}" {{ block.shopify_attributes }}><div class="ol-product-visual"><span class="ol-badge">{{ block.settings.badge | escape }}</span>{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 300, 450, 600', sizes: '(max-width: 600px) 43vw, (max-width: 900px) 42vw, 260px', alt: block.settings.title }}{% else %}<img src="{{ block.settings.fallback_image | asset_url }}" width="280" height="190" alt="{{ block.settings.title | escape }}" loading="lazy">{% endif %}</div><div class="ol-product-body"><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.description | escape | newline_to_br }}</p><div class="ol-product-links"><a href="{{ block.settings.primary_url | escape }}" data-searchable data-keywords="{{ block.settings.keywords | escape }}" data-search-title="{{ block.settings.title | escape }}">{{ block.settings.primary_label | escape }} →</a><a href="{{ block.settings.secondary_url | escape }}" data-searchable data-keywords="{{ block.settings.keywords | escape }} manual" data-search-title="{{ block.settings.title | escape }}">{{ block.settings.secondary_label | escape }} ↗</a></div></div></article>{% endif %}{% endfor %}</div><div class="ol-legacy"><span>{{ 'onelaser_support.ui.text_28' | t }}</span><a href="https://wiki.1laser.com/en/hydra-series" data-searchable data-keywords="hydra original legacy gen1 focus alignment maintenance">{{ 'onelaser_support.ui.text_29' | t }}</a><a href="https://wiki.1laser.com/en/x-series" data-searchable data-keywords="xrf xt legacy">{{ 'onelaser_support.ui.text_30' | t }}</a></div></section></div><section class="ol-section ol-topics-section"><div class="ol-wrap"><div class="ol-section-head"><div><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_31' | t }}</div><h2>{{ 'onelaser_support.ui.text_32' | t }}</h2><p class="ol-sub">{{ 'onelaser_support.ui.text_33' | t }}</p></div></div><div class="ol-topics"><a href="https://wiki.1laser.com/en/x-series" class="ol-topic" data-searchable data-keywords="setup installation unboxing quick start xrf xt" data-search-title="Getting started"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/></svg><div><h3>{{ 'onelaser_support.ui.text_34' | t }}</h3><p>{{ 'onelaser_support.ui.text_35' | t }}</p></div><span class="arrow">↗</span></a><a href="https://wiki.1laser.com/en/software-app" class="ol-topic" data-searchable data-keywords="software lightburn driver usb connection download" data-search-title="Software & LightBurn"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v5m-5 0h10"/></svg><div><h3>{{ 'onelaser_support.ui.text_36' | t }}</h3><p>{{ 'onelaser_support.ui.text_37' | t }}</p></div><span class="arrow">↗</span></a><a href="#ol-materials-{{ section.id }}" class="ol-topic" data-searchable data-keywords="materials parameters settings power speed wood acrylic leather" data-search-title="Materials & parameters"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg><div><h3>{{ 'onelaser_support.ui.text_38' | t }}</h3><p>{{ 'onelaser_support.ui.text_39' | t }}</p></div><span class="arrow">↗</span></a><a href="https://zohodesk.1laser.com/portal/en/kb/onelaser-inc" class="ol-topic" data-searchable data-keywords="troubleshooting laser not firing issue alarm connection" data-search-title="Troubleshooting"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5a6 6 0 0 0-8 8L2 18l4 4 5-5a6 6 0 0 0 8-8l-4 4-4-4 4-4Z"/></svg><div><h3>{{ 'onelaser_support.ui.text_18' | t }}</h3><p>{{ 'onelaser_support.ui.text_40' | t }}</p></div><span class="arrow">↗</span></a><a href="https://wiki.1laser.com/en/hydra-series" class="ol-topic" data-searchable data-keywords="maintenance clean lens mirror optics belts hydra" data-search-title="Care & maintenance"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3M5 19l3-3M16 8l3-3"/></svg><div><h3>{{ 'onelaser_support.ui.text_41' | t }}</h3><p>{{ 'onelaser_support.ui.text_42' | t }}</p></div><span class="arrow">↗</span></a><a href="{{ section.settings.support_url | escape }}" class="ol-topic" data-searchable data-keywords="parts replacement warranty support ticket" data-search-title="Parts & technical support"><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6Z"/><path d="m8 12 3 3 5-6"/></svg><div><h3>{{ 'onelaser_support.ui.text_43' | t }}</h3><p>{{ 'onelaser_support.ui.text_44' | t }}</p></div><span class="arrow">↗</span></a></div></div></section><div class="ol-wrap"><section class="ol-section ol-split"><div><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_45' | t }}</div><h2>{{ 'onelaser_support.ui.text_46' | t }}</h2><p class="ol-sub">{{ 'onelaser_support.ui.text_47' | t }}</p><ol class="ol-linklist"><li><a href="https://wiki.1laser.com/en/x-series" data-searchable data-keywords="xrf xt setup getting started focus" data-search-title="Set up your X Series machine"><span><span class="ol-number">{{ 'onelaser_support.ui.text_48' | t }}</span>{{ 'onelaser_support.ui.text_49' | t }}</span><span>↗</span></a></li><li><a href="https://wiki.1laser.com/en/hydra-series" data-searchable data-keywords="hydra gen1 dual source focus maintenance" data-search-title="Get to know your Hydra Series"><span><span class="ol-number">{{ 'onelaser_support.ui.text_50' | t }}</span>{{ 'onelaser_support.ui.text_51' | t }}</span><span>↗</span></a></li><li><a href="https://wiki.1laser.com/en/vertigo/vertigo-series-manual" data-searchable data-keywords="vertigo rotary tumbler setup" data-search-title="Set up VertiGO for rotary engraving"><span><span class="ol-number">{{ 'onelaser_support.ui.text_52' | t }}</span>{{ 'onelaser_support.ui.text_53' | t }}</span><span>↗</span></a></li><li><a href="https://wiki.1laser.com/en/software-app" data-searchable data-keywords="lightburn connection usb software" data-search-title="Connect your software & LightBurn"><span><span class="ol-number">{{ 'onelaser_support.ui.text_54' | t }}</span>{{ 'onelaser_support.ui.text_55' | t }}</span><span>↗</span></a></li><li><a href="https://wiki.1laser.com/en/glossary" data-searchable data-keywords="glossary terminology rf co2" data-search-title="Understand laser terms & definitions"><span><span class="ol-number">{{ 'onelaser_support.ui.text_56' | t }}</span>{{ 'onelaser_support.ui.text_57' | t }}</span><span>↗</span></a></li></ol></div><aside class="ol-downloads" id="ol-materials-{{ section.id }}"><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_58' | t }}</div><h3>{{ 'onelaser_support.ui.text_59' | t }}</h3><p>{{ 'onelaser_support.ui.text_60' | t }}</p><div class="ol-download-row"><div><strong>{{ 'onelaser_support.ui.text_61' | t }}</strong><small><a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/38w" data-searchable data-keywords="38w materials parameters settings rf" data-search-title="38W material parameters">{{ 'onelaser_support.ui.text_62' | t }}</a> · <a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/55w" data-searchable data-keywords="55w materials parameters settings rf" data-search-title="55W material parameters">{{ 'onelaser_support.ui.text_63' | t }}</a></small></div><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg></div><div class="ol-download-row"><div><strong>{{ 'onelaser_support.ui.text_64' | t }}</strong><small><a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/80w" data-searchable data-keywords="80w materials parameters settings glass co2" data-search-title="80W material parameters">{{ 'onelaser_support.ui.text_65' | t }}</a> · <a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/100w" data-searchable data-keywords="100w materials parameters settings glass co2" data-search-title="100W material parameters">{{ 'onelaser_support.ui.text_66' | t }}</a> · <a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/130w" data-searchable data-keywords="130w materials parameters settings glass co2" data-search-title="130W material parameters">{{ 'onelaser_support.ui.text_67' | t }}</a> · <a href="https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/150w" data-searchable data-keywords="150w materials parameters settings glass co2" data-search-title="150W material parameters">{{ 'onelaser_support.ui.text_68' | t }}</a></small></div><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg></div><a href="https://www.1laser.com/pages/user-manual" class="ol-download-row" data-searchable data-keywords="manuals download hydra gen2 xrf xt" data-search-title="User manuals"><div><strong>{{ 'onelaser_support.ui.text_13' | t }}</strong><small>{{ 'onelaser_support.ui.text_69' | t }}</small></div><svg class="ol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></a><p>{{ 'onelaser_support.ui.text_70' | t }}</p><a href="https://wiki.1laser.com" class="ol-textlink">{{ 'onelaser_support.ui.text_71' | t }}</a></aside></section><section class="ol-section" style="padding-top:0"><div class="ol-center"><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_72' | t }}</div><h2>{{ 'onelaser_support.ui.text_73' | t }}</h2></div><div class="ol-faq"><details><summary>{{ 'onelaser_support.ui.text_74' | t }}</summary><p>{{ 'onelaser_support.ui.text_75' | t }}<a href="https://www.1laser.com/pages/user-manual">{{ 'onelaser_support.ui.text_76' | t }}</a>{{ 'onelaser_support.ui.text_77' | t }}</p></details><details><summary>{{ 'onelaser_support.ui.text_78' | t }}</summary><p>{{ 'onelaser_support.ui.text_79' | t }}</p></details><details><summary>{{ 'onelaser_support.ui.text_80' | t }}</summary><p>{{ 'onelaser_support.ui.text_81' | t }}<a href="https://www.1laser.com/pages/user-manual">{{ 'onelaser_support.ui.text_82' | t }}</a>{{ 'onelaser_support.ui.text_83' | t }}</p></details><details><summary>{{ 'onelaser_support.ui.text_84' | t }}</summary><p>{{ 'onelaser_support.ui.text_85' | t }}</p></details><details><summary>{{ 'onelaser_support.ui.text_86' | t }}</summary><p>{{ 'onelaser_support.ui.text_87' | t }}</p></details></div></section><section class="ol-contact"><div><div class="ol-eyebrow ol-accent">{{ 'onelaser_support.ui.text_88' | t }}</div><h2>{{ 'onelaser_support.ui.text_89' | t }}<br>{{ 'onelaser_support.ui.text_90' | t }}</h2><p>{{ 'onelaser_support.ui.text_91' | t }}</p></div><div class="ol-contact-options"><a href="{{ section.settings.support_url | escape }}" class="ol-btn orange">{{ 'onelaser_support.ui.text_92' | t }}</a><small>{{ 'onelaser_support.ui.text_93' | t }}</small><div class="ol-community"><a href="https://www.1laser.com/pages/contact-us">{{ 'onelaser_support.ui.text_94' | t }}</a><a href="https://forum.1laser.com">{{ 'onelaser_support.ui.text_95' | t }}</a></div></div></section></div></div></div>
+{% stylesheet %}
+.onelaser-support{--orange:#e7310e;--ink:#1c1c1c;--muted:#696969;--line:#e6e6e6;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.5;font-size:15px}.onelaser-support *{box-sizing:border-box}.onelaser-support a{color:inherit;text-decoration:none}.onelaser-support button,.onelaser-support input{font:inherit}.onelaser-support button,.onelaser-support a{ -webkit-tap-highlight-color:transparent}.onelaser-support a:focus-visible,.onelaser-support button:focus-visible,.onelaser-support input:focus-visible,.onelaser-support summary:focus-visible{outline:3px solid var(--orange);outline-offset:5px}.ol-wrap{max-width:1240px;margin:auto;padding:0 36px}.ol-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.ol-accent{color:var(--orange)}.ol-header{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.ol-header img{width:156px;height:auto}.ol-nav{display:flex;gap:32px;align-items:center;font-size:13px}.ol-nav .active{color:var(--orange)}.ol-btn{display:inline-flex;gap:24px;justify-content:center;align-items:center;padding:13px 21px;border:1px solid var(--ink);background:var(--ink);color:#fff!important;font-weight:600;font-size:13px;cursor:pointer;border-radius:4px}.ol-btn.orange{background:var(--orange);border-color:var(--orange)}.ol-btn.light{background:#fff;color:var(--ink)!important;border-color:#d6d6d6}.ol-hero{background:#f5f5f5;overflow:hidden;position:relative}.ol-hero-grid{min-height:415px;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:20px;position:relative}.ol-hero h1{font-size:58px;line-height:1.06;letter-spacing:-2.6px;margin:17px 0 20px;font-weight:700}.ol-hero p{color:var(--muted);max-width:410px;font-size:15px}.ol-hero-art{position:relative;height:360px;display:flex;align-items:center;justify-content:center}.ol-hero-art:before{content:"";position:absolute;width:290px;height:290px;border:1px solid #ddd;border-radius:50%;box-shadow:0 0 0 45px #ececec55,0 0 0 90px #ececec33}.ol-hero-art img{width:100%;max-width:430px;position:relative;filter:drop-shadow(0 18px 14px #0002);transform:rotate(-3deg)}.ol-art-label{position:absolute;bottom:29px;right:0;font-size:10px;letter-spacing:1.5px;color:#707070}.ol-search{display:flex;align-items:center;gap:12px;background:white;border:1px solid #d8d8d8;border-radius:5px;padding:7px 8px 7px 16px;max-width:545px;margin-top:25px;box-shadow:0 7px 20px #00000004}.ol-search svg{width:20px;height:20px;flex:none}.ol-search input{min-width:0;flex:1;border:0;background:transparent;padding:8px 0;outline-offset:0!important;color:var(--ink)}.ol-search button{padding:11px 18px}.ol-popular{font-size:11px;margin:12px 0 22px;color:#777}.ol-popular button{padding:0;border:0;border-bottom:1px solid #bbb;background:none;font-size:11px;margin-left:12px;color:#555;cursor:pointer}.ol-quick{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);padding:28px 0;gap:0}.ol-quick a{display:flex;align-items:center;gap:15px;padding:0 26px;border-right:1px solid var(--line)}.ol-quick a:first-child{padding-left:0}.ol-quick a:last-child{border:0;padding-right:0}.ol-icon{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5;flex:none}.ol-quick strong{display:block;font-size:13px;margin-bottom:3px}.ol-quick small{display:block;color:var(--muted);font-size:11px}.ol-section{padding:68px 0}.ol-section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:27px}.ol-section h2{font-size:32px;letter-spacing:-1px;line-height:1.2;margin:9px 0 10px}.ol-sub{color:var(--muted);font-size:13px;margin:0}.ol-textlink{font-size:12px;font-weight:600;white-space:nowrap;border-bottom:1px solid #b8b8b8;padding-bottom:3px}.ol-filters{display:flex;gap:8px;margin-bottom:25px;flex-wrap:wrap}.ol-filter{border:1px solid var(--line);border-radius:30px;padding:8px 18px;background:#fff;color:#555;font-size:12px!important;cursor:pointer}.ol-filter[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}.ol-products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.ol-product{border:1px solid var(--line);border-radius:7px;overflow:hidden;transition:box-shadow .2s,transform .2s}.ol-product:hover{box-shadow:0 10px 25px #0000000b;transform:translateY(-3px)}.ol-product[hidden]{display:none}.ol-product-visual{height:207px;display:flex;align-items:center;justify-content:center;position:relative;background:#f7f7f7}.ol-product-visual img{width:91%;height:175px;object-fit:contain}.ol-badge{position:absolute;top:13px;left:14px;font-size:9px;letter-spacing:.7px;color:#777;text-transform:uppercase}.ol-product-body{padding:19px}.ol-product h3{font-size:19px;letter-spacing:-.4px;margin:0 0 5px}.ol-product p{font-size:11px;color:var(--muted);margin:0;min-height:33px}.ol-product-links{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);margin-top:15px;padding-top:13px;font-size:11px;font-weight:600;gap:10px}.ol-product-links a:hover,.ol-textlink:hover,.ol-linklist a:hover{color:var(--orange)}.ol-legacy{border-bottom:1px solid var(--line);padding:20px 0;display:flex;gap:22px;align-items:center;font-size:12px}.ol-legacy span{color:#777}.ol-legacy a{font-weight:600}.ol-topics-section{background:#f6f6f6}.ol-topics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.ol-topic{background:white;border:1px solid #e9e9e9;border-radius:5px;padding:23px 24px;display:grid;grid-template-columns:30px 1fr 15px;gap:14px;align-items:start;transition:border-color .2s}.ol-topic:hover{border-color:var(--orange)}.ol-topic .ol-icon{color:var(--orange)}.ol-topic h3{font-size:14px;margin:0 0 6px}.ol-topic p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.ol-topic .arrow{font-size:17px;color:#999}.ol-split{display:grid;grid-template-columns:1fr 1fr;gap:65px}.ol-linklist{padding:0;margin:26px 0 0;list-style:none}.ol-linklist li{border-top:1px solid var(--line)}.ol-linklist a{padding:17px 0;display:flex;justify-content:space-between;gap:20px;font-size:13px}.ol-number{color:#aaa;font-size:11px;margin-right:12px}.ol-downloads{background:#f5f5f5;border-radius:6px;padding:30px}.ol-downloads h3{font-size:23px;letter-spacing:-.5px;margin:9px 0}.ol-downloads>p{font-size:12px;color:var(--muted)}.ol-download-row{border-bottom:1px solid #dedede;padding:17px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}.ol-download-row strong{font-size:13px;display:block}.ol-download-row small{font-size:11px;color:#777}.ol-downloads .ol-textlink{display:inline-block;margin-top:22px}.ol-faq{max-width:840px;margin:auto}.ol-center{text-align:center;margin-bottom:28px}.ol-faq details{border-top:1px solid var(--line)}.ol-faq details:last-child{border-bottom:1px solid var(--line)}.ol-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;padding:21px 0;font-size:14px;font-weight:600;gap:24px}.ol-faq summary::-webkit-details-marker{display:none}.ol-faq summary:after{content:"+";font-size:20px;font-weight:400}.ol-faq details[open] summary:after{content:"−"}.ol-faq details p{font-size:13px;color:var(--muted);margin:0 32px 23px 0;line-height:1.8}.ol-faq details a{color:var(--orange);text-decoration:underline}.ol-contact{background:var(--ink);color:#fff;border-radius:8px;display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:45px 48px;margin:10px 0 60px;position:relative;overflow:hidden}.ol-contact:before{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:var(--orange)}.ol-contact h2{font-size:34px;line-height:1.14;letter-spacing:-1px;margin:12px 0 16px}.ol-contact p{color:#b8b8b8;font-size:13px;max-width:380px}.ol-contact-options{display:flex;flex-direction:column;justify-content:center;gap:16px}.ol-contact-options .ol-btn{align-self:start}.ol-contact-options small{color:#aaa;font-size:11px;line-height:1.8;max-width:320px}.ol-community{border-top:1px solid #474747;padding-top:17px;margin-top:2px;font-size:12px;display:flex;gap:20px}.ol-footer{background:#f6f6f6;padding:34px 0}.ol-footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px}.ol-footer img{width:130px}.ol-footer small{font-size:11px;color:#777}.ol-footer-links{display:flex;gap:22px;font-size:11px}.ol-results{border:1px solid var(--line);padding:22px;margin:25px 0;background:#fff;border-radius:5px}.ol-results[hidden]{display:none}.ol-results h2{font-size:20px;margin:0 0 10px}.ol-results ul{padding:0;list-style:none}.ol-results a{display:block;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.ol-results p{font-size:13px;color:#666}.ol-search-close{float:right;border:0;background:none;cursor:pointer;font-size:12px;color:#666}.ol-sr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.ol-skip{position:absolute;top:-70px;left:12px;padding:12px;background:white;z-index:10}.ol-skip:focus{top:10px}@media(min-width:1500px){.ol-hero-grid{min-height:450px}}@media(max-width:900px){.ol-nav{gap:18px}.ol-hero h1{font-size:46px}.ol-hero-grid{grid-template-columns:1.2fr 1fr}.ol-products{grid-template-columns:repeat(2,1fr)}.ol-quick a{padding:0 12px;gap:10px}.ol-quick small{display:none}.ol-topics{grid-template-columns:repeat(2,1fr)}.ol-split{gap:30px}.ol-contact{gap:30px}}@media(max-width:600px){.ol-wrap{padding:0 20px}.ol-header{height:68px}.ol-header img{width:132px}.ol-nav>a:not(.active){display:none}.ol-nav{gap:15px}.ol-nav .ol-btn{padding:8px 12px;font-size:11px}.ol-hero-grid{display:block;min-height:0;padding-top:35px;padding-bottom:25px}.ol-hero h1{font-size:44px;letter-spacing:-2px;margin:14px 0}.ol-hero p{font-size:13px}.ol-hero-art{height:205px}.ol-hero-art img{max-width:275px;max-height:205px;object-fit:contain}.ol-hero-art:before{width:150px;height:150px;box-shadow:0 0 0 30px #ececec55,0 0 0 60px #ececec33}.ol-art-label{bottom:0;font-size:8px}.ol-search{margin-top:20px}.ol-search input{font-size:12px}.ol-search button{padding:10px 13px;font-size:11px}.ol-popular{font-size:10px}.ol-popular button{font-size:10px;margin-left:8px}.ol-quick{grid-template-columns:repeat(2,1fr);gap:24px 12px;padding:25px 0}.ol-quick a{padding:0;border:0}.ol-quick strong{font-size:12px}.ol-quick small{display:block;font-size:10px}.ol-section{padding:43px 0}.ol-section h2{font-size:27px}.ol-section-head{align-items:start;gap:12px}.ol-section-head>.ol-textlink{font-size:10px;margin-top:6px}.ol-sub{font-size:12px}.ol-products{gap:10px}.ol-product-visual{height:155px}.ol-product-visual img{height:128px}.ol-product-body{padding:14px}.ol-product h3{font-size:17px}.ol-product p{font-size:10px;min-height:40px}.ol-product-links{align-items:start;flex-direction:column;gap:9px;font-size:10px}.ol-badge{font-size:8px;left:10px;top:9px}.ol-filter{padding:7px 13px;font-size:11px!important}.ol-legacy{gap:12px;flex-wrap:wrap;font-size:11px}.ol-topics{grid-template-columns:1fr}.ol-topic{padding:21px}.ol-split{grid-template-columns:1fr;gap:30px}.ol-downloads{padding:24px}.ol-contact{grid-template-columns:1fr;gap:20px;padding:30px 25px;margin-bottom:40px}.ol-contact h2{font-size:29px}.ol-footer-inner{align-items:start;flex-direction:column;gap:18px}.ol-footer-links{gap:16px}.ol-faq summary{font-size:13px}.ol-eyebrow{font-size:10px}.ol-section-head .ol-eyebrow{font-size:9px}}@media(prefers-reduced-motion:reduce){.onelaser-support *{transition:none!important;scroll-behavior:auto!important}}
+
+{% endstylesheet %}
+{% javascript %}
+(()=>{const init=root=>{if(root.dataset.ready)return;root.dataset.ready='true';const filters=root.querySelectorAll('[data-filter]');filters.forEach(button=>button.addEventListener('click',()=>{filters.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));root.querySelectorAll('[data-family]').forEach(card=>{card.hidden=button.dataset.filter!=='all'&&card.dataset.family!==button.dataset.filter});}));const form=root.querySelector('[data-search-form]'),input=form.querySelector('input'),panel=root.querySelector('[data-results]'),list=panel.querySelector('ul'),status=panel.querySelector('[data-status]');const normalize=s=>s.toLowerCase().normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu,' ').trim();const search=()=>{const q=input.value.trim();if(!q){input.focus();return}const tokens=normalize(q).split(/\s+/);const entries=[...root.querySelectorAll('[data-searchable]')].map(a=>({title:a.dataset.searchTitle||a.textContent.trim().replace(/\s+/g,' '),text:normalize(a.textContent+' '+(a.dataset.keywords||'')),href:a.href}));const seen=new Set;const matches=entries.filter(e=>tokens.every(t=>e.text.includes(t))).filter(e=>{if(seen.has(e.href))return false;seen.add(e.href);return true});list.replaceChildren();for(const item of matches){const li=document.createElement('li'),a=document.createElement('a');a.href=item.href;a.textContent=item.title+' →';li.append(a);list.append(li)}status.textContent=matches.length?(panel.dataset.matchLabel||'{count} resources for “{query}”').replace('{count}',matches.length).replace('{query}',q):(panel.dataset.emptyLabel||'No matching resources for “{query}”. Try a model name or browse the full Wiki.').replace('{query}',q);panel.hidden=false;panel.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});};form.addEventListener('submit',event=>{event.preventDefault();search()});root.querySelectorAll('[data-query]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.query;search()}));root.querySelector('[data-close-search]').addEventListener('click',()=>{panel.hidden=true;input.focus()});};document.querySelectorAll('.onelaser-support').forEach(init);document.addEventListener('shopify:section:load',e=>{if(e.target.matches('.onelaser-support'))init(e.target);e.target.querySelectorAll('.onelaser-support').forEach(init)});})();
+
+{% endjavascript %}
+{% schema %}
+{
+  "name": "OneLaser support",
+  "tag": "section",
+  "class": "onelaser-support",
+  "limit": 1,
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  },
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "More making.\nLess downtime."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "From your first setup to your next big project.\nFind the right help for your OneLaser."
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent color",
+      "default": "#E7310E"
+    },
+    {
+      "type": "url",
+      "id": "support_url",
+      "label": "Support request URL",
+      "default": "https://zohodesk.1laser.com/portal/en/newticket"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "machine",
+      "name": "Machine series",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Series name"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Technology label"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Models and description"
+        },
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Machine category",
+          "options": [
+            {
+              "value": "desktop",
+              "label": "Desktop"
+            },
+            {
+              "value": "cabinet",
+              "label": "Cabinet"
+            },
+            {
+              "value": "rotary",
+              "label": "Vertical rotary"
+            }
+          ],
+          "default": "desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "fallback_image",
+          "label": "Fallback theme asset filename",
+          "default": "ol-support-xrf.png"
+        },
+        {
+          "type": "url",
+          "id": "primary_url",
+          "label": "Primary resource URL"
+        },
+        {
+          "type": "text",
+          "id": "primary_label",
+          "label": "Primary link label",
+          "default": "Explore guides"
+        },
+        {
+          "type": "url",
+          "id": "secondary_url",
+          "label": "Secondary resource URL"
+        },
+        {
+          "type": "text",
+          "id": "secondary_label",
+          "label": "Secondary link label",
+          "default": "Manuals"
+        },
+        {
+          "type": "text",
+          "id": "keywords",
+          "label": "Search keywords"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OneLaser support",
+      "blocks": [
+        {
+          "type": "machine",
+          "settings": {
+            "title": "X Series",
+            "badge": "DESKTOP CO₂",
+            "description": "XRF · XT\nDesktop engraving & cutting",
+            "category": "desktop",
+            "fallback_image": "ol-support-xrf.png",
+            "primary_url": "https://wiki.1laser.com/en/x-series",
+            "primary_label": "Explore guides",
+            "secondary_url": "https://www.1laser.com/pages/user-manual",
+            "secondary_label": "Manuals",
+            "keywords": "xrf xt x series desktop focus setup"
+          }
+        },
+        {
+          "type": "machine",
+          "settings": {
+            "title": "Cobra Series",
+            "badge": "GLASS-TUBE CO₂",
+            "description": "Cobra 8 · 10 · 14\nWorkshop engraving & cutting",
+            "category": "cabinet",
+            "fallback_image": "ol-support-cobra.png",
+            "primary_url": "https://zohodesk.1laser.com/portal/en/newticket",
+            "primary_label": "Ask an expert",
+            "secondary_url": "https://www.1laser.com/pages/contact-us",
+            "secondary_label": "Contact team",
+            "keywords": "cobra 8 10 14 glass co2"
+          }
+        },
+        {
+          "type": "machine",
+          "settings": {
+            "title": "Hydra Gen2",
+            "badge": "RF / DUAL-SOURCE CO₂",
+            "description": "Hydra 7 · 9 · 13 · 16 Gen2\nRF & dual-source configurations",
+            "category": "cabinet",
+            "fallback_image": "ol-support-hydra.png",
+            "primary_url": "https://www.1laser.com/pages/user-manual",
+            "primary_label": "Find your manual",
+            "secondary_url": "https://zohodesk.1laser.com/portal/en/newticket",
+            "secondary_label": "Contact support",
+            "keywords": "hydra gen2 gen 2 rf dual"
+          }
+        },
+        {
+          "type": "machine",
+          "settings": {
+            "title": "VertiGO",
+            "badge": "VERTICAL ROTARY",
+            "description": "Vertical rotary engraving\nTumblers, cups & cylindrical objects",
+            "category": "rotary",
+            "fallback_image": "ol-support-vertigo.png",
+            "primary_url": "https://wiki.1laser.com/en/vertigo/vertigo-series-manual",
+            "primary_label": "Explore guides",
+            "secondary_url": "https://wiki.1laser.com/en/vertigo/vertigo-series-manual",
+            "secondary_label": "Manuals",
+            "keywords": "vertigo rotary tumbler cups"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

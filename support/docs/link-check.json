@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://forum.1laser.com",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://wiki.1laser.com",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/glossary",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/hydra-series",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/100w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/130w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/150w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/38w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/55w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/knowledge-base/material-processing/different-materials-parameters/80w",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/software-app",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/vertigo/vertigo-series-manual",
+    "status": 200
+  },
+  {
+    "url": "https://wiki.1laser.com/en/x-series",
+    "status": 200
+  },
+  {
+    "url": "https://www.1laser.com",
+    "status": 200
+  },
+  {
+    "url": "https://www.1laser.com/collections/accessories",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://www.1laser.com/collections/all",
+    "status": 200
+  },
+  {
+    "url": "https://www.1laser.com/pages/contact-us",
+    "status": 200
+  },
+  {
+    "url": "https://www.1laser.com/pages/user-manual",
+    "status": 200
+  },
+  {
+    "url": "https://zohodesk.1laser.com/portal/en/kb/onelaser-inc",
+    "status": 200
+  },
+  {
+    "url": "https://zohodesk.1laser.com/portal/en/newticket",
+    "status": 200
+  }
+]

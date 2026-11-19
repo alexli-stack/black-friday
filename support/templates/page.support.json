@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "support": {
+      "type": "onelaser-support",
+      "blocks": {
+        "0": {
+          "type": "machine",
+          "settings": {
+            "title": "X Series",
+            "badge": "DESKTOP CO₂",
+            "description": "XRF · XT\nDesktop engraving & cutting",
+            "category": "desktop",
+            "fallback_image": "ol-support-xrf.png",
+            "primary_url": "https://wiki.1laser.com/en/x-series",
+            "primary_label": "Explore guides",
+            "secondary_url": "https://www.1laser.com/pages/user-manual",
+            "secondary_label": "Manuals",
+            "keywords": "xrf xt x series desktop focus setup"
+          }
+        },
+        "1": {
+          "type": "machine",
+          "settings": {
+            "title": "Cobra Series",
+            "badge": "GLASS-TUBE CO₂",
+            "description": "Cobra 8 · 10 · 14\nWorkshop engraving & cutting",
+            "category": "cabinet",
+            "fallback_image": "ol-support-cobra.png",
+            "primary_url": "https://zohodesk.1laser.com/portal/en/newticket",
+            "primary_label": "Ask an expert",
+            "secondary_url": "https://www.1laser.com/pages/contact-us",
+            "secondary_label": "Contact team",
+            "keywords": "cobra 8 10 14 glass co2"
+          }
+        },
+        "2": {
+          "type": "machine",
+          "settings": {
+            "title": "Hydra Gen2",
+            "badge": "RF / DUAL-SOURCE CO₂",
+            "description": "Hydra 7 · 9 · 13 · 16 Gen2\nRF & dual-source configurations",
+            "category": "cabinet",
+            "fallback_image": "ol-support-hydra.png",
+            "primary_url": "https://www.1laser.com/pages/user-manual",
+            "primary_label": "Find your manual",
+            "secondary_url": "https://zohodesk.1laser.com/portal/en/newticket",
+            "secondary_label": "Contact support",
+            "keywords": "hydra gen2 gen 2 rf dual"
+          }
+        },
+        "3": {
+          "type": "machine",
+          "settings": {
+            "title": "VertiGO",
+            "badge": "VERTICAL ROTARY",
+            "description": "Vertical rotary engraving\nTumblers, cups & cylindrical objects",
+            "category": "rotary",
+            "fallback_image": "ol-support-vertigo.png",
+            "primary_url": "https://wiki.1laser.com/en/vertigo/vertigo-series-manual",
+            "primary_label": "Explore guides",
+            "secondary_url": "https://wiki.1laser.com/en/vertigo/vertigo-series-manual",
+            "secondary_label": "Manuals",
+            "keywords": "vertigo rotary tumbler cups"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  },
+  "order": [
+    "support"
+  ]
+}
